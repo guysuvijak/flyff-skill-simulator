@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-tooltip {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 14px;
+    max-width: 250px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+  
+.custom-tooltip img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.stroke-text {
+    text-shadow:
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000,
+        -2px 0 0 #000,
+        2px 0 0 #000,
+        0 -2px 0 #000,
+        0 2px 0 #000;
+}
+
+.stroke-text-red {
+    text-shadow:
+        -2px -2px 0 #f34925,
+        2px -2px 0 #f34925,
+        -2px 2px 0 #f34925,
+        2px 2px 0 #f34925,
+        -2px 0 0 #f34925,
+        2px 0 0 #f34925,
+        0 -2px 0 #f34925,
+        0 2px 0 #f34925;
+}
