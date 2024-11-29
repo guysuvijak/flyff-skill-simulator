@@ -74,24 +74,6 @@ const ClassSelected = () => {
           </div>
         </div>
       </nav>
-
-      <div className="mt-24">
-        {isLoading ? (
-          <div>Loading ...</div>
-        ) : (
-          <div>
-            {selectedClass ? (
-              <div>
-                <h2 className="text-2xl font-bold">{selectedClass.name.en}</h2>
-                <p>{selectedClass.description}</p>
-                {/* Add more details about the selected class */}
-              </div>
-            ) : (
-              <p>Please select a class</p>
-            )}
-          </div>
-        )}
-      </div>
     </div>
   );
 };
