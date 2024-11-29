@@ -36,7 +36,7 @@ const SkillNode = ({ data }: any) => {
                 className="flex flex-col w-[50px] h-[70px] bg-white text-white border-2 border-slate-400 rounded shadow relative justify-center items-center"
                 data-tooltip-id={`node-tooltip-${data.skillData.id}`}
                 data-tooltip-html={`
-                    <strong style="color: #2db568;">${data.label} <span style="padding-left: 5px; color: #ffffff;">Lv.${currentLevel}/${data.skillData.levels.length}</span></strong><br />
+                    <strong style="color: #2db568;">${data.skillData.id} ${data.label} <span style="padding-left: 5px; color: #ffffff;">Lv.${currentLevel}/${data.skillData.levels.length}</span></strong><br />
                     ${data.skillData.levels[currentLevel === 0 ? currentLevel : currentLevel - 1]?.consumedMP !== undefined ? `MP: ${data.skillData.levels[currentLevel === 0 ? currentLevel : currentLevel - 1].consumedMP}<br />` : ''}
                     ${data.skillData.levels[currentLevel === 0 ? currentLevel : currentLevel - 1]?.consumedFP !== undefined ? `FP: ${data.skillData.levels[currentLevel === 0 ? currentLevel : currentLevel - 1].consumedFP}<br />` : ''}
                     Character Level: ${data.skillData.level}<br />
@@ -50,22 +50,22 @@ const SkillNode = ({ data }: any) => {
                         className="bg-green-500 w-3 h-3 rounded-full"
                     />
                 }
-                    <div className='flex relative'>
-                        <Image src={data.image} alt={data.skillData.id} width={40} height={40} priority className={`${currentLevel === 0 && 'grayscale'}`} />
-                        {currentLevel != 0 &&
-                            <p className={`absolute bottom-0 right-0 pr-1 font-bold stroke-text-red ${currentLevel === data.skillData.levels.length ? 'text-[12px]' : ' text-[16px]'}`}>
-                                {currentLevel === data.skillData.levels.length ? 'MAX' : currentLevel}
-                            </p>
-                        }
-                    </div>
-                    <div className='flex'>
-                        <button onClick={increaseLevel} disabled={currentLevel === data.skillData.levels.length || !canUpgrade()}>
-                            <FaPlusSquare size={18} className={`${currentLevel === data.skillData.levels.length || !canUpgrade() ? 'text-gray-400' : 'text-green-500 hover:text-green-600'}`} />
-                        </button>
-                        <button onClick={decreaseLevel} disabled={currentLevel === 0}>
-                            <FaMinusSquare size={18} className={`${currentLevel === 0 ? 'text-gray-400' : 'text-red-500 hover:text-red-600'}`} />
-                        </button>
-                    </div>
+                <div className='flex relative'>
+                    <Image src={data.image} alt={data.skillData.id} width={40} height={40} priority className={`${currentLevel === 0 && 'grayscale'}`} />
+                    {currentLevel != 0 &&
+                        <p className={`absolute bottom-0 right-0 pr-1 font-bold stroke-text-red ${currentLevel === data.skillData.levels.length ? 'text-[12px]' : ' text-[16px]'}`}>
+                            {currentLevel === data.skillData.levels.length ? 'MAX' : currentLevel}
+                        </p>
+                    }
+                </div>
+                <div className='flex'>
+                    <button onClick={increaseLevel} disabled={currentLevel === data.skillData.levels.length || !canUpgrade()}>
+                        <FaPlusSquare size={18} className={`${currentLevel === data.skillData.levels.length || !canUpgrade() ? 'text-gray-400' : 'text-green-500 hover:text-green-600'}`} />
+                    </button>
+                    <button onClick={decreaseLevel} disabled={currentLevel === 0}>
+                        <FaMinusSquare size={18} className={`${currentLevel === 0 ? 'text-gray-400' : 'text-red-500 hover:text-red-600'}`} />
+                    </button>
+                </div>
                 <Handle
                     type="source"
                     position={Position.Right}

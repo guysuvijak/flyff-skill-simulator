@@ -9,7 +9,7 @@ import {
   useEdgesState,
   addEdge,
   Position,
-  getSmoothStepPath
+  getSimpleBezierPath
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import SkillNode from '@/components/SkillNode';
@@ -35,15 +35,13 @@ const edgeTypes = {
         if (targetPosition === Position.Left) endX = targetX - 5;
         if (targetPosition === Position.Right) endX = targetX + 5;
 
-        const [edgePath, labelX, labelY] = getSmoothStepPath({
+        const [edgePath, labelX, labelY] = getSimpleBezierPath ({
             sourceX: startX,
             sourceY: startY,
             sourcePosition,
             targetX: endX,
             targetY: endY,
-            targetPosition,
-            borderRadius: 0,
-            offset: 25
+            targetPosition
         });
     
         return (
@@ -51,8 +49,8 @@ const edgeTypes = {
                 <defs>
                     <marker
                         id="arrow-end"
-                        markerWidth="4"
-                        markerHeight="4"
+                        markerWidth="8"
+                        markerHeight="8"
                         viewBox="0 0 10 10"
                         refX="5"
                         refY="5"
@@ -63,7 +61,7 @@ const edgeTypes = {
                 </defs>
                 <path
                     id={id}
-                    style={{ ...style, strokeWidth: 2, stroke: edgeColor }}
+                    style={{ ...style, stroke: edgeColor }}
                     className="react-flow__edge-path"
                     d={edgePath}
                     markerEnd="url(#arrow-end)"
@@ -99,13 +97,44 @@ const Page = () => {
             try {
                 setIsLoading(true);
                 const response = await axios.get('/data/skillall.json');
-                const filteredSkills = response.data.filter((skill: any) => skill.class === selectedClass.id);
-                
-                const initialNodes = filteredSkills.map((skill: any) => ({
+
+                const selectedSkills = response.data.filter((skill: any) => skill.class === selectedClass.id || skill.class === selectedClass.parent);
+                let classSpace;
+                switch (selectedClass.id) {
+                    case 2246: //Blade
+                        classSpace = 600
+                        break;
+                    case 3545: //Jester
+                        classSpace = 600
+                        break;
+                    case 5330: //Knight
+                        classSpace = 600
+                        break;
+                    case 5709: //Psykeeper
+                        classSpace = 600
+                        break;
+                    case 7424: //Billposter
+                        classSpace = 700
+                        break;
+                    case 9150: //Elementor
+                        classSpace = 600
+                        break;
+                    case 9295: //Ranger
+                        classSpace = 600
+                        break;
+                    case 9389: //Ringmaster
+                        classSpace = 700
+                        break;
+                    default:
+                        classSpace = 0
+                        break;
+                }
+
+                const initialNodes = selectedSkills.map((skill: any) => ({
                     id: skill.id.toString(),
-                    position: { 
-                        x: skill.treePosition?.x * 3 || 0, 
-                        y: skill.treePosition?.y * 3.5 || 0 
+                    position: {
+                        x: (skill.treePosition?.x * 3 || 0) + (skill.class === selectedClass.id ? classSpace : 0),
+                        y: (skill.treePosition?.y * 3.5 || 0)
                     },
                     data: { 
                         label: skill.name.en,
@@ -115,7 +144,7 @@ const Page = () => {
                     type: 'custom'
                 }));
 
-                const initialEdges = filteredSkills.flatMap((skill: any) => 
+                const initialEdges = selectedSkills.flatMap((skill: any) => 
                     (skill.requirements || []).map((req: any) => ({
                         id: `e-${req.skill}-${skill.id}`,
                         source: req.skill.toString(),
@@ -137,10 +166,10 @@ const Page = () => {
         };
 
         fetchSkillData();
-    }, [setNodes, setEdges, selectedClass.id]);
+    }, [setNodes, setEdges, selectedClass.id, selectedClass.parent]);
 
     const onConnect = useCallback(
-        (params: any) => setEdges((eds) => addEdge(params, eds)),
+        (params: any) => setEdges((eds): any => addEdge(params, eds)),
         [setEdges]
     );
 
