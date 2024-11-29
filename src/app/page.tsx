@@ -13,7 +13,8 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import SkillNode from '@/components/SkillNode';
-import ClassSelected from '@/components/ClassSelected';
+import Navbar from '@/components/Navbar';
+import { useClassStore } from '@/stores/classStore';
 
 const getEdgeColor = (id: string) => {
     if (id === 'e-marketplace1-equipment') return '#2196f3';
@@ -91,14 +92,14 @@ const Page = () => {
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const { selectedClass } = useClassStore();
 
     useEffect(() => {
         const fetchSkillData = async () => {
             try {
                 setIsLoading(true);
                 const response = await axios.get('/data/skillall.json');
-
-                const filteredSkills = response.data.filter((skill: any) => skill.class === 8962);
+                const filteredSkills = response.data.filter((skill: any) => skill.class === selectedClass.id);
                 
                 const initialNodes = filteredSkills.map((skill: any) => ({
                     id: skill.id.toString(),
@@ -136,7 +137,7 @@ const Page = () => {
         };
 
         fetchSkillData();
-    }, [setNodes, setEdges]);
+    }, [setNodes, setEdges, selectedClass.id]);
 
     const onConnect = useCallback(
         (params: any) => setEdges((eds) => addEdge(params, eds)),
@@ -153,9 +154,7 @@ const Page = () => {
 
     return (
         <div className="w-screen h-screen">
-            <div className='bg-red-500'>
-                <ClassSelected />
-            </div>
+            <Navbar />
             <ReactFlow
                 nodes={nodes}
                 edges={edges}

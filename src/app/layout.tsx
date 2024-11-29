@@ -7,6 +7,10 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
     title: 'Flyff - Skill Simulator',
     description: 'Flyff Universe - Skill Simulator (Data from API only), Created by MeteorVIIx',
+    icons: [
+        { rel: 'apple-touch-icon', url: '/apple-touch-icon.png' },
+        { rel: 'icon', url: '/favicon.ico' }
+    ]
 };
 
 export default function RootLayout({

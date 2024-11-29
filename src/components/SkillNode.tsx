@@ -13,7 +13,7 @@ const SkillNode = ({ data }: any) => {
     const canUpgrade = () => {
         return data.skillData.requirements.every((req: any) => {
             const requiredLevel = req.level;
-            const currentReqLevel = skillLevels[req.skillId] || 0;
+            const currentReqLevel = skillLevels[req.skill] || 0;
             return currentReqLevel >= requiredLevel;
         });
     };
