@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
   ReactFlow,
@@ -7,7 +7,6 @@ import {
   Background,
   useNodesState,
   useEdgesState,
-  addEdge,
   Position,
   getSimpleBezierPath
 } from '@xyflow/react';
@@ -15,6 +14,7 @@ import '@xyflow/react/dist/style.css';
 import SkillNode from '@/components/SkillNode';
 import Navbar from '@/components/Navbar';
 import { useClassStore } from '@/stores/classStore';
+import { loadBuildFromUrl } from '@/utils/shareBuild';
 
 const getEdgeColor = (id: string) => {
     if (id === 'e-marketplace1-equipment') return '#2196f3';
@@ -157,6 +157,7 @@ const Page = () => {
 
                 setNodes(initialNodes);
                 setEdges(initialEdges);
+                loadBuildFromUrl();
                 setIsLoading(false);
             } catch (err) {
                 setError('Failed to fetch skill data');
@@ -167,11 +168,6 @@ const Page = () => {
 
         fetchSkillData();
     }, [setNodes, setEdges, selectedClass.id, selectedClass.parent]);
-
-    const onConnect = useCallback(
-        (params: any) => setEdges((eds): any => addEdge(params, eds)),
-        [setEdges]
-    );
 
     if (isLoading) {
         return <div className="flex justify-center items-center h-screen">Loading...</div>;
@@ -189,11 +185,12 @@ const Page = () => {
                 edges={edges}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
-                onConnect={onConnect}
                 nodeTypes={{ custom: SkillNode }}
                 edgeTypes={edgeTypes}
                 draggable={false}
                 nodesDraggable={false}
+                zoomOnDoubleClick={false}
+                
                 fitView
             >
             <Controls showInteractive={false} />
