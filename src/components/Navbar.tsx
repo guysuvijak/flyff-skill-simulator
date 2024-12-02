@@ -31,25 +31,27 @@ const Navbar = () => {
             <div className="container mx-auto flex flex-col sm:flex-row w-full justify-between items-center">
                 <button
                     onClick={() => router.push('/')}
-                    className="absolute top-4 left-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded"
+                    className="top-4 left-4 mr-5 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded"
                 >
                     Home
                 </button>
-                <h1 className='flex items-center justify-center'>
-                    Level
-                    <input
-                        type="number"
-                        value={characterLevel}
-                        onChange={handleLevelChange}
-                        min="15"
-                        max={selectedClass.maxLevel}
-                        className="bg-gray-700 text-white rounded sm:p-2 mx-2 w-12 sm:w-20 text-center"
-                    />
-                    / {selectedClass.maxLevel}
-                </h1>
-                <h1 className='flex items-center justify-center'>
-                    Skill Points: {skillPoints}
-                </h1>
+                <div className='flex'>
+                    <h1 className='flex items-center justify-center'>
+                        Level
+                        <input
+                            type="number"
+                            value={characterLevel}
+                            onChange={handleLevelChange}
+                            min="15"
+                            max={selectedClass.maxLevel}
+                            className="bg-gray-700 text-white rounded sm:p-2 mx-2 w-12 sm:w-20 text-center"
+                        />
+                        / {selectedClass.maxLevel}
+                    </h1>
+                    <h1 className='flex ml-5 items-center justify-center'>
+                        Skill Points: {skillPoints}
+                    </h1>
+                </div>
                 <div className='flex w-full sm:w-80 px-4'>
                     <ClassSelected />
                     <ShareButton />
