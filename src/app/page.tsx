@@ -157,7 +157,6 @@ const Page = () => {
 
                 setNodes(initialNodes);
                 setEdges(initialEdges);
-                loadBuildFromUrl();
                 setIsLoading(false);
             } catch (err) {
                 setError('Failed to fetch skill data');
@@ -168,6 +167,10 @@ const Page = () => {
 
         fetchSkillData();
     }, [setNodes, setEdges, selectedClass.id, selectedClass.parent]);
+
+    const handleLoadBuild = () => {
+        loadBuildFromUrl();
+    };
 
     if (isLoading) {
         return <div className="flex justify-center items-center h-screen">Loading...</div>;
@@ -190,12 +193,12 @@ const Page = () => {
                 draggable={false}
                 nodesDraggable={false}
                 zoomOnDoubleClick={false}
-                
                 fitView
             >
-            <Controls showInteractive={false} />
-            <Background />
-        </ReactFlow>
+                <Controls showInteractive={false} />
+                <Background />
+            </ReactFlow>
+        <button onClick={handleLoadBuild}>Load Build</button>
         </div>
     );
 };
