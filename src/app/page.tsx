@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import {
   ReactFlow,
@@ -16,6 +16,17 @@ import Navbar from '@/components/Navbar';
 import { useClassStore } from '@/stores/classStore';
 import { loadBuildFromUrl } from '@/utils/shareBuild';
 
+const CLASS_SPACES: any = {
+    2246: 600,  // Blade
+    3545: 600,  // Jester
+    5330: 600,  // Knight
+    5709: 600,  // Psykeeper
+    7424: 700,  // Billposter
+    9150: 600,  // Elementor
+    9295: 600,  // Ranger
+    9389: 700   // Ringmaster
+};
+
 const getEdgeColor = (id: string) => {
     if (id === 'e-marketplace1-equipment') return '#2196f3';
     if (id === 'e-trave1-traveler1') return '#f44336';
@@ -25,6 +36,7 @@ const getEdgeColor = (id: string) => {
 const edgeTypes = {
     smoothstep: ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, style = {}, data }: any) => {
         const edgeColor = getEdgeColor(id);
+        
         let startX = sourceX;
         let startY = sourceY;
         let endX = targetX;
@@ -34,13 +46,17 @@ const edgeTypes = {
         if (sourcePosition === Position.Right) startX = sourceX + 5;
         if (targetPosition === Position.Left) endX = targetX - 5;
         if (targetPosition === Position.Right) endX = targetX + 5;
+        if (sourcePosition === Position.Top) startY = sourceY - 5;
+        if (targetPosition === Position.Bottom) endY = targetY + 5;
+        if (sourcePosition === Position.Bottom) startY = sourceY + 5;
+        if (targetPosition === Position.Top) endY = targetY - 5;
 
         const [edgePath, labelX, labelY] = getSimpleBezierPath ({
             sourceX: startX,
             sourceY: startY,
-            sourcePosition,
             targetX: endX,
             targetY: endY,
+            sourcePosition,
             targetPosition
         });
     
@@ -91,44 +107,21 @@ const Page = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const { selectedClass } = useClassStore();
+    const hasLoaded = useRef(false);
+    const lastLoadedClass = useRef<number | null>(null);
 
     useEffect(() => {
         const fetchSkillData = async () => {
+            if (hasLoaded.current && lastLoadedClass.current === selectedClass.id) {
+                return;
+            }
+            
             try {
                 setIsLoading(true);
                 const response = await axios.get('/data/skillall.json');
 
                 const selectedSkills = response.data.filter((skill: any) => skill.class === selectedClass.id || skill.class === selectedClass.parent);
-                let classSpace;
-                switch (selectedClass.id) {
-                    case 2246: //Blade
-                        classSpace = 600
-                        break;
-                    case 3545: //Jester
-                        classSpace = 600
-                        break;
-                    case 5330: //Knight
-                        classSpace = 600
-                        break;
-                    case 5709: //Psykeeper
-                        classSpace = 600
-                        break;
-                    case 7424: //Billposter
-                        classSpace = 700
-                        break;
-                    case 9150: //Elementor
-                        classSpace = 600
-                        break;
-                    case 9295: //Ranger
-                        classSpace = 600
-                        break;
-                    case 9389: //Ringmaster
-                        classSpace = 700
-                        break;
-                    default:
-                        classSpace = 0
-                        break;
-                }
+                const classSpace = CLASS_SPACES[selectedClass.id] || 0;
 
                 const initialNodes = selectedSkills.map((skill: any) => ({
                     id: skill.id.toString(),
@@ -143,20 +136,52 @@ const Page = () => {
                     },
                     type: 'custom'
                 }));
+                
+                const uniqueConnect: any = {
+                    'e-51-8348': {
+                        sourceHandle: 'source-top',
+                        targetHandle: 'target-bottom'
+                    },
+                    'e-4729-7266': {
+                        sourceHandle: 'source-bottom',
+                        targetHandle: 'target-top'
+                    },
+                    'e-7429-5559': {
+                        sourceHandle: 'source-top',
+                        targetHandle: 'target-bottom'
+                    },
+                    'e-8140-8356': {
+                        sourceHandle: 'source-bottom',
+                        targetHandle: 'target-top'
+                    },
+                    'e-3840-5041': {
+                        sourceHandle: 'source-bottom',
+                        targetHandle: 'target-top'
+                    },
+                };
 
                 const initialEdges = selectedSkills.flatMap((skill: any) => 
-                    (skill.requirements || []).map((req: any) => ({
-                        id: `e-${req.skill}-${skill.id}`,
-                        source: req.skill.toString(),
-                        target: skill.id.toString(),
-                        type: 'smoothstep',
-                        animated: true,
-                        data: { label: req.level.toString() }
-                    }))
+                    (skill.requirements || []).map((req: any) => {
+                        const edgeId = `e-${req.skill}-${skill.id}`;
+                        console.log(edgeId)
+                        const uniqueConnectionConfig = uniqueConnect[edgeId];
+                
+                        return {
+                            id: edgeId,
+                            source: req.skill.toString(),
+                            target: skill.id.toString(),
+                            type: 'smoothstep',
+                            sourceHandle: uniqueConnectionConfig?.sourceHandle || 'source-right',
+                            targetHandle: uniqueConnectionConfig?.targetHandle || 'target-left',
+                            animated: true,
+                            data: { label: req.level.toString() }
+                        };
+                    })
                 );
 
                 setNodes(initialNodes);
                 setEdges(initialEdges);
+                await loadBuildFromUrl();
                 setIsLoading(false);
             } catch (err) {
                 setError('Failed to fetch skill data');
@@ -168,10 +193,6 @@ const Page = () => {
         fetchSkillData();
     }, [setNodes, setEdges, selectedClass.id, selectedClass.parent]);
 
-    const handleLoadBuild = () => {
-        loadBuildFromUrl();
-    };
-
     if (isLoading) {
         return <div className="flex justify-center items-center h-screen">Loading...</div>;
     }
@@ -179,6 +200,10 @@ const Page = () => {
     if (error) {
         return <div className="flex justify-center items-center h-screen text-red-500">{error}</div>;
     }
+
+    const onBeforeDelete = async () => {
+        return false;
+    };
 
     return (
         <div className="w-screen h-screen">
@@ -190,6 +215,7 @@ const Page = () => {
                 onEdgesChange={onEdgesChange}
                 nodeTypes={{ custom: SkillNode }}
                 edgeTypes={edgeTypes}
+                onBeforeDelete={onBeforeDelete}
                 draggable={false}
                 nodesDraggable={false}
                 zoomOnDoubleClick={false}
@@ -198,7 +224,6 @@ const Page = () => {
                 <Controls showInteractive={false} />
                 <Background />
             </ReactFlow>
-        <button onClick={handleLoadBuild}>Load Build</button>
         </div>
     );
 };

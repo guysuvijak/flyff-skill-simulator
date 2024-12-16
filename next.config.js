@@ -5,7 +5,6 @@ const nextConfig = {
         remotePatterns: [
             { hostname: 'www.google.com' },
             { hostname: 'cdn.discordapp.com' },
-            { hostname: 'pixturetraveler.com' },
             { hostname: 'api.flyff.com' }
         ]
     }

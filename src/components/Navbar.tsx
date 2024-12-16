@@ -18,8 +18,6 @@ const Navbar = () => {
 
         if (/^\d+$/.test(newLevel)) {
             newLevel = parseInt(newLevel);
-            if (newLevel < 15) newLevel = 15;
-            if (newLevel > selectedClass.maxLevel) newLevel = selectedClass.maxLevel;
             setCharacterLevel(Number(newLevel));
             const bonusPoint = calculateSkillPoints(Number(newLevel), selectedClass.id, selectedClass.parent);
             setSkillPoints(bonusPoint - calculateTotalPointsUsed());
@@ -41,15 +39,19 @@ const Navbar = () => {
                         <input
                             type="number"
                             value={characterLevel}
+                            maxLength={3}
                             onChange={handleLevelChange}
-                            min="15"
-                            max={selectedClass.maxLevel}
                             className="bg-gray-700 text-white rounded sm:p-2 mx-2 w-12 sm:w-20 text-center"
                         />
                         / {selectedClass.maxLevel}
                     </h1>
                     <h1 className='flex ml-5 items-center justify-center'>
                         Skill Points: {skillPoints}
+                        <span className='pl-1 text-[#ff3939]'>
+                            {characterLevel > selectedClass.maxLevel ? '*Max Level is ' + selectedClass.maxLevel + '*' :
+                            characterLevel < 15 ? '*Min Level is 15*' :
+                            ''}
+                        </span>
                     </h1>
                 </div>
                 <div className='flex w-full sm:w-80 px-4'>

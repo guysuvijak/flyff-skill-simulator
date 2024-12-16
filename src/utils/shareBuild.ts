@@ -25,10 +25,7 @@ export function loadBuildFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
     const encodedData = urlParams.get('data');
 
-    if (!encodedData) {
-        console.error('No data found in URL');
-        return;
-    }
+    if (!encodedData) return;
 
     try {
         const decodedData = JSON.parse(decompressFromEncodedURIComponent(encodedData) || '');
