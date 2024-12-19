@@ -73,6 +73,22 @@ const SkillNode = ({ data }: any) => {
         }
     };
 
+    const shimmer = (w: number, h: number) => `
+        <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <linearGradient id="g">
+            <stop stop-color="#c7c7c7" offset="20%" />
+            <stop stop-color="#9c9c9c" offset="50%" />
+            <stop stop-color="#c7c7c7" offset="70%" />
+            </linearGradient>
+        </defs>
+        <rect width="${w}" height="${h}" fill="#c7c7c7" />
+        <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+        <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
+        </svg>`;
+
+    const toBase64 = (str: string) => typeof window === "undefined" ? Buffer.from(str).toString("base64") : window.btoa(str);
+
     return (
         <>
             <div
@@ -111,7 +127,15 @@ const SkillNode = ({ data }: any) => {
                     />
                 }
                 <div className='flex relative'>
-                    <Image src={data.image} alt={data.skillData.id} width={40} height={40} priority className={`${(characterLevel < data.skillData.level || !canUpgrade()) && 'grayscale'}`} />
+                    <Image
+                        src={data.image}
+                        alt={data.skillData.id}
+                        width={40}
+                        height={40}
+                        loading='lazy'
+                        placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(40, 40))}`}
+                        className={`${(characterLevel < data.skillData.level || !canUpgrade()) && 'grayscale'}`}
+                    />
                     {currentLevel != 0 &&
                         <p className={`absolute bottom-0 right-0 pr-1 font-bold stroke-text-red ${currentLevel === data.skillData.levels.length ? 'text-[12px]' : ' text-[16px]'}`}>
                             {currentLevel === data.skillData.levels.length ? 'MAX' : currentLevel}
@@ -119,10 +143,10 @@ const SkillNode = ({ data }: any) => {
                     }
                 </div>
                 <div className='flex'>
-                    <motion.button onClick={increaseLevel} whileTap={{ scale: 0.8 }} disabled={skillPoints < data.skillData.skillPoints || characterLevel < data.skillData.level || currentLevel === data.skillData.levels.length || !canUpgrade()}>
+                    <motion.button onClick={increaseLevel} whileTap={{ scale: 0.8 }} aria-label={'plus-button'} disabled={skillPoints < data.skillData.skillPoints || characterLevel < data.skillData.level || currentLevel === data.skillData.levels.length || !canUpgrade()}>
                         <FaPlusSquare size={18} className={`${skillPoints < data.skillData.skillPoints || characterLevel < data.skillData.level || currentLevel === data.skillData.levels.length || !canUpgrade() ? 'text-gray-400' : 'text-green-500 hover:text-green-600'}`} />
                     </motion.button>
-                    <motion.button onClick={decreaseLevel} whileTap={{ scale: 0.8 }} disabled={currentLevel === 0}>
+                    <motion.button onClick={decreaseLevel} whileTap={{ scale: 0.8 }} aria-label={'minus-button'} disabled={currentLevel === 0}>
                         <FaMinusSquare size={18} className={`${currentLevel === 0 ? 'text-gray-400' : 'text-red-500 hover:text-red-600'}`} />
                     </motion.button>
                 </div>

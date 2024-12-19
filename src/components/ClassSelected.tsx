@@ -58,10 +58,12 @@ const ClassSelected = () => {
             >
                 <Image
                     src={`https://api.flyff.com/image/class/messenger/${selectedClass.icon}`}
-                    alt={selectedClass.name.en}
-                    width={40}
-                    height={40}
+                    alt={selectedClass.name.en + '-class-icon'}
+                    width={36}
+                    height={36}
                     className="w-6 h-6 mr-2"
+                    quality={100}
+                    style={{ objectFit: 'contain' }}
                     priority
                 />
                 <span>{selectedClass?.name?.en || (isLoading ? 'Loading...' : 'Select a class')}</span>

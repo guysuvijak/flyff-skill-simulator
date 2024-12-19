@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="container mx-auto flex flex-col sm:flex-row w-full justify-between items-center">
                 <button
                     onClick={() => {window.location.href = '/'}}
-                    className="top-4 left-4 mr-5 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded"
+                    className="top-4 left-4 mr-5 px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded"
                 >
                     Reset
                 </button>
@@ -35,6 +35,7 @@ const Navbar = () => {
                     <h1 className='flex items-center justify-center'>
                         Level
                         <input
+                            id={'level-input'}
                             type="number"
                             value={characterLevel}
                             maxLength={4}

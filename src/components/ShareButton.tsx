@@ -25,6 +25,7 @@ const ShareButton = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 data-tooltip-id="share-tooltip"
+                aria-label={'share-button'}
             >
                 <FiShare2 size={18} />
             </motion.button>
