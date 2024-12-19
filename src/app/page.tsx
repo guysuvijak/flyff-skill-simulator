@@ -163,7 +163,6 @@ const Page = () => {
                 const initialEdges = selectedSkills.flatMap((skill: any) => 
                     (skill.requirements || []).map((req: any) => {
                         const edgeId = `e-${req.skill}-${skill.id}`;
-                        console.log(edgeId)
                         const uniqueConnectionConfig = uniqueConnect[edgeId];
                 
                         return {

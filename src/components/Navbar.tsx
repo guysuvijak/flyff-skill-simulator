@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import ClassSelected from '@/components/ClassSelected';
 import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
@@ -9,7 +8,6 @@ import { calculateTotalPointsUsed } from '@/utils/calculateSkillPoints';
 import ShareButton from '@/components/ShareButton';
 
 const Navbar = () => {
-    const router = useRouter();
     const { selectedClass } = useClassStore();
     const { characterLevel, setCharacterLevel, skillPoints, setSkillPoints } = useCharacterStore();
 
@@ -28,10 +26,10 @@ const Navbar = () => {
         <nav className="bg-gray-800 text-white py-4 fixed w-full top-0 z-10">
             <div className="container mx-auto flex flex-col sm:flex-row w-full justify-between items-center">
                 <button
-                    onClick={() => router.push('/')}
+                    onClick={() => {window.location.href = '/'}}
                     className="top-4 left-4 mr-5 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded"
                 >
-                    Home
+                    Reset
                 </button>
                 <div className='flex'>
                     <h1 className='flex items-center justify-center'>
@@ -39,7 +37,7 @@ const Navbar = () => {
                         <input
                             type="number"
                             value={characterLevel}
-                            maxLength={3}
+                            maxLength={4}
                             onChange={handleLevelChange}
                             className="bg-gray-700 text-white rounded sm:p-2 mx-2 w-12 sm:w-20 text-center"
                         />
