@@ -23,11 +23,11 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-gray-800 text-white py-4 fixed w-full top-0 z-10">
-            <div className="container mx-auto flex flex-col sm:flex-row w-full justify-between items-center">
+        <nav className='bg-gray-800 text-white py-4 fixed w-full top-0 z-10'>
+            <div className='container mx-auto flex flex-col sm:flex-row w-full justify-between items-center'>
                 <button
                     onClick={() => {window.location.href = '/'}}
-                    className="top-4 left-4 mr-5 px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded"
+                    className='top-4 left-4 mr-5 px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded'
                 >
                     Reset
                 </button>
@@ -36,11 +36,11 @@ const Navbar = () => {
                         Level
                         <input
                             id={'level-input'}
-                            type="number"
+                            type='number'
                             value={characterLevel}
                             maxLength={4}
                             onChange={handleLevelChange}
-                            className="bg-gray-700 text-white rounded sm:p-2 mx-2 w-12 sm:w-20 text-center"
+                            className='bg-gray-700 text-white rounded sm:p-2 mx-2 w-12 sm:w-20 text-center'
                         />
                         / {selectedClass.maxLevel}
                     </h1>

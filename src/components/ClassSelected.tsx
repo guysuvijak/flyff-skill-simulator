@@ -51,17 +51,17 @@ const ClassSelected = () => {
     };
 
     return (
-        <div className="relative w-full max-w-sm px-4 sm:px-2">
+        <div className='relative w-full max-w-sm px-4 sm:px-2'>
             <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center block w-full px-4 py-2 font-medium text-sm text-left text-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                className='flex items-center block w-full px-4 py-2 font-medium text-sm text-left text-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500'
             >
                 <Image
                     src={`https://api.flyff.com/image/class/messenger/${selectedClass.icon}`}
                     alt={selectedClass.name.en + '-class-icon'}
                     width={36}
                     height={36}
-                    className="w-6 h-6 mr-2"
+                    className='w-6 h-6 mr-2'
                     quality={100}
                     style={{ objectFit: 'contain' }}
                     priority
@@ -70,11 +70,11 @@ const ClassSelected = () => {
             </button>
 
             {isDropdownOpen && (
-                <div className="absolute z-10 w-80 sm:w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg">
+                <div className='absolute z-10 w-80 sm:w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg'>
                     {isLoading ? (
-                        <div className="px-4 py-2 text-sm text-gray-500">Loading...</div>
+                        <div className='px-4 py-2 text-sm text-gray-500'>Loading...</div>
                     ) : (
-                        <ul className="max-h-60 overflow-y-auto">
+                        <ul className='max-h-60 overflow-y-auto'>
                             {class2Data.map((classData: any) => (
                                 <li
                                     key={classData.id}
@@ -86,7 +86,7 @@ const ClassSelected = () => {
                                         alt={classData.name.en}
                                         width={40}
                                         height={40}
-                                        className="w-6 h-6 mr-2"
+                                        className='w-6 h-6 mr-2'
                                         priority
                                     />
                                     <span>{classData.name.en}</span>

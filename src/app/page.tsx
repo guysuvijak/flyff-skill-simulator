@@ -64,32 +64,32 @@ const edgeTypes = {
             <>
                 <defs>
                     <marker
-                        id="arrow-end"
-                        markerWidth="8"
-                        markerHeight="8"
-                        viewBox="0 0 10 10"
-                        refX="5"
-                        refY="5"
-                        orient="auto"
+                        id='arrow-end'
+                        markerWidth='8'
+                        markerHeight='8'
+                        viewBox='0 0 10 10'
+                        refX='5'
+                        refY='5'
+                        orient='auto'
                     >
-                        <path d="M 0 0 L 10 5 L 0 10 Z" fill={edgeColor} />
+                        <path d='M 0 0 L 10 5 L 0 10 Z' fill={edgeColor} />
                     </marker>
                 </defs>
                 <path
                     id={id}
                     style={{ ...style, stroke: edgeColor }}
-                    className="react-flow__edge-path"
+                    className='react-flow__edge-path'
                     d={edgePath}
-                    markerEnd="url(#arrow-end)"
+                    markerEnd='url(#arrow-end)'
                 />
                 {data?.label && (
                     <text
                         x={labelX}
                         y={labelY}
                         fill={'#ffee03'}
-                        fontSize="12"
-                        textAnchor="middle"
-                        dominantBaseline="middle"
+                        fontSize='12'
+                        textAnchor='middle'
+                        dominantBaseline='middle'
                         style={{ pointerEvents: 'none' }}
                         className='stroke-text stroke-text-red'
                     >
@@ -193,11 +193,11 @@ const Page = () => {
     }, [setNodes, setEdges, selectedClass.id, selectedClass.parent]);
 
     if (isLoading) {
-        return <div className="flex justify-center items-center h-screen">Loading...</div>;
+        return <div className='flex justify-center items-center h-screen'>Loading...</div>;
     }
 
     if (error) {
-        return <div className="flex justify-center items-center h-screen text-red-500">{error}</div>;
+        return <div className='flex justify-center items-center h-screen text-red-500'>{error}</div>;
     }
 
     const onBeforeDelete = async () => {
@@ -205,7 +205,7 @@ const Page = () => {
     };
 
     return (
-        <div className="w-screen h-screen">
+        <div className='w-screen h-screen'>
             <Navbar />
             <ReactFlow
                 nodes={nodes}
