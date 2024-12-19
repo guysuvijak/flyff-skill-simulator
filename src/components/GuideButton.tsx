@@ -1,0 +1,29 @@
+'use client';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaInfoCircle } from 'react-icons/fa';
+import { useWebsiteStore } from '@/stores/websiteStore';
+
+const GuideButton = () => {
+    const { setGuidePanelVisible } = useWebsiteStore();
+    
+    const handleGuideButton = () => {
+        setGuidePanelVisible(true);
+    };
+
+    return (
+        <div className='relative inline-block ml-2'>
+            <motion.button
+                onClick={handleGuideButton}
+                className='bg-slate-600 p-3 rounded-md hover:bg-slate-500 flex items-center justify-center'
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label={'guide-button'}
+            >
+                <FaInfoCircle size={18} />
+            </motion.button>
+        </div>
+    );
+};
+
+export default GuideButton;

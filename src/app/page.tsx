@@ -13,6 +13,7 @@ import {
 import '@xyflow/react/dist/style.css';
 import SkillNode from '@/components/SkillNode';
 import Navbar from '@/components/Navbar';
+import GuidePanel from '@/components/GuidePanel';
 import { useClassStore } from '@/stores/classStore';
 import { loadBuildFromUrl } from '@/utils/shareBuild';
 
@@ -25,6 +26,17 @@ const CLASS_SPACES: any = {
     9150: 600,  // Elementor
     9295: 600,  // Ranger
     9389: 700   // Ringmaster
+};
+
+const CLASS_SPACESY: any = {
+    2246: 91,  // Blade
+    3545: 91,  // Jester
+    5330: 91,  // Knight
+    5709: 91,  // Psykeeper
+    7424: 91,  // Billposter
+    9150: 0,  // Elementor
+    9295: 91,  // Ranger
+    9389: 91   // Ringmaster
 };
 
 const getEdgeColor = (id: string) => {
@@ -98,7 +110,7 @@ const edgeTypes = {
                 )}
             </>
         );
-    },
+    }
 };
 
 const Page = () => {
@@ -122,12 +134,13 @@ const Page = () => {
 
                 const selectedSkills = response.data.filter((skill: any) => skill.class === selectedClass.id || skill.class === selectedClass.parent);
                 const classSpace = CLASS_SPACES[selectedClass.id] || 0;
+                const classSpaceY = CLASS_SPACESY[selectedClass.id] || 0;
 
                 const initialNodes = selectedSkills.map((skill: any) => ({
                     id: skill.id.toString(),
                     position: {
                         x: (skill.treePosition?.x * 3 || 0) + (skill.class === selectedClass.id ? classSpace : 0),
-                        y: (skill.treePosition?.y * 3.5 || 0)
+                        y: (skill.treePosition?.y * 3.5 || 0) + (skill.class === selectedClass.id ? classSpaceY : 0)
                     },
                     data: { 
                         label: skill.name.en,
@@ -206,6 +219,7 @@ const Page = () => {
 
     return (
         <div className='w-screen h-screen'>
+            <GuidePanel />
             <Navbar />
             <ReactFlow
                 nodes={nodes}

@@ -143,11 +143,17 @@ const SkillNode = ({ data }: any) => {
                     }
                 </div>
                 <div className='flex'>
-                    <motion.button onClick={increaseLevel} whileTap={{ scale: 0.8 }} aria-label={`Increase skill level for ${data.label}`} disabled={skillPoints < data.skillData.skillPoints || characterLevel < data.skillData.level || currentLevel === data.skillData.levels.length || !canUpgrade()}>
-                        <FaPlusSquare size={22} className={`${skillPoints < data.skillData.skillPoints || characterLevel < data.skillData.level || currentLevel === data.skillData.levels.length || !canUpgrade() ? 'text-gray-400' : 'text-green-500 hover:text-green-600'}`} />
+                    <motion.button onClick={increaseLevel} whileTap={{ scale: currentLevel === 0 ? 1 : 0.8 }} aria-label={`Increase skill level for ${data.label}`} disabled={skillPoints < data.skillData.skillPoints || characterLevel < data.skillData.level || currentLevel === data.skillData.levels.length || !canUpgrade()}>
+                        <FaPlusSquare
+                            size={22}
+                            className={`${skillPoints < data.skillData.skillPoints || characterLevel < data.skillData.level || currentLevel === data.skillData.levels.length || !canUpgrade() ? 'text-gray-400' : 'text-green-500 hover:text-green-600'}`}
+                        />
                     </motion.button>
-                    <motion.button onClick={decreaseLevel} whileTap={{ scale: 0.8 }} aria-label={`Decrease skill level for ${data.label}`} disabled={currentLevel === 0}>
-                        <FaMinusSquare size={22} className={`${currentLevel === 0 ? 'text-gray-400' : 'text-red-500 hover:text-red-600'}`} />
+                    <motion.button onClick={decreaseLevel} whileTap={{ scale: currentLevel === 0 ? 1 : 0.8 }} aria-label={`Decrease skill level for ${data.label}`} disabled={currentLevel === 0}>
+                        <FaMinusSquare
+                            size={22}
+                            className={`${currentLevel === 0 ? 'text-gray-400' : 'text-red-500 hover:text-red-600'}`}
+                        />
                     </motion.button>
                 </div>
                 {(!isSourceSkill() && data.skillData.id !== 3840) && (
