@@ -8,6 +8,7 @@ import {
   useNodesState,
   useEdgesState,
   Position,
+  EdgeProps,
   getSimpleBezierPath
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
@@ -17,7 +18,58 @@ import GuidePanel from '@/components/GuidePanel';
 import { useClassStore } from '@/stores/classStore';
 import { loadBuildFromUrl } from '@/utils/shareBuild';
 
-const CLASS_SPACES: any = {
+interface ClassSpaces {
+    [key: number]: number;
+};
+
+interface TreePosition {
+    x: number;
+    y: number;
+};
+
+interface SkillRequirement {
+    skill: number;
+    level: number;
+};
+  
+interface SkillName {
+    en: string;
+    [key: string]: string;
+};
+  
+interface Skill {
+    id: number;
+    name: SkillName;
+    class: number;
+    icon: string;
+    treePosition: TreePosition;
+    requirements?: SkillRequirement[];
+};
+
+interface CustomEdgeProps extends EdgeProps {
+    id: string;
+    sourceX: number;
+    sourceY: number;
+    targetX: number;
+    targetY: number;
+    sourcePosition: Position;
+    targetPosition: Position;
+    style?: React.CSSProperties;
+    data?: {
+        label?: string;
+    };
+};
+
+interface UniqueConnection {
+  sourceHandle: string;
+  targetHandle: string;
+};
+
+interface UniqueConnections {
+    [key: string]: UniqueConnection;
+};
+
+const CLASS_SPACES: ClassSpaces = {
     2246: 600,  // Blade
     3545: 600,  // Jester
     5330: 600,  // Knight
@@ -28,7 +80,7 @@ const CLASS_SPACES: any = {
     9389: 700   // Ringmaster
 };
 
-const CLASS_SPACESY: any = {
+const CLASS_SPACESY: ClassSpaces = {
     2246: 91,  // Blade
     3545: 91,  // Jester
     5330: 91,  // Knight
@@ -46,7 +98,7 @@ const getEdgeColor = (id: string) => {
 };
 
 const edgeTypes = {
-    smoothstep: ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, style = {}, data }: any) => {
+    smoothstep: ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, style = {}, data }: CustomEdgeProps) => {
         const edgeColor = getEdgeColor(id);
         
         let startX = sourceX;
@@ -132,11 +184,11 @@ const Page = () => {
                 setIsLoading(true);
                 const response = await axios.get('/data/skillall.json');
 
-                const selectedSkills = response.data.filter((skill: any) => skill.class === selectedClass.id || skill.class === selectedClass.parent);
+                const selectedSkills = response.data.filter((skill: Skill) => skill.class === selectedClass.id || skill.class === selectedClass.parent);
                 const classSpace = CLASS_SPACES[selectedClass.id] || 0;
                 const classSpaceY = CLASS_SPACESY[selectedClass.id] || 0;
 
-                const initialNodes = selectedSkills.map((skill: any) => ({
+                const initialNodes = selectedSkills.map((skill: Skill) => ({
                     id: skill.id.toString(),
                     position: {
                         x: (skill.treePosition?.x * 3 || 0) + (skill.class === selectedClass.id ? classSpace : 0),
@@ -150,7 +202,7 @@ const Page = () => {
                     type: 'custom'
                 }));
                 
-                const uniqueConnect: any = {
+                const uniqueConnect: UniqueConnections = {
                     'e-51-8348': {
                         sourceHandle: 'source-top',
                         targetHandle: 'target-bottom'
@@ -173,8 +225,8 @@ const Page = () => {
                     },
                 };
 
-                const initialEdges = selectedSkills.flatMap((skill: any) => 
-                    (skill.requirements || []).map((req: any) => {
+                const initialEdges = selectedSkills.flatMap((skill: Skill) => 
+                    (skill.requirements || []).map((req: SkillRequirement) => {
                         const edgeId = `e-${req.skill}-${skill.id}`;
                         const uniqueConnectionConfig = uniqueConnect[edgeId];
                 
