@@ -40,7 +40,8 @@ const GuidePanel = () => {
                                 <FaGithub size={20} className='mr-1 text-slate-800' />
                                 Suvijak (Guy)
                             </a>
-                            <span className='text-slate-600'>(Last Updated: 2024/12/20)</span>
+                            <span className='text-slate-600'>(Last Updated: 2024/12/27)</span>
+                            <span className='text-slate-700'>Version 1.0.0</span>
                         </div>
                         <motion.button
                             onClick={handleGuideClick}
