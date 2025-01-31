@@ -38,7 +38,7 @@ pnpm install
 ```
 3. Run the development server:
 ```bash
-5. npm run dev
+npm run dev
 # or
 yarn dev
 # or
