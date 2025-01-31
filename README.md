@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Flyff Universe Skill Simulator
 
-## Getting Started
+![Project Banner](/public/metadata/manifest.png)
 
-First, run the development server:
+A skill build simulator for Flyff Universe, built with Next.js and React Flow.</br>
+Plan and visualize your character's skill build before investing in-game.</br>
+All skill data is directly retrieved from [Flyff Universe API](https://api.flyff.com).
 
+## 🌟 Features
+- **Interactive Skill Tree**: Visualize skill paths and dependencies
+- **All Classes Supported**: Complete skill trees for every class in Flyff Universe
+- **Build Sharing**: Share your builds via URL
+- **Real-time Updates**: See skill effects and requirements instantly
+- **Mobile Friendly**: Fully responsive design
+- **No Backend Required**: All data stored in URL parameters
+
+## 🚀 Live Demo
+Visit: [Flyff Skill Simulator](https://flyff-skill-simulator.vercel.app)
+![Demo](/demo.gif)
+![Project Demo](/public/metadata/demo.png)
+
+## 💻 Getting Started
+1. Clone the repository:
 ```bash
-npm run dev
+git clone https://github.com/guysuvijak/flyff-skill-simulator.git
+```
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+3. Run the development server:
+```bash
+5. npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
+```
+4. Open http://localhost:3000 in your browser
+
+## 🛠️ Built With
+- <img src="https://avatars.githubusercontent.com/u/126103961" title="Next JS" alt="nextjs" width="20" height="20"/> Next.js - React Framework
+- <img src="https://avatars.githubusercontent.com/u/7106853" title="React Flow" alt="reactflow" width="20" height="20"/> React Flow - Node-based Visualization
+- <img src="https://avatars.githubusercontent.com/u/45790596" title="Zustand" alt="zustand" width="20" height="20"/> Zustand - State Management
+- <img src="https://avatars.githubusercontent.com/u/67109815" title="Tailwind CSS" alt="tailwindcss" width="20" height="20"/> TailwindCSS - Styling
+- <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" title="TypeScript" alt="typscript" width="20" height="20"/> TypeScript - Type Safety
+
+## 🗺️ Project Structure
+```bash
+flyff-skill-simulator/
+├── public/              # Static assets
+│   ├── data/            # Static Flyff Data
+│   └── images/class/    # Static Class Image Icon
+└── src/
+    ├── app/             # layout & page next.js
+    ├── components/      # React & React Flow components
+    ├── store/           # Zustand store
+    └── utils/           # Frequently used utility functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📝 License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🙏 Acknowledgments
+Flyff Universe for the amazing game. The Flyff community for support and feedback :heart:
