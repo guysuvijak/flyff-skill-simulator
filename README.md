@@ -14,10 +14,14 @@ All skill data is directly retrieved from [Flyff Universe API](https://api.flyff
 - **Mobile Friendly**: Fully responsive design
 - **No Backend Required**: All data stored in URL parameters
 
+![Project Demo](/public/metadata/demo.png)
+
+![Skill Description](/public/metadata/skill-description.png)
+
 ## 🚀 Live Demo
 Visit: [Flyff Skill Simulator](https://flyff-skill-simulator.vercel.app)
-![Demo](/demo.gif)
-![Project Demo](/public/metadata/demo.png)
+
+![Project Live Demo](/public/metadata/live-demo.gif)
 
 ## 💻 Getting Started
 1. Clone the repository:
