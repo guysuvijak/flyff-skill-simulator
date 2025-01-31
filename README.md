@@ -21,7 +21,7 @@ All skill data is directly retrieved from [Flyff Universe API](https://api.flyff
 ## 🚀 Live Demo
 Visit: [Flyff Skill Simulator](https://flyff-skill-simulator.vercel.app)
 
-![Project Live Demo](/public/metadata/live-demo.gif)
+![Project Demo Live](/public/metadata/demo-live.gif)
 
 ## 💻 Getting Started
 1. Clone the repository:
