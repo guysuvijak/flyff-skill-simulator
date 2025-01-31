@@ -1,11 +1,7 @@
 import { create } from 'zustand';
+import { ClassData, ClassStore } from '@/types/class';
 
-interface ClassStore {
-    selectedClass: any;
-    setSelectedClass: (classData: any) => void;
-}
-
-const selectClassInitial = {
+const selectClassInitial: ClassData = {
     "id": 2246,
         "name": {
             "en": "Blade",

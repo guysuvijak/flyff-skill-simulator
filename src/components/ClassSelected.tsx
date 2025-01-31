@@ -6,14 +6,15 @@ import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
 import { useSkillStore } from '@/stores/skillStore';
 import { calculateSkillPoints } from '@/utils/calculateSkillPoints';
+import { ClassData } from '@/types/class';
 
 const ClassSelected = () => {
-    const [class2Data, setClass2Data] = useState<any>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [ class2Data, setClass2Data ] = useState<ClassData[]>([]);
+    const [ isLoading, setIsLoading ] = useState(true);
+    const [ isDropdownOpen, setIsDropdownOpen ] = useState(false);
     const { selectedClass, setSelectedClass } = useClassStore();
     const { characterLevel, setSkillPoints } = useCharacterStore();
     const { resetSkillLevels } = useSkillStore();
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     useEffect(() => {
         const getData = async () => {
@@ -22,9 +23,9 @@ const ClassSelected = () => {
             const classDataResponse = await axios.get('/data/classall.json');
             const classData = classDataResponse.data;
             
-            const class2: any = [];
+            const class2: ClassData[] = [];
 
-            classData.forEach((classItem: any) => {
+            classData.forEach((classItem: ClassData) => {
             if (classItem.type === 'professional') { // Class 2
                 class2.push(classItem);
             }
@@ -45,7 +46,7 @@ const ClassSelected = () => {
         getData();
     }, []);
 
-    const handleClassSelect = (classData: any) => {
+    const handleClassSelect = (classData: ClassData) => {
         setSelectedClass(classData);
         setIsDropdownOpen(false);
     };
@@ -75,7 +76,7 @@ const ClassSelected = () => {
                         <div className='px-4 py-2 text-sm text-gray-500'>Loading...</div>
                     ) : (
                         <ul className='max-h-60 overflow-y-auto'>
-                            {class2Data.map((classData: any) => (
+                            {class2Data.map((classData: ClassData) => (
                                 <li
                                     key={classData.id}
                                     className={`flex items-center px-4 py-2 cursor-pointer text-black hover:bg-gray-100 ${selectedClass.id === classData.id ? 'bg-slate-200' : ''}`}

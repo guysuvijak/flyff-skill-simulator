@@ -17,11 +17,43 @@ interface SkillSourceProps {
     skills: number[];
 };
 
-const SkillNode = ({ data }: any) => {
+interface SkillLevel {
+    consumedMP?: number;
+    consumedFP?: number;
+    description?: string;
+}
+
+interface SkillRequirement {
+    skill: number;
+    level: number;
+}
+
+interface SkillData {
+    id: number;
+    class: number;
+    level: number;
+    skillPoints: number;
+    description: {
+        en: string;
+        [key: string]: string;
+    };
+    requirements: SkillRequirement[];
+    levels: SkillLevel[];
+}
+
+interface SkillNodeProps {
+    data: {
+        skillData: SkillData;
+        label: string;
+        image: string;
+    };
+}
+
+const SkillNode = ({ data }: SkillNodeProps) => {
     const { skillLevels, updateSkillLevel } = useSkillStore();
     const { selectedClass } = useClassStore();
     const { characterLevel, skillPoints, setSkillPoints } = useCharacterStore();
-    const [skillSource, setSkillSource] = useState<SkillSourceProps[] | null>(null);
+    const [ skillSource, setSkillSource ] = useState<SkillSourceProps[] | null>(null);
     const currentLevel = skillLevels[data.skillData.id]?.level || 0;
     const additionalTargetTop = data.skillData.id === 7266 || data.skillData.id === 8356 || data.skillData.id === 5041 || data.skillData.id === 7429;
     const additionalTargetBottom = data.skillData.id === 8348 || data.skillData.id === 5559;
@@ -52,7 +84,7 @@ const SkillNode = ({ data }: any) => {
     };
 
     const canUpgrade = () => {
-        return data.skillData.requirements.every((req: any) => {
+        return data.skillData.requirements.every((req) => {
             const requiredLevel = req.level;
             const currentReqLevel = skillLevels[req.skill]?.level || 0;
             return currentReqLevel >= requiredLevel;
@@ -129,7 +161,7 @@ const SkillNode = ({ data }: any) => {
                 <div className='flex relative'>
                     <Image
                         src={data.image}
-                        alt={data.skillData.id}
+                        alt={data.label || String(data.skillData.id)}
                         width={40}
                         height={40}
                         loading='lazy'

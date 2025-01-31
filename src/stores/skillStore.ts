@@ -1,22 +1,11 @@
 import { create } from 'zustand';
-
-interface SkillState {
-    skillLevels: Record<
-        string,
-        {
-            level: number;
-            points: number;
-        }
-    >;
-    updateSkillLevel: (skillId: string, level: number, points: number) => void;
-    resetSkillLevels: () => void;
-}
+import { SkillState } from '@/types/skill';
 
 export const useSkillStore = create<SkillState>((set) => ({
     skillLevels: {},
     updateSkillLevel: (skillId, level, points) =>
         set((state) => {
-            if (!skillId) {
+            if (skillId === undefined || skillId === null) {
                 return state;
             }
             return {

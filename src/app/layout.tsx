@@ -7,11 +7,11 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
     metadataBase: new URL('https://flyffskillsimulator.vercel.app'),
     title: 'Flyff - Skill Simulator',
-    description: 'Flyff Universe - Skill Simulator (Data from API only), Created by MeteorVIIx',
+    description: 'Flyff Universe - Skill Simulator (Data from API only), Created by MeteorVIIx, Flyff Skill Simulator is an open-source project developed using Next.js and React Flow technologies. The website serves as a simulator for planning and visualizing skill builds in the Flyff Universe server, allowing players to experiment with different skill combinations and paths.',
     openGraph: {
         type: 'website',
         title: 'Flyff - Skill Simulator',
-        description: 'Flyff Universe - Skill Simulator (Data from API only), Created by MeteorVIIx',
+        description: 'Flyff Universe - Skill Simulator (Data from API only), Created by MeteorVIIx, Flyff Skill Simulator is an open-source project developed using Next.js and React Flow technologies. The website serves as a simulator for planning and visualizing skill builds in the Flyff Universe server, allowing players to experiment with different skill combinations and paths.',
         url: 'https://flyffskillsimulator.vercel.app',
         siteName: 'Flyff - Skill Simulator',
         images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
             }
         ]
     },
-    keywords: ['Flyff', 'Skill Simulator', 'Flyff Simulator', 'Flyff Skill Simulator'],
+    keywords: ['Flyff', 'Skill Simulator', 'Flyff Simulator', 'Flyff Skill Simulator', 'MeteorVIIx', 'React Flow'],
     authors: [
         { name: 'Flyff - Skill Simulator' },
         {

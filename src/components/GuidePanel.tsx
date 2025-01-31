@@ -24,7 +24,7 @@ const GuidePanel = () => {
                                 <FaStar size={20} className='text-[#ffda21] mr-1 rotate-180' />
                                 Flyff Universe - Skill Simulator
                             </span>
-                            <span className='pb-2 text-slate-500'>Powered by Next.js 14 & React Flow</span>
+                            <span className='pb-2 text-slate-500'>Powered by Next.js 15 & React Flow</span>
                             <ul className='space-y-1 py-2 border-y-2'>
                                 <li>• Plan and visualize skill builds</li>
                                 <li>• Calculate optimal skill point distribution</li>
@@ -40,8 +40,8 @@ const GuidePanel = () => {
                                 <FaGithub size={20} className='mr-1 text-slate-800' />
                                 Suvijak (Guy)
                             </a>
-                            <span className='text-slate-600'>(Last Updated: 2024/12/27)</span>
-                            <span className='text-slate-700'>Version 1.0.0</span>
+                            <span className='text-slate-600'>(Last Updated: 2025/01/31)</span>
+                            <span className='text-slate-700'>Version 1.0.1</span>
                         </div>
                         <motion.button
                             onClick={handleGuideClick}
