@@ -1,22 +1,27 @@
 import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
 import { useSkillStore } from '@/stores/skillStore';
-import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string';
+import {
+    compressToEncodedURIComponent,
+    decompressFromEncodedURIComponent
+} from 'lz-string';
 
 export function shareBuild() {
     const { selectedClass } = useClassStore.getState();
     const { characterLevel, skillPoints } = useCharacterStore.getState();
     const { skillLevels } = useSkillStore.getState();
-    
+
     const buildData = {
         selectedClass,
         characterLevel,
         skillPoints,
-        skillLevels,
+        skillLevels
     };
-    
-    const encodedData = compressToEncodedURIComponent(JSON.stringify(buildData));
-    
+
+    const encodedData = compressToEncodedURIComponent(
+        JSON.stringify(buildData)
+    );
+
     const url = `${window.location.origin}?data=${encodedData}`;
     return url;
 }
@@ -28,9 +33,12 @@ export function loadBuildFromUrl() {
     if (!encodedData) return;
 
     try {
-        const decodedData = JSON.parse(decompressFromEncodedURIComponent(encodedData) || '');
-        
-        const { selectedClass, characterLevel, skillPoints, skillLevels } = decodedData;
+        const decodedData = JSON.parse(
+            decompressFromEncodedURIComponent(encodedData) || ''
+        );
+
+        const { selectedClass, characterLevel, skillPoints, skillLevels } =
+            decodedData;
         useClassStore.setState({ selectedClass });
         useCharacterStore.getState().updateCharacter({
             characterLevel: characterLevel,

@@ -19,7 +19,7 @@ export interface LanguageNames {
     th: string;
     tw: string;
     vi: string;
-};
+}
 
 export interface AutoAttackFactors {
     sword?: number;
@@ -30,7 +30,7 @@ export interface AutoAttackFactors {
     yoyo?: number;
     bow?: number;
     wand?: number;
-};
+}
 
 export interface ClassData {
     id: number;
@@ -51,7 +51,7 @@ export interface ClassData {
     block: number;
     critical: number;
     autoAttackFactors: AutoAttackFactors;
-};
+}
 
 export interface ClassStore {
     selectedClass: ClassData;

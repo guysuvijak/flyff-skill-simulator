@@ -13,13 +13,13 @@ export const useSkillStore = create<SkillState>((set) => ({
                     ...state.skillLevels,
                     [skillId]: {
                         level,
-                        points,
-                    },
-                },
+                        points
+                    }
+                }
             };
         }),
     resetSkillLevels: () =>
         set(() => ({
             skillLevels: {}
-        })),
+        }))
 }));

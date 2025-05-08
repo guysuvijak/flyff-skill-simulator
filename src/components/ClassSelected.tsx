@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import axios from 'axios';
@@ -9,41 +9,49 @@ import { calculateSkillPoints } from '@/utils/calculateSkillPoints';
 import { ClassData } from '@/types/class';
 
 const ClassSelected = () => {
-    const [ class2Data, setClass2Data ] = useState<ClassData[]>([]);
-    const [ isLoading, setIsLoading ] = useState(true);
-    const [ isDropdownOpen, setIsDropdownOpen ] = useState(false);
+    const [class2Data, setClass2Data] = useState<ClassData[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const { selectedClass, setSelectedClass } = useClassStore();
     const { characterLevel, setSkillPoints } = useCharacterStore();
     const { resetSkillLevels } = useSkillStore();
 
     useEffect(() => {
         const getData = async () => {
-        try {
-            setIsLoading(true);
-            const classDataResponse = await axios.get('/data/classall.json');
-            const classData = classDataResponse.data;
-            
-            const class2: ClassData[] = [];
+            try {
+                setIsLoading(true);
+                const classDataResponse = await axios.get(
+                    '/data/classall.json'
+                );
+                const classData = classDataResponse.data;
 
-            classData.forEach((classItem: ClassData) => {
-            if (classItem.type === 'professional') { // Class 2
-                class2.push(classItem);
+                const class2: ClassData[] = [];
+
+                classData.forEach((classItem: ClassData) => {
+                    if (classItem.type === 'professional') {
+                        // Class 2
+                        class2.push(classItem);
+                    }
+                });
+
+                setClass2Data(class2);
+                const bonusPoint = calculateSkillPoints(
+                    characterLevel,
+                    selectedClass.id,
+                    selectedClass.parent
+                );
+                setSkillPoints(bonusPoint);
+                resetSkillLevels();
+                setIsLoading(false);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                setIsLoading(false);
+                alert('Error fetching class data. Please try again later.');
             }
-            });
-            
-            setClass2Data(class2);
-            const bonusPoint = calculateSkillPoints(characterLevel, selectedClass.id, selectedClass.parent);
-            setSkillPoints(bonusPoint);
-            resetSkillLevels();
-            setIsLoading(false);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            setIsLoading(false);
-            alert('Error fetching class data. Please try again later.');
-        }
         };
 
         getData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleClassSelect = (classData: ClassData) => {
@@ -67,13 +75,18 @@ const ClassSelected = () => {
                     style={{ objectFit: 'contain' }}
                     priority
                 />
-                <span>{selectedClass?.name?.en || (isLoading ? 'Loading...' : 'Select a class')}</span>
+                <span>
+                    {selectedClass?.name?.en ||
+                        (isLoading ? 'Loading...' : 'Select a class')}
+                </span>
             </button>
 
             {isDropdownOpen && (
                 <div className='absolute z-10 w-80 sm:w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg'>
                     {isLoading ? (
-                        <div className='px-4 py-2 text-sm text-gray-500'>Loading...</div>
+                        <div className='px-4 py-2 text-sm text-gray-500'>
+                            Loading...
+                        </div>
                     ) : (
                         <ul className='max-h-60 overflow-y-auto'>
                             {class2Data.map((classData: ClassData) => (

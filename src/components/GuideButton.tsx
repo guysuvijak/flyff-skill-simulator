@@ -1,12 +1,12 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaInfoCircle } from 'react-icons/fa';
+import { Info } from 'lucide-react';
 import { useWebsiteStore } from '@/stores/websiteStore';
 
 const GuideButton = () => {
     const { setGuidePanelVisible } = useWebsiteStore();
-    
+
     const handleGuideButton = () => {
         setGuidePanelVisible(true);
     };
@@ -20,7 +20,7 @@ const GuideButton = () => {
                 whileTap={{ scale: 0.95 }}
                 aria-label={'guide-button'}
             >
-                <FaInfoCircle size={18} />
+                <Info size={18} />
             </motion.button>
         </div>
     );

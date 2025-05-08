@@ -3,13 +3,13 @@ import { useSkillStore } from '@/stores/skillStore';
 type JobBonus = {
     [key: string]: number;
 };
-  
+
 type LevelRange = {
     start: number;
     end: number;
     pointsPerLevel: number;
 };
-  
+
 const levelRanges: LevelRange[] = [
     { start: 1, end: 20, pointsPerLevel: 2 },
     { start: 21, end: 40, pointsPerLevel: 3 },
@@ -21,7 +21,7 @@ const levelRanges: LevelRange[] = [
     { start: 141, end: 150, pointsPerLevel: 1 },
     { start: 151, end: 165, pointsPerLevel: 2 }
 ];
-  
+
 const jobBonuses: JobBonus = {
     9686: 0, //Vagrant
     9098: 50, //Acrobat
@@ -38,16 +38,20 @@ const jobBonuses: JobBonus = {
     5330: 80 //Knight
 };
 
-export function calculateSkillPoints(level: number, job: number, parent: number): number {
+export function calculateSkillPoints(
+    level: number,
+    job: number,
+    parent: number
+): number {
     let pointsFromLevel = -2;
-    
+
     for (const range of levelRanges) {
         if (level >= range.start) {
             const levelsInRange = Math.min(level, range.end) - range.start + 1;
-            pointsFromLevel += (levelsInRange * range.pointsPerLevel);
+            pointsFromLevel += levelsInRange * range.pointsPerLevel;
         }
     }
-    
+
     let totalBonus = 0;
     if (level >= 60) {
         totalBonus = (jobBonuses[job] || 0) + (jobBonuses[parent] || 0);
@@ -55,7 +59,7 @@ export function calculateSkillPoints(level: number, job: number, parent: number)
         totalBonus = jobBonuses[parent] || 0;
     }
     return pointsFromLevel + totalBonus;
-};
+}
 
 export function calculateTotalPointsUsed() {
     const { skillLevels } = useSkillStore.getState();
@@ -67,4 +71,4 @@ export function calculateTotalPointsUsed() {
     });
 
     return totalPointUsed;
-};
+}

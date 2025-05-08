@@ -1,15 +1,15 @@
-'use client'
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import {
-  ReactFlow,
-  Controls,
-  Background,
-  useNodesState,
-  useEdgesState,
-  Position,
-  EdgeProps,
-  getSimpleBezierPath
+    ReactFlow,
+    Controls,
+    Background,
+    useNodesState,
+    useEdgesState,
+    Position,
+    EdgeProps,
+    getSimpleBezierPath
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import SkillNode from '@/components/SkillNode';
@@ -20,23 +20,23 @@ import { loadBuildFromUrl } from '@/utils/shareBuild';
 
 interface ClassSpaces {
     [key: number]: number;
-};
+}
 
 interface TreePosition {
     x: number;
     y: number;
-};
+}
 
 interface SkillRequirement {
     skill: number;
     level: number;
-};
-  
+}
+
 interface SkillName {
     en: string;
     [key: string]: string;
-};
-  
+}
+
 interface Skill {
     id: number;
     name: SkillName;
@@ -44,7 +44,7 @@ interface Skill {
     icon: string;
     treePosition: TreePosition;
     requirements?: SkillRequirement[];
-};
+}
 
 interface CustomEdgeProps extends EdgeProps {
     id: string;
@@ -58,37 +58,37 @@ interface CustomEdgeProps extends EdgeProps {
     data?: {
         label?: string;
     };
-};
+}
 
 interface UniqueConnection {
-  sourceHandle: string;
-  targetHandle: string;
-};
+    sourceHandle: string;
+    targetHandle: string;
+}
 
 interface UniqueConnections {
     [key: string]: UniqueConnection;
-};
+}
 
 const CLASS_SPACES: ClassSpaces = {
-    2246: 600,  // Blade
-    3545: 600,  // Jester
-    5330: 600,  // Knight
-    5709: 600,  // Psykeeper
-    7424: 700,  // Billposter
-    9150: 600,  // Elementor
-    9295: 600,  // Ranger
-    9389: 700   // Ringmaster
+    2246: 600, // Blade
+    3545: 600, // Jester
+    5330: 600, // Knight
+    5709: 600, // Psykeeper
+    7424: 700, // Billposter
+    9150: 600, // Elementor
+    9295: 600, // Ranger
+    9389: 700 // Ringmaster
 };
 
 const CLASS_SPACESY: ClassSpaces = {
-    2246: 91,  // Blade
-    3545: 91,  // Jester
-    5330: 91,  // Knight
-    5709: 91,  // Psykeeper
-    7424: 91,  // Billposter
-    9150: 0,  // Elementor
-    9295: 91,  // Ranger
-    9389: 91   // Ringmaster
+    2246: 91, // Blade
+    3545: 91, // Jester
+    5330: 91, // Knight
+    5709: 91, // Psykeeper
+    7424: 91, // Billposter
+    9150: 0, // Elementor
+    9295: 91, // Ranger
+    9389: 91 // Ringmaster
 };
 
 const getEdgeColor = (id: string) => {
@@ -98,14 +98,24 @@ const getEdgeColor = (id: string) => {
 };
 
 const edgeTypes = {
-    smoothstep: ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, style = {}, data }: CustomEdgeProps) => {
+    smoothstep: ({
+        id,
+        sourceX,
+        sourceY,
+        targetX,
+        targetY,
+        sourcePosition,
+        targetPosition,
+        style = {},
+        data
+    }: CustomEdgeProps) => {
         const edgeColor = getEdgeColor(id);
-        
+
         let startX = sourceX;
         let startY = sourceY;
         let endX = targetX;
         let endY = targetY;
-        
+
         if (sourcePosition === Position.Left) startX = sourceX - 5;
         if (sourcePosition === Position.Right) startX = sourceX + 5;
         if (targetPosition === Position.Left) endX = targetX - 5;
@@ -115,7 +125,7 @@ const edgeTypes = {
         if (sourcePosition === Position.Bottom) startY = sourceY + 5;
         if (targetPosition === Position.Top) endY = targetY - 5;
 
-        const [edgePath, labelX, labelY] = getSimpleBezierPath ({
+        const [edgePath, labelX, labelY] = getSimpleBezierPath({
             sourceX: startX,
             sourceY: startY,
             targetX: endX,
@@ -123,7 +133,7 @@ const edgeTypes = {
             sourcePosition,
             targetPosition
         });
-    
+
         return (
             <>
                 <defs>
@@ -176,32 +186,43 @@ const Page = () => {
 
     useEffect(() => {
         const fetchSkillData = async () => {
-            if (hasLoaded.current && lastLoadedClass.current === selectedClass.id) {
+            if (
+                hasLoaded.current &&
+                lastLoadedClass.current === selectedClass.id
+            ) {
                 return;
             }
-            
+
             try {
                 setIsLoading(true);
                 const response = await axios.get('/data/skillall.json');
 
-                const selectedSkills = response.data.filter((skill: Skill) => skill.class === selectedClass.id || skill.class === selectedClass.parent);
+                const selectedSkills = response.data.filter(
+                    (skill: Skill) =>
+                        skill.class === selectedClass.id ||
+                        skill.class === selectedClass.parent
+                );
                 const classSpace = CLASS_SPACES[selectedClass.id] || 0;
                 const classSpaceY = CLASS_SPACESY[selectedClass.id] || 0;
 
                 const initialNodes = selectedSkills.map((skill: Skill) => ({
                     id: skill.id.toString(),
                     position: {
-                        x: (skill.treePosition?.x * 3 || 0) + (skill.class === selectedClass.id ? classSpace : 0),
-                        y: (skill.treePosition?.y * 3.5 || 0) + (skill.class === selectedClass.id ? classSpaceY : 0)
+                        x:
+                            (skill.treePosition?.x * 3 || 0) +
+                            (skill.class === selectedClass.id ? classSpace : 0),
+                        y:
+                            (skill.treePosition?.y * 3.5 || 0) +
+                            (skill.class === selectedClass.id ? classSpaceY : 0)
                     },
-                    data: { 
+                    data: {
                         label: skill.name.en,
                         image: `https://api.flyff.com/image/skill/colored/${skill.icon}`,
                         skillData: skill
                     },
                     type: 'custom'
                 }));
-                
+
                 const uniqueConnect: UniqueConnections = {
                     'e-51-8348': {
                         sourceHandle: 'source-top',
@@ -222,21 +243,25 @@ const Page = () => {
                     'e-3840-5041': {
                         sourceHandle: 'source-bottom',
                         targetHandle: 'target-top'
-                    },
+                    }
                 };
 
-                const initialEdges = selectedSkills.flatMap((skill: Skill) => 
+                const initialEdges = selectedSkills.flatMap((skill: Skill) =>
                     (skill.requirements || []).map((req: SkillRequirement) => {
                         const edgeId = `e-${req.skill}-${skill.id}`;
                         const uniqueConnectionConfig = uniqueConnect[edgeId];
-                
+
                         return {
                             id: edgeId,
                             source: req.skill.toString(),
                             target: skill.id.toString(),
                             type: 'smoothstep',
-                            sourceHandle: uniqueConnectionConfig?.sourceHandle || 'source-right',
-                            targetHandle: uniqueConnectionConfig?.targetHandle || 'target-left',
+                            sourceHandle:
+                                uniqueConnectionConfig?.sourceHandle ||
+                                'source-right',
+                            targetHandle:
+                                uniqueConnectionConfig?.targetHandle ||
+                                'target-left',
                             animated: true,
                             data: { label: req.level.toString() }
                         };
@@ -258,11 +283,19 @@ const Page = () => {
     }, [setNodes, setEdges, selectedClass.id, selectedClass.parent]);
 
     if (isLoading) {
-        return <div className='flex justify-center items-center h-screen'>Loading...</div>;
+        return (
+            <div className='flex justify-center items-center h-screen'>
+                Loading...
+            </div>
+        );
     }
 
     if (error) {
-        return <div className='flex justify-center items-center h-screen text-red-500'>{error}</div>;
+        return (
+            <div className='flex justify-center items-center h-screen text-red-500'>
+                {error}
+            </div>
+        );
     }
 
     const onBeforeDelete = async () => {

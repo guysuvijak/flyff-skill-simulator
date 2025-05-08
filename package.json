@@ -1,34 +1,41 @@
 {
-  "name": "flyff-skill-simulator",
-  "version": "1.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@xyflow/react": "^12.3.5",
-    "axios": "^1.8.2",
-    "framer-motion": "^11.11.17",
-    "lz-string": "^1.5.0",
-    "next": "^15.2.3",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^5.3.0",
-    "react-tooltip": "^5.28.0",
-    "zustand": "^5.0.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@types/three": "^0.170.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.7",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
-  }
+    "name": "flyff-skill-simulator",
+    "version": "1.0.2",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "format": "npx prettier --write .",
+        "check": "next lint && npx prettier --check ."
+    },
+    "dependencies": {
+        "@radix-ui/react-tooltip": "^1.2.6",
+        "@xyflow/react": "^12.3.5",
+        "axios": "^1.8.2",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "framer-motion": "^11.11.17",
+        "lucide-react": "^0.508.0",
+        "lz-string": "^1.5.0",
+        "next": "^15.2.3",
+        "react": "^18",
+        "react-dom": "^18",
+        "react-icons": "^5.3.0",
+        "tailwind-merge": "^3.2.0",
+        "tailwindcss-animate": "^1.0.7",
+        "zustand": "^5.0.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "@types/three": "^0.170.0",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.7",
+        "postcss": "^8",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5"
+    }
 }
