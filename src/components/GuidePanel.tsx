@@ -60,7 +60,7 @@ const GuidePanel = () => {
                                     size={20}
                                     className='mr-1 text-blue-600'
                                 />
-                                Suvijak Nopparatcharoensuk
+                                Suvijak Kasemwutthiphong
                             </a>
                             <a
                                 href='https://github.com/guysuvijak'
@@ -75,10 +75,10 @@ const GuidePanel = () => {
                                 Suvijak (Guy)
                             </a>
                             <span className='text-slate-600'>
-                                (Last Updated: 2025/05/08)
+                                (Last Updated: 2025/05/12)
                             </span>
                             <span className='text-slate-700'>
-                                Version 1.0.2
+                                Version 1.0.3
                             </span>
                         </div>
                         <motion.button
