@@ -5,7 +5,7 @@ import { useWebsiteStore } from '@/stores/websiteStore';
 import { Dialog, DialogTitle, DialogContent } from '@/components/ui/dialog';
 import pkg from '../../package.json';
 
-const GuidePanel = () => {
+export const GuidePanel = () => {
     const { guidePanelVisible, setGuidePanelVisible } = useWebsiteStore();
 
     const handleInnerClick = (e: React.MouseEvent) => {
@@ -73,5 +73,3 @@ const GuidePanel = () => {
         </Dialog>
     );
 };
-
-export default GuidePanel;

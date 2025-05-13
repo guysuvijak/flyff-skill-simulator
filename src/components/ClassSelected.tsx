@@ -16,7 +16,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { ChevronDown } from 'lucide-react';
 
-const ClassSelected = () => {
+export const ClassSelected = () => {
     const [class2Data, setClass2Data] = useState<ClassData[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const { selectedClass, setSelectedClass } = useClassStore();
@@ -110,7 +110,7 @@ const ClassSelected = () => {
                                 alt={classData.name.en}
                                 width={40}
                                 height={40}
-                                className='w-6 h-6 mr-2'
+                                className='w-6 h-6'
                                 priority
                             />
                             <span>{classData.name.en}</span>
@@ -121,5 +121,3 @@ const ClassSelected = () => {
         </DropdownMenu>
     );
 };
-
-export default ClassSelected;

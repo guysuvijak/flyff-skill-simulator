@@ -3,46 +3,54 @@
 import { useState } from 'react';
 import { shareBuild } from '@/utils/shareBuild';
 import { Share2 } from 'lucide-react';
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger
-} from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
+import { TooltipWrapper } from '@/components/TooltipWrapper';
 
-const ShareButton = () => {
-    const [tooltipVisible, setTooltipVisible] = useState(false);
+interface ShareButtonProps {
+    mode: 'icon' | 'text';
+}
+
+export const ShareButton = ({ mode }: ShareButtonProps) => {
+    const [isSharing, setIsSharing] = useState(false);
 
     const handleShare = () => {
         const shareUrl = shareBuild();
         navigator.clipboard.writeText(shareUrl);
-        setTooltipVisible(true);
+        setIsSharing(true);
+        toast.success('Link copied to clipboard!');
 
-        // Hide tooltip after 2 seconds
-        setTimeout(() => setTooltipVisible(false), 2000);
+        // Reset state after 2 seconds
+        setTimeout(() => setIsSharing(false), 2000);
     };
 
     return (
-        <TooltipProvider>
-            <Tooltip open={tooltipVisible}>
-                <TooltipTrigger asChild>
+        <>
+            {mode === 'icon' ? (
+                <TooltipWrapper message='Share'>
                     <Button
                         variant='outline'
                         size='sm'
                         onClick={handleShare}
                         aria-label='Share Button'
-                        className='cursor-pointer'
+                        disabled={isSharing}
                     >
                         <Share2 size={18} />
                     </Button>
-                </TooltipTrigger>
-                <TooltipContent className='text-sm bg-gray-800 text-white p-2 rounded'>
-                    ✔ Link copied to clipboard!
-                </TooltipContent>
-            </Tooltip>
-        </TooltipProvider>
+                </TooltipWrapper>
+            ) : (
+                <Button
+                    variant='ghost'
+                    size='sm'
+                    onClick={handleShare}
+                    aria-label='Share Button'
+                    disabled={isSharing}
+                    className='flex justify-start'
+                >
+                    <Share2 size={18} />
+                    <p>Share Build</p>
+                </Button>
+            )}
+        </>
     );
 };
-
-export default ShareButton;

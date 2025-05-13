@@ -5,15 +5,22 @@ import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
 import { calculateSkillPoints } from '@/utils/calculateSkillPoints';
 import { calculateTotalPointsUsed } from '@/utils/calculateSkillPoints';
+import { Menu, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import ClassSelected from '@/components/ClassSelected';
-import ShareButton from '@/components/ShareButton';
-import GuideButton from '@/components/GuideButton';
-import ThemeToggle from './ThemeToggle';
-import { RotateCcw } from 'lucide-react';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu';
+import { ClassSelected } from '@/components/ClassSelected';
+import { ShareButton } from '@/components/ShareButton';
+import { GuideButton } from '@/components/GuideButton';
+import { ThemeToggle } from '@/components/ThemeToggle';
+import { SkillStyleToggle } from '@/components/SkillStyleToggle';
 
-const Navbar = () => {
+export const Navbar = () => {
     const { selectedClass } = useClassStore();
     const { characterLevel, setCharacterLevel, skillPoints, setSkillPoints } =
         useCharacterStore();
@@ -51,23 +58,8 @@ const Navbar = () => {
 
     return (
         <nav className='bg-background border-b sticky top-0 z-10'>
-            <div className='container mx-auto flex flex-col md:flex-row items-center justify-between gap-2 py-4 px-4 sm:px-6'>
-                <Button
-                    variant='default'
-                    onClick={() => (window.location.href = '/')}
-                    className='hidden lg:block mb-2 sm:mb-0 mr-2'
-                >
-                    Reset
-                </Button>
+            <div className='container mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 py-4 px-4'>
                 <div className='flex items-center gap-2'>
-                    <Button
-                        size={'sm'}
-                        variant='default'
-                        onClick={() => (window.location.href = '/')}
-                        className='block lg:hidden'
-                    >
-                        <RotateCcw />
-                    </Button>
                     <div className='flex items-center space-x-2 text-sm sm:text-base'>
                         <span className='text-foreground'>Level</span>
                         <Input
@@ -75,7 +67,7 @@ const Navbar = () => {
                             type='number'
                             value={inputValue}
                             onChange={handleLevelChange}
-                            className='w-14 sm:w-20 h-8 text-center'
+                            className='w-20 h-8 text-center'
                         />
                         <span className='text-foreground'>
                             / {selectedClass.maxLevel}
@@ -93,15 +85,50 @@ const Navbar = () => {
                         </span>
                     </div>
                 </div>
-                <div className='flex items-center space-x-2 mt-2 sm:mt-0'>
+                {/* Desktop Menu (md and above) */}
+                <div className='flex items-center gap-2'>
+                    <Button
+                        variant='default'
+                        size={'sm'}
+                        aria-label='Reset Button'
+                        onClick={() => (window.location.href = '/')}
+                    >
+                        <RotateCcw size={18} />
+                    </Button>
                     <ClassSelected />
-                    <ShareButton />
-                    <ThemeToggle />
-                    <GuideButton />
+                    <div className='hidden lg:flex gap-1'>
+                        <ShareButton mode='icon' />
+                        <SkillStyleToggle mode='icon' />
+                        <ThemeToggle mode='icon' />
+                        <GuideButton mode='icon' />
+                    </div>
+                    {/* Mobile Dropdown Menu (below md) */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild className='lg:hidden'>
+                            <Button variant='outline' size='sm'>
+                                <Menu size={18} />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent
+                            align='end'
+                            className='flex flex-col space-y-1'
+                        >
+                            <DropdownMenuItem asChild>
+                                <ShareButton mode='text' />
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <SkillStyleToggle mode='text' />
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <ThemeToggle mode='text' />
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <GuideButton mode='text' />
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                 </div>
             </div>
         </nav>
     );
 };
-
-export default Navbar;

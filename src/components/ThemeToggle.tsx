@@ -3,19 +3,48 @@
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
+import { TooltipWrapper } from '@/components/TooltipWrapper';
 
-export default function ThemeToggle() {
+interface ThemeToggleProps {
+    mode: 'icon' | 'text';
+}
+
+export const ThemeToggle = ({ mode }: ThemeToggleProps) => {
     const { theme, setTheme } = useTheme();
 
     return (
-        <Button
-            variant='outline'
-            size='sm'
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            aria-label='Theme Button'
-            className='cursor-pointer'
-        >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-        </Button>
+        <>
+            {mode === 'icon' ? (
+                <TooltipWrapper message='Theme Switch'>
+                    <Button
+                        variant='outline'
+                        size='sm'
+                        onClick={() =>
+                            setTheme(theme === 'dark' ? 'light' : 'dark')
+                        }
+                        aria-label='Theme Button'
+                    >
+                        {theme === 'dark' ? (
+                            <Sun size={18} />
+                        ) : (
+                            <Moon size={18} />
+                        )}
+                    </Button>
+                </TooltipWrapper>
+            ) : (
+                <Button
+                    variant='ghost'
+                    size='sm'
+                    onClick={() =>
+                        setTheme(theme === 'dark' ? 'light' : 'dark')
+                    }
+                    aria-label='Theme Button'
+                    className='flex justify-start'
+                >
+                    {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+                    <p>Theme Switch</p>
+                </Button>
+            )}
+        </>
     );
-}
+};

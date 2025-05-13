@@ -13,11 +13,12 @@ import {
     getSimpleBezierPath
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import SkillNode from '@/components/SkillNode';
-import Navbar from '@/components/Navbar';
-import GuidePanel from '@/components/GuidePanel';
+import { SkillNode } from '@/components/SkillNode';
+import { Navbar } from '@/components/Navbar';
+import { GuidePanel } from '@/components/GuidePanel';
 import { useClassStore } from '@/stores/classStore';
 import { loadBuildFromUrl } from '@/utils/shareBuild';
+import { useWebsiteStore } from '@/stores/websiteStore';
 
 interface ClassSpaces {
     [key: number]: number;
@@ -177,6 +178,7 @@ const edgeTypes = {
 };
 
 const Page = () => {
+    const { skillStyle } = useWebsiteStore();
     const [nodes, setNodes, onNodesChange] = useNodesState([]);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -218,7 +220,7 @@ const Page = () => {
                     },
                     data: {
                         label: skill.name.en,
-                        image: `https://api.flyff.com/image/skill/colored/${skill.icon}`,
+                        image: `https://api.flyff.com/image/skill/${skillStyle}/${skill.icon}`,
                         skillData: skill
                     },
                     type: 'custom'
@@ -281,7 +283,13 @@ const Page = () => {
         };
 
         fetchSkillData();
-    }, [setNodes, setEdges, selectedClass.id, selectedClass.parent]);
+    }, [
+        setNodes,
+        setEdges,
+        selectedClass.id,
+        selectedClass.parent,
+        skillStyle
+    ]);
 
     if (isLoading) {
         return (
@@ -307,7 +315,7 @@ const Page = () => {
         <div className='w-screen h-screen'>
             <GuidePanel />
             <Navbar />
-            <div className='h-[calc(100vh-120px)] sm:h-[calc(100vh-120px)] md:h-[calc(100vh-76px)]'>
+            <div className='h-[calc(100vh-110px)] sm:h-[calc(100vh-70px)] md:h-[calc(100vh-70px)]'>
                 <ReactFlow
                     nodes={nodes}
                     edges={edges}

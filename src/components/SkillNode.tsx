@@ -23,10 +23,22 @@ interface SkillSourceProps {
     skills: number[];
 }
 
+interface SkillScaling {
+    parameter?: string;
+    stat?: string;
+    scale?: number;
+    pvp?: boolean;
+    pve?: boolean;
+}
 interface SkillLevel {
     consumedMP?: number;
     consumedFP?: number;
-    description?: string;
+    cooldown?: number;
+    duration?: number;
+    minAttack?: number;
+    maxAttack?: number;
+    casting?: number;
+    scalingParameters?: SkillScaling[];
 }
 
 interface SkillRequirement {
@@ -55,7 +67,7 @@ interface SkillNodeProps {
     };
 }
 
-const SkillNode = ({ data }: SkillNodeProps) => {
+export const SkillNode = ({ data }: SkillNodeProps) => {
     const { skillLevels, updateSkillLevel } = useSkillStore();
     const { selectedClass } = useClassStore();
     const { characterLevel, skillPoints, setSkillPoints } = useCharacterStore();
@@ -299,6 +311,59 @@ const SkillNode = ({ data }: SkillNodeProps) => {
                     >
                         Character Level: {data.skillData.level}
                     </div>
+                    {levelData?.minAttack !== undefined && (
+                        <div>
+                            Base Damage: {levelData.minAttack}{' '}
+                            {levelData?.maxAttack !== undefined &&
+                                `~ ${levelData.maxAttack}`}
+                        </div>
+                    )}
+                    {levelData?.duration !== undefined && (
+                        <div>Base Time: {levelData.duration}</div>
+                    )}
+                    {levelData?.scalingParameters !== undefined && (
+                        <>
+                            {levelData?.scalingParameters[0]?.parameter ===
+                                'attack' && (
+                                <div>
+                                    Attack Scaling:{' '}
+                                    {levelData.scalingParameters[0].stat?.toUpperCase()}{' '}
+                                    x{' '}
+                                    {levelData.scalingParameters[0].scale?.toFixed(
+                                        2
+                                    )}
+                                </div>
+                            )}
+                            {levelData?.scalingParameters[0]?.parameter ===
+                                'duration' && (
+                                <div>
+                                    Time Scaling:{' '}
+                                    {levelData.scalingParameters[0].stat?.toUpperCase()}{' '}
+                                    x{' '}
+                                    {levelData.scalingParameters[0].scale?.toFixed(
+                                        2
+                                    )}
+                                </div>
+                            )}
+                            {levelData?.scalingParameters[1]?.parameter ===
+                                'duration' && (
+                                <div>
+                                    Time Scaling:{' '}
+                                    {levelData.scalingParameters[1].stat?.toUpperCase()}{' '}
+                                    x{' '}
+                                    {levelData.scalingParameters[1].scale?.toFixed(
+                                        2
+                                    )}
+                                </div>
+                            )}
+                        </>
+                    )}
+                    {levelData?.casting !== undefined && (
+                        <div>Casting Time: {levelData.casting.toFixed(2)}</div>
+                    )}
+                    {levelData?.cooldown !== undefined && (
+                        <div>Cooldown: {levelData.cooldown.toFixed(2)}</div>
+                    )}
                     <div className='text-gray-400'>
                         {data.skillData.description.en}
                     </div>
@@ -307,5 +372,3 @@ const SkillNode = ({ data }: SkillNodeProps) => {
         </TooltipProvider>
     );
 };
-
-export default SkillNode;
