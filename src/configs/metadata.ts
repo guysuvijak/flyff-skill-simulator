@@ -35,7 +35,7 @@ export const METADATA: Metadata = {
         title: 'Flyff - Skill Simulator',
         description:
             'Flyff Universe - Skill Simulator (Data from API only), Created by MeteorVIIx, Flyff Skill Simulator is an open-source project developed using Next.js and React Flow technologies. The website serves as a simulator for planning and visualizing skill builds in the Flyff Universe server, allowing players to experiment with different skill combinations and paths.',
-        images: ['https://flyffskillsimulator.vercel.app/manifest.webp']
+        images: ['https://flyffskillsimulator.vercel.app/metadata/manifest.png']
     },
     keywords: [
         'Flyff',
