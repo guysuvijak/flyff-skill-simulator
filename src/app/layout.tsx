@@ -1,3 +1,4 @@
+// Next.js 15 - src/app/layout.tsx
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/providers/ThemeProvider';
@@ -55,9 +56,7 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body className={inter.className}>
-                <ThemeProvider>
-                    {children}
-                </ThemeProvider>
+                <ThemeProvider>{children}</ThemeProvider>
             </body>
         </html>
     );

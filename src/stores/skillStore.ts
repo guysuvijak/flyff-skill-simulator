@@ -1,3 +1,4 @@
+// Next.js 15 - src/stores/skillStore.ts
 import { create } from 'zustand';
 import { SkillState } from '@/types/skill';
 

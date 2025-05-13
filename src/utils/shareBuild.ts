@@ -1,3 +1,4 @@
+// Next.js 15 - src/utils/shareBuild.ts
 import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
 import { useSkillStore } from '@/stores/skillStore';

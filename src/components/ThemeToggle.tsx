@@ -1,3 +1,4 @@
+// Next.js 15 - src/components/ThemeToggle.tsx
 'use client';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
@@ -9,16 +10,12 @@ export default function ThemeToggle() {
     return (
         <Button
             variant='outline'
-            size='icon'
+            size='sm'
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             aria-label='Theme Button'
             className='cursor-pointer'
         >
-            {theme === 'dark' ? (
-                <Sun className='h-5 w-5' />
-            ) : (
-                <Moon className='h-5 w-5' />
-            )}
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
         </Button>
     );
 }

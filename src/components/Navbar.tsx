@@ -1,17 +1,19 @@
+// Next.js 15 - src/components/Navbar.tsx
 'use client';
-import React, { useState } from 'react';
-import ClassSelected from '@/components/ClassSelected';
+import { useState } from 'react';
 import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
 import { calculateSkillPoints } from '@/utils/calculateSkillPoints';
 import { calculateTotalPointsUsed } from '@/utils/calculateSkillPoints';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import ClassSelected from '@/components/ClassSelected';
 import ShareButton from '@/components/ShareButton';
 import GuideButton from '@/components/GuideButton';
-import ThemeToggle from '@/components/ThemeToggle';
-import { useTheme } from 'next-themes';
+import ThemeToggle from './ThemeToggle';
+import { RotateCcw } from 'lucide-react';
 
 const Navbar = () => {
-    const { theme } = useTheme();
     const { selectedClass } = useClassStore();
     const { characterLevel, setCharacterLevel, skillPoints, setSkillPoints } =
         useCharacterStore();
@@ -48,42 +50,50 @@ const Navbar = () => {
     };
 
     return (
-        <nav className='bg-gray-800 text-white py-4 fixed w-full top-0 z-10'>
-            <div className='container mx-auto flex flex-col sm:flex-row w-full justify-between items-center'>
-                <button
-                    onClick={() => {
-                        window.location.href = '/';
-                    }}
-                    className='top-4 left-4 mr-5 px-4 py-2 bg-blue-700 mb-1 sm:mb-0 hover:bg-blue-800 text-white rounded'
+        <nav className='bg-background border-b sticky top-0 z-10'>
+            <div className='container mx-auto flex flex-col md:flex-row items-center justify-between gap-2 py-4 px-4 sm:px-6'>
+                <Button
+                    variant='default'
+                    onClick={() => (window.location.href = '/')}
+                    className='hidden lg:block mb-2 sm:mb-0 mr-2'
                 >
                     Reset
-                </button>
-                <div className='flex'>
-                    <h1 className='flex items-center justify-center'>
-                        Level
-                        <input
-                            id={'level-input'}
+                </Button>
+                <div className='flex items-center gap-2'>
+                    <Button
+                        size={'sm'}
+                        variant='default'
+                        onClick={() => (window.location.href = '/')}
+                        className='block lg:hidden'
+                    >
+                        <RotateCcw />
+                    </Button>
+                    <div className='flex items-center space-x-2 text-sm sm:text-base'>
+                        <span className='text-foreground'>Level</span>
+                        <Input
+                            id='level-input'
                             type='number'
                             value={inputValue}
                             onChange={handleLevelChange}
-                            className='bg-gray-700 text-white rounded sm:p-2 mx-2 w-12 sm:w-20 text-center'
+                            className='w-14 sm:w-20 h-8 text-center'
                         />
-                        / {selectedClass.maxLevel}
-                    </h1>
-                    <h1 className='flex flex-col lg:flex-row ml-5 items-center justify-center text-[14px] sm:text-[15px] lg:text-[16px]'>
-                        Skill Points: {skillPoints}
-                        <span className='pl-1 text-[#ff3939]'>
+                        <span className='text-foreground'>
+                            / {selectedClass.maxLevel}
+                        </span>
+                    </div>
+                    <div className='flex items-center space-x-1 text-sm sm:text-base'>
+                        <span className='text-foreground'>SP:</span>
+                        <span className='text-foreground'>{skillPoints}</span>
+                        <span className='text-red-500'>
                             {characterLevel > selectedClass.maxLevel
-                                ? '*Max Level is ' +
-                                  selectedClass.maxLevel +
-                                  '*'
+                                ? `*Max Lvl.${selectedClass.maxLevel}`
                                 : characterLevel < 15
-                                  ? '*Min Level is 15*'
+                                  ? `*Min Lvl.15`
                                   : ''}
                         </span>
-                    </h1>
+                    </div>
                 </div>
-                <div className='flex w-full sm:w-80 px-4'>
+                <div className='flex items-center space-x-2 mt-2 sm:mt-0'>
                     <ClassSelected />
                     <ShareButton />
                     <ThemeToggle />

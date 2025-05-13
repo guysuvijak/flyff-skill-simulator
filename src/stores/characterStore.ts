@@ -1,3 +1,4 @@
+// Next.js 15 - src/stores/characterStore.ts
 import { create } from 'zustand';
 
 interface CharacterState {

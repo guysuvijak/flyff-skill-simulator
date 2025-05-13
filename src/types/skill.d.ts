@@ -1,3 +1,4 @@
+// Next.js 15 - src/types/skill.d.ts
 interface SkillLevel {
     level: number;
     points: number;

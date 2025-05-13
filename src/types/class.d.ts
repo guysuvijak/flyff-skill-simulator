@@ -1,3 +1,4 @@
+// Next.js 15 - src/types/class.d.ts
 export interface LanguageNames {
     en: string;
     ar: string;

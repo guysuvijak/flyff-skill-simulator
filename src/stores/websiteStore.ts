@@ -1,3 +1,4 @@
+// Next.js 15 - src/stores/websiteStore.ts
 import { create } from 'zustand';
 
 interface WebsiteState {

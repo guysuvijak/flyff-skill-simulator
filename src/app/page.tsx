@@ -1,5 +1,6 @@
+// Next.js 15 - src/app/page.tsx
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import {
     ReactFlow,
@@ -306,22 +307,25 @@ const Page = () => {
         <div className='w-screen h-screen'>
             <GuidePanel />
             <Navbar />
-            <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                nodeTypes={{ custom: SkillNode }}
-                edgeTypes={edgeTypes}
-                onBeforeDelete={onBeforeDelete}
-                draggable={false}
-                nodesDraggable={false}
-                zoomOnDoubleClick={false}
-                fitView
-            >
-                <Controls showInteractive={false} />
-                <Background />
-            </ReactFlow>
+            <div className='h-[calc(100vh-120px)] sm:h-[calc(100vh-120px)] md:h-[calc(100vh-76px)]'>
+                <ReactFlow
+                    nodes={nodes}
+                    edges={edges}
+                    onNodesChange={onNodesChange}
+                    onEdgesChange={onEdgesChange}
+                    nodeTypes={{ custom: SkillNode }}
+                    edgeTypes={edgeTypes}
+                    onBeforeDelete={onBeforeDelete}
+                    draggable={false}
+                    nodesDraggable={false}
+                    zoomOnDoubleClick={false}
+                    fitView
+                    className='text-black'
+                >
+                    <Controls showInteractive={false} />
+                    <Background />
+                </ReactFlow>
+            </div>
         </div>
     );
 };

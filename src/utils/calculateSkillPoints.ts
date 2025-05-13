@@ -1,3 +1,4 @@
+// Next.js 15 - src/utils/calculateSkillPoints.ts
 import { useSkillStore } from '@/stores/skillStore';
 
 type JobBonus = {

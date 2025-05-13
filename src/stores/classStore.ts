@@ -1,3 +1,4 @@
+// Next.js 15 - src/stores/classStore.ts
 import { create } from 'zustand';
 import { ClassData, ClassStore } from '@/types/class';
 

@@ -1,6 +1,6 @@
+// Next.js 15 - src/components/GuideButton.tsx
 'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 import { Info } from 'lucide-react';
 import { useWebsiteStore } from '@/stores/websiteStore';
 
@@ -13,15 +13,15 @@ const GuideButton = () => {
 
     return (
         <div className='relative inline-block ml-2'>
-            <motion.button
+            <Button
+                variant='outline'
+                size='sm'
                 onClick={handleGuideButton}
-                className='bg-slate-600 p-3 rounded-md hover:bg-slate-500 flex items-center justify-center'
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label={'guide-button'}
+                aria-label='Guide Button'
+                className='cursor-pointer'
             >
                 <Info size={18} />
-            </motion.button>
+            </Button>
         </div>
     );
 };

@@ -1,5 +1,6 @@
+// Next.js 15 - src/components/SkillNode.tsx
 'use client';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Handle, Position } from '@xyflow/react';
 import { FaPlusSquare, FaMinusSquare } from 'react-icons/fa';
@@ -158,7 +159,7 @@ const SkillNode = ({ data }: SkillNodeProps) => {
         <TooltipProvider delayDuration={100}>
             <Tooltip>
                 <TooltipTrigger asChild>
-                    <div className='flex flex-col w-[50px] h-[70px] bg-white text-white border-2 border-slate-400 rounded shadow relative justify-center items-center'>
+                    <div className='flex flex-col w-[50px] h-[70px] bg-background text-foreground border-2 border-border rounded shadow relative justify-center items-center'>
                         {data.skillData.requirements.length !== 0 &&
                             ![8348, 5559, 7266, 5041].includes(
                                 data.skillData.id
@@ -198,7 +199,7 @@ const SkillNode = ({ data }: SkillNodeProps) => {
                             />
                             {currentLevel !== 0 && (
                                 <p
-                                    className={`absolute bottom-0 right-0 pr-1 font-bold stroke-text-red ${currentLevel === data.skillData.levels.length ? 'text-[12px]' : ' text-[16px]'}`}
+                                    className={`absolute bottom-0 right-0 pr-1 font-bold text-white stroke-text-red ${currentLevel === data.skillData.levels.length ? 'text-[12px]' : ' text-[16px]'}`}
                                 >
                                     {currentLevel ===
                                     data.skillData.levels.length
@@ -231,7 +232,7 @@ const SkillNode = ({ data }: SkillNodeProps) => {
                                         currentLevel ===
                                             data.skillData.levels.length ||
                                         !canUpgrade()
-                                            ? 'text-gray-400'
+                                            ? 'text-muted'
                                             : 'text-green-500 hover:text-green-600'
                                     }`}
                                 />
@@ -246,7 +247,7 @@ const SkillNode = ({ data }: SkillNodeProps) => {
                             >
                                 <FaMinusSquare
                                     size={22}
-                                    className={`${currentLevel === 0 ? 'text-gray-400' : 'text-red-500 hover:text-red-600'}`}
+                                    className={`${currentLevel === 0 ? 'text-muted' : 'text-red-500 hover:text-red-600'}`}
                                 />
                             </motion.button>
                         </div>
@@ -279,7 +280,7 @@ const SkillNode = ({ data }: SkillNodeProps) => {
                 <TooltipContent side='right' className='max-w-xs text-sm'>
                     <div className='text-green-500 font-bold'>
                         {data.label}
-                        <span className='text-white pl-1'>
+                        <span className='text-foreground pl-1'>
                             Lv.{currentLevel}/{data.skillData.levels.length}
                         </span>
                     </div>
@@ -293,7 +294,7 @@ const SkillNode = ({ data }: SkillNodeProps) => {
                         className={
                             characterLevel < data.skillData.level
                                 ? 'text-red-500'
-                                : 'text-white'
+                                : 'text-secondary'
                         }
                     >
                         Character Level: {data.skillData.level}
