@@ -7,8 +7,11 @@ import { calculateSkillPoints } from '@/utils/calculateSkillPoints';
 import { calculateTotalPointsUsed } from '@/utils/calculateSkillPoints';
 import ShareButton from '@/components/ShareButton';
 import GuideButton from '@/components/GuideButton';
+import ThemeToggle from '@/components/ThemeToggle';
+import { useTheme } from 'next-themes';
 
 const Navbar = () => {
+    const { theme } = useTheme();
     const { selectedClass } = useClassStore();
     const { characterLevel, setCharacterLevel, skillPoints, setSkillPoints } =
         useCharacterStore();
@@ -83,6 +86,7 @@ const Navbar = () => {
                 <div className='flex w-full sm:w-80 px-4'>
                     <ClassSelected />
                     <ShareButton />
+                    <ThemeToggle />
                     <GuideButton />
                 </div>
             </div>
