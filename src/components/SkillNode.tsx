@@ -307,7 +307,7 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                         )}
                     </div>
                 </TooltipTrigger>
-                <TooltipContent className='max-w-xs text-sm bg-black/95'>
+                <TooltipContent className='max-w-xs text-sm text-foreground bg-background border border-border shadow-md'>
                     <div className='text-primary font-bold'>
                         {data.label}
                         <span className='text-muted-foreground pl-1'>
