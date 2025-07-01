@@ -8,13 +8,20 @@ import { motion } from 'framer-motion';
 import { useSkillStore } from '@/stores/skillStore';
 import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
-import axios from 'axios';
 import {
     TooltipProvider,
     Tooltip,
     TooltipTrigger,
     TooltipContent
 } from '@/components/ui/tooltip';
+import {
+    Clock,
+    ClockArrowUp,
+    Expand,
+    Loader,
+    MousePointerClick
+} from 'lucide-react';
+import axios from 'axios';
 
 interface SkillSourceProps {
     class: number;
@@ -84,6 +91,12 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
     const additionalSourceBottom = [4729, 8140, 3840, 5559].includes(
         data.skillData.id
     );
+    const [isHovered, setIsHovered] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => setIsHovered(false);
+    const handleClick = () => setIsClicked((prev) => !prev);
 
     useEffect(() => {
         const fetchSkillSource = async () => {
@@ -169,9 +182,14 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
 
     return (
         <TooltipProvider delayDuration={100}>
-            <Tooltip>
+            <Tooltip open={isHovered || isClicked}>
                 <TooltipTrigger asChild>
-                    <div className='flex flex-col w-[50px] h-[70px] bg-background text-foreground border-2 border-border rounded shadow relative justify-center items-center'>
+                    <div
+                        onPointerEnter={handleMouseEnter}
+                        onPointerLeave={handleMouseLeave}
+                        onClick={handleClick}
+                        className='flex flex-col w-[50px] h-[70px] bg-background text-foreground border-2 border-border rounded shadow relative justify-center items-center'
+                    >
                         {data.skillData.requirements.length !== 0 &&
                             ![8348, 5559, 7266, 5041].includes(
                                 data.skillData.id
@@ -199,7 +217,7 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                 className='w-3 h-3 rounded-full'
                             />
                         )}
-                        <div className='flex relative'>
+                        <div className='flex relative cursor-pointer'>
                             <Image
                                 src={data.image}
                                 alt={data.label || String(data.skillData.id)}
@@ -244,8 +262,8 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         currentLevel ===
                                             data.skillData.levels.length ||
                                         !canUpgrade()
-                                            ? 'text-muted'
-                                            : 'text-green-500 hover:text-green-600'
+                                            ? 'text-muted cursor-not-allowed'
+                                            : 'text-primary hover:text-primary/80'
                                     }`}
                                 />
                             </motion.button>
@@ -259,7 +277,7 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                             >
                                 <FaMinusSquare
                                     size={22}
-                                    className={`${currentLevel === 0 ? 'text-muted' : 'text-red-500 hover:text-red-600'}`}
+                                    className={`${currentLevel === 0 ? 'text-muted cursor-not-allowed' : 'text-destructive hover:text-destructive/80'}`}
                                 />
                             </motion.button>
                         </div>
@@ -289,43 +307,56 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                         )}
                     </div>
                 </TooltipTrigger>
-                <TooltipContent side='right' className='max-w-xs text-sm'>
-                    <div className='text-green-500 font-bold'>
+                <TooltipContent className='max-w-xs text-sm bg-black/95'>
+                    <div className='text-primary font-bold'>
                         {data.label}
-                        <span className='text-foreground pl-1'>
+                        <span className='text-muted-foreground pl-1'>
                             Lv.{currentLevel}/{data.skillData.levels.length}
                         </span>
                     </div>
                     {levelData?.consumedMP !== undefined && (
-                        <div>MP: {levelData.consumedMP}</div>
+                        <span>MP: {levelData.consumedMP}</span>
                     )}
                     {levelData?.consumedFP !== undefined && (
-                        <div>FP: {levelData.consumedFP}</div>
+                        <span>FP: {levelData.consumedFP}</span>
                     )}
                     <div
                         className={
                             characterLevel < data.skillData.level
-                                ? 'text-red-500'
-                                : 'text-secondary'
+                                ? 'text-destructive'
+                                : 'text-muted-foreground'
                         }
                     >
                         Character Level: {data.skillData.level}
                     </div>
                     {levelData?.minAttack !== undefined && (
                         <div>
+                            <span className='mx-1.5 text-muted-foreground'>
+                                -
+                            </span>{' '}
                             Base Damage: {levelData.minAttack}{' '}
                             {levelData?.maxAttack !== undefined &&
                                 `~ ${levelData.maxAttack}`}
                         </div>
                     )}
                     {levelData?.duration !== undefined && (
-                        <div>Base Time: {levelData.duration}</div>
+                        <div>
+                            <span className='mx-1.5 text-muted-foreground'>
+                                -
+                            </span>{' '}
+                            Base Time: {levelData.duration}
+                        </div>
                     )}
+                    <div className='w-full h-[1px] my-1 bg-muted/30' />
                     {levelData?.scalingParameters !== undefined && (
                         <>
                             {levelData?.scalingParameters[0]?.parameter ===
                                 'attack' && (
-                                <div>
+                                <div className='flex items-center'>
+                                    <Expand
+                                        size={16}
+                                        className='text-muted-foreground mr-1'
+                                    />
                                     Attack Scaling:{' '}
                                     {levelData.scalingParameters[0].stat?.toUpperCase()}{' '}
                                     x{' '}
@@ -336,7 +367,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                             )}
                             {levelData?.scalingParameters[0]?.parameter ===
                                 'duration' && (
-                                <div>
+                                <div className='flex items-center'>
+                                    <ClockArrowUp
+                                        size={16}
+                                        className='text-muted-foreground mr-1'
+                                    />
                                     Time Scaling:{' '}
                                     {levelData.scalingParameters[0].stat?.toUpperCase()}{' '}
                                     x{' '}
@@ -347,7 +382,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                             )}
                             {levelData?.scalingParameters[1]?.parameter ===
                                 'duration' && (
-                                <div>
+                                <div className='flex items-center'>
+                                    <ClockArrowUp
+                                        size={16}
+                                        className='text-muted-foreground mr-1'
+                                    />
                                     Time Scaling:{' '}
                                     {levelData.scalingParameters[1].stat?.toUpperCase()}{' '}
                                     x{' '}
@@ -359,14 +398,31 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                         </>
                     )}
                     {levelData?.casting !== undefined && (
-                        <div>Casting Time: {levelData.casting.toFixed(2)}</div>
+                        <div className='flex items-center'>
+                            <Loader
+                                size={16}
+                                className='text-muted-foreground mr-1'
+                            />{' '}
+                            Casting Time: {levelData.casting.toFixed(2)}
+                        </div>
                     )}
                     {levelData?.cooldown !== undefined && (
-                        <div>Cooldown: {levelData.cooldown.toFixed(2)}</div>
+                        <div className='flex items-center'>
+                            <Clock
+                                size={16}
+                                className='text-muted-foreground mr-1'
+                            />{' '}
+                            Cooldown: {levelData.cooldown.toFixed(2)}
+                        </div>
                     )}
-                    <div className='text-gray-400'>
+                    <div className='text-muted-foreground'>
                         {data.skillData.description.en}
                     </div>
+                    <div className='w-full h-[1px] my-1 bg-muted/30' />
+                    <span className='flex text-muted-foreground'>
+                        <MousePointerClick size={16} className='mx-1' /> Click
+                        to hold/close the window.
+                    </span>
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>

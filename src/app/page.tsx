@@ -15,7 +15,6 @@ import {
 import '@xyflow/react/dist/style.css';
 import { SkillNode } from '@/components/SkillNode';
 import { Navbar } from '@/components/Navbar';
-import { GuidePanel } from '@/components/GuidePanel';
 import { useClassStore } from '@/stores/classStore';
 import { loadBuildFromUrl } from '@/utils/shareBuild';
 import { useWebsiteStore } from '@/stores/websiteStore';
@@ -313,7 +312,6 @@ const Page = () => {
 
     return (
         <div className='w-screen h-screen'>
-            <GuidePanel />
             <Navbar />
             <div className='h-[calc(100vh-110px)] sm:h-[calc(100vh-70px)] md:h-[calc(100vh-70px)]'>
                 <ReactFlow

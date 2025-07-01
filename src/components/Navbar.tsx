@@ -1,24 +1,13 @@
 // Next.js 15 - src/components/Navbar.tsx
 'use client';
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
 import { calculateSkillPoints } from '@/utils/calculateSkillPoints';
 import { calculateTotalPointsUsed } from '@/utils/calculateSkillPoints';
-import { Menu, RotateCcw } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
 import { ClassSelected } from '@/components/ClassSelected';
-import { ShareButton } from '@/components/ShareButton';
-import { GuideButton } from '@/components/GuideButton';
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { SkillStyleToggle } from '@/components/SkillStyleToggle';
+import { NavbarMenu } from '@/components/NavbarMenu';
 
 export const Navbar = () => {
     const { selectedClass } = useClassStore();
@@ -26,7 +15,7 @@ export const Navbar = () => {
         useCharacterStore();
     const [inputValue, setInputValue] = useState(characterLevel.toString());
 
-    const handleLevelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleLevelChange = (e: ChangeEvent<HTMLInputElement>) => {
         let newLevel: string | number = e.target.value;
 
         if (newLevel.length > 5) return;
@@ -85,48 +74,10 @@ export const Navbar = () => {
                         </span>
                     </div>
                 </div>
-                {/* Desktop Menu (md and above) */}
+                {/* Right Menu */}
                 <div className='flex items-center gap-2'>
-                    <Button
-                        variant='default'
-                        size={'sm'}
-                        aria-label='Reset Button'
-                        onClick={() => (window.location.href = '/')}
-                    >
-                        <RotateCcw size={18} />
-                    </Button>
                     <ClassSelected />
-                    <div className='hidden lg:flex gap-1'>
-                        <ShareButton mode='icon' />
-                        <SkillStyleToggle mode='icon' />
-                        <ThemeToggle mode='icon' />
-                        <GuideButton mode='icon' />
-                    </div>
-                    {/* Mobile Dropdown Menu (below md) */}
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild className='lg:hidden'>
-                            <Button variant='outline' size='sm'>
-                                <Menu size={18} />
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
-                            align='end'
-                            className='flex flex-col space-y-1'
-                        >
-                            <DropdownMenuItem asChild>
-                                <ShareButton mode='text' />
-                            </DropdownMenuItem>
-                            <DropdownMenuItem asChild>
-                                <SkillStyleToggle mode='text' />
-                            </DropdownMenuItem>
-                            <DropdownMenuItem asChild>
-                                <ThemeToggle mode='text' />
-                            </DropdownMenuItem>
-                            <DropdownMenuItem asChild>
-                                <GuideButton mode='text' />
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                    <NavbarMenu />
                 </div>
             </div>
         </nav>
