@@ -79,8 +79,9 @@ flyff-skill-simulator/
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is licensed under the MIT License - see the LICENSE.md file for details. (This Free Open-source)
 
 ## 🙏 Acknowledgments
 
-Flyff Universe for the amazing game. The Flyff community for support and feedback :heart:
+- ☕ Donate my coffee: https://ko-fi.com/guysuvijak
+- ☎️ Contact me: [Facebook](https://web.facebook.com/guy.suvijak) or [Discord](https://discord.com/users/220231582722555924)
