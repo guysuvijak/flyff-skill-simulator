@@ -1,0 +1,51 @@
+{
+    "navbar": {
+        "menu": {
+            "soon": "Soon",
+            "build": {
+                "main": "Build",
+                "load": "Load Build",
+                "share": "Share Build",
+                "screenshot": "Screenshot",
+                "reset": "Reset Build"
+            },
+            "theme": {
+                "main": "Theme",
+                "icon-colored": "Icon - Colored",
+                "icon-old": "Icon - Old",
+                "theme-light": "Theme - Light",
+                "theme-dark": "Theme - Dark",
+                "theme-color": {
+                    "main": "Theme Color",
+                    "default": "Default",
+                    "red": "Red",
+                    "rose": "Rose",
+                    "orange": "Orange",
+                    "green": "Green",
+                    "blue": "Blue",
+                    "yellow": "Yellow",
+                    "violet": "Violet"
+                },
+                "language": {
+                    "main": "Language",
+                    "en": "English",
+                    "th": "Thai",
+                    "jp": "Japanese",
+                    "cns": "Chinese",
+                    "vi": "Vietnamese"
+                }
+            },
+            "other": {
+                "main": "Other",
+                "flyff-api": "Flyff Universe API",
+                "source-code": "Source Code",
+                "github-me": "Github Me",
+                "contact-me": "Contact Me",
+                "donate-me": "Donate Me (Ko-fi)",
+                "changelog": "Changelog",
+                "current-version": "Current version: {version}",
+                "last-updated": "Last updated: {date}"
+            }
+        }
+    }
+}

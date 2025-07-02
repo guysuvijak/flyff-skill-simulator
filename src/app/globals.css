@@ -76,6 +76,20 @@ input[type='reset'] {
 }
 
 @layer base {
+    /* Fix for non-English text wrapping issues */
+    .break-keep {
+        word-break: keep-all;
+        overflow-wrap: normal;
+        white-space: nowrap;
+        hyphens: none;
+    }
+
+    /* Ensure proper text rendering for CJK and Thai languages */
+    * {
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+
     :root {
         --background: 0 0% 100%;
         --foreground: 240 10% 3.9%;

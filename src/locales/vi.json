@@ -1,0 +1,51 @@
+{
+    "navbar": {
+        "menu": {
+            "soon": "Sắp ra mắt",
+            "build": {
+                "main": "Bản dựng",
+                "load": "Tải bản dựng",
+                "share": "Chia sẻ bản dựng",
+                "screenshot": "Chụp màn hình",
+                "reset": "Đặt lại bản dựng"
+            },
+            "theme": {
+                "main": "Giao diện",
+                "icon-colored": "Biểu tượng - Màu sắc",
+                "icon-old": "Biểu tượng - Cổ điển",
+                "theme-light": "Giao diện - Sáng",
+                "theme-dark": "Giao diện - Tối",
+                "theme-color": {
+                    "main": "Màu giao diện",
+                    "default": "Mặc định",
+                    "red": "Đỏ",
+                    "rose": "Hồng",
+                    "orange": "Cam",
+                    "green": "Xanh lá",
+                    "blue": "Xanh dương",
+                    "yellow": "Vàng",
+                    "violet": "Tím"
+                },
+                "language": {
+                    "main": "Language",
+                    "en": "English",
+                    "th": "Thai",
+                    "jp": "Japanese",
+                    "cns": "Chinese",
+                    "vi": "Vietnamese"
+                }
+            },
+            "other": {
+                "main": "Khác",
+                "flyff-api": "Flyff Universe API",
+                "source-code": "Mã nguồn",
+                "github-me": "Github của tôi",
+                "contact-me": "Liên hệ với tôi",
+                "donate-me": "Ủng hộ tôi (Ko-fi)",
+                "changelog": "Nhật ký thay đổi",
+                "current-version": "Phiên bản hiện tại: {version}",
+                "last-updated": "Cập nhật lần cuối: {date}"
+            }
+        }
+    }
+}

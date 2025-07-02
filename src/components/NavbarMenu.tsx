@@ -29,6 +29,7 @@ import { useTheme } from 'next-themes';
 import { useWebsiteStore } from '@/stores/websiteStore';
 import { shareBuild } from '@/utils/shareBuild';
 import { toast } from 'sonner';
+import { useTranslation } from '@/hooks/useTranslation';
 import pkg from '../../package.json';
 
 const themeColors = [
@@ -42,10 +43,19 @@ const themeColors = [
     'violet'
 ];
 
+const languages = ['en', 'th', 'jp', 'cns', 'vi'];
+
 export const NavbarMenu = () => {
+    const { t } = useTranslation();
     const { theme, setTheme } = useTheme();
-    const { colorTheme, setColorTheme, skillStyle, setSkillStyle } =
-        useWebsiteStore();
+    const {
+        lang,
+        setLang,
+        colorTheme,
+        setColorTheme,
+        skillStyle,
+        setSkillStyle
+    } = useWebsiteStore();
     const [isSharing, setIsSharing] = useState(false);
 
     useEffect(() => {
@@ -89,29 +99,37 @@ export const NavbarMenu = () => {
             <MenubarMenu>
                 <MenubarTrigger>
                     <Cloud size={18} className='text-primary' />
-                    <span className='ml-1 hidden md:inline'>Build</span>
+                    <span className='ml-1 hidden md:inline whitespace-nowrap break-keep'>
+                        {t(`navbar.menu.build.main`)}
+                    </span>
                 </MenubarTrigger>
                 <MenubarContent className='mr-2'>
                     <MenubarItem disabled>
-                        <Download size={18} className='mr-2' /> Load Build{' '}
-                        <MenubarShortcut>soon</MenubarShortcut>
+                        <Download size={18} className='mr-2' />
+                        {t(`navbar.menu.build.load`)}
+                        <MenubarShortcut>
+                            {t(`navbar.menu.soon`)}
+                        </MenubarShortcut>
                     </MenubarItem>
                     <MenubarItem onClick={handleShare} disabled={isSharing}>
-                        <Share2 size={18} className='mr-2 text-primary' /> Share
-                        Build
+                        <Share2 size={18} className='mr-2 text-primary' />
+                        {t(`navbar.menu.build.share`)}
                     </MenubarItem>
                     <MenubarSeparator />
                     <MenubarItem disabled>
-                        <Camera size={18} className='mr-2' /> Screenshot{' '}
-                        <MenubarShortcut>soon</MenubarShortcut>
+                        <Camera size={18} className='mr-2' />
+                        {t(`navbar.menu.build.screenshot`)}
+                        <MenubarShortcut>
+                            {t(`navbar.menu.soon`)}
+                        </MenubarShortcut>
                     </MenubarItem>
                     <MenubarSeparator />
                     <MenubarItem onClick={() => (window.location.href = '/')}>
                         <RotateCcw
                             size={18}
                             className='mr-2 text-destructive'
-                        />{' '}
-                        Reset Build
+                        />
+                        {t(`navbar.menu.build.reset`)}
                     </MenubarItem>
                 </MenubarContent>
             </MenubarMenu>
@@ -120,37 +138,41 @@ export const NavbarMenu = () => {
             <MenubarMenu>
                 <MenubarTrigger>
                     <Blend size={18} className='text-primary' />
-                    <span className='ml-1 hidden md:inline'>Theme</span>
+                    <span className='ml-1 hidden md:inline whitespace-nowrap break-keep'>
+                        {t(`navbar.menu.theme.main`)}
+                    </span>
                 </MenubarTrigger>
                 <MenubarContent className='mr-2'>
                     <MenubarCheckboxItem
                         onClick={() => setSkillStyle('colored')}
                         checked={skillStyle === 'colored'}
                     >
-                        Icon - Colored
+                        {t(`navbar.menu.theme.icon-colored`)}
                     </MenubarCheckboxItem>
                     <MenubarCheckboxItem
                         onClick={() => setSkillStyle('old')}
                         checked={skillStyle === 'old'}
                     >
-                        Icon - Old
+                        {t(`navbar.menu.theme.icon-old`)}
                     </MenubarCheckboxItem>
                     <MenubarSeparator />
                     <MenubarCheckboxItem
                         onClick={() => setTheme('light')}
                         checked={theme === 'light'}
                     >
-                        Theme - Light
+                        {t(`navbar.menu.theme.theme-light`)}
                     </MenubarCheckboxItem>
                     <MenubarCheckboxItem
                         onClick={() => setTheme('dark')}
                         checked={theme === 'dark'}
                     >
-                        Theme - Dark
+                        {t(`navbar.menu.theme.theme-dark`)}
                     </MenubarCheckboxItem>
                     <MenubarSeparator />
                     <MenubarSub>
-                        <MenubarSubTrigger>Theme Color</MenubarSubTrigger>
+                        <MenubarSubTrigger>
+                            {t(`navbar.menu.theme.theme-color.main`)}
+                        </MenubarSubTrigger>
                         <MenubarSubContent className='mr-2'>
                             {themeColors.map((color) => (
                                 <MenubarCheckboxItem
@@ -158,8 +180,25 @@ export const NavbarMenu = () => {
                                     onClick={() => setColorTheme(color)}
                                     checked={colorTheme === color}
                                 >
-                                    {color.charAt(0).toUpperCase() +
-                                        color.slice(1)}
+                                    {t(
+                                        `navbar.menu.theme.theme-color.${color}`
+                                    )}
+                                </MenubarCheckboxItem>
+                            ))}
+                        </MenubarSubContent>
+                    </MenubarSub>
+                    <MenubarSub>
+                        <MenubarSubTrigger>
+                            {t(`navbar.menu.theme.language.main`)}
+                        </MenubarSubTrigger>
+                        <MenubarSubContent className='mr-2'>
+                            {languages.map((item) => (
+                                <MenubarCheckboxItem
+                                    key={item}
+                                    onClick={() => setLang(item)}
+                                    checked={lang === item}
+                                >
+                                    {t(`navbar.menu.theme.language.${item}`)}
                                 </MenubarCheckboxItem>
                             ))}
                         </MenubarSubContent>
@@ -171,41 +210,47 @@ export const NavbarMenu = () => {
             <MenubarMenu>
                 <MenubarTrigger>
                     <Ellipsis size={18} className='text-primary' />
-                    <span className='ml-1 hidden md:inline'>Other</span>
+                    <span className='ml-1 hidden md:inline whitespace-nowrap break-keep'>
+                        {t(`navbar.menu.other.main`)}
+                    </span>
                 </MenubarTrigger>
                 <MenubarContent className='mr-2'>
                     <ExternalLinkItem
                         href='https://api.flyff.com'
-                        label='Flyff Universe API'
+                        label={t(`navbar.menu.other.flyff-api`)}
                     />
                     <ExternalLinkItem
                         href='https://github.com/guysuvijak/flyff-skill-simulator'
-                        label='Source Code'
+                        label={t(`navbar.menu.other.source-code`)}
                     />
                     <MenubarSeparator />
                     <ExternalLinkItem
                         href='https://github.com/guysuvijak'
-                        label='Github Me'
+                        label={t(`navbar.menu.other.github-me`)}
                     />
                     <ExternalLinkItem
                         href='https://facebook.com/guy.suvijak'
-                        label='Contact Me'
+                        label={t(`navbar.menu.other.contact-me`)}
                     />
                     <ExternalLinkItem
                         href='https://ko-fi.com/guysuvijak'
-                        label='Donate Me (Ko-fi)'
+                        label={t(`navbar.menu.other.donate-me`)}
                     />
                     <MenubarSeparator />
                     <ExternalLinkItem
                         href='https://github.com/guysuvijak/flyff-skill-simulator/blob/main/CHANGELOG.md'
-                        label='Changelog'
+                        label={t(`navbar.menu.other.changelog`)}
                     />
                     <MenubarSeparator />
                     <MenubarItem disabled>
-                        Current version: {pkg.version}
+                        {t(`navbar.menu.other.current-version`, {
+                            version: pkg.version
+                        })}
                     </MenubarItem>
                     <MenubarItem disabled>
-                        Last updated: {pkg.updated}
+                        {t(`navbar.menu.other.last-updated`, {
+                            date: pkg.updated
+                        })}
                     </MenubarItem>
                 </MenubarContent>
             </MenubarMenu>

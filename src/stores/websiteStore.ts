@@ -5,18 +5,22 @@ import { persist } from 'zustand/middleware';
 type SkillStyleType = 'colored' | 'old';
 
 interface WebsiteState {
+    lang: string;
     colorTheme: string;
-    setColorTheme: (colorTheme: string) => void;
     skillStyle: SkillStyleType;
+    setLang: (lang: string) => void;
+    setColorTheme: (colorTheme: string) => void;
     setSkillStyle: (skillStyle: SkillStyleType) => void;
 }
 
 export const useWebsiteStore = create<WebsiteState>()(
     persist(
         (set) => ({
+            lang: 'en',
             colorTheme: 'default',
-            setColorTheme: (colorTheme) => set({ colorTheme }),
             skillStyle: 'colored',
+            setLang: (lang) => set({ lang }),
+            setColorTheme: (colorTheme) => set({ colorTheme }),
             setSkillStyle: (state) => set({ skillStyle: state })
         }),
         { name: 'flyff-website-store' }

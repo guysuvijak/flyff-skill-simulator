@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 📍 [1.3.0] - 2025-07-02
+
+- added: DEMO! Multi-Language & Font system (en, th, jp, vi, cns)
+- updated: cspell.json file
+
 ## 📍 [1.2.1] - 2025-07-02
 
 - fixed: theme color issue (on SkillNode Tooltip)

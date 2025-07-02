@@ -1,0 +1,51 @@
+{
+    "navbar": {
+        "menu": {
+            "soon": "เร็ว ๆ นี้",
+            "build": {
+                "main": "ชุดสกิล",
+                "load": "โหลดชุดสกิล",
+                "share": "แชร์ชุดสกิล",
+                "screenshot": "จับภาพหน้าจอ",
+                "reset": "รีเซตชุดสกิล"
+            },
+            "theme": {
+                "main": "ธีม",
+                "icon-colored": "ไอคอน - สี",
+                "icon-old": "ไอคอน - ดั้งเดิม",
+                "theme-light": "ธีม - สว่าง",
+                "theme-dark": "ธีม - มืด",
+                "theme-color": {
+                    "main": "สีของธีม",
+                    "default": "ค่าเริ่มต้น",
+                    "red": "แดง",
+                    "rose": "กุหลาบ",
+                    "orange": "ส้ม",
+                    "green": "เขียว",
+                    "blue": "น้ำเงิน",
+                    "yellow": "เหลือง",
+                    "violet": "ม่วง"
+                },
+                "language": {
+                    "main": "Language",
+                    "en": "English",
+                    "th": "Thai",
+                    "jp": "Japanese",
+                    "cns": "Chinese",
+                    "vi": "Vietnamese"
+                }
+            },
+            "other": {
+                "main": "อื่น ๆ",
+                "flyff-api": "Flyff Universe API",
+                "source-code": "ซอร์สโค้ด",
+                "github-me": "กิตฮับของฉัน",
+                "contact-me": "ติดต่อฉัน",
+                "donate-me": "สนับสนุนฉัน (Ko-fi)",
+                "changelog": "บันทึกการเปลี่ยนแปลง",
+                "current-version": "เวอร์ชันปัจจุบัน: {version}",
+                "last-updated": "อัปเดตล่าสุด: {date}"
+            }
+        }
+    }
+}

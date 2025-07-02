@@ -1,8 +1,9 @@
 {
     "version": "0.2",
-    "ignorePaths": [],
-    "dictionaryDefinitions": [],
-    "dictionaries": [],
+    "enabled": true,
+    "language": "en",
+    "ignoreRegExpList": ["/[ก-๙]+/"],
+    "ignorePaths": ["node_modules/**", "dist/**"],
     "words": [
         "classall",
         "cooldown",

@@ -1,0 +1,51 @@
+{
+    "navbar": {
+        "menu": {
+            "soon": "近日公開",
+            "build": {
+                "main": "ビルド",
+                "load": "ビルドを読み込む",
+                "share": "ビルドを共有",
+                "screenshot": "スクリーンショット",
+                "reset": "ビルドをリセット"
+            },
+            "theme": {
+                "main": "テーマ",
+                "icon-colored": "アイコン - カラー",
+                "icon-old": "アイコン - クラシック",
+                "theme-light": "テーマ - ライト",
+                "theme-dark": "テーマ - ダーク",
+                "theme-color": {
+                    "main": "テーマカラー",
+                    "default": "デフォルト",
+                    "red": "赤",
+                    "rose": "ローズ",
+                    "orange": "オレンジ",
+                    "green": "緑",
+                    "blue": "青",
+                    "yellow": "黄色",
+                    "violet": "紫"
+                },
+                "language": {
+                    "main": "Language",
+                    "en": "English",
+                    "th": "Thai",
+                    "jp": "Japanese",
+                    "cns": "Chinese",
+                    "vi": "Vietnamese"
+                }
+            },
+            "other": {
+                "main": "その他",
+                "flyff-api": "Flyff Universe API",
+                "source-code": "ソースコード",
+                "github-me": "私のGitHub",
+                "contact-me": "お問い合わせ",
+                "donate-me": "寄付する (Ko-fi)",
+                "changelog": "変更履歴",
+                "current-version": "現在のバージョン: {version}",
+                "last-updated": "最終更新日: {date}"
+            }
+        }
+    }
+}
