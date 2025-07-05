@@ -2,8 +2,13 @@
     "version": "0.2",
     "enabled": true,
     "language": "en",
-    "ignoreRegExpList": ["/[ก-๙]+/"],
-    "ignorePaths": ["node_modules/**", "dist/**"],
+    "ignoreRegExpList": [
+        "/[ก-๙]+/"
+    ],
+    "ignorePaths": [
+        "node_modules/**",
+        "dist/**"
+    ],
     "words": [
         "classall",
         "cooldown",
@@ -12,12 +17,16 @@
         "guysuvijak",
         "Kasemwutthiphong",
         "meteorviix",
+        "nosniff",
         "Psykeeper",
+        "SAMEORIGIN",
+        "shadcn",
         "skillall",
         "skillsource",
         "SPACESY",
         "Suvijak",
-        "xyflow"
+        "xyflow",
+        "yoyo"
     ],
     "ignoreWords": [],
     "import": []

@@ -1,5 +1,6 @@
 {
     "navbar": {
+        "level": "レベル",
         "menu": {
             "soon": "近日公開",
             "build": {

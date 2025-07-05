@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## 📍 [1.4.0] - 2025-07-05
+
+- added: Class data caching system with 1-day cache duration
+- added: Image caching system with 7-day cache duration for FlyFF API images
+- added: Custom EdgeLabel component with better text stroke rendering
+- added: Skill level controls (increase, decrease, max, reset to 0)
+- added: Tooltip close button (X) for skill information
+- added: Select component from shadcn/ui for class selection
+- updated: Multi-language support for class names (en, th, jp, vi, cns)
+- changed: ClassSelected from DropdownMenu to Select component
+- changed: Tooltip to only wrap skill images instead of entire skill nodes
+- changed: API optimization - fetch all class data in single request
+- improved: Skill tree edge labels with better zoom visibility
+- improved: Tooltip UI with responsive text sizes and separators
+- fixed: Tooltip event handling to prevent conflicts with skill controls
+
 ## 📍 [1.3.0] - 2025-07-02
 
 - added: DEMO! Multi-Language & Font system (en, th, jp, vi, cns)

@@ -1,5 +1,6 @@
 {
     "navbar": {
+        "level": "等级",
         "menu": {
             "soon": "即将推出",
             "build": {

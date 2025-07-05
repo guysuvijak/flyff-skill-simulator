@@ -1,5 +1,6 @@
 {
     "navbar": {
+        "level": "Level",
         "menu": {
             "soon": "Soon",
             "build": {

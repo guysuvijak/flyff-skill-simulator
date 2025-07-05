@@ -15,6 +15,7 @@ import {
 import '@xyflow/react/dist/style.css';
 import { SkillNode } from '@/components/SkillNode';
 import { Navbar } from '@/components/Navbar';
+import { EdgeLabel } from '@/components/EdgeLabel';
 import { useClassStore } from '@/stores/classStore';
 import { loadBuildFromUrl } from '@/utils/shareBuild';
 import { useWebsiteStore } from '@/stores/websiteStore';
@@ -71,14 +72,14 @@ interface UniqueConnections {
 }
 
 const CLASS_SPACES: ClassSpaces = {
-    2246: 600, // Blade
-    3545: 600, // Jester
-    5330: 600, // Knight
-    5709: 600, // Psykeeper
-    7424: 700, // Billposter
-    9150: 600, // Elementor
-    9295: 600, // Ranger
-    9389: 700 // Ringmaster
+    2246: 700, // Blade
+    3545: 700, // Jester
+    5330: 700, // Knight
+    5709: 700, // Psykeeper
+    7424: 800, // Billposter
+    9150: 700, // Elementor
+    9295: 700, // Ranger
+    9389: 800 // Ringmaster
 };
 
 const CLASS_SPACESY: ClassSpaces = {
@@ -90,12 +91,6 @@ const CLASS_SPACESY: ClassSpaces = {
     9150: 0, // Elementor
     9295: 91, // Ranger
     9389: 91 // Ringmaster
-};
-
-const getEdgeColor = (id: string) => {
-    if (id === 'e-marketplace1-equipment') return '#2196f3';
-    if (id === 'e-trave1-traveler1') return '#f44336';
-    return '#999999';
 };
 
 const edgeTypes = {
@@ -110,7 +105,7 @@ const edgeTypes = {
         style = {},
         data
     }: CustomEdgeProps) => {
-        const edgeColor = getEdgeColor(id);
+        const edgeColor = '#999999';
 
         let startX = sourceX;
         let startY = sourceY;
@@ -158,18 +153,15 @@ const edgeTypes = {
                     markerEnd='url(#arrow-end)'
                 />
                 {data?.label && (
-                    <text
+                    <EdgeLabel
                         x={labelX}
                         y={labelY}
-                        fill={'#ffee03'}
-                        fontSize='12'
-                        textAnchor='middle'
-                        dominantBaseline='middle'
-                        style={{ pointerEvents: 'none' }}
-                        className='stroke-text stroke-text-red'
-                    >
-                        {data.label}
-                    </text>
+                        text={data.label}
+                        fontSize={14}
+                        strokeWidth={3}
+                        fontWeight="bold"
+                        showMultipleStrokes={true}
+                    />
                 )}
             </>
         );
@@ -211,10 +203,10 @@ const Page = () => {
                     id: skill.id.toString(),
                     position: {
                         x:
-                            (skill.treePosition?.x * 3 || 0) +
+                            (skill.treePosition?.x * 3.5 || 0) +
                             (skill.class === selectedClass.id ? classSpace : 0),
                         y:
-                            (skill.treePosition?.y * 3.5 || 0) +
+                            (skill.treePosition?.y * 4 || 0) +
                             (skill.class === selectedClass.id ? classSpaceY : 0)
                     },
                     data: {
@@ -300,7 +292,7 @@ const Page = () => {
 
     if (error) {
         return (
-            <div className='flex justify-center items-center h-screen text-red-500'>
+            <div className='flex justify-center items-center h-screen text-destructive'>
                 {error}
             </div>
         );

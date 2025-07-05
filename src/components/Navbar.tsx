@@ -8,8 +8,10 @@ import { calculateTotalPointsUsed } from '@/utils/calculateSkillPoints';
 import { Input } from '@/components/ui/input';
 import { ClassSelected } from '@/components/ClassSelected';
 import { NavbarMenu } from '@/components/NavbarMenu';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export const Navbar = () => {
+    const { t } = useTranslation();
     const { selectedClass } = useClassStore();
     const { characterLevel, setCharacterLevel, skillPoints, setSkillPoints } =
         useCharacterStore();
@@ -50,7 +52,7 @@ export const Navbar = () => {
             <div className='container mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 py-4 px-4'>
                 <div className='flex items-center gap-2'>
                     <div className='flex items-center space-x-2 text-sm sm:text-base'>
-                        <span className='text-foreground'>Level</span>
+                        <span className='text-foreground'>{t('navbar.level')}</span>
                         <Input
                             id='level-input'
                             type='number'
@@ -65,7 +67,7 @@ export const Navbar = () => {
                     <div className='flex items-center space-x-1 text-sm sm:text-base'>
                         <span className='text-foreground'>SP:</span>
                         <span className='text-foreground'>{skillPoints}</span>
-                        <span className='text-red-500'>
+                        <span className='text-destructive'>
                             {characterLevel > selectedClass.maxLevel
                                 ? `*Max Lvl.${selectedClass.maxLevel}`
                                 : characterLevel < 15

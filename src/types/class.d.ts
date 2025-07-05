@@ -1,25 +1,27 @@
 // Next.js 15 - src/types/class.d.ts
-export interface LanguageNames {
-    en: string;
-    ar: string;
-    br: string;
-    cns: string;
-    de: string;
-    fi: string;
-    fil: string;
-    fr: string;
-    id: string;
-    it: string;
-    jp: string;
-    kr: string;
-    nl: string;
-    pl: string;
-    ru: string;
-    sp: string;
-    sw: string;
-    th: string;
-    tw: string;
-    vi: string;
+export interface LanguageNames extends Record<string, string> {
+    // รองรับภาษาใดๆ ที่ API ส่งมา
+    // ตัวอย่างภาษาที่รู้จัก:
+    en?: string;
+    ar?: string;
+    br?: string;
+    cns?: string;
+    de?: string;
+    fi?: string;
+    fil?: string;
+    fr?: string;
+    id?: string;
+    it?: string;
+    jp?: string;
+    kr?: string;
+    nl?: string;
+    pl?: string;
+    ru?: string;
+    sp?: string;
+    sw?: string;
+    th?: string;
+    tw?: string;
+    vi?: string;
 }
 
 export interface AutoAttackFactors {

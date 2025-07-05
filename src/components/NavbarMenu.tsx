@@ -97,7 +97,7 @@ export const NavbarMenu = () => {
         <Menubar>
             {/* Build Menu */}
             <MenubarMenu>
-                <MenubarTrigger>
+                <MenubarTrigger className='hover:bg-muted cursor-pointer'>
                     <Cloud size={18} className='text-primary' />
                     <span className='ml-1 hidden md:inline whitespace-nowrap break-keep'>
                         {t(`navbar.menu.build.main`)}
@@ -111,7 +111,7 @@ export const NavbarMenu = () => {
                             {t(`navbar.menu.soon`)}
                         </MenubarShortcut>
                     </MenubarItem>
-                    <MenubarItem onClick={handleShare} disabled={isSharing}>
+                    <MenubarItem onClick={handleShare} disabled={isSharing} className={`${isSharing ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
                         <Share2 size={18} className='mr-2 text-primary' />
                         {t(`navbar.menu.build.share`)}
                     </MenubarItem>
@@ -124,7 +124,7 @@ export const NavbarMenu = () => {
                         </MenubarShortcut>
                     </MenubarItem>
                     <MenubarSeparator />
-                    <MenubarItem onClick={() => (window.location.href = '/')}>
+                    <MenubarItem onClick={() => (window.location.href = '/')} className='cursor-pointer'>
                         <RotateCcw
                             size={18}
                             className='mr-2 text-destructive'
@@ -136,7 +136,7 @@ export const NavbarMenu = () => {
 
             {/* Theme Menu */}
             <MenubarMenu>
-                <MenubarTrigger>
+                <MenubarTrigger className='hover:bg-muted cursor-pointer'>
                     <Blend size={18} className='text-primary' />
                     <span className='ml-1 hidden md:inline whitespace-nowrap break-keep'>
                         {t(`navbar.menu.theme.main`)}
@@ -146,12 +146,14 @@ export const NavbarMenu = () => {
                     <MenubarCheckboxItem
                         onClick={() => setSkillStyle('colored')}
                         checked={skillStyle === 'colored'}
+                        className='cursor-pointer'
                     >
                         {t(`navbar.menu.theme.icon-colored`)}
                     </MenubarCheckboxItem>
                     <MenubarCheckboxItem
                         onClick={() => setSkillStyle('old')}
                         checked={skillStyle === 'old'}
+                        className='cursor-pointer'
                     >
                         {t(`navbar.menu.theme.icon-old`)}
                     </MenubarCheckboxItem>
@@ -159,18 +161,20 @@ export const NavbarMenu = () => {
                     <MenubarCheckboxItem
                         onClick={() => setTheme('light')}
                         checked={theme === 'light'}
+                        className='cursor-pointer'
                     >
                         {t(`navbar.menu.theme.theme-light`)}
                     </MenubarCheckboxItem>
                     <MenubarCheckboxItem
                         onClick={() => setTheme('dark')}
                         checked={theme === 'dark'}
+                        className='cursor-pointer'
                     >
                         {t(`navbar.menu.theme.theme-dark`)}
                     </MenubarCheckboxItem>
                     <MenubarSeparator />
                     <MenubarSub>
-                        <MenubarSubTrigger>
+                        <MenubarSubTrigger className='cursor-pointer'>
                             {t(`navbar.menu.theme.theme-color.main`)}
                         </MenubarSubTrigger>
                         <MenubarSubContent className='mr-2'>
@@ -179,6 +183,7 @@ export const NavbarMenu = () => {
                                     key={color}
                                     onClick={() => setColorTheme(color)}
                                     checked={colorTheme === color}
+                                    className='cursor-pointer'
                                 >
                                     {t(
                                         `navbar.menu.theme.theme-color.${color}`
@@ -188,7 +193,7 @@ export const NavbarMenu = () => {
                         </MenubarSubContent>
                     </MenubarSub>
                     <MenubarSub>
-                        <MenubarSubTrigger>
+                        <MenubarSubTrigger className='cursor-pointer'>
                             {t(`navbar.menu.theme.language.main`)}
                         </MenubarSubTrigger>
                         <MenubarSubContent className='mr-2'>
@@ -197,6 +202,7 @@ export const NavbarMenu = () => {
                                     key={item}
                                     onClick={() => setLang(item)}
                                     checked={lang === item}
+                                    className='cursor-pointer'
                                 >
                                     {t(`navbar.menu.theme.language.${item}`)}
                                 </MenubarCheckboxItem>
@@ -208,7 +214,7 @@ export const NavbarMenu = () => {
 
             {/* Other Menu */}
             <MenubarMenu>
-                <MenubarTrigger>
+                <MenubarTrigger className='hover:bg-muted cursor-pointer'>
                     <Ellipsis size={18} className='text-primary' />
                     <span className='ml-1 hidden md:inline whitespace-nowrap break-keep'>
                         {t(`navbar.menu.other.main`)}
