@@ -1,4 +1,16 @@
-export type Language = 'en' | 'th' | 'jp' | 'vi' | 'cns';
+// Next.js 15 - src/types/language.d.ts
+export type Language =
+    | 'en'
+    | 'th'
+    | 'jp'
+    | 'vi'
+    | 'cns'
+    | 'br'
+    | 'de'
+    | 'fr'
+    | 'id'
+    | 'kr'
+    | 'sp';
 
 export type TranslationValue = string | { [key: string]: TranslationValue };
 

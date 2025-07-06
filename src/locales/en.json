@@ -10,8 +10,8 @@
                 "screenshot": "Screenshot",
                 "reset": "Reset Build"
             },
-            "theme": {
-                "main": "Theme",
+            "setting": {
+                "main": "Settings",
                 "icon-colored": "Icon - Colored",
                 "icon-old": "Icon - Old",
                 "theme-light": "Theme - Light",
@@ -33,7 +33,13 @@
                     "th": "Thai",
                     "jp": "Japanese",
                     "cns": "Chinese",
-                    "vi": "Vietnamese"
+                    "vi": "Vietnamese",
+                    "br": "Brazilian (PT)",
+                    "de": "German",
+                    "fr": "French",
+                    "id": "Indonesian",
+                    "kr": "Korean",
+                    "sp": "Spanish"
                 }
             },
             "other": {
@@ -48,5 +54,49 @@
                 "last-updated": "Last updated: {date}"
             }
         }
+    },
+    "class-selected": {
+        "loading": "Loading",
+        "select-class": "Select Class",
+        "loading-classes": "Loading classes..."
+    },
+    "skill-node": {
+        "character-level": "Character Level: {level}",
+        "base-damage": "Base Damage: {minAttack} ~ {maxAttack}",
+        "base-time": "Base Time: {duration}",
+        "attack-scaling": "Attack Scaling: {stat} x {scale}",
+        "time-scaling": "Time Scaling: {stat} x {scale}",
+        "casting-time": "Casting Time: {casting}",
+        "cooldown": "Cooldown: {cooldown}",
+        "spell-range": "Spell Range: {spellRange}",
+        "target-area": "(Around)",
+        "target-party": "(Party)",
+        "no-description": "No description available",
+        "attribute-double": "Attribute: Double (Duration: {duration}s)",
+        "attribute-slow": "Attribute: Slow (Speed: {speed}{rate})",
+        "attribute-stun": "Attribute: Stun (Duration: {duration}s)",
+        "attribute-bleeding": "Attribute: Bleeding (Duration: {duration}s)",
+        "attribute-poison": "Attribute: Poison (Duration: {duration}s)",
+        "attribute-forcedblock": "Attribute: Forced Block",
+        "attribute-invisibility": "Attribute: Invisibility (Duration: {duration}s)",
+        "hit-rate": "Hit Rate: {result}{hitRate}{rate}",
+        "hit-rate-duration": "(Duration: {duration}s)",
+        "hp": "HP: {result}{hp}{rate}",
+        "damage": "Damage: {result}{damage}{rate} (Duration: {duration}s)",
+        "maxhp": "Max HP: {result}{maxhp}{rate} (Duration: {duration}s)",
+        "speed": "Speed: {result}{speed}{rate} (Duration: {duration}s)",
+        "str": "STR: {result}{str}{rate} (Duration: {duration}s)",
+        "sta": "STA: {result}{sta}{rate} (Duration: {duration}s)",
+        "int": "INT: {result}{int}{rate} (Duration: {duration}s)",
+        "dex": "DEX: {result}{dex}{rate} (Duration: {duration}s)",
+        "attack-speed": "Attack Speed:\n{result}{attackSpeed}{rate} (Duration: {duration}s)",
+        "decreased-casting-time": "Decreased Casting Time:\n{result}{castingTime}{rate} (Duration: {duration}s)",
+        "block": "Block: {result}{block}{rate} (Duration: {duration}s)",
+        "magic-defense": "M.DEF: {result}{magicDefense}{rate} (Duration: {duration}s)",
+        "def": "DEF: {result}{def}{rate} (Duration: {duration}s)",
+        "critical-damage": "Critical Damage: {result}{criticalDamage}{rate}",
+        "critical-chance": "Critical Chance: {result}{criticalChance}{rate}",
+        "block-penetration": "Block Penetration: {result}{blockPenetration}{rate}",
+        "click-to-hold": "Click to hold/close the window."
     }
 }

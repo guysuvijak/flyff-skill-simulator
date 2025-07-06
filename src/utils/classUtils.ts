@@ -1,3 +1,4 @@
+// Next.js 15 - src/utils/classUtils.ts
 import { LanguageNames } from '@/types/class';
 
 /**
@@ -16,18 +17,18 @@ export function getClassName(
     if (names[preferredLanguage]) {
         return names[preferredLanguage];
     }
-    
+
     // Fallback to specified fallback language
     if (names[fallbackLanguage]) {
         return names[fallbackLanguage];
     }
-    
+
     // If fallback is not available, return the first available name
     const firstAvailableName = Object.values(names)[0];
     if (firstAvailableName) {
         return firstAvailableName;
     }
-    
+
     // Last resort - return a default message
     return 'Unknown Class';
 }
@@ -63,4 +64,4 @@ export function getAvailableLanguages(names: LanguageNames): string[] {
  */
 export function hasLanguage(names: LanguageNames, language: string): boolean {
     return names[language] !== undefined;
-} 
+}

@@ -1,0 +1,102 @@
+{
+    "navbar": {
+        "level": "Level",
+        "menu": {
+            "soon": "Segera",
+            "build": {
+                "main": "Bangun",
+                "load": "Muat Bangunan",
+                "share": "Bagikan Bangunan",
+                "screenshot": "Tangkapan Layar",
+                "reset": "Reset Bangunan"
+            },
+            "setting": {
+                "main": "Pengaturan",
+                "icon-colored": "Ikon - Berwarna",
+                "icon-old": "Ikon - Lama",
+                "theme-light": "Tema - Terang",
+                "theme-dark": "Tema - Gelap",
+                "theme-color": {
+                    "main": "Warna Tema",
+                    "default": "Default",
+                    "red": "Merah",
+                    "rose": "Mawar",
+                    "orange": "Oranye",
+                    "green": "Hijau",
+                    "blue": "Biru",
+                    "yellow": "Kuning",
+                    "violet": "Ungu"
+                },
+                "language": {
+                    "main": "Language",
+                    "en": "English",
+                    "th": "Thai",
+                    "jp": "Japanese",
+                    "cns": "Chinese",
+                    "vi": "Vietnamese",
+                    "br": "Brazilian (PT)",
+                    "de": "German",
+                    "fr": "French",
+                    "id": "Indonesian",
+                    "kr": "Korean",
+                    "sp": "Spanish"
+                }
+            },
+            "other": {
+                "main": "Lainnya",
+                "flyff-api": "Flyff Universe API",
+                "source-code": "Kode Sumber",
+                "github-me": "GitHub Saya",
+                "contact-me": "Hubungi Saya",
+                "donate-me": "Donasi Saya (Ko-fi)",
+                "changelog": "Catatan Perubahan",
+                "current-version": "Versi saat ini: {version}",
+                "last-updated": "Terakhir diperbarui: {date}"
+            }
+        }
+    },
+    "class-selected": {
+        "loading": "Memuat",
+        "select-class": "Pilih Kelas",
+        "loading-classes": "Memuat kelas..."
+    },
+    "skill-node": {
+        "character-level": "Level Karakter: {level}",
+        "base-damage": "Kerusakan Dasar: {minAttack} ~ {maxAttack}",
+        "base-time": "Waktu Dasar: {duration}",
+        "attack-scaling": "Skala Serangan: {stat} x {scale}",
+        "time-scaling": "Skala Waktu: {stat} x {scale}",
+        "casting-time": "Waktu Casting: {casting}",
+        "cooldown": "Cooldown: {cooldown}",
+        "spell-range": "Jangkauan Mantra: {spellRange}",
+        "target-area": "(Sekitar)",
+        "target-party": "(Pesta)",
+        "no-description": "Tidak ada deskripsi yang tersedia",
+        "attribute-double": "Atribut: Ganda (Durasi: {duration}s)",
+        "attribute-slow": "Atribut: Lambat (Kecepatan: {speed}{rate})",
+        "attribute-stun": "Atribut: Stun (Durasi: {duration}s)",
+        "attribute-bleeding": "Atribut: Berdarah (Durasi: {duration}s)",
+        "attribute-poison": "Atribut: Racun (Durasi: {duration}s)",
+        "attribute-forcedblock": "Atribut: Blok Paksa",
+        "attribute-invisibility": "Atribut: Tidak Terlihat (Durasi: {duration}s)",
+        "hit-rate": "Tingkat Hit: {result}{hitRate}{rate}",
+        "hit-rate-duration": "(Durasi: {duration}s)",
+        "hp": "HP: {result}{hp}{rate}",
+        "damage": "Kerusakan: {result}{damage}{rate} (Durasi: {duration}s)",
+        "maxhp": "HP Maks: {result}{maxhp}{rate} (Durasi: {duration}s)",
+        "speed": "Kecepatan: {result}{speed}{rate} (Durasi: {duration}s)",
+        "str": "STR: {result}{str}{rate} (Durasi: {duration}s)",
+        "sta": "STA: {result}{sta}{rate} (Durasi: {duration}s)",
+        "int": "INT: {result}{int}{rate} (Durasi: {duration}s)",
+        "dex": "DEX: {result}{dex}{rate} (Durasi: {duration}s)",
+        "attack-speed": "Kecepatan Serangan:\n{result}{attackSpeed}{rate} (Durasi: {duration}s)",
+        "decreased-casting-time": "Waktu Casting Berkurang:\n{result}{castingTime}{rate} (Durasi: {duration}s)",
+        "block": "Blok: {result}{block}{rate} (Durasi: {duration}s)",
+        "magic-defense": "Pertahanan Sihir: {result}{magicDefense}{rate} (Durasi: {duration}s)",
+        "def": "Pertahanan: {result}{def}{rate} (Durasi: {duration}s)",
+        "critical-damage": "Kerusakan Kritis: {result}{criticalDamage}{rate}",
+        "critical-chance": "Peluang Kritis: {result}{criticalChance}{rate}",
+        "block-penetration": "Penetrasi Blok: {result}{blockPenetration}{rate}",
+        "click-to-hold": "Klik untuk menahan/tutup jendela."
+    }
+}

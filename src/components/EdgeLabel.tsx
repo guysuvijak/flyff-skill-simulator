@@ -1,4 +1,5 @@
-import React from 'react';
+// Next.js 15 - src/components/EdgeLabel.tsx
+'use client';
 
 interface EdgeLabelProps {
     x: number;
@@ -19,7 +20,7 @@ const getNonInteractiveStyles = () => ({
     msUserSelect: 'none' as const
 });
 
-export const EdgeLabel: React.FC<EdgeLabelProps> = ({
+export const EdgeLabel = ({
     x,
     y,
     text,
@@ -27,7 +28,7 @@ export const EdgeLabel: React.FC<EdgeLabelProps> = ({
     strokeWidth = 3,
     fontWeight = 'bold',
     showMultipleStrokes = true
-}) => {
+}: EdgeLabelProps) => {
     if (!text) return null;
 
     const nonInteractiveStyles = getNonInteractiveStyles();
@@ -39,15 +40,15 @@ export const EdgeLabel: React.FC<EdgeLabelProps> = ({
                 <text
                     x={x}
                     y={y}
-                    fill="none"
-                    stroke="currentColor"
+                    fill='none'
+                    stroke='currentColor'
                     strokeWidth={strokeWidth + 1}
                     fontSize={fontSize}
                     fontWeight={fontWeight}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
+                    textAnchor='middle'
+                    dominantBaseline='middle'
                     style={nonInteractiveStyles}
-                    className="text-primary-foreground"
+                    className='text-primary-foreground'
                 >
                     {text}
                 </text>
@@ -55,15 +56,15 @@ export const EdgeLabel: React.FC<EdgeLabelProps> = ({
                 <text
                     x={x}
                     y={y}
-                    fill="none"
-                    stroke="currentColor"
+                    fill='none'
+                    stroke='currentColor'
                     strokeWidth={strokeWidth}
                     fontSize={fontSize}
                     fontWeight={fontWeight}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
+                    textAnchor='middle'
+                    dominantBaseline='middle'
                     style={nonInteractiveStyles}
-                    className="text-primary-foreground"
+                    className='text-primary-foreground'
                 >
                     {text}
                 </text>
@@ -71,13 +72,13 @@ export const EdgeLabel: React.FC<EdgeLabelProps> = ({
                 <text
                     x={x}
                     y={y}
-                    fill="currentColor"
+                    fill='currentColor'
                     fontSize={fontSize}
                     fontWeight={fontWeight}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
+                    textAnchor='middle'
+                    dominantBaseline='middle'
                     style={nonInteractiveStyles}
-                    className="text-primary"
+                    className='text-primary'
                 >
                     {text}
                 </text>
@@ -91,31 +92,31 @@ export const EdgeLabel: React.FC<EdgeLabelProps> = ({
             <text
                 x={x}
                 y={y}
-                fill="none"
-                stroke="currentColor"
+                fill='none'
+                stroke='currentColor'
                 strokeWidth={strokeWidth}
                 fontSize={fontSize}
                 fontWeight={fontWeight}
-                textAnchor="middle"
-                dominantBaseline="middle"
+                textAnchor='middle'
+                dominantBaseline='middle'
                 style={nonInteractiveStyles}
-                className="text-primary"
+                className='text-primary'
             >
                 {text}
             </text>
             <text
                 x={x}
                 y={y}
-                fill="currentColor"
+                fill='currentColor'
                 fontSize={fontSize}
                 fontWeight={fontWeight}
-                textAnchor="middle"
-                dominantBaseline="middle"
+                textAnchor='middle'
+                dominantBaseline='middle'
                 style={nonInteractiveStyles}
-                className="text-primary-foreground"
+                className='text-primary-foreground'
             >
                 {text}
             </text>
         </g>
     );
-}; 
+};

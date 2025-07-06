@@ -2,19 +2,18 @@
     "version": "0.2",
     "enabled": true,
     "language": "en",
-    "ignoreRegExpList": [
-        "/[ก-๙]+/"
-    ],
-    "ignorePaths": [
-        "node_modules/**",
-        "dist/**"
-    ],
+    "ignoreRegExpList": ["/[ก-๙]+/"],
+    "ignorePaths": ["node_modules/**", "dist/**"],
     "words": [
+        "blockpenetration",
         "classall",
         "cooldown",
+        "criticaldamage",
+        "currentplayer",
         "Elementor",
         "Flyff",
         "guysuvijak",
+        "hitrate",
         "Kasemwutthiphong",
         "meteorviix",
         "nosniff",

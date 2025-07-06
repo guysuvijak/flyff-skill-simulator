@@ -1,3 +1,4 @@
+// Next.js 15 - src/hooks/useTranslation.tsx
 'use client';
 import { useState, useEffect, useCallback, ReactNode } from 'react';
 import { useWebsiteStore } from '@/stores/websiteStore';

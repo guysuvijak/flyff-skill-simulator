@@ -1,4 +1,6 @@
 // Next.js 15 - src/components/TooltipWrapper.tsx
+'use client';
+import { ReactNode } from 'react';
 import {
     Tooltip,
     TooltipContent,
@@ -8,7 +10,7 @@ import {
 
 interface UseTooltipProps {
     message: string;
-    children: React.ReactNode;
+    children: ReactNode;
     position?: 'top' | 'bottom' | 'left' | 'right';
 }
 

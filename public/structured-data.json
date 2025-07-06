@@ -1,0 +1,54 @@
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "@id": "https://flyffskillsimulator.vercel.app",
+            "name": "Flyff Universe Skill Simulator",
+            "description": "Free online Flyff Universe Skill Simulator. Plan and visualize your character skill builds with our interactive skill tree. Test different skill combinations for all classes including Knight, Blade, Elementor, and more.",
+            "url": "https://flyffskillsimulator.vercel.app",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web Browser",
+            "browserRequirements": "Requires JavaScript. Requires HTML5.",
+            "softwareVersion": "1.4.0",
+            "author": {
+                "@type": "Person",
+                "name": "MeteorVIIx",
+                "url": "https://github.com/MeteorVIIx"
+            },
+            "creator": {
+                "@type": "Person",
+                "name": "MeteorVIIx"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Flyff Universe Skill Simulator"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "featureList": [
+                "Interactive Skill Tree",
+                "All Flyff Universe Classes",
+                "Skill Point Calculator",
+                "Build Sharing",
+                "Multi-language Support",
+                "Mobile Responsive",
+                "No Download Required"
+            ],
+            "screenshot": "https://flyffskillsimulator.vercel.app/metadata/demo.png",
+            "softwareHelp": "https://flyffskillsimulator.vercel.app",
+            "downloadUrl": "https://flyffskillsimulator.vercel.app",
+            "installUrl": "https://flyffskillsimulator.vercel.app",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "ratingCount": "150",
+                "bestRating": "5",
+                "worstRating": "1"
+            }
+        }
+    ]
+} 

@@ -2,7 +2,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import axios from 'axios';
 import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
 import { useSkillStore } from '@/stores/skillStore';
@@ -18,8 +17,12 @@ import {
     SelectValue
 } from '@/components/ui/select';
 import { Loader2 } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
+
+// Static class data - will be loaded via fetch
 
 export const ClassSelected = () => {
+    const { t } = useTranslation();
     const [class2Data, setClass2Data] = useState<ClassData[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const { selectedClass, setSelectedClass } = useClassStore();
@@ -28,25 +31,25 @@ export const ClassSelected = () => {
     const { getClassName } = useClassName();
 
     useEffect(() => {
-        const getData = async () => {
+        const loadClassData = async () => {
             try {
                 setIsLoading(true);
-                const classApiResponse = await axios.get('/api/flyff/class');
-                console.log('classApi', classApiResponse.data);
-                
-                if (classApiResponse.data.success) {
-                    const allClassData = classApiResponse.data.data;1
-                    
-                    // Filter only professional classes
-                    const professionalClasses = allClassData.filter((classItem: ClassData) => 
-                        classItem.type === 'professional'
-                    );
-                    
-                    setClass2Data(professionalClasses);
-                } else {
-                    throw new Error('Failed to fetch class data from API');
+
+                // Fetch static class data from public folder
+                const response = await fetch('/data/classall.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load class data');
                 }
-                
+
+                const allClassData: ClassData[] = await response.json();
+
+                // Filter only professional classes from static data
+                const professionalClasses = allClassData.filter(
+                    (classItem: ClassData) => classItem.type === 'professional'
+                );
+
+                setClass2Data(professionalClasses);
+
                 const bonusPoint = calculateSkillPoints(
                     characterLevel,
                     selectedClass.id,
@@ -56,13 +59,13 @@ export const ClassSelected = () => {
                 resetSkillLevels();
                 setIsLoading(false);
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error loading class data:', error);
                 setIsLoading(false);
-                alert('Error fetching class data. Please try again later.');
+                alert('Error loading class data. Please refresh the page.');
             }
         };
 
-        getData();
+        loadClassData();
     }, [
         characterLevel,
         selectedClass.id,
@@ -76,13 +79,18 @@ export const ClassSelected = () => {
     };
 
     return (
-        <div className="w-full">
-            <Select value={selectedClass.id.toString()} onValueChange={(value) => {
-                const selectedClassData = class2Data.find(cls => cls.id.toString() === value);
-                if (selectedClassData) {
-                    handleClassSelect(selectedClassData);
-                }
-            }}>
+        <div className='w-full'>
+            <Select
+                value={selectedClass.id.toString()}
+                onValueChange={(value) => {
+                    const selectedClassData = class2Data.find(
+                        (cls) => cls.id.toString() === value
+                    );
+                    if (selectedClassData) {
+                        handleClassSelect(selectedClassData);
+                    }
+                }}
+            >
                 <SelectTrigger className='gap-2'>
                     <Image
                         src={getCachedClassIconUrl(selectedClass.icon)}
@@ -93,32 +101,45 @@ export const ClassSelected = () => {
                         quality={100}
                         style={{ objectFit: 'contain' }}
                         priority
+                        draggable={false}
                     />
-                    <SelectValue placeholder={isLoading ? 'Loading...' : 'Select a class'}>
+                    <SelectValue
+                        placeholder={
+                            isLoading
+                                ? t('class-selected.loading')
+                                : t('class-selected.select-class')
+                        }
+                    >
                         {getClassName(selectedClass.name)}
                     </SelectValue>
                 </SelectTrigger>
                 <SelectContent>
                     {isLoading ? (
-                        <SelectItem value="loading" disabled>
-                            <div className="flex items-center gap-2 text-muted-foreground">
+                        <SelectItem value='loading' disabled>
+                            <div className='flex items-center gap-2 text-muted-foreground'>
                                 <Loader2 className='w-4 h-4 animate-spin' />
-                                Loading classes...
+                                {t('class-selected.loading-classes')}
                             </div>
                         </SelectItem>
                     ) : (
                         class2Data.map((classData: ClassData) => (
-                            <SelectItem key={classData.id} value={classData.id.toString()}>
-                                <div className="flex items-center gap-2">
+                            <SelectItem
+                                key={classData.id}
+                                value={classData.id.toString()}
+                            >
+                                <div className='flex items-center gap-2'>
                                     <Image
-                                        src={getCachedClassIconUrl(classData.icon)}
+                                        src={getCachedClassIconUrl(
+                                            classData.icon
+                                        )}
                                         alt={getClassName(classData.name)}
                                         width={40}
                                         height={40}
                                         className='w-6 h-6'
                                         priority
+                                        draggable={false}
                                     />
-                                    <span className="font-medium">{getClassName(classData.name)}</span>
+                                    <span>{getClassName(classData.name)}</span>
                                 </div>
                             </SelectItem>
                         ))

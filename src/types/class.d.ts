@@ -1,7 +1,5 @@
 // Next.js 15 - src/types/class.d.ts
 export interface LanguageNames extends Record<string, string> {
-    // รองรับภาษาใดๆ ที่ API ส่งมา
-    // ตัวอย่างภาษาที่รู้จัก:
     en?: string;
     ar?: string;
     br?: string;

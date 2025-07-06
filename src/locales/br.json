@@ -1,0 +1,102 @@
+{
+    "navbar": {
+        "level": "Nível",
+        "menu": {
+            "soon": "Em breve",
+            "build": {
+                "main": "Construir",
+                "load": "Carregar Build",
+                "share": "Compartilhar Build",
+                "screenshot": "Captura de Tela",
+                "reset": "Resetar Build"
+            },
+            "setting": {
+                "main": "Configurações",
+                "icon-colored": "Ícone - Colorido",
+                "icon-old": "Ícone - Antigo",
+                "theme-light": "Tema - Claro",
+                "theme-dark": "Tema - Escuro",
+                "theme-color": {
+                    "main": "Cor do Tema",
+                    "default": "Padrão",
+                    "red": "Vermelho",
+                    "rose": "Rosa",
+                    "orange": "Laranja",
+                    "green": "Verde",
+                    "blue": "Azul",
+                    "yellow": "Amarelo",
+                    "violet": "Violeta"
+                },
+                "language": {
+                    "main": "Language",
+                    "en": "English",
+                    "th": "Thai",
+                    "jp": "Japanese",
+                    "cns": "Chinese",
+                    "vi": "Vietnamese",
+                    "br": "Brazilian (PT)",
+                    "de": "German",
+                    "fr": "French",
+                    "id": "Indonesian",
+                    "kr": "Korean",
+                    "sp": "Spanish"
+                }
+            },
+            "other": {
+                "main": "Outros",
+                "flyff-api": "Flyff Universe API",
+                "source-code": "Código Fonte",
+                "github-me": "GitHub Me",
+                "contact-me": "Contate-me",
+                "donate-me": "Doe para mim (Ko-fi)",
+                "changelog": "Registro de Alterações",
+                "current-version": "Versão atual: {version}",
+                "last-updated": "Última atualização: {date}"
+            }
+        }
+    },
+    "class-selected": {
+        "loading": "Carregando",
+        "select-class": "Selecionar Classe",
+        "loading-classes": "Carregando classes..."
+    },
+    "skill-node": {
+        "character-level": "Nível do Personagem: {level}",
+        "base-damage": "Dano Base: {minAttack} ~ {maxAttack}",
+        "base-time": "Tempo Base: {duration}",
+        "attack-scaling": "Escalonamento de Ataque: {stat} x {scale}",
+        "time-scaling": "Escalonamento de Tempo: {stat} x {scale}",
+        "casting-time": "Tempo de Conjuração: {casting}",
+        "cooldown": "Recarga: {cooldown}",
+        "spell-range": "Alcance da Magia: {spellRange}",
+        "target-area": "(Ao Redor)",
+        "target-party": "(Grupo)",
+        "no-description": "Nenhuma descrição disponível",
+        "attribute-double": "Atributo: Duplo (Duração: {duration}s)",
+        "attribute-slow": "Atributo: Lento (Velocidade: {speed}{rate})",
+        "attribute-stun": "Atributo: Atordoamento (Duração: {duration}s)",
+        "attribute-bleeding": "Atributo: Sangramento (Duração: {duration}s)",
+        "attribute-poison": "Atributo: Veneno (Duração: {duration}s)",
+        "attribute-forcedblock": "Atributo: Bloqueio Forçado",
+        "attribute-invisibility": "Atributo: Invisibilidade (Duração: {duration}s)",
+        "hit-rate": "Taxa de Acerto: {result}{hitRate}{rate}",
+        "hit-rate-duration": "(Duração: {duration}s)",
+        "hp": "HP: {result}{hp}{rate}",
+        "damage": "Dano: {result}{damage}{rate} (Duração: {duration}s)",
+        "maxhp": "HP Máx: {result}{maxhp}{rate} (Duração: {duration}s)",
+        "speed": "Velocidade: {result}{speed}{rate} (Duração: {duration}s)",
+        "str": "FOR: {result}{str}{rate} (Duração: {duration}s)",
+        "sta": "RES: {result}{sta}{rate} (Duração: {duration}s)",
+        "int": "INT: {result}{int}{rate} (Duração: {duration}s)",
+        "dex": "DES: {result}{dex}{rate} (Duração: {duration}s)",
+        "attack-speed": "Velocidade de Ataque:\n{result}{attackSpeed}{rate} (Duração: {duration}s)",
+        "decreased-casting-time": "Tempo de Conjuração Reduzido:\n{result}{castingTime}{rate} (Duração: {duration}s)",
+        "block": "Bloqueio: {result}{block}{rate} (Duração: {duration}s)",
+        "magic-defense": "DEF. Mágica: {result}{magicDefense}{rate} (Duração: {duration}s)",
+        "def": "DEF: {result}{def}{rate} (Duração: {duration}s)",
+        "critical-damage": "Dano Crítico: {result}{criticalDamage}{rate}",
+        "critical-chance": "Chance Crítica: {result}{criticalChance}{rate}",
+        "block-penetration": "Penetração de Bloqueio: {result}{blockPenetration}{rate}",
+        "click-to-hold": "Clique para segurar/fechar a janela."
+    }
+}

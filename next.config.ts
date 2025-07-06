@@ -20,28 +20,28 @@ const nextConfig = {
                 headers: [
                     {
                         key: 'Permissions-Policy',
-                        value: 'interest-cohort=()',
+                        value: 'interest-cohort=()'
                     },
                     {
                         key: 'X-Content-Type-Options',
-                        value: 'nosniff',
+                        value: 'nosniff'
                     },
                     {
                         key: 'X-Frame-Options',
-                        value: 'SAMEORIGIN',
+                        value: 'SAMEORIGIN'
                     },
                     {
                         key: 'X-XSS-Protection',
-                        value: '1; mode=block',
+                        value: '1; mode=block'
                     },
                     {
                         key: 'Referrer-Policy',
                         value: 'strict-origin-when-cross-origin'
                     }
-                ],
-            },
+                ]
+            }
         ];
-    },
+    }
 };
 
 export default withPWA(nextConfig);

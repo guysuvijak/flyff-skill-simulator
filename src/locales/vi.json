@@ -10,8 +10,8 @@
                 "screenshot": "Chụp màn hình",
                 "reset": "Đặt lại bản dựng"
             },
-            "theme": {
-                "main": "Giao diện",
+            "setting": {
+                "main": "cài đặt",
                 "icon-colored": "Biểu tượng - Màu sắc",
                 "icon-old": "Biểu tượng - Cổ điển",
                 "theme-light": "Giao diện - Sáng",
@@ -33,7 +33,13 @@
                     "th": "Thai",
                     "jp": "Japanese",
                     "cns": "Chinese",
-                    "vi": "Vietnamese"
+                    "vi": "Vietnamese",
+                    "br": "Brazilian (PT)",
+                    "de": "German",
+                    "fr": "French",
+                    "id": "Indonesian",
+                    "kr": "Korean",
+                    "sp": "Spanish"
                 }
             },
             "other": {
@@ -48,5 +54,49 @@
                 "last-updated": "Cập nhật lần cuối: {date}"
             }
         }
+    },
+    "class-selected": {
+        "loading": "Đang tải",
+        "select-class": "Chọn lớp",
+        "loading-classes": "Đang tải các lớp..."
+    },
+    "skill-node": {
+        "character-level": "Cấp độ nhân vật: {level}",
+        "base-damage": "Sát thương cơ bản: {minAttack} ~ {maxAttack}",
+        "base-time": "Thời gian cơ bản: {duration}",
+        "attack-scaling": "Tỷ lệ sát thương: {stat} x {scale}",
+        "time-scaling": "Tỷ lệ thời gian: {stat} x {scale}",
+        "casting-time": "Thời gian niệm: {casting}",
+        "cooldown": "Thời gian hồi chiêu: {cooldown}",
+        "spell-range": "Phạm vi kỹ năng: {spellRange}",
+        "target-area": "(Xung quanh)",
+        "target-party": "(Tổ đội)",
+        "no-description": "Không có mô tả",
+        "attribute-double": "Thuộc tính: Gấp đôi (Thời gian: {duration}s)",
+        "attribute-slow": "Thuộc tính: Làm chậm (Tốc độ: {speed}{rate})",
+        "attribute-stun": "Thuộc tính: Choáng (Thời gian: {duration}s)",
+        "attribute-bleeding": "Thuộc tính: Chảy máu (Thời gian: {duration}s)",
+        "attribute-poison": "Thuộc tính: Độc (Thời gian: {duration}s)",
+        "attribute-forcedblock": "Thuộc tính: Chặn cưỡng bức",
+        "attribute-invisibility": "Thuộc tính: Tàng hình (Thời gian: {duration}s)",
+        "hit-rate": "Tỷ lệ đánh trúng: {result}{hitRate}{rate}",
+        "hit-rate-duration": "(Thời gian: {duration}s)",
+        "hp": "HP: {result}{hp}{rate}",
+        "damage": "Sát thương: {result}{damage}{rate} (Thời gian: {duration}s)",
+        "maxhp": "HP tối đa: {result}{maxhp}{rate} (Thời gian: {duration}s)",
+        "speed": "Tốc độ: {result}{speed}{rate} (Thời gian: {duration}s)",
+        "str": "STR: {result}{str}{rate} (Thời gian: {duration}s)",
+        "sta": "STA: {result}{sta}{rate} (Thời gian: {duration}s)",
+        "int": "INT: {result}{int}{rate} (Thời gian: {duration}s)",
+        "dex": "DEX: {result}{dex}{rate} (Thời gian: {duration}s)",
+        "attack-speed": "Tốc độ tấn công:\n{result}{attackSpeed}{rate} (Thời gian: {duration}s)",
+        "decreased-casting-time": "Giảm thời gian niệm:\n{result}{castingTime}{rate} (Thời gian: {duration}s)",
+        "block": "Chặn: {result}{block}{rate} (Thời gian: {duration}s)",
+        "magic-defense": "Kháng phép: {result}{magicDefense}{rate} (Thời gian: {duration}s)",
+        "def": "Phòng thủ: {result}{def}{rate} (Thời gian: {duration}s)",
+        "critical-damage": "Sát thương chí mạng: {result}{criticalDamage}{rate}",
+        "critical-chance": "Tỷ lệ chí mạng: {result}{criticalChance}{rate}",
+        "block-penetration": "Xuyên chặn: {result}{blockPenetration}{rate}",
+        "click-to-hold": "Nhấn để giữ / đóng cửa sổ."
     }
 }

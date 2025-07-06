@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## 📍 [1.4.1] - 2025-01-06
+
+- added: Comprehensive SEO optimization with enhanced metadata
+- added: Structured data (JSON-LD) for better search engine understanding (WebApplication)
+- added: Sitemap.xml for improved search engine indexing (single-page application)
+- added: Robots.txt for search engine crawling guidance
+- added: Browserconfig.xml for Windows tiles support
+- added: Enhanced manifest.json with PWA features and shortcuts
+- added: Next-SEO configuration file for advanced SEO settings
+- added: New language support (Brazilian Portuguese, German, French, Indonesian, Korean, Spanish)
+- updated: Meta tags with comprehensive keywords for all Flyff classes
+- updated: OpenGraph and Twitter card metadata for better social sharing
+- updated: Description to be more SEO-friendly and descriptive
+- updated: Application name and PWA configuration
+- improved: Search engine visibility with proper robots directives
+- improved: Mobile app experience with enhanced PWA configuration
+
 ## 📍 [1.4.0] - 2025-07-05
 
 - added: Class data caching system with 1-day cache duration

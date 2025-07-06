@@ -52,7 +52,9 @@ export const Navbar = () => {
             <div className='container mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 py-4 px-4'>
                 <div className='flex items-center gap-2'>
                     <div className='flex items-center space-x-2 text-sm sm:text-base'>
-                        <span className='text-foreground'>{t('navbar.level')}</span>
+                        <span className='text-foreground'>
+                            {t('navbar.level')}
+                        </span>
                         <Input
                             id='level-input'
                             type='number'

@@ -1,7 +1,6 @@
 // Next.js 15 - src/app/page.tsx
 'use client';
-import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import { useState, useEffect, useRef, CSSProperties } from 'react';
 import {
     ReactFlow,
     Controls,
@@ -56,7 +55,7 @@ interface CustomEdgeProps extends EdgeProps {
     targetY: number;
     sourcePosition: Position;
     targetPosition: Position;
-    style?: React.CSSProperties;
+    style?: CSSProperties;
     data?: {
         label?: string;
     };
@@ -159,7 +158,7 @@ const edgeTypes = {
                         text={data.label}
                         fontSize={14}
                         strokeWidth={3}
-                        fontWeight="bold"
+                        fontWeight='bold'
                         showMultipleStrokes={true}
                     />
                 )}
@@ -189,9 +188,13 @@ const Page = () => {
 
             try {
                 setIsLoading(true);
-                const response = await axios.get('/data/skillall.json');
+                const response = await fetch('/data/skillall.json');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch skill data');
+                }
+                const skillData = await response.json();
 
-                const selectedSkills = response.data.filter(
+                const selectedSkills = skillData.filter(
                     (skill: Skill) =>
                         skill.class === selectedClass.id ||
                         skill.class === selectedClass.parent
@@ -210,7 +213,7 @@ const Page = () => {
                             (skill.class === selectedClass.id ? classSpaceY : 0)
                     },
                     data: {
-                        label: skill.name.en,
+                        label: skill.name.en, // This will be overridden by the SkillNode component
                         image: `https://api.flyff.com/image/skill/${skillStyle}/${skill.icon}`,
                         skillData: skill
                     },

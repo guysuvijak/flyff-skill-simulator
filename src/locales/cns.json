@@ -10,8 +10,8 @@
                 "screenshot": "截图",
                 "reset": "重置构建"
             },
-            "theme": {
-                "main": "主题",
+            "setting": {
+                "main": "设置",
                 "icon-colored": "图标 - 彩色",
                 "icon-old": "图标 - 经典",
                 "theme-light": "主题 - 明亮",
@@ -33,7 +33,13 @@
                     "th": "Thai",
                     "jp": "Japanese",
                     "cns": "Chinese",
-                    "vi": "Vietnamese"
+                    "vi": "Vietnamese",
+                    "br": "Brazil (PT)",
+                    "de": "German",
+                    "fr": "French",
+                    "id": "Indonesian",
+                    "kr": "Korean",
+                    "sp": "Spanish"
                 }
             },
             "other": {
@@ -48,5 +54,49 @@
                 "last-updated": "最后更新：{date}"
             }
         }
+    },
+    "class-selected": {
+        "loading": "加载中",
+        "select-class": "选择职业",
+        "loading-classes": "正在加载职业..."
+    },
+    "skill-node": {
+        "character-level": "角色等级：{level}",
+        "base-damage": "基础伤害：{minAttack} ~ {maxAttack}",
+        "base-time": "基础时间：{duration}",
+        "attack-scaling": "攻击加成：{stat} x {scale}",
+        "time-scaling": "时间加成：{stat} x {scale}",
+        "casting-time": "施法时间：{casting}",
+        "cooldown": "冷却时间：{cooldown}",
+        "spell-range": "技能范围：{spellRange}",
+        "target-area": "（范围）",
+        "target-party": "（队伍）",
+        "no-description": "暂无描述",
+        "attribute-double": "属性：双倍（持续时间：{duration}秒）",
+        "attribute-slow": "属性：减速（速度：{speed}{rate}）",
+        "attribute-stun": "属性：眩晕（持续时间：{duration}秒）",
+        "attribute-bleeding": "属性：流血（持续时间：{duration}秒）",
+        "attribute-poison": "属性：中毒（持续时间：{duration}秒）",
+        "attribute-forcedblock": "属性：强制格挡",
+        "attribute-invisibility": "属性：隐身（持续时间：{duration}秒）",
+        "hit-rate": "命中率：{result}{hitRate}{rate}",
+        "hit-rate-duration": "（持续时间：{duration}秒）",
+        "hp": "生命值：{result}{hp}{rate}",
+        "damage": "伤害：{result}{damage}{rate}（持续时间：{duration}秒）",
+        "maxhp": "最大生命值：{result}{maxhp}{rate}（持续时间：{duration}秒）",
+        "speed": "速度：{result}{speed}{rate}（持续时间：{duration}秒）",
+        "str": "力量：{result}{str}{rate}（持续时间：{duration}秒）",
+        "sta": "体力：{result}{sta}{rate}（持续时间：{duration}秒）",
+        "int": "智力：{result}{int}{rate}（持续时间：{duration}秒）",
+        "dex": "敏捷：{result}{dex}{rate}（持续时间：{duration}秒）",
+        "attack-speed": "攻击速度：\n{result}{attackSpeed}{rate}（持续时间：{duration}秒）",
+        "decreased-casting-time": "施法时间减少：\n{result}{castingTime}{rate}（持续时间：{duration}秒）",
+        "block": "格挡：{result}{block}{rate}（持续时间：{duration}秒）",
+        "magic-defense": "魔法防御：{result}{magicDefense}{rate}（持续时间：{duration}秒）",
+        "def": "防御：{result}{def}{rate}（持续时间：{duration}秒）",
+        "critical-damage": "暴击伤害：{result}{criticalDamage}{rate}",
+        "critical-chance": "暴击几率：{result}{criticalChance}{rate}",
+        "block-penetration": "格挡穿透：{result}{blockPenetration}{rate}",
+        "click-to-hold": "点击并按住 / 关闭窗口"
     }
 }

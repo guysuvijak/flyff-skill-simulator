@@ -10,8 +10,8 @@
                 "screenshot": "จับภาพหน้าจอ",
                 "reset": "รีเซตชุดสกิล"
             },
-            "theme": {
-                "main": "ธีม",
+            "setting": {
+                "main": "ตั้งค่า",
                 "icon-colored": "ไอคอน - สี",
                 "icon-old": "ไอคอน - ดั้งเดิม",
                 "theme-light": "ธีม - สว่าง",
@@ -33,7 +33,13 @@
                     "th": "Thai",
                     "jp": "Japanese",
                     "cns": "Chinese",
-                    "vi": "Vietnamese"
+                    "vi": "Vietnamese",
+                    "br": "Brazilian (PT)",
+                    "de": "German",
+                    "fr": "French",
+                    "id": "Indonesian",
+                    "kr": "Korean",
+                    "sp": "Spanish"
                 }
             },
             "other": {
@@ -48,5 +54,49 @@
                 "last-updated": "อัปเดตล่าสุด: {date}"
             }
         }
+    },
+    "class-selected": {
+        "loading": "กำลังโหลด",
+        "select-class": "เลือกอาชีพ",
+        "loading-classes": "กำลังโหลดอาชีพ..."
+    },
+    "skill-node": {
+        "character-level": "เลเวลตัวละคร: {level}",
+        "base-damage": "ความเสียหายพื้นฐาน: {minAttack} ~ {maxAttack}",
+        "base-time": "ระยะเวลาพื้นฐาน: {duration}",
+        "attack-scaling": "สเกลจากพลังโจมตี: {stat} x {scale}",
+        "time-scaling": "สเกลจากเวลา: {stat} x {scale}",
+        "casting-time": "เวลาร่ายเวทย์: {casting}",
+        "cooldown": "คูลดาวน์: {cooldown}",
+        "spell-range": "ระยะเวทย์: {spellRange}",
+        "target-area": "(รอบตัว)",
+        "target-party": "(ปาร์ตี้)",
+        "no-description": "ไม่มีคำอธิบาย",
+        "attribute-double": "คุณสมบัติ: ดับเบิ้ล (ระยะเวลา: {duration}วินาที)",
+        "attribute-slow": "คุณสมบัติ: ช้าลง (ความเร็ว: {speed}{rate})",
+        "attribute-stun": "คุณสมบัติ: สตัน (ระยะเวลา: {duration}วินาที)",
+        "attribute-bleeding": "คุณสมบัติ: เลือดออก (ระยะเวลา: {duration}วินาที)",
+        "attribute-poison": "คุณสมบัติ: พิษ (ระยะเวลา: {duration}วินาที)",
+        "attribute-forcedblock": "คุณสมบัติ: บล็อคบังคับ",
+        "attribute-invisibility": "คุณสมบัติ: ล่องหน (ระยะเวลา: {duration}วินาที)",
+        "hit-rate": "อัตราการโจมตีโดน: {result}{hitRate}{rate}",
+        "hit-rate-duration": "(ระยะเวลา: {duration}วินาที)",
+        "hp": "HP: {result}{hp}{rate}",
+        "damage": "ความเสียหาย: {result}{damage}{rate} (ระยะเวลา: {duration}วินาที)",
+        "maxhp": "HP สูงสุด: {result}{maxhp}{rate} (ระยะเวลา: {duration}วินาที)",
+        "speed": "ความเร็ว: {result}{speed}{rate} (ระยะเวลา: {duration}วินาที)",
+        "str": "STR: {result}{str}{rate} (ระยะเวลา: {duration}วินาที)",
+        "sta": "STA: {result}{sta}{rate} (ระยะเวลา: {duration}วินาที)",
+        "int": "INT: {result}{int}{rate} (ระยะเวลา: {duration}วินาที)",
+        "dex": "DEX: {result}{dex}{rate} (ระยะเวลา: {duration}วินาที)",
+        "attack-speed": "ความเร็วโจมตี:\n{result}{attackSpeed}{rate} (ระยะเวลา: {duration}วินาที)",
+        "decreased-casting-time": "ลดเวลาในการร่ายเวทย์:\n{result}{castingTime}{rate} (ระยะเวลา: {duration}วินาที)",
+        "block": "อัตราบล็อค: {result}{block}{rate} (ระยะเวลา: {duration}วินาที)",
+        "magic-defense": "ป้องกันเวทย์: {result}{magicDefense}{rate} (ระยะเวลา: {duration}วินาที)",
+        "def": "พลังป้องกัน: {result}{def}{rate} (ระยะเวลา: {duration}วินาที)",
+        "critical-damage": "ดาเมจคริติคอล: {result}{criticalDamage}{rate}",
+        "critical-chance": "โอกาสติดคริติคอล: {result}{criticalChance}{rate}",
+        "block-penetration": "เจาะเกราะบล็อค: {result}{blockPenetration}{rate}",
+        "click-to-hold": "คลิกเพื่อค้าง/ปิดหน้าต่าง"
     }
 }

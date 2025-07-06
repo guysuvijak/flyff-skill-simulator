@@ -1,3 +1,4 @@
+// Next.js 15 - src/providers/FontProvider.tsx
 'use client';
 import { ReactNode, createContext, useContext, useEffect } from 'react';
 import { useWebsiteStore } from '@/stores/websiteStore';
@@ -8,7 +9,9 @@ import {
     Noto_Sans_JP,
     Noto_Sans_KR,
     Noto_Sans_SC,
-    Be_Vietnam_Pro
+    Be_Vietnam_Pro,
+    Noto_Sans,
+    Inter
 } from 'next/font/google';
 
 const geistSans = Geist({
@@ -58,6 +61,19 @@ const beVietnamPro = Be_Vietnam_Pro({
     display: 'swap'
 });
 
+const notoSans = Noto_Sans({
+    variable: '--font-noto-sans',
+    weight: ['400', '500', '700'],
+    subsets: ['latin'],
+    display: 'swap'
+});
+
+const inter = Inter({
+    variable: '--font-inter',
+    subsets: ['latin'],
+    display: 'swap'
+});
+
 const FontContext = createContext<{ fontClass: string }>({ fontClass: '' });
 
 export const useFontContext = () => useContext(FontContext);
@@ -71,12 +87,18 @@ export const FontProvider = ({ children }: { children: ReactNode }) => {
                 return `${geistSans.variable} ${geistMono.variable} ${notoSansThai.variable} font-thai`;
             case 'jp':
                 return `${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} font-japanese`;
-            case 'ko':
+            case 'kr':
                 return `${geistSans.variable} ${geistMono.variable} ${notoSansKR.variable} font-korean`;
             case 'cns':
                 return `${geistSans.variable} ${geistMono.variable} ${notoSansSC.variable} font-chinese`;
             case 'vi':
                 return `${geistSans.variable} ${geistMono.variable} ${beVietnamPro.variable} font-vietnamese`;
+            case 'br':
+            case 'de':
+            case 'fr':
+            case 'id':
+            case 'sp':
+                return `${geistSans.variable} ${geistMono.variable} ${notoSans.variable} font-noto-sans`;
             default:
                 return `${geistSans.variable} ${geistMono.variable} font-sans`;
         }
@@ -108,5 +130,7 @@ export const allFonts = [
     notoSansJP.variable,
     notoSansKR.variable,
     notoSansSC.variable,
-    beVietnamPro.variable
+    beVietnamPro.variable,
+    notoSans.variable,
+    inter.variable
 ];

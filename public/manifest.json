@@ -1,12 +1,16 @@
 {
-    "name": "Flyff Skill Simulator",
+    "name": "Flyff Universe Skill Simulator - Plan Your Character Skill Build",
     "short_name": "Flyff Skill Simulator",
+    "description": "Free online Flyff Universe Skill Simulator. Plan and visualize your character skill builds with our interactive skill tree.",
     "theme_color": "#2eeeff",
-    "background_color": "#2eeeff",
+    "background_color": "#ffffff",
     "display": "standalone",
     "orientation": "portrait",
     "scope": "/",
     "start_url": "/",
+    "lang": "en",
+    "dir": "ltr",
+    "categories": ["games", "utilities", "productivity"],
     "icons": [
         {
             "src": "icons/icon-48x48.png",
@@ -63,5 +67,26 @@
             "purpose": "maskable any"
         }
     ],
-    "splash_pages": null
+    "screenshots": [
+        {
+            "src": "metadata/demo-desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Flyff Universe Skill Simulator - Desktop View"
+        },
+        {
+            "src": "metadata/demo-mobile.png",
+            "sizes": "750x1334",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Flyff Universe Skill Simulator - Mobile View"
+        }
+    ],
+    "splash_pages": null,
+    "prefer_related_applications": false,
+    "related_applications": [],
+    "edge_side_panel": {
+        "preferred_width": 400
+    }
 }

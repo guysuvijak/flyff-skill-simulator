@@ -43,7 +43,19 @@ const themeColors = [
     'violet'
 ];
 
-const languages = ['en', 'th', 'jp', 'cns', 'vi'];
+const languages = [
+    'en',
+    'th',
+    'jp',
+    'cns',
+    'vi',
+    'br',
+    'de',
+    'fr',
+    'id',
+    'kr',
+    'sp'
+];
 
 export const NavbarMenu = () => {
     const { t } = useTranslation();
@@ -93,6 +105,33 @@ export const NavbarMenu = () => {
         </MenubarItem>
     );
 
+    const externalLinks = [
+        {
+            href: 'https://api.flyff.com',
+            label: t(`navbar.menu.other.flyff-api`)
+        },
+        {
+            href: 'https://github.com/guysuvijak/flyff-skill-simulator',
+            label: t(`navbar.menu.other.source-code`)
+        },
+        {
+            href: 'https://github.com/guysuvijak',
+            label: t(`navbar.menu.other.github-me`)
+        },
+        {
+            href: 'https://facebook.com/guy.suvijak',
+            label: t(`navbar.menu.other.contact-me`)
+        },
+        {
+            href: 'https://ko-fi.com/guysuvijak',
+            label: t(`navbar.menu.other.donate-me`)
+        },
+        {
+            href: 'https://github.com/guysuvijak/flyff-skill-simulator/blob/main/CHANGELOG.md',
+            label: t(`navbar.menu.other.changelog`)
+        }
+    ];
+
     return (
         <Menubar>
             {/* Build Menu */}
@@ -111,7 +150,11 @@ export const NavbarMenu = () => {
                             {t(`navbar.menu.soon`)}
                         </MenubarShortcut>
                     </MenubarItem>
-                    <MenubarItem onClick={handleShare} disabled={isSharing} className={`${isSharing ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
+                    <MenubarItem
+                        onClick={handleShare}
+                        disabled={isSharing}
+                        className={`${isSharing ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                    >
                         <Share2 size={18} className='mr-2 text-primary' />
                         {t(`navbar.menu.build.share`)}
                     </MenubarItem>
@@ -124,7 +167,10 @@ export const NavbarMenu = () => {
                         </MenubarShortcut>
                     </MenubarItem>
                     <MenubarSeparator />
-                    <MenubarItem onClick={() => (window.location.href = '/')} className='cursor-pointer'>
+                    <MenubarItem
+                        onClick={() => (window.location.href = '/')}
+                        className='cursor-pointer'
+                    >
                         <RotateCcw
                             size={18}
                             className='mr-2 text-destructive'
@@ -139,7 +185,7 @@ export const NavbarMenu = () => {
                 <MenubarTrigger className='hover:bg-muted cursor-pointer'>
                     <Blend size={18} className='text-primary' />
                     <span className='ml-1 hidden md:inline whitespace-nowrap break-keep'>
-                        {t(`navbar.menu.theme.main`)}
+                        {t(`navbar.menu.setting.main`)}
                     </span>
                 </MenubarTrigger>
                 <MenubarContent className='mr-2'>
@@ -148,14 +194,14 @@ export const NavbarMenu = () => {
                         checked={skillStyle === 'colored'}
                         className='cursor-pointer'
                     >
-                        {t(`navbar.menu.theme.icon-colored`)}
+                        {t(`navbar.menu.setting.icon-colored`)}
                     </MenubarCheckboxItem>
                     <MenubarCheckboxItem
                         onClick={() => setSkillStyle('old')}
                         checked={skillStyle === 'old'}
                         className='cursor-pointer'
                     >
-                        {t(`navbar.menu.theme.icon-old`)}
+                        {t(`navbar.menu.setting.icon-old`)}
                     </MenubarCheckboxItem>
                     <MenubarSeparator />
                     <MenubarCheckboxItem
@@ -163,19 +209,19 @@ export const NavbarMenu = () => {
                         checked={theme === 'light'}
                         className='cursor-pointer'
                     >
-                        {t(`navbar.menu.theme.theme-light`)}
+                        {t(`navbar.menu.setting.theme-light`)}
                     </MenubarCheckboxItem>
                     <MenubarCheckboxItem
                         onClick={() => setTheme('dark')}
                         checked={theme === 'dark'}
                         className='cursor-pointer'
                     >
-                        {t(`navbar.menu.theme.theme-dark`)}
+                        {t(`navbar.menu.setting.theme-dark`)}
                     </MenubarCheckboxItem>
                     <MenubarSeparator />
                     <MenubarSub>
                         <MenubarSubTrigger className='cursor-pointer'>
-                            {t(`navbar.menu.theme.theme-color.main`)}
+                            {t(`navbar.menu.setting.theme-color.main`)}
                         </MenubarSubTrigger>
                         <MenubarSubContent className='mr-2'>
                             {themeColors.map((color) => (
@@ -186,7 +232,7 @@ export const NavbarMenu = () => {
                                     className='cursor-pointer'
                                 >
                                     {t(
-                                        `navbar.menu.theme.theme-color.${color}`
+                                        `navbar.menu.setting.theme-color.${color}`
                                     )}
                                 </MenubarCheckboxItem>
                             ))}
@@ -194,9 +240,9 @@ export const NavbarMenu = () => {
                     </MenubarSub>
                     <MenubarSub>
                         <MenubarSubTrigger className='cursor-pointer'>
-                            {t(`navbar.menu.theme.language.main`)}
+                            {t(`navbar.menu.setting.language.main`)}
                         </MenubarSubTrigger>
-                        <MenubarSubContent className='mr-2'>
+                        <MenubarSubContent className='mr-2 max-h-[250px] md:max-h-full overflow-y-auto'>
                             {languages.map((item) => (
                                 <MenubarCheckboxItem
                                     key={item}
@@ -204,7 +250,7 @@ export const NavbarMenu = () => {
                                     checked={lang === item}
                                     className='cursor-pointer'
                                 >
-                                    {t(`navbar.menu.theme.language.${item}`)}
+                                    {t(`navbar.menu.setting.language.${item}`)}
                                 </MenubarCheckboxItem>
                             ))}
                         </MenubarSubContent>
@@ -221,32 +267,18 @@ export const NavbarMenu = () => {
                     </span>
                 </MenubarTrigger>
                 <MenubarContent className='mr-2'>
-                    <ExternalLinkItem
-                        href='https://api.flyff.com'
-                        label={t(`navbar.menu.other.flyff-api`)}
-                    />
-                    <ExternalLinkItem
-                        href='https://github.com/guysuvijak/flyff-skill-simulator'
-                        label={t(`navbar.menu.other.source-code`)}
-                    />
-                    <MenubarSeparator />
-                    <ExternalLinkItem
-                        href='https://github.com/guysuvijak'
-                        label={t(`navbar.menu.other.github-me`)}
-                    />
-                    <ExternalLinkItem
-                        href='https://facebook.com/guy.suvijak'
-                        label={t(`navbar.menu.other.contact-me`)}
-                    />
-                    <ExternalLinkItem
-                        href='https://ko-fi.com/guysuvijak'
-                        label={t(`navbar.menu.other.donate-me`)}
-                    />
-                    <MenubarSeparator />
-                    <ExternalLinkItem
-                        href='https://github.com/guysuvijak/flyff-skill-simulator/blob/main/CHANGELOG.md'
-                        label={t(`navbar.menu.other.changelog`)}
-                    />
+                    {externalLinks.map((link, index) => (
+                        <div key={link.href}>
+                            <ExternalLinkItem
+                                href={link.href}
+                                label={link.label}
+                            />
+                            {/* Add separators after specific items */}
+                            {(index === 1 || index === 4) && (
+                                <MenubarSeparator />
+                            )}
+                        </div>
+                    ))}
                     <MenubarSeparator />
                     <MenubarItem disabled>
                         {t(`navbar.menu.other.current-version`, {

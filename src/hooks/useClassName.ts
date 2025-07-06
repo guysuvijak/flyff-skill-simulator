@@ -1,3 +1,4 @@
+// Next.js 15 - src/hooks/useClassName.ts
 import { useWebsiteStore } from '@/stores/websiteStore';
 import { getClassNameInCurrentLang } from '@/utils/classUtils';
 import { LanguageNames } from '@/types/class';
@@ -22,4 +23,4 @@ export const useClassName = () => {
         getClassName,
         currentLang: lang
     };
-}; 
+};

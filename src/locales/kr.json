@@ -1,0 +1,102 @@
+{
+    "navbar": {
+        "level": "레벨",
+        "menu": {
+            "soon": "곧 출시",
+            "build": {
+                "main": "빌드",
+                "load": "빌드 불러오기",
+                "share": "빌드 공유하기",
+                "screenshot": "스크린샷",
+                "reset": "빌드 초기화"
+            },
+            "setting": {
+                "main": "설정",
+                "icon-colored": "아이콘 - 컬러",
+                "icon-old": "아이콘 - 구형",
+                "theme-light": "테마 - 라이트",
+                "theme-dark": "테마 - 다크",
+                "theme-color": {
+                    "main": "테마 색상",
+                    "default": "기본값",
+                    "red": "빨강",
+                    "rose": "로즈",
+                    "orange": "주황",
+                    "green": "초록",
+                    "blue": "파랑",
+                    "yellow": "노랑",
+                    "violet": "보라"
+                },
+                "language": {
+                    "main": "Language",
+                    "en": "English",
+                    "th": "Thai",
+                    "jp": "Japanese",
+                    "cns": "Chinese",
+                    "vi": "Vietnamese",
+                    "br": "Brazilian (PT)",
+                    "de": "German",
+                    "fr": "French",
+                    "id": "Indonesian",
+                    "kr": "Korean",
+                    "sp": "Spanish"
+                }
+            },
+            "other": {
+                "main": "기타",
+                "flyff-api": "Flyff 유니버스 API",
+                "source-code": "소스 코드",
+                "github-me": "내 GitHub",
+                "contact-me": "문의하기",
+                "donate-me": "기부하기 (Ko-fi)",
+                "changelog": "변경 로그",
+                "current-version": "현재 버전: {version}",
+                "last-updated": "마지막 업데이트: {date}"
+            }
+        }
+    },
+    "class-selected": {
+        "loading": "로딩 중",
+        "select-class": "직업 선택",
+        "loading-classes": "직업 불러오는 중..."
+    },
+    "skill-node": {
+        "character-level": "캐릭터 레벨: {level}",
+        "base-damage": "기본 피해량: {minAttack} ~ {maxAttack}",
+        "base-time": "기본 시간: {duration}",
+        "attack-scaling": "공격 계수: {stat} x {scale}",
+        "time-scaling": "시간 계수: {stat} x {scale}",
+        "casting-time": "시전 시간: {casting}",
+        "cooldown": "재사용 대기시간: {cooldown}",
+        "spell-range": "스킬 범위: {spellRange}",
+        "target-area": "(범위)",
+        "target-party": "(파티)",
+        "no-description": "설명이 없습니다",
+        "attribute-double": "속성: 더블 (지속시간: {duration}초)",
+        "attribute-slow": "속성: 감속 (속도: {speed}{rate})",
+        "attribute-stun": "속성: 기절 (지속시간: {duration}초)",
+        "attribute-bleeding": "속성: 출혈 (지속시간: {duration}초)",
+        "attribute-poison": "속성: 중독 (지속시간: {duration}초)",
+        "attribute-forcedblock": "속성: 강제 방어",
+        "attribute-invisibility": "속성: 은신 (지속시간: {duration}초)",
+        "hit-rate": "명중률: {result}{hitRate}{rate}",
+        "hit-rate-duration": "(지속시간: {duration}초)",
+        "hp": "체력: {result}{hp}{rate}",
+        "damage": "피해: {result}{damage}{rate} (지속시간: {duration}초)",
+        "maxhp": "최대 체력: {result}{maxhp}{rate} (지속시간: {duration}초)",
+        "speed": "속도: {result}{speed}{rate} (지속시간: {duration}초)",
+        "str": "힘: {result}{str}{rate} (지속시간: {duration}초)",
+        "sta": "체력: {result}{sta}{rate} (지속시간: {duration}초)",
+        "int": "지능: {result}{int}{rate} (지속시간: {duration}초)",
+        "dex": "민첩: {result}{dex}{rate} (지속시간: {duration}초)",
+        "attack-speed": "공격 속도:\n{result}{attackSpeed}{rate} (지속시간: {duration}초)",
+        "decreased-casting-time": "시전 시간 감소:\n{result}{castingTime}{rate} (지속시간: {duration}초)",
+        "block": "방어: {result}{block}{rate} (지속시간: {duration}초)",
+        "magic-defense": "마법 방어력: {result}{magicDefense}{rate} (지속시간: {duration}초)",
+        "def": "방어력: {result}{def}{rate} (지속시간: {duration}초)",
+        "critical-damage": "치명타 피해: {result}{criticalDamage}{rate}",
+        "critical-chance": "치명타 확률: {result}{criticalChance}{rate}",
+        "block-penetration": "방어 관통: {result}{blockPenetration}{rate}",
+        "click-to-hold": "창을 유지하려면 클릭하세요 / 닫으려면 클릭 해제"
+    }
+}

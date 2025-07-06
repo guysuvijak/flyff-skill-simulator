@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { useSkillStore } from '@/stores/skillStore';
 import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
+import { useSkillLocalization } from '@/utils/skillUtils';
 import {
     TooltipProvider,
     Tooltip,
@@ -23,17 +24,43 @@ import {
     ChevronsUp,
     ChevronsDown,
     Minus,
-    Plus
+    Plus,
+    LandPlot,
+    Crosshair,
+    EyeClosed,
+    Shell,
+    Snail,
+    Droplets,
+    Bubbles,
+    Sparkles,
+    Shield,
+    Superscript,
+    Footprints,
+    HeartPlus,
+    Brain,
+    Atom,
+    BicepsFlexed,
+    Beef,
+    ShieldHalf,
+    Cross
 } from 'lucide-react';
-import axios from 'axios';
+// Removed axios import - using fetch instead
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface SkillSourceProps {
     class: number;
     name: string;
     parent: number;
     skills: number[];
+}
+
+interface Abilities {
+    parameter?: string;
+    add?: number;
+    rate?: boolean;
+    attribute?: string;
 }
 
 interface SkillScaling {
@@ -51,6 +78,8 @@ interface SkillLevel {
     minAttack?: number;
     maxAttack?: number;
     casting?: number;
+    spellRange?: number;
+    abilities?: Abilities[];
     scalingParameters?: SkillScaling[];
 }
 
@@ -61,15 +90,25 @@ interface SkillRequirement {
 
 interface SkillData {
     id: number;
-    class: number;
-    level: number;
-    skillPoints: number;
-    description: {
+    name: {
         en: string;
         [key: string]: string;
     };
-    requirements: SkillRequirement[];
-    levels: SkillLevel[];
+    class: number;
+    icon: string;
+    treePosition: {
+        x: number;
+        y: number;
+    };
+    requirements?: SkillRequirement[];
+    description?: {
+        en: string;
+        [key: string]: string;
+    };
+    levels?: SkillLevel[];
+    level?: number;
+    target?: 'currentplayer' | 'area' | 'single' | 'party';
+    skillPoints?: number;
 }
 
 interface SkillNodeProps {
@@ -81,9 +120,11 @@ interface SkillNodeProps {
 }
 
 export const SkillNode = ({ data }: SkillNodeProps) => {
+    const { t } = useTranslation();
     const { skillLevels, updateSkillLevel } = useSkillStore();
     const { selectedClass } = useClassStore();
     const { characterLevel, skillPoints, setSkillPoints } = useCharacterStore();
+    const { getSkillName, getSkillDescription } = useSkillLocalization();
     const [skillSource, setSkillSource] = useState<SkillSourceProps[] | null>(
         null
     );
@@ -107,8 +148,12 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
     useEffect(() => {
         const fetchSkillSource = async () => {
             try {
-                const response = await axios.get('/data/skillsource.json');
-                setSkillSource(response.data);
+                const response = await fetch('/data/skillsource.json');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch skillsource data');
+                }
+                const data = await response.json();
+                setSkillSource(data);
             } catch (error) {
                 console.error('Error fetching skillsource:', error);
             }
@@ -137,44 +182,49 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
     };
 
     const canUpgrade = () => {
-        return data.skillData.requirements.every((req) => {
+        return (data.skillData.requirements || []).every((req) => {
             const currentReqLevel = skillLevels[req.skill]?.level || 0;
             return currentReqLevel >= req.level;
         });
     };
 
     const increaseLevel = () => {
-        if (currentLevel < data.skillData.levels.length && canUpgrade()) {
+        const levels = data.skillData.levels || [];
+        const skillPointsCost = data.skillData.skillPoints || 1;
+        if (currentLevel < levels.length && canUpgrade()) {
             updateSkillLevel(
                 data.skillData.id,
                 currentLevel + 1,
-                data.skillData.skillPoints
+                skillPointsCost
             );
-            setSkillPoints(skillPoints - data.skillData.skillPoints);
+            setSkillPoints(skillPoints - skillPointsCost);
         }
     };
 
     const decreaseLevel = () => {
+        const skillPointsCost = data.skillData.skillPoints || 1;
         if (currentLevel > 0) {
             updateSkillLevel(
                 data.skillData.id,
                 currentLevel - 1,
-                data.skillData.skillPoints
+                skillPointsCost
             );
-            setSkillPoints(skillPoints + data.skillData.skillPoints);
+            setSkillPoints(skillPoints + skillPointsCost);
         }
     };
 
     const setToMaxLevel = () => {
-        if (canUpgrade() && currentLevel < data.skillData.levels.length) {
-            const levelsToAdd = data.skillData.levels.length - currentLevel;
-            const totalSkillPointsNeeded = levelsToAdd * data.skillData.skillPoints;
-            
+        const levels = data.skillData.levels || [];
+        const skillPointsCost = data.skillData.skillPoints || 1;
+        if (canUpgrade() && currentLevel < levels.length) {
+            const levelsToAdd = levels.length - currentLevel;
+            const totalSkillPointsNeeded = levelsToAdd * skillPointsCost;
+
             if (skillPoints >= totalSkillPointsNeeded) {
                 updateSkillLevel(
                     data.skillData.id,
-                    data.skillData.levels.length,
-                    data.skillData.skillPoints
+                    levels.length,
+                    skillPointsCost
                 );
                 setSkillPoints(skillPoints - totalSkillPointsNeeded);
             }
@@ -182,13 +232,10 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
     };
 
     const setToLevelZero = () => {
+        const skillPointsCost = data.skillData.skillPoints || 1;
         if (currentLevel > 0) {
-            updateSkillLevel(
-                data.skillData.id,
-                0,
-                data.skillData.skillPoints
-            );
-            setSkillPoints(skillPoints + (currentLevel * data.skillData.skillPoints));
+            updateSkillLevel(data.skillData.id, 0, skillPointsCost);
+            setSkillPoints(skillPoints + currentLevel * skillPointsCost);
         }
     };
 
@@ -211,14 +258,13 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
             ? Buffer.from(str).toString('base64')
             : window.btoa(str);
 
-    const levelData = data.skillData.levels[Math.max(currentLevel - 1, 0)];
+    const levels = data.skillData.levels || [];
+    const levelData = levels[Math.max(currentLevel - 1, 0)];
 
     return (
         <div className='flex flex-col w-[72px] h-[78px] bg-background text-foreground border-2 border-border rounded shadow relative justify-center items-center'>
-            {data.skillData.requirements.length !== 0 &&
-                ![8348, 5559, 7266, 5041].includes(
-                    data.skillData.id
-                ) && (
+            {(data.skillData.requirements || []).length !== 0 &&
+                ![8348, 5559, 7266, 5041].includes(data.skillData.id) && (
                     <Handle
                         id='target-left'
                         type='target'
@@ -242,11 +288,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                     className='w-3 h-3 rounded-full'
                 />
             )}
-            
+
             <TooltipProvider delayDuration={100}>
                 <Tooltip open={isHovered || isClicked}>
                     <TooltipTrigger asChild>
-                        <div 
+                        <div
                             className='flex relative cursor-pointer'
                             onPointerEnter={handleMouseEnter}
                             onPointerLeave={handleMouseLeave}
@@ -254,19 +300,22 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                         >
                             <Image
                                 src={data.image}
-                                alt={data.label || String(data.skillData.id)}
+                                alt={
+                                    getSkillName(data.skillData.name) ||
+                                    String(data.skillData.id)
+                                }
                                 width={48}
                                 height={48}
                                 loading='lazy'
                                 placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(48, 48))}`}
-                                className={`${(characterLevel < data.skillData.level || !canUpgrade()) ? 'grayscale' : 'hover:scale-110 transition-all duration-300'}`}
+                                className={`${characterLevel < (data.skillData.level || 0) || !canUpgrade() ? 'grayscale' : 'hover:scale-110 transition-all duration-300'}`}
+                                draggable={false}
                             />
                             {currentLevel !== 0 && (
                                 <p
-                                    className={`absolute bottom-0 right-0 pr-1 font-bold text-white stroke-text-red ${currentLevel === data.skillData.levels.length ? 'text-[12px]' : ' text-[16px]'}`}
+                                    className={`absolute bottom-0 right-0 pr-1 font-bold text-white stroke-text-red ${currentLevel === levels.length ? 'text-[12px]' : ' text-[16px]'}`}
                                 >
-                                    {currentLevel ===
-                                    data.skillData.levels.length
+                                    {currentLevel === levels.length
                                         ? 'MAX'
                                         : currentLevel}
                                 </p>
@@ -286,119 +335,874 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                             <XCircle size={20} className='text-destructive' />
                         </Button>
                         <div className='text-md sm:text-lg md:text-xl text-primary font-bold pr-6'>
-                            {data.label}
+                            {getSkillName(data.skillData.name)}
                             <span className='text-muted-foreground ml-1'>
-                                Lv.{currentLevel}/{data.skillData.levels.length}
+                                {`Lv.${currentLevel}/${levels.length}`}
                             </span>
                         </div>
                         {levelData?.consumedMP !== undefined && (
-                            <span className='text-sm sm:text-md md:text-lg'>MP: {levelData.consumedMP}</span>
+                            <span className='text-sm sm:text-md md:text-lg'>{`MP: ${levelData.consumedMP}`}</span>
                         )}
                         {levelData?.consumedFP !== undefined && (
-                            <span className='text-sm sm:text-md md:text-lg'>FP: {levelData.consumedFP}</span>
+                            <span className='text-sm sm:text-md md:text-lg'>{`FP: ${levelData.consumedFP}`}</span>
                         )}
                         <div
                             className={`text-sm sm:text-md md:text-lg
-                                ${characterLevel < data.skillData.level
-                                    ? 'text-destructive'
-                                    : 'text-muted-foreground'}
+                                ${
+                                    characterLevel < (data.skillData.level || 0)
+                                        ? 'text-destructive'
+                                        : 'text-muted-foreground'
+                                }
                             `}
                         >
-                            Character Level: {data.skillData.level}
+                            {t('skill-node.character-level', {
+                                level: data.skillData.level || 0
+                            })}
                         </div>
                         {levelData?.minAttack !== undefined && (
                             <div className='text-sm sm:text-md md:text-lg'>
                                 <span className='mx-1.5 text-muted-foreground'>
-                                    -
-                                </span>{' '}
-                                Base Damage: {levelData.minAttack}{' '}
-                                {levelData?.maxAttack !== undefined &&
-                                    `~ ${levelData.maxAttack}`}
+                                    {'-'}
+                                </span>
+                                {t('skill-node.base-damage', {
+                                    minAttack: levelData.minAttack,
+                                    maxAttack: levelData.maxAttack
+                                })}
                             </div>
                         )}
                         {levelData?.duration !== undefined && (
                             <div className='text-sm sm:text-md md:text-lg'>
                                 <span className='mx-1.5 text-muted-foreground'>
-                                    -
-                                </span>{' '}
-                                Base Time: {levelData.duration}
+                                    {'-'}
+                                </span>
+                                {t('skill-node.base-time', {
+                                    duration: levelData.duration
+                                })}
                             </div>
                         )}
                         <Separator className='my-1' />
                         {levelData?.scalingParameters !== undefined && (
                             <>
-                                {levelData?.scalingParameters[0]?.parameter ===
-                                    'attack' && (
-                                    <div className='flex items-center text-sm sm:text-md md:text-lg'>
-                                        <Expand
-                                            size={16}
-                                            className='text-muted-foreground mr-1'
-                                        />
-                                        Attack Scaling:{' '}
-                                        {levelData.scalingParameters[0].stat?.toUpperCase()}{' '}
-                                        x{' '}
-                                        {levelData.scalingParameters[0].scale?.toFixed(
-                                            2
-                                        )}
-                                    </div>
-                                )}
-                                {levelData?.scalingParameters[0]?.parameter ===
-                                    'duration' && (
-                                    <div className='flex items-center text-sm sm:text-md md:text-lg'>
-                                        <ClockArrowUp
-                                            size={16}
-                                            className='text-muted-foreground mr-1'
-                                        />
-                                        Time Scaling:{' '}
-                                        {levelData.scalingParameters[0].stat?.toUpperCase()}{' '}
-                                        x{' '}
-                                        {levelData.scalingParameters[0].scale?.toFixed(
-                                            2
-                                        )}
-                                    </div>
-                                )}
-                                {levelData?.scalingParameters[1]?.parameter ===
-                                    'duration' && (
-                                    <div className='flex items-center'>
-                                        <ClockArrowUp
-                                            size={16}
-                                            className='text-muted-foreground mr-1'
-                                        />
-                                        Time Scaling:{' '}
-                                        {levelData.scalingParameters[1].stat?.toUpperCase()}{' '}
-                                        x{' '}
-                                        {levelData.scalingParameters[1].scale?.toFixed(
-                                            2
-                                        )}
-                                    </div>
+                                {levelData.scalingParameters.map(
+                                    (scaling, index) => {
+                                        if (scaling.parameter === 'attack') {
+                                            return (
+                                                <div
+                                                    key={`attack-${index}`}
+                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                >
+                                                    <Expand
+                                                        size={16}
+                                                        className='text-muted-foreground mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            'skill-node.attack-scaling',
+                                                            {
+                                                                stat: scaling.stat?.toUpperCase(),
+                                                                scale: scaling.scale?.toFixed(
+                                                                    2
+                                                                )
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
+                                        if (scaling.parameter === 'duration') {
+                                            return (
+                                                <div
+                                                    key={`duration-${index}`}
+                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                >
+                                                    <ClockArrowUp
+                                                        size={16}
+                                                        className='text-muted-foreground mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            'skill-node.time-scaling',
+                                                            {
+                                                                stat: scaling.stat?.toUpperCase(),
+                                                                scale: scaling.scale?.toFixed(
+                                                                    2
+                                                                )
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
+                                        return null;
+                                    }
                                 )}
                             </>
                         )}
                         {levelData?.casting !== undefined && (
-                            <div className='flex items-center text-sm sm:text-md md:text-lg'>
+                            <div className='flex text-sm sm:text-md md:text-lg gap-1'>
                                 <Loader
                                     size={16}
-                                    className='text-muted-foreground mr-1'
-                                />{' '}
-                                Casting Time: {levelData.casting.toFixed(2)}
+                                    className='text-muted-foreground mt-2'
+                                />
+                                <span>
+                                    {t('skill-node.casting-time', {
+                                        casting: levelData.casting.toFixed(2)
+                                    })}
+                                </span>
                             </div>
                         )}
                         {levelData?.cooldown !== undefined && (
-                            <div className='flex items-center text-sm sm:text-md md:text-lg'>
+                            <div className='flex text-sm sm:text-md md:text-lg gap-1'>
                                 <Clock
                                     size={16}
-                                    className='text-muted-foreground mr-1'
-                                />{' '}
-                                Cooldown: {levelData.cooldown.toFixed(2)}
+                                    className='text-muted-foreground mt-2'
+                                />
+                                <span>
+                                    {t('skill-node.cooldown', {
+                                        cooldown: levelData.cooldown.toFixed(2)
+                                    })}
+                                </span>
                             </div>
                         )}
+                        {levelData?.spellRange !== undefined && (
+                            <div className='flex text-sm sm:text-md md:text-lg gap-1'>
+                                <LandPlot
+                                    size={16}
+                                    className='text-muted-foreground mt-2'
+                                />
+                                <span>
+                                    {t('skill-node.spell-range', {
+                                        spellRange:
+                                            levelData.spellRange.toFixed(2)
+                                    })}
+                                    {data.skillData.target === 'area' &&
+                                        t('skill-node.target-area')}
+                                    {data.skillData.target === 'party' &&
+                                        t('skill-node.target-party')}
+                                </span>
+                            </div>
+                        )}
+                        {levelData?.abilities !== undefined && (
+                            <>
+                                {levelData.abilities.map((ability, index) => {
+                                    if (ability.parameter === 'attribute') {
+                                        const attributeType = ability.attribute;
+
+                                        if (attributeType === 'double') {
+                                            return (
+                                                <div
+                                                    key={`attribute-double-${index}`}
+                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                >
+                                                    <Superscript
+                                                        size={16}
+                                                        className='text-muted-foreground mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            'skill-node.attribute-double',
+                                                            {
+                                                                duration:
+                                                                    levelData.duration ||
+                                                                    0
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
+
+                                        if (attributeType === 'slow') {
+                                            return (
+                                                <div
+                                                    key={`attribute-slow-${index}`}
+                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                >
+                                                    <Snail
+                                                        size={16}
+                                                        className='text-muted-foreground mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            'skill-node.attribute-slow',
+                                                            {
+                                                                speed:
+                                                                    levelData.abilities?.find(
+                                                                        (a) =>
+                                                                            a.parameter ===
+                                                                            'speed'
+                                                                    )?.add || 0,
+                                                                rate: levelData.abilities?.find(
+                                                                    (a) =>
+                                                                        a.parameter ===
+                                                                        'speed'
+                                                                )?.rate
+                                                                    ? '%'
+                                                                    : ''
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
+
+                                        if (attributeType === 'stun') {
+                                            return (
+                                                <div
+                                                    key={`attribute-stun-${index}`}
+                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                >
+                                                    <Shell
+                                                        size={16}
+                                                        className='text-muted-foreground mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            'skill-node.attribute-stun',
+                                                            {
+                                                                duration:
+                                                                    levelData.duration ||
+                                                                    0
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
+
+                                        if (attributeType === 'bleeding') {
+                                            return (
+                                                <div
+                                                    key={`attribute-bleeding-${index}`}
+                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                >
+                                                    <Droplets
+                                                        size={16}
+                                                        className='text-muted-foreground mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            'skill-node.attribute-bleeding',
+                                                            {
+                                                                duration:
+                                                                    levelData.duration ||
+                                                                    0
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
+
+                                        if (attributeType === 'poison') {
+                                            return (
+                                                <div
+                                                    key={`attribute-poison-${index}`}
+                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                >
+                                                    <Bubbles
+                                                        size={16}
+                                                        className='text-muted-foreground mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            'skill-node.attribute-poison',
+                                                            {
+                                                                duration:
+                                                                    levelData.duration ||
+                                                                    0
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
+
+                                        if (attributeType === 'forcedblock') {
+                                            return (
+                                                <div
+                                                    key={`attribute-forcedblock-${index}`}
+                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                >
+                                                    <Shield
+                                                        size={16}
+                                                        className='text-muted-foreground mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            'skill-node.attribute-forcedblock'
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
+
+                                        if (attributeType === 'invisibility') {
+                                            return (
+                                                <div
+                                                    key={`attribute-invisibility-${index}`}
+                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                >
+                                                    <EyeClosed
+                                                        size={16}
+                                                        className='text-muted-foreground mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            'skill-node.attribute-invisibility',
+                                                            {
+                                                                duration:
+                                                                    levelData.duration ||
+                                                                    0
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
+                                    }
+                                    if (ability.parameter === 'hp') {
+                                        return (
+                                            <div
+                                                key={`hp-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Cross
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t('skill-node.hp', {
+                                                        result:
+                                                            ability.add &&
+                                                            ability.add >= 0
+                                                                ? '+'
+                                                                : '',
+                                                        hp: ability.add || 0,
+                                                        rate: ability.rate
+                                                            ? '%'
+                                                            : ''
+                                                    })}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'damage') {
+                                        return (
+                                            <div
+                                                key={`damage-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <ChevronsUp
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t('skill-node.damage', {
+                                                        result:
+                                                            ability.add &&
+                                                            ability.add >= 0
+                                                                ? '+'
+                                                                : '',
+                                                        damage:
+                                                            ability.add || 0,
+                                                        duration:
+                                                            levelData.duration ||
+                                                            0,
+                                                        rate: ability.rate
+                                                            ? '%'
+                                                            : ''
+                                                    })}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'maxhp') {
+                                        return (
+                                            <div
+                                                key={`maxhp-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <HeartPlus
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t('skill-node.maxhp', {
+                                                        result:
+                                                            ability.add &&
+                                                            ability.add >= 0
+                                                                ? '+'
+                                                                : '',
+                                                        maxhp: ability.add || 0,
+                                                        duration:
+                                                            levelData.duration ||
+                                                            0,
+                                                        rate: ability.rate
+                                                            ? '%'
+                                                            : ''
+                                                    })}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'speed') {
+                                        return (
+                                            <div
+                                                key={`speed-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Footprints
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t('skill-node.speed', {
+                                                        result:
+                                                            ability.add &&
+                                                            ability.add >= 0
+                                                                ? '+'
+                                                                : '',
+                                                        speed: ability.add || 0,
+                                                        duration:
+                                                            levelData.duration ||
+                                                            0,
+                                                        rate: ability.rate
+                                                            ? '%'
+                                                            : ''
+                                                    })}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'str') {
+                                        return (
+                                            <div
+                                                key={`str-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <BicepsFlexed
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t('skill-node.str', {
+                                                        result:
+                                                            ability.add &&
+                                                            ability.add >= 0
+                                                                ? '+'
+                                                                : '',
+                                                        str: ability.add || 0,
+                                                        duration:
+                                                            levelData.duration ||
+                                                            0,
+                                                        rate: ability.rate
+                                                            ? '%'
+                                                            : ''
+                                                    })}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'sta') {
+                                        return (
+                                            <div
+                                                key={`sta-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Beef
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t('skill-node.sta', {
+                                                        result:
+                                                            ability.add &&
+                                                            ability.add >= 0
+                                                                ? '+'
+                                                                : '',
+                                                        sta: ability.add || 0,
+                                                        duration:
+                                                            levelData.duration ||
+                                                            0,
+                                                        rate: ability.rate
+                                                            ? '%'
+                                                            : ''
+                                                    })}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'int') {
+                                        return (
+                                            <div
+                                                key={`int-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Brain
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t('skill-node.int', {
+                                                        result:
+                                                            ability.add &&
+                                                            ability.add >= 0
+                                                                ? '+'
+                                                                : '',
+                                                        int: ability.add || 0,
+                                                        duration:
+                                                            levelData.duration ||
+                                                            0,
+                                                        rate: ability.rate
+                                                            ? '%'
+                                                            : ''
+                                                    })}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'dex') {
+                                        return (
+                                            <div
+                                                key={`dex-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Atom
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t('skill-node.dex', {
+                                                        result:
+                                                            ability.add &&
+                                                            ability.add >= 0
+                                                                ? '+'
+                                                                : '',
+                                                        dex: ability.add || 0,
+                                                        duration:
+                                                            levelData.duration ||
+                                                            0,
+                                                        rate: ability.rate
+                                                            ? '%'
+                                                            : ''
+                                                    })}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'attackspeed') {
+                                        return (
+                                            <div
+                                                key={`attackspeed-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <ChevronsUp
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t(
+                                                        'skill-node.attack-speed',
+                                                        {
+                                                            result:
+                                                                ability.add &&
+                                                                ability.add >= 0
+                                                                    ? '+'
+                                                                    : '',
+                                                            attackSpeed:
+                                                                ability.add ||
+                                                                0,
+                                                            duration:
+                                                                levelData.duration ||
+                                                                0,
+                                                            rate: ability.rate
+                                                                ? '%'
+                                                                : ''
+                                                        }
+                                                    )}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (
+                                        ability.parameter ===
+                                        'decreasedcastingtime'
+                                    ) {
+                                        return (
+                                            <div
+                                                key={`decreased-casting-time-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Loader
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t(
+                                                        'skill-node.decreased-casting-time',
+                                                        {
+                                                            result:
+                                                                ability.add &&
+                                                                ability.add >= 0
+                                                                    ? '+'
+                                                                    : '',
+                                                            castingTime:
+                                                                ability.add ||
+                                                                0,
+                                                            duration:
+                                                                levelData.duration ||
+                                                                0,
+                                                            rate: ability.rate
+                                                                ? '%'
+                                                                : ''
+                                                        }
+                                                    )}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'block') {
+                                        return (
+                                            <div
+                                                key={`block-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Shield
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t('skill-node.block', {
+                                                        result:
+                                                            ability.add &&
+                                                            ability.add >= 0
+                                                                ? '+'
+                                                                : '',
+                                                        block: ability.add || 0,
+                                                        duration:
+                                                            levelData.duration ||
+                                                            0,
+                                                        rate: ability.rate
+                                                            ? '%'
+                                                            : ''
+                                                    })}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'magicdefense') {
+                                        return (
+                                            <div
+                                                key={`magic-defense-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <ShieldHalf
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t(
+                                                        'skill-node.magic-defense',
+                                                        {
+                                                            result:
+                                                                ability.add &&
+                                                                ability.add >= 0
+                                                                    ? '+'
+                                                                    : '',
+                                                            magicDefense:
+                                                                ability.add ||
+                                                                0,
+                                                            duration:
+                                                                levelData.duration ||
+                                                                0,
+                                                            rate: ability.rate
+                                                                ? '%'
+                                                                : ''
+                                                        }
+                                                    )}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'def') {
+                                        return (
+                                            <div
+                                                key={`def-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Shield
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t('skill-node.def', {
+                                                        result:
+                                                            ability.add &&
+                                                            ability.add >= 0
+                                                                ? '+'
+                                                                : '',
+                                                        def: ability.add || 0,
+                                                        duration:
+                                                            levelData.duration ||
+                                                            0,
+                                                        rate: ability.rate
+                                                            ? '%'
+                                                            : ''
+                                                    })}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (
+                                        ability.parameter === 'criticaldamage'
+                                    ) {
+                                        return (
+                                            <div
+                                                key={`criticaldamage-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Sparkles
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t(
+                                                        'skill-node.critical-damage',
+                                                        {
+                                                            result:
+                                                                ability.add &&
+                                                                ability.add >= 0
+                                                                    ? '+'
+                                                                    : '',
+                                                            criticalDamage:
+                                                                ability.add,
+                                                            rate: ability.rate
+                                                                ? '%'
+                                                                : ''
+                                                        }
+                                                    )}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (
+                                        ability.parameter === 'criticalchance'
+                                    ) {
+                                        return (
+                                            <div
+                                                key={`criticalchance-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Crosshair
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t(
+                                                        'skill-node.critical-chance',
+                                                        {
+                                                            result:
+                                                                ability.add &&
+                                                                ability.add >= 0
+                                                                    ? '+'
+                                                                    : '',
+                                                            criticalChance:
+                                                                ability.add,
+                                                            rate: ability.rate
+                                                                ? '%'
+                                                                : ''
+                                                        }
+                                                    )}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (
+                                        ability.parameter === 'blockpenetration'
+                                    ) {
+                                        return (
+                                            <div
+                                                key={`blockpenetration-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Crosshair
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t(
+                                                        'skill-node.block-penetration',
+                                                        {
+                                                            result:
+                                                                ability.add &&
+                                                                ability.add >= 0
+                                                                    ? '+'
+                                                                    : '',
+                                                            blockPenetration:
+                                                                ability.add,
+                                                            rate: ability.rate
+                                                                ? '%'
+                                                                : ''
+                                                        }
+                                                    )}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'hitrate') {
+                                        return (
+                                            <div
+                                                key={`hitrate-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Crosshair
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t('skill-node.hit-rate', {
+                                                        result:
+                                                            ability.add &&
+                                                            ability.add >= 0
+                                                                ? '+'
+                                                                : '',
+                                                        hitRate: ability.add,
+                                                        rate: ability.rate
+                                                            ? '%'
+                                                            : ''
+                                                    })}
+                                                    {levelData?.duration !==
+                                                        undefined && (
+                                                        <div>
+                                                            {t(
+                                                                'skill-node.hit-rate-duration',
+                                                                {
+                                                                    duration:
+                                                                        levelData.duration
+                                                                }
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    return null;
+                                })}
+                            </>
+                        )}
                         <div className='text-muted-foreground mt-1'>
-                            {data.skillData.description.en}
+                            {data.skillData.description
+                                ? getSkillDescription(
+                                      data.skillData.description
+                                  )
+                                : t('skill-node.no-description')}
                         </div>
                         <Separator className='my-2' />
                         <span className='flex text-muted-foreground'>
-                            <MousePointerClick size={16} className='mx-1' /> Click
-                            to hold/close the window.
+                            <MousePointerClick size={16} className='mx-1' />
+                            {t('skill-node.click-to-hold')}
                         </span>
                     </TooltipContent>
                 </Tooltip>
@@ -413,13 +1217,19 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                     onMouseEnter={(e) => e.stopPropagation()}
                     onMouseLeave={(e) => e.stopPropagation()}
                     whileTap={{
-                        scale: currentLevel === data.skillData.levels.length ? 1 : 0.8
+                        scale:
+                            currentLevel ===
+                            (data.skillData.levels?.length || 0)
+                                ? 1
+                                : 0.8
                     }}
-                    aria-label={`Set skill to max level for ${data.label}`}
+                    aria-label={`Set skill to max level for ${getSkillName(data.skillData.name)}`}
                     disabled={
-                        skillPoints < (data.skillData.levels.length - currentLevel) * data.skillData.skillPoints ||
-                        characterLevel < data.skillData.level ||
-                        currentLevel === data.skillData.levels.length ||
+                        skillPoints <
+                            (levels.length - currentLevel) *
+                                (data.skillData.skillPoints || 1) ||
+                        characterLevel < (data.skillData.level || 0) ||
+                        currentLevel === levels.length ||
                         !canUpgrade()
                     }
                     className='flex items-center justify-center'
@@ -427,9 +1237,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                     <ChevronsUp
                         size={16}
                         className={`${
-                            skillPoints < (data.skillData.levels.length - currentLevel) * data.skillData.skillPoints ||
-                            characterLevel < data.skillData.level ||
-                            currentLevel === data.skillData.levels.length ||
+                            skillPoints <
+                                (levels.length - currentLevel) *
+                                    (data.skillData.skillPoints || 1) ||
+                            characterLevel < (data.skillData.level || 0) ||
+                            currentLevel === levels.length ||
                             !canUpgrade()
                                 ? 'text-muted cursor-not-allowed'
                                 : 'text-primary hover:text-primary/80 transition-all'
@@ -444,26 +1256,26 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                         }}
                         onMouseEnter={(e) => e.stopPropagation()}
                         onMouseLeave={(e) => e.stopPropagation()}
-                        aria-label={`Increase skill level for ${data.label}`}
+                        aria-label={`Increase skill level for ${getSkillName(data.skillData.name)}`}
                         disabled={
-                            skillPoints < data.skillData.skillPoints ||
-                            characterLevel < data.skillData.level ||
-                            currentLevel ===
-                                data.skillData.levels.length ||
+                            skillPoints < (data.skillData.skillPoints || 1) ||
+                            characterLevel < (data.skillData.level || 0) ||
+                            currentLevel === levels.length ||
                             !canUpgrade()
                         }
                         className={`rounded-tl-[3px] rounded-bl-[3px] bg-primary text-primary-foreground ${
-                            skillPoints <
-                                data.skillData.skillPoints ||
-                            characterLevel < data.skillData.level ||
-                            currentLevel ===
-                                data.skillData.levels.length ||
+                            skillPoints < (data.skillData.skillPoints || 1) ||
+                            characterLevel < (data.skillData.level || 0) ||
+                            currentLevel === levels.length ||
                             !canUpgrade()
                                 ? 'opacity-20 cursor-not-allowed'
                                 : 'hover:bg-primary/80 hover:text-primary-foreground/80 group'
                         }`}
                     >
-                        <Plus size={18} className='group-hover:scale-90 transition-all' />
+                        <Plus
+                            size={18}
+                            className='group-hover:scale-90 transition-all'
+                        />
                     </button>
                     <button
                         onClick={(e) => {
@@ -472,14 +1284,18 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                         }}
                         onMouseEnter={(e) => e.stopPropagation()}
                         onMouseLeave={(e) => e.stopPropagation()}
-                        aria-label={`Decrease skill level for ${data.label}`}
+                        aria-label={`Decrease skill level for ${getSkillName(data.skillData.name)}`}
                         disabled={currentLevel === 0}
-                        className={`rounded-tr-[3px] rounded-br-[3px] bg-destructive text-destructive-foreground ${currentLevel === 0
-                            ? 'opacity-20 cursor-not-allowed'
-                            : 'hover:bg-destructive/80 hover:text-destructive-foreground/80 group'
+                        className={`rounded-tr-[3px] rounded-br-[3px] bg-destructive text-destructive-foreground ${
+                            currentLevel === 0
+                                ? 'opacity-20 cursor-not-allowed'
+                                : 'hover:bg-destructive/80 hover:text-destructive-foreground/80 group'
                         }`}
                     >
-                        <Minus size={18} className='group-hover:scale-90 transition-all' />
+                        <Minus
+                            size={18}
+                            className='group-hover:scale-90 transition-all'
+                        />
                     </button>
                 </div>
                 <motion.button
@@ -492,7 +1308,7 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                     whileTap={{
                         scale: currentLevel === 0 ? 1 : 0.8
                     }}
-                    aria-label={`Reset skill to level 0 for ${data.label}`}
+                    aria-label={`Reset skill to level 0 for ${getSkillName(data.skillData.name)}`}
                     disabled={currentLevel === 0}
                     className='flex items-center justify-center'
                 >
