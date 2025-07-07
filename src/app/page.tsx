@@ -18,6 +18,8 @@ import { EdgeLabel } from '@/components/EdgeLabel';
 import { useClassStore } from '@/stores/classStore';
 import { loadBuildFromUrl } from '@/utils/shareBuild';
 import { useWebsiteStore } from '@/stores/websiteStore';
+import { useTranslation } from '@/hooks/useTranslation';
+import { Loader2 } from 'lucide-react';
 
 interface ClassSpaces {
     [key: number]: number;
@@ -168,6 +170,7 @@ const edgeTypes = {
 };
 
 const Page = () => {
+    const { t } = useTranslation();
     const { skillStyle } = useWebsiteStore();
     const [nodes, setNodes, onNodesChange] = useNodesState([]);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -285,18 +288,13 @@ const Page = () => {
         skillStyle
     ]);
 
-    if (isLoading) {
-        return (
-            <div className='flex justify-center items-center h-screen'>
-                Loading...
-            </div>
-        );
-    }
-
     if (error) {
         return (
-            <div className='flex justify-center items-center h-screen text-destructive'>
-                {error}
+            <div className='w-screen h-screen'>
+                <Navbar />
+                <div className='flex justify-center items-center h-[calc(100vh-110px)] sm:h-[calc(100vh-70px)] md:h-[calc(100vh-70px)] text-destructive'>
+                    {error}
+                </div>
             </div>
         );
     }
@@ -309,23 +307,30 @@ const Page = () => {
         <div className='w-screen h-screen'>
             <Navbar />
             <div className='h-[calc(100vh-110px)] sm:h-[calc(100vh-70px)] md:h-[calc(100vh-70px)]'>
-                <ReactFlow
-                    nodes={nodes}
-                    edges={edges}
-                    onNodesChange={onNodesChange}
-                    onEdgesChange={onEdgesChange}
-                    nodeTypes={{ custom: SkillNode }}
-                    edgeTypes={edgeTypes}
-                    onBeforeDelete={onBeforeDelete}
-                    draggable={false}
-                    nodesDraggable={false}
-                    zoomOnDoubleClick={false}
-                    fitView
-                    className='text-black'
-                >
-                    <Controls showInteractive={false} />
-                    <Background />
-                </ReactFlow>
+                {isLoading ? (
+                    <div className='flex justify-center items-center h-full gap-2 text-xl text-muted-foreground'>
+                        <Loader2 className='h-10 w-10 animate-spin' />
+                        {t('loading')}
+                    </div>
+                ) : (
+                    <ReactFlow
+                        nodes={nodes}
+                        edges={edges}
+                        onNodesChange={onNodesChange}
+                        onEdgesChange={onEdgesChange}
+                        nodeTypes={{ custom: SkillNode }}
+                        edgeTypes={edgeTypes}
+                        onBeforeDelete={onBeforeDelete}
+                        draggable={false}
+                        nodesDraggable={false}
+                        zoomOnDoubleClick={false}
+                        fitView
+                        className='text-black'
+                    >
+                        <Controls showInteractive={false} />
+                        <Background />
+                    </ReactFlow>
+                )}
             </div>
         </div>
     );

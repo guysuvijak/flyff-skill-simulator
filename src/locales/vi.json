@@ -1,4 +1,5 @@
 {
+    "loading": "Đang tải...",
     "navbar": {
         "level": "Cấp",
         "menu": {
@@ -8,7 +9,8 @@
                 "load": "Tải bản dựng",
                 "share": "Chia sẻ bản dựng",
                 "screenshot": "Chụp màn hình",
-                "reset": "Đặt lại bản dựng"
+                "reset": "Đặt lại bản dựng",
+                "reset-toast": "Bản dựng đã được đặt lại"
             },
             "setting": {
                 "main": "cài đặt",

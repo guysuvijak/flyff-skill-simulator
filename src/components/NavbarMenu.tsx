@@ -30,6 +30,7 @@ import { useWebsiteStore } from '@/stores/websiteStore';
 import { shareBuild } from '@/utils/shareBuild';
 import { toast } from 'sonner';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useSkillStore } from '@/stores/skillStore';
 import pkg from '../../package.json';
 
 const themeColors = [
@@ -68,6 +69,7 @@ export const NavbarMenu = () => {
         skillStyle,
         setSkillStyle
     } = useWebsiteStore();
+    const { resetSkillLevels } = useSkillStore();
     const [isSharing, setIsSharing] = useState(false);
 
     useEffect(() => {
@@ -82,6 +84,11 @@ export const NavbarMenu = () => {
 
         // Reset state after 2 seconds
         setTimeout(() => setIsSharing(false), 2000);
+    };
+
+    const handleReset = () => {
+        resetSkillLevels();
+        toast.success(t(`navbar.menu.build.reset-toast`));
     };
 
     const ExternalLinkItem = ({
@@ -168,7 +175,7 @@ export const NavbarMenu = () => {
                     </MenubarItem>
                     <MenubarSeparator />
                     <MenubarItem
-                        onClick={() => (window.location.href = '/')}
+                        onClick={handleReset}
                         className='cursor-pointer'
                     >
                         <RotateCcw

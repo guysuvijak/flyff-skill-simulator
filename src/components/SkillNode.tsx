@@ -221,12 +221,27 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
             const totalSkillPointsNeeded = levelsToAdd * skillPointsCost;
 
             if (skillPoints >= totalSkillPointsNeeded) {
+                // Have enough points to upgrade all
                 updateSkillLevel(
                     data.skillData.id,
                     levels.length,
                     skillPointsCost
                 );
                 setSkillPoints(skillPoints - totalSkillPointsNeeded);
+            } else {
+                // Don't have enough points, upgrade as much as can.
+                const levelsCanUpgrade = Math.floor(
+                    skillPoints / skillPointsCost
+                );
+                const newLevel = Math.min(
+                    currentLevel + levelsCanUpgrade,
+                    levels.length
+                );
+                const actualSkillPointsUsed =
+                    (newLevel - currentLevel) * skillPointsCost;
+
+                updateSkillLevel(data.skillData.id, newLevel, skillPointsCost);
+                setSkillPoints(skillPoints - actualSkillPointsUsed);
             }
         }
     };
@@ -1225,9 +1240,7 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                     }}
                     aria-label={`Set skill to max level for ${getSkillName(data.skillData.name)}`}
                     disabled={
-                        skillPoints <
-                            (levels.length - currentLevel) *
-                                (data.skillData.skillPoints || 1) ||
+                        skillPoints < (data.skillData.skillPoints || 1) ||
                         characterLevel < (data.skillData.level || 0) ||
                         currentLevel === levels.length ||
                         !canUpgrade()
@@ -1237,9 +1250,7 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                     <ChevronsUp
                         size={16}
                         className={`${
-                            skillPoints <
-                                (levels.length - currentLevel) *
-                                    (data.skillData.skillPoints || 1) ||
+                            skillPoints < (data.skillData.skillPoints || 1) ||
                             characterLevel < (data.skillData.level || 0) ||
                             currentLevel === levels.length ||
                             !canUpgrade()

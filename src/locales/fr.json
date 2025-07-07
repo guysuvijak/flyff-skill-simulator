@@ -1,4 +1,5 @@
 {
+    "loading": "Chargement...",
     "navbar": {
         "level": "Niveau",
         "menu": {
@@ -8,7 +9,8 @@
                 "load": "Charger la Construction",
                 "share": "Partager la Construction",
                 "screenshot": "Capture d’écran",
-                "reset": "Réinitialiser la Construction"
+                "reset": "Réinitialiser la Construction",
+                "reset-toast": "Construction réinitialisée avec succès"
             },
             "setting": {
                 "main": "Paramètres",

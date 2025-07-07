@@ -1,4 +1,5 @@
 {
+    "loading": "Memuat...",
     "navbar": {
         "level": "Level",
         "menu": {
@@ -8,7 +9,8 @@
                 "load": "Muat Bangunan",
                 "share": "Bagikan Bangunan",
                 "screenshot": "Tangkapan Layar",
-                "reset": "Reset Bangunan"
+                "reset": "Reset Bangunan",
+                "reset-toast": "Bangunan berhasil direset"
             },
             "setting": {
                 "main": "Pengaturan",

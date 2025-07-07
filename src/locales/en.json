@@ -1,4 +1,5 @@
 {
+    "loading": "Loading...",
     "navbar": {
         "level": "Level",
         "menu": {
@@ -8,7 +9,8 @@
                 "load": "Load Build",
                 "share": "Share Build",
                 "screenshot": "Screenshot",
-                "reset": "Reset Build"
+                "reset": "Reset Build",
+                "reset-toast": "Build reset successfully"
             },
             "setting": {
                 "main": "Settings",

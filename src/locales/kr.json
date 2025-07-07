@@ -1,4 +1,5 @@
 {
+    "loading": "로딩 중...",
     "navbar": {
         "level": "레벨",
         "menu": {
@@ -8,7 +9,8 @@
                 "load": "빌드 불러오기",
                 "share": "빌드 공유하기",
                 "screenshot": "스크린샷",
-                "reset": "빌드 초기화"
+                "reset": "빌드 초기화",
+                "reset-toast": "빌드가 초기화되었습니다"
             },
             "setting": {
                 "main": "설정",

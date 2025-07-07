@@ -2,7 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
-## 📍 [1.4.1] - 2025-01-06
+## 📍 [1.4.2] - 2025-07-07
+
+This patch addresses a long-standing critical issue where skill points would reset after upgrading skills, preventing users from properly leveling up their character builds. We've also enhanced the overall UX/UI to provide better user experience and clearer feedback about what's happening during skill operations.
+
+- improved: Loading state UX by showing loader in ReactFlow area instead of full screen
+- improved: Error state display to maintain navbar visibility
+- improved: setToMaxLevel function to upgrade skills with available points even when insufficient for full upgrade
+- changed: Loading and error states to use conditional rendering within ReactFlow container
+- changed: Package.json description, keywords
+- fixed: Skill upgrade button disabled state to allow partial upgrades when points are limited
+- fixed: Critical bug where skill points would disappear after increasing/decreasing skill levels, preventing proper character progression (resolved)
+- fixed: metadata github username
+
+## 📍 [1.4.1] - 2025-07-06
 
 - added: Comprehensive SEO optimization with enhanced metadata
 - added: Structured data (JSON-LD) for better search engine understanding (WebApplication)

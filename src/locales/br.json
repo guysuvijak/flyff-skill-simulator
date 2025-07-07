@@ -1,4 +1,5 @@
 {
+    "loading": "Carregando...",
     "navbar": {
         "level": "Nível",
         "menu": {
@@ -8,7 +9,8 @@
                 "load": "Carregar Build",
                 "share": "Compartilhar Build",
                 "screenshot": "Captura de Tela",
-                "reset": "Resetar Build"
+                "reset": "Resetar Build",
+                "reset-toast": "Build resetado com sucesso"
             },
             "setting": {
                 "main": "Configurações",

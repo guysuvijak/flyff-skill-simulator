@@ -54,6 +54,7 @@
             "y": 12
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 5162,
@@ -217,7 +218,7 @@
             "id": "Melindungi target dari serangan kritikal yang masuk untuk waktu yang terbatas.",
             "it": "Protects the target from incoming critical hits for a limited amount of time.",
             "jp": "一定時間、対象を目に見えない結界で包み、魔法防御力を上昇させます。",
-            "kr": "대상에게 신성한 결계를 쳐서 마법 방어력을 상승시킵니다.",
+            "kr": "대상에게 신성한 결계를 쳐서 일정 시간동안 치명타 공격으로 부터 보호합니다.",
             "nl": "Protects the target from incoming critical hits for a limited amount of time.",
             "pl": "Chroni cel przed otrzymaniem ciosu krytycznego przez krótki czas.",
             "ru": "Защищает цель от критических ударов на некоторое время.",
@@ -236,6 +237,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 579,
@@ -519,7 +521,7 @@
             "id": "Powerful, slashing attack. Menyerang semua musuh di sekitar. Membutuhkan two weapon.",
             "it": "Potente attacco di taglio. Attacca tutti i nemici intorno. Richiede due armi.",
             "jp": "身体の中に気を集中させて、剣や斧の先から一気に放出して敵を攻撃します。",
-            "kr": "무기에 기를 모아 방출하여 전방의 적들을 향해 공격합니다.",
+            "kr": "강력한 베기 공격으로 주변 모든 적을 공격합니다. 두 개의 무기를 장착해야 사용할 수 있습니다.",
             "nl": "Powerful, slashing attack. Attacks all enemies around. Requires two weapons.",
             "pl": "Potężne cięcie, przebijające wszystkich wrogów zebranych przed tobą. Wymaga dwóch broni.",
             "ru": "Сильный режущий удар по всем противникам вокруг персонажа. Для использования требуются два оружия.",
@@ -538,6 +540,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 4369,
@@ -834,6 +837,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -910,6 +914,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -967,7 +972,7 @@
             "id": "Strong Yo-yo blast. Kesempatan untuk membuat musuh kehilangan kesehatan dari waktu ke waktu.",
             "it": "Strong Yo-yo blast. Chance to make the enemy lose health over time.",
             "jp": "敵の急所に攻撃を行い、継続的な出血を起こさせる。近距離で使用可能",
-            "kr": "요요를 예측불허의 장소로 날려 치명적인 공격을 합니다. 이때 적은 일정 확률로 출혈 상태가 됩니다.",
+            "kr": "요요를 예측불허의 장소로 날려 치명적인 공격을 합니다. 일정 확률로 상대는 출혈 상태가 됩니다.",
             "nl": "Strong Yo-yo blast. Chance to make the enemy lose health over time.",
             "pl": "Potężne uderzenie Yo-Yo, które wywołuje krwawienie u celu.",
             "ru": "Сильный удар йо-йо. Противник будет получать постепенный урон.",
@@ -986,6 +991,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 2554,
@@ -1775,7 +1781,7 @@
             "id": "Keenwheel",
             "it": "Attacco circolare",
             "jp": "キーンフィール",
-            "kr": "킨휠",
+            "kr": "회오리 참격",
             "nl": "Keenwheel",
             "pl": "Wirujące Cięcie",
             "ru": "Вертушка",
@@ -1797,7 +1803,7 @@
             "id": "Serangan berputar terus menerus.",
             "it": "Un attacco circolare che colpisce l'avversario tre volte.",
             "jp": "マーシナリー・サークルスキルで、身体を回転させながら、相手を切り刻むように攻撃します。",
-            "kr": "서클스킬로 몸을 급속으로 회전하며 상대를 연속 타격합니다.",
+            "kr": "몸을 급속으로 회전하며 상대를 연속 타격합니다.",
             "nl": "A continuous spinning attack.",
             "pl": "Tnie przeciwnika wielokrotnie, poprzez wirowanie wokół własnej osi.",
             "ru": "Продолжительная круговая атака.",
@@ -1816,6 +1822,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 1986,
@@ -2146,7 +2153,7 @@
             "id": "Perfect Block",
             "it": "Perfect Block",
             "jp": "パーフェクトブロック",
-            "kr": "엉터리화살",
+            "kr": "절대 방어",
             "nl": "Perfect Block",
             "pl": "Perfekcyjny Blok",
             "ru": "Мастер блокирования",
@@ -2168,7 +2175,7 @@
             "id": "Meningkatkan Block Rate.",
             "it": "Increases block rate.",
             "jp": "ブロック率が上昇する",
-            "kr": "적의 움직임에 집중하여 블럭율이 상승시킵니다",
+            "kr": "방어율을 상승시킵니다.",
             "nl": "Increases block rate.",
             "pl": "Zwiększa szansę na blok.",
             "ru": "Повышает вероятность блокирования ударов противника.",
@@ -2187,6 +2194,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 7395,
@@ -2478,7 +2486,7 @@
             "id": "Silent Arrow",
             "it": "Silent Arrow",
             "jp": "サイレントアロー",
-            "kr": "침묵의에로우",
+            "kr": "침묵의 화살",
             "nl": "Stille Pijl",
             "pl": "Silent Arrow",
             "ru": "Глушащая стрела",
@@ -2500,7 +2508,7 @@
             "id": "Menyerang musuh dan mencegah mereka merapal mantra.",
             "it": "Attacks the enemy and prevents them from casting spells.",
             "jp": "強力なダメージを与えると共に、一定確率で沈黙状態(魔法が使用できない)にする。",
-            "kr": "마법 주문을 외울 수 없도록 적을 화살로 공격합니다. 이때 적은 일정 확률로 침묵 상태가 됩니다.",
+            "kr": "마법 주문을 외울 수 없도록 적을 화살로 공격합니다.",
             "nl": "Attacks the enemy and prevents them from casting spells.",
             "pl": "Atakuje wroga i uniemożliwia mu rzucanie zaklęć.",
             "ru": "Глушащая стрела не дает противнику читать заклинания.",
@@ -2518,6 +2526,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "weapon": "bow",
         "consumedItem": "arrow",
@@ -2555,7 +2564,7 @@
             "id": "Bgvur Tialbold",
             "it": "Bgvur Tialbold",
             "jp": "グブルティアボルド",
-            "kr": "그브르 티알볼드",
+            "kr": "브그부르 티알볼드",
             "nl": "Bgvur Tialbold",
             "pl": "Bgvur Tialbold",
             "ru": "Пожиратель",
@@ -2577,7 +2586,7 @@
             "id": "Menyerang musuh terdekat dengan gelombang kejut ke luar.",
             "it": "Strikes at nearby enemies with an outward shockwave.",
             "jp": "衝撃波で自分の周囲の敵にダメージを与えます。",
-            "kr": "자신의 주변에 충격파를 날려 적들을 타격합니다.",
+            "kr": "주변에 충격파를 날려 근처 적들을 타격합니다.",
             "nl": "Strikes at nearby enemies with an outward shockwave.",
             "pl": "Atakuje wszystkich wrogów wokół ciebie za pomocą duchowej Fali Uderzeniowej.",
             "ru": "Ударная волна наносит урон окружающим вас врагам.",
@@ -2596,6 +2605,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3228,
@@ -2824,6 +2834,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -3024,7 +3035,7 @@
             "id": "Damage",
             "it": "Damage",
             "jp": "ダメージ",
-            "kr": "데미지",
+            "kr": "대미지",
             "nl": "Schade",
             "pl": "Obrażenia",
             "ru": "Урон",
@@ -3060,6 +3071,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -3176,7 +3188,7 @@
             "id": "Jarak jauh, serangan angin. Mengurangi ketahanan api target.",
             "it": "Ranged, wind attack. Reduces fire resistance of the target.",
             "jp": "風属性の遠距離攻撃。一定確率で対象の火属性体制を低下させます。",
-            "kr": "칼날처럼 날카로운 바람을 날려 적을 공격하여 대상의 불 저항력을 감소시킵니다.",
+            "kr": "칼날처럼 날카로운 바람을 날려 공격합니다. 대상의 불 저항력을 감소시킵니다.",
             "nl": "Ranged, wind attack. Reduces fire resistance of the target.",
             "pl": "Tnie przeciwnika silnym wiatrem. Zmniejsza odporność na ogień.",
             "ru": "Ranged, wind attack. Reduces fire resistance of the target.",
@@ -3195,6 +3207,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "wind",
         "requirements": [
             {
                 "skill": 1783,
@@ -3726,7 +3739,7 @@
             "id": "Ice Arrow",
             "it": "Ice Arrow",
             "jp": "アイスアロー",
-            "kr": "아이스에로우",
+            "kr": "얼음 화살",
             "nl": "IJspijl",
             "pl": "Ice Arrow",
             "ru": "Обледенелая стрела",
@@ -3748,7 +3761,7 @@
             "id": "Memperlambat musuh dengan menembaknya dengan panah yang tertutup es.",
             "it": "Slows an enemy down by shooting it with arrows covered in ice.",
             "jp": "氷の矢が粉砕し、周囲の敵に水属性ダメージを与え、一定時間動きを鈍くさせる",
-            "kr": "화살에 워터 속성을 추가시켜 주변의 모든 적을 공격합니다. 이때 적의 이동 속도를 감소시킵니다.",
+            "kr": "화살에 얼음 속성을 추가시켜 적을 공격하며 적의 이동 속도를 감소시킵니다.",
             "nl": "Slows an enemy down by shooting it with arrows covered in ice.",
             "pl": "Spowalnia wroga, strzelając do niego strzałami pokrytymi lodem.",
             "ru": "Обледенелая стрела замедляет противника.",
@@ -3767,6 +3780,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 1234,
@@ -4178,7 +4192,7 @@
             "id": "Bloody Strike",
             "it": "Colpo Sanguinoso",
             "jp": "ブラッディストライク",
-            "kr": "블러디 스트라이크",
+            "kr": "혈투 일격",
             "nl": "Bloody Strike",
             "pl": "Krwawy Cios",
             "ru": "Кровавая кража",
@@ -4219,6 +4233,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 1986,
@@ -4731,7 +4746,7 @@
             "id": "Mengurangi kerusakan dari serangan fisik dan magic pada target.",
             "it": "Decreases the damage from physical & magical attacks on a target.",
             "jp": "一定時間、対象を目に見えない障壁で包み、防御力を上昇させます。",
-            "kr": "대상에게 신성한 결계를 쳐서 물리/마법 방어력을 상승시킵니다.",
+            "kr": "대상에게 신성한 결계를 쳐서 물리 & 마법 공격으로부터 방어합니다.",
             "nl": "Decreases the damage from physical & magical attacks on a target.",
             "pl": "Zwiększa obronę fizyczną i magiczną celu.",
             "ru": "Повышает защиту выбранной цели от физических и магических атак.",
@@ -4750,6 +4765,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 7661,
@@ -5233,7 +5249,7 @@
             "id": "Serangan kuat yang menyerang semua musuh di depan.",
             "it": "A single, powerful strike that attacks all enemies around you.",
             "jp": "周囲すべての敵へ強力な一撃を食らわせます。",
-            "kr": "몸의 반동을 최대한 이용하여 힘을 실어 주변의 모든 적을 타격합니다.",
+            "kr": "실어 주변의 모든 적을 공격하는 강력한 일격입니다.",
             "nl": "A single, powerful strike that attacks all enemies around you.",
             "pl": "Potężny atak który zadaje obrażenia wszystkim zebranym przeciwnikom od frontu.",
             "ru": "A single, powerful strike that attacks all enemies around you.",
@@ -5252,6 +5268,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 2418,
@@ -5602,7 +5619,7 @@
             "id": "Beef Up",
             "it": "Beef Up",
             "jp": "マッスルパワー",
-            "kr": "비프업",
+            "kr": "비프 업",
             "nl": "Beef Up",
             "pl": "Napompowanie",
             "ru": "Громила",
@@ -5624,7 +5641,7 @@
             "id": "Meningkatkan daya serang target",
             "it": "Increases striking power of a target.",
             "jp": "一定時間、対象の筋力を増強させ、攻撃力を上昇させます。",
-            "kr": "대상의 힘을 상승시킵니다.",
+            "kr": "대상의 타격력이 상승합니다.",
             "nl": "Increases striking power of a target.",
             "pl": "Increases striking power of a target.",
             "ru": "Повышает силу удара цели.",
@@ -5643,6 +5660,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 7661,
@@ -6310,6 +6328,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -6381,6 +6400,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -6452,6 +6472,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -6514,7 +6535,7 @@
             "id": "Meningkatkan Accuracy dan meningkatkan kekuatan Sword.",
             "it": "Aumenta la precisione e la potenza d'attacco della spada.",
             "jp": "剣を装備している際に、一定時間、攻撃力が上昇します",
-            "kr": "소드의 능력을 강화시켜 공격력과 명중률을 상승시킵니다.",
+            "kr": "검의 공격력과 명중률을 상승시킵니다.",
             "nl": "Increases Accuracy and increases power of the Sword.",
             "pl": "Zwiększa celność i siłę ataku Mieczy.",
             "ru": "Повышает точность и силу ударов мечом.",
@@ -6533,6 +6554,7 @@
             "y": 104
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3827,
@@ -6946,7 +6968,7 @@
             "id": "Meningkatkan peluang critical strike.",
             "it": "Increases chance of critical strike.",
             "jp": "ヨーヨーでの攻撃の際に、クリティカルの発生確率を増加させる",
-            "kr": "요요의 능력을 강화 시켜 적에 대한 크리티컬 확률을 상승시킵니다.",
+            "kr": "적에 대한 치명타 확률을 상승시킵니다.",
             "nl": "Increases chance of critical strike.",
             "pl": "Zwiększa szansę na Cios Krytyczny.",
             "ru": "Повышает вероятность нанести критический урон.",
@@ -6965,6 +6987,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8499,
@@ -7302,6 +7325,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -7436,7 +7460,7 @@
             "id": "Meteo Shower",
             "it": "Meteo Shower",
             "jp": "メテオストライク",
-            "kr": "메테오 샤워",
+            "kr": "운석 낙하",
             "nl": "Meteo Shower",
             "pl": "Deszcz Meteorów",
             "ru": "Метеоритный дождь",
@@ -7458,7 +7482,7 @@
             "id": "Menyerang musuh sekitar dengan Meteor.",
             "it": "Damages surrounding enemies with a falling meteor.",
             "jp": "天空の彼方から隕石を召還し、一定範囲内の敵に火と地の攻撃を行います。",
-            "kr": "불타는 운석을 떨어트려 주변의 모든 적들을 공격합니다.",
+            "kr": "떨어지는 운석으로 주변의 적들에게 피해를 줍니다.",
             "nl": "Damages surrounding enemies with a falling meteor.",
             "pl": "Atakuje wszystkich wrogów wokół ciebie deszczem meteorów.",
             "ru": "На врагов обрушивается метеоритный дождь, наносящий урон огнем и землей.",
@@ -7477,6 +7501,7 @@
             "y": 12
         },
         "magic": true,
+        "elementType": "fireearth",
         "requirements": [
             {
                 "skill": 6741,
@@ -7682,7 +7707,7 @@
             "id": "Stone Spear",
             "it": "Stone Spear",
             "jp": "ストーンスピア",
-            "kr": "스톤 스피어",
+            "kr": "석창",
             "nl": "Stone Spear",
             "pl": "Kamienna Włócznia",
             "ru": "Каменное копье",
@@ -7704,7 +7729,7 @@
             "id": "Memberikan damage dengan tombak batu.",
             "it": "Damages an enemy with a stone spear.",
             "jp": "鋭い石の槍を出現させ、敵を攻撃します。",
-            "kr": "돌로 만들어진 창을 날려 적을 공격합니다.",
+            "kr": "돌로 만들어진 창으로 적을 공격합니다.",
             "nl": "Damages an enemy with a stone spear.",
             "pl": "Rzuca w przeciwnika Kamienna Włócznią.",
             "ru": "Наносит противнику урон землей.",
@@ -7723,6 +7748,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "earth",
         "requirements": [
             {
                 "skill": 997,
@@ -7914,7 +7940,7 @@
             "id": "Circle Healing",
             "it": "Circle Healing",
             "jp": "サークルヒーリング",
-            "kr": "써클힐링",
+            "kr": "써클 힐링",
             "nl": "Circle Healing",
             "pl": "Krąg Leczenia",
             "ru": "Исцеляющий круг",
@@ -7936,7 +7962,7 @@
             "id": "Menyembuhkan anggota party yang dekat denganmu.",
             "it": "Heals party members close to you.",
             "jp": "自分の周りにいる同じパーティメンバーのHPを同時に回復させます。",
-            "kr": "가까이 있는 극단원들의 HP를 일정량 회복시킵니다.",
+            "kr": "근처에 있는 극단원들이 치유됩니다.",
             "nl": "Heals party members close to you.",
             "pl": "Leczy wszystkich członków drużyny wokół ciebie.",
             "ru": "Исцеляет находящихся поблизости игроков вашей труппы.",
@@ -7955,6 +7981,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8485,
@@ -8406,7 +8433,7 @@
             "id": "Rock Crash",
             "it": "Rock Crash",
             "jp": "ロッククラッシュ",
-            "kr": "스파이크 스톤",
+            "kr": "락 크래쉬",
             "nl": "Rock Crash",
             "pl": "Kamienne Rozbicie",
             "ru": "Камнепад",
@@ -8428,7 +8455,7 @@
             "id": "Menyerang musuh dengan batu besar.",
             "it": "Damages the enemy with a giant stone.",
             "jp": "巨大な岩を召還して、敵に飛ばします。",
-            "kr": "거대한 바위를 떨어뜨려 적을 공격합니다.",
+            "kr": "거대한 바위를 떨어뜨려 대미지를 줍니다.",
             "nl": "Damages the enemy with a giant stone.",
             "pl": "Rzuca we wroga olbrzymim głazem. Cel będzie zmiażdżony i chwilowo bardziej podatny na ataki Wiatrem.",
             "ru": "На противника обрушиваются камни.",
@@ -8447,6 +8474,7 @@
             "y": 104
         },
         "magic": true,
+        "elementType": "earth",
         "requirements": [
             {
                 "skill": 6034,
@@ -8958,7 +8986,7 @@
             "id": "Cannon Ball",
             "it": "Cannon Ball",
             "jp": "キャノンボール",
-            "kr": "캐논볼",
+            "kr": "캐논 볼",
             "nl": "Kanonskogel",
             "pl": "Kula Armatnia",
             "ru": "Пушечное ядро",
@@ -8980,7 +9008,7 @@
             "id": "Meningkatkan DEX target.",
             "it": "Increases DEX of the target.",
             "jp": "一定時間、対象の瞬発力を増加させ、敏捷（Ｄｅｘ）を上昇させます。",
-            "kr": "대상의 민첩을 상승시킵니다.",
+            "kr": "대상의 DEX가 상승합니다.",
             "nl": "Increases DEX of the target.",
             "pl": "Zwiększa DEX celu.",
             "ru": "Повышает ловкость цели.",
@@ -8999,6 +9027,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3721,
@@ -9673,6 +9702,7 @@
             }
         ],
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -9742,6 +9772,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -9782,7 +9813,7 @@
             "id": "Mental Sign",
             "it": "Mental Sign",
             "jp": "メンタルサイン",
-            "kr": "멘탈사인",
+            "kr": "멘탈 사인",
             "nl": "Mental Sign",
             "pl": "Znak Umysłu",
             "ru": "Умник",
@@ -9804,7 +9835,7 @@
             "id": "Meningkatkan INT dari target",
             "it": "Increases INT of a target",
             "jp": "一定時間、対象の知力(Int)を上昇させます。",
-            "kr": "대상의 지능을 상승시킵니다.",
+            "kr": "대상의 INT가 상승합니다",
             "nl": "Increases INT of a target",
             "pl": "Zwiększa INT celu.",
             "ru": "Повышает интеллект цели.",
@@ -9823,6 +9854,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 5653,
@@ -10454,7 +10486,7 @@
             "id": "Burningfield",
             "it": "Burningfield",
             "jp": "バーニングフィールド",
-            "kr": "버닝필드",
+            "kr": "화염 지대",
             "nl": "Burningfield",
             "pl": "Płonące Pole",
             "ru": "Горящая земля",
@@ -10476,7 +10508,7 @@
             "id": "Memberi damage pada musuh selama periode waktu tertentu",
             "it": "Does damage to the enemy over a period of time",
             "jp": "一定時間の間、指定地域を火の海にし、全ての敵に継続的に火属性のダメージを与える",
-            "kr": "지정된 지역을 불바다로 만들어 적들에게 지속적인 공격을 합니다.",
+            "kr": "일정 시간동안 지정된 지역을 불바다로 만들어 적들에게 대미지를 입힙니다.",
             "nl": "Does damage to the enemy over a period of time",
             "pl": "Podpala ziemię by zadawać ciągłe obrażenia wrogom w zasięgu.",
             "ru": "Противник получает постепенный урон.",
@@ -10490,6 +10522,7 @@
         "level": 1,
         "element": "fire",
         "magic": true,
+        "elementType": "fire",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -10716,7 +10749,7 @@
             "id": "Menembakkan panah berkali-kali. Dapat mengurangi Akurasi musuh.",
             "it": "Fires arrows multiple times. Can reduce enemies Accuracy.",
             "jp": "呪力を込めた矢を射る。対象に一定確率で闇効果を与える。",
-            "kr": "적을 향해 연속하여 빠른 동작으로 화살을 날립니다. 이때 적은 일정 확률로 어둠 상태가 됩니다.",
+            "kr": "적을 향해 연속으로 화살을 날립니다. 일정 확률로 상대의 적중률을 감소시킵니다.",
             "nl": "Fires arrows multiple times. Can reduce enemies Accuracy.",
             "pl": "Strzela kilkukrotnie we wroga. Może obniżyć jego celność.",
             "ru": "Быстрые выстрелы, позволяющие ослепить врага.",
@@ -10735,6 +10768,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8916,
@@ -11287,7 +11321,7 @@
             "id": "Counter Attack",
             "it": "Counter Attack",
             "jp": "カウンターアタック",
-            "kr": "에로우 레인",
+            "kr": "카운터 공격",
             "nl": "Counter Attack",
             "pl": "Kontratak",
             "ru": "Контратака",
@@ -11323,6 +11357,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -11357,7 +11392,7 @@
             "id": "Piercing Serpent",
             "it": "Piercing Serpent",
             "jp": "ピアッシングサーペント",
-            "kr": "피어싱 서펜트",
+            "kr": "피어싱 서펀트",
             "nl": "Piercing Serpent",
             "pl": "Przebijający Wąż",
             "ru": "Бросок змеи",
@@ -11379,7 +11414,7 @@
             "id": "Menembakkan sinar yang menusuk ke sasaran.",
             "it": "Fires a piercing beam at the target.",
             "jp": "指先に集中させた気を放出させて、対象を中心に一定範囲の敵を攻撃します。",
-            "kr": "너클해머에 순간적으로 기를 모았다가 전방의 적들을 향해 발사하여 가격합니다.",
+            "kr": "순간적으로 기를 모았다가 전방의 적들을 향해 발사하여 가격합니다.",
             "nl": "Fires a piercing beam at the target.",
             "pl": "Przebija cel za pomocą promienia energii.",
             "ru": "Пробивающий удар сквозь всех противников впереди персонажа.",
@@ -11398,6 +11433,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 6451,
@@ -11615,6 +11651,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -11679,7 +11716,7 @@
             "id": "Meledakan musuh dengan misil es. Peluang untuk mengurangi kecepatan target.",
             "it": "Blasts the enemy with a missile of ice. Chance to reduce the speed of the target.",
             "jp": "氷の弾で対象を攻撃します。",
-            "kr": "차가운 얼음 송곳을 날려 적을 공격합니다.",
+            "kr": "차가운 얼음 송곳을 날려 적을 공격합니다. 일정 확률로 적의 속도를 감소시킵니다.",
             "nl": "Blasts the enemy with a missile of ice. Chance to reduce the speed of the target.",
             "pl": "Trafia wroga lodowym pociskiem. Szansa na obniżenie prędkości celu.",
             "ru": "Наносит противнику урон водой с шансом уменьшить его скорость.",
@@ -11698,6 +11735,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "water",
         "requirements": [
             {
                 "skill": 4729,
@@ -12385,6 +12423,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -12425,7 +12464,7 @@
             "id": "Junk Arrow",
             "it": "Junk Arrow",
             "jp": "ジャンクアロー",
-            "kr": "엉터리화살",
+            "kr": "정크 애로우",
             "nl": "Junk Arrow",
             "pl": "Junk Arrow",
             "ru": "Сеятель стрел",
@@ -12447,7 +12486,7 @@
             "id": "Menembakkan panah secara acak-acak.",
             "it": "Fire arrows wildly.",
             "jp": "命中率は高くないが、複数の矢をランダムに射る。レベルが上がると命中する矢の数が多くなる",
-            "kr": "적을 향해 화살을 마구 쏩니다. 한번에 많은 공격을 하지만, 화살의 적중률은 떨어집니다.",
+            "kr": "적에게 화살을 마구 쏩니다.",
             "nl": "Fire arrows wildly.",
             "pl": "Strzelaj strzałami wściekle",
             "ru": "Быстро, но не очень точно выпускает сразу несколько стрел.",
@@ -12466,6 +12505,7 @@
             "y": 79
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "weapon": "bow",
         "consumedItem": "arrow",
@@ -12875,7 +12915,7 @@
             "id": "Menghapus de-buff dari target.",
             "it": "Removes de-buffs from a target.",
             "jp": "聖なる力で対象の状態異常を解除します。",
-            "kr": "대상에게 걸린 상태이상을 회복시킵니다.",
+            "kr": "대상에게 걸린 상태 이상을 회복시킵니다.",
             "nl": "Removes de-buffs from a target.",
             "pl": "Usuwa klątwy z celu.",
             "ru": "Снимает с цели отрицательные эффекты.",
@@ -12894,6 +12934,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 7411,
@@ -12956,7 +12997,7 @@
             "id": "Crucio Spell",
             "it": "Crucio Spell",
             "jp": "カーズスペル",
-            "kr": "크루시오 스펠",
+            "kr": "크루시오 주문",
             "nl": "Crucio Spell",
             "pl": "Klątwa Bólu",
             "ru": "Палач",
@@ -12978,7 +13019,7 @@
             "id": "Menyebabkan damage setara dengan 1.75 jumlah yang diberikan musuh.",
             "it": "Deals damage to an enemy equal to 1.75x the amount the enemy deals.",
             "jp": "魔法攻撃に対して2倍のダメージを相手に与えます。",
-            "kr": "적에게 받은 데미지의 일부를 돌려준다. (캐릭터, 몬스터는 각각 다른 데미지 공식 적용)",
+            "kr": "적에게 받은 대미지x 1.75 를 돌려줍니다.",
             "nl": "Deals damage to an enemy equal to 1.75x the amount the enemy deals.",
             "pl": "Zadaje wrogom 1,75x obrażeń jakie zadają tobie.",
             "ru": "Наносит противнику урон в 1.75 раза больше полученного вами.",
@@ -12997,6 +13038,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 4729,
@@ -13284,6 +13326,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -13463,6 +13506,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -13564,7 +13608,7 @@
             "id": "Serangan angin jarak jauh yang menggerakkan musuh.",
             "it": "Ranged, wind attack that moves the enemy.",
             "jp": "遠距離攻撃で、強い風で敵を移動させながら攻撃を行います。",
-            "kr": "강한 바람을 적에게 날려 적을 반대 방향으로 밀어냅니다.",
+            "kr": "강력한 바람으로 적을 밀어내는 원거리 공격입니다.",
             "nl": "Ranged, wind attack that moves the enemy.",
             "pl": "Odpycha wroga potężnym podmuchem.",
             "ru": "Атака дальнего боя, отбрасывающая противника.",
@@ -13583,6 +13627,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "wind",
         "requirements": [
             {
                 "skill": 8946,
@@ -13934,7 +13979,7 @@
             "id": "Buff Break X",
             "it": "Buff Break X",
             "jp": "バフブレーカーX",
-            "kr": "버프 브레이크X",
+            "kr": "버프 브레이크 X",
             "nl": "Buff Break X",
             "pl": "Buff Break X",
             "ru": "Снятие эффектов Х",
@@ -13977,6 +14022,7 @@
             }
         ],
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -14046,6 +14092,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -14122,6 +14169,7 @@
             "y": 32
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8094,
@@ -14261,7 +14309,7 @@
             "id": "Skill ini menyerap satu serangan dan melepaskannya kembali ke musuh.",
             "it": "Attacco di mischia a cui si aggiunge una parte dei danni subito nella fase di preparazione.",
             "jp": "対象に攻撃す際に受けたダメージの反射量を合わせてダメージを与えます。",
-            "kr": "적으로부터 받는 충격에 자신의 힘을 더하여 타격합니다.",
+            "kr": "적으로부터 받는 공격 한 번을 흡수한 뒤 적에게 되돌려줍니다.",
             "nl": "This skill absorbs one attack and releases back at an enemy.",
             "pl": "Absorbuje atak przeciwnika i zwraca go ze zwiększoną siłą.",
             "ru": "Контратакует врага его же уроном.",
@@ -14280,6 +14328,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 571,
@@ -14670,7 +14719,7 @@
             "id": "Slash",
             "it": "Slash",
             "jp": "スプルマッシュ",
-            "kr": "스플래쉬",
+            "kr": "스래쉬",
             "nl": "Hakken",
             "pl": "Podwójne Cięcie",
             "ru": "Порез",
@@ -14692,7 +14741,7 @@
             "id": "Menyerang musuh dua kali, berturut-turut dengan cepat.",
             "it": "Carica l'energia e colpisce l'avversario due volte.",
             "jp": "マーシナリー・ステップスキルで、剣や斧を使って2回連続で攻撃します。",
-            "kr": "스탭스킬로 몸을 굽혀 힘을 모은 뒤 반동을 이용하여 2회 타격합니다.",
+            "kr": "몸을 굽혀 힘을 모은 뒤 반동을 이용하여 2회 타격합니다.",
             "nl": "Strikes the enemy two times, in rapid succession.",
             "pl": "Rozpoczyna kombo dwoma, szybkimi cięciami.",
             "ru": "Два быстрых удара по противнику.",
@@ -14711,6 +14760,7 @@
             "y": 13
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "step",
         "debuff": true,
@@ -15016,7 +15066,7 @@
             "id": "Bow Mastery",
             "it": "Bow Mastery",
             "jp": "ボウマスタリー",
-            "kr": "보우 마스터리",
+            "kr": "활 숙련",
             "nl": "Bow Mastery",
             "pl": "Mistrzostwo Łuku",
             "ru": "Мастер стрельбы",
@@ -15038,7 +15088,7 @@
             "id": "Meningkatkan damage yang dihasilkan dengan Bow.",
             "it": "Increases damage done with a Bow.",
             "jp": "ボウの熟練度を上げ、攻撃力を増加させる",
-            "kr": "보우의 사용 능력을 높여서 공격력을 상승시킵니다.",
+            "kr": "화살의 사용 능력을 높여서 공격력을 상승시킵니다.",
             "nl": "Increases damage done with a Bow.",
             "pl": "Zwiększa siłę ataku Łuku.",
             "ru": "Повышает урон при стрельбе из лука.",
@@ -15057,6 +15107,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 1526,
@@ -15328,7 +15379,7 @@
             "id": "Lightning Mastery",
             "it": "Lightning Mastery",
             "jp": "ライトニングマスター",
-            "kr": "라이트닝 마스터",
+            "kr": "라이트닝 마스터리",
             "nl": "Lightning Mastery",
             "pl": "Mistrz Prądu",
             "ru": "Властелин молний",
@@ -15350,7 +15401,7 @@
             "id": "Meningkatkan kekuatan serangan spell element Electricity.",
             "it": "Increases the striking power of electric spells.",
             "jp": "雷の精霊と盟約を結び、雷属性の攻撃力を強化します。",
-            "kr": "라이트닝 속성 마법의 공격력을 상승시킵니다.",
+            "kr": "번개 속성 마법의 공격력을 상승시킵니다.",
             "nl": "Increases the striking power of electric spells.",
             "pl": "Zwiększa siłę Elektrycznych czarów.",
             "ru": "Повышает силу заклинаний стихии молний.",
@@ -15369,6 +15420,7 @@
             "y": 78
         },
         "magic": true,
+        "elementType": "electricity",
         "requirements": [
             {
                 "skill": 3177,
@@ -15566,6 +15618,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -15700,7 +15753,7 @@
             "id": "Sandstorm",
             "it": "Sandstorm",
             "jp": "サンドストーム",
-            "kr": "샌드 스톰",
+            "kr": "모래 폭풍",
             "nl": "Zandstorm",
             "pl": "Burza Piaskowa",
             "ru": "Самум",
@@ -15722,7 +15775,7 @@
             "id": "Menyerang musuh sekitar dengan badai pasir serta mengurangi Accuracy mereka.",
             "it": "Damages surrounding enemies with a sandstorm. Chance to reduce Accuracy.",
             "jp": "砂嵐を発生させて、周囲の敵に地と風の攻撃を行います。",
-            "kr": "거친 모래 폭풍을 일으켜 주변의 모든 적을 공격합니다. 일정 확률로 대상의 적중률을 감소 시킵니다.",
+            "kr": "거친 모래 폭풍을 일으켜 주변의 모든 적을 공격합니다. 일정 확률로 상대의 적중률을 감소시킵니다.",
             "nl": "Damages surrounding enemies with a sandstorm. Chance to reduce Accuracy.",
             "pl": "Atakuje wszystkich wrogów wokół ciebie za pomocą Burzy Piaskowej. Celność wrogów mocno spadnie.",
             "ru": "На врагов обрушивается песчаная буря с некоторым шансом понизить меткость.",
@@ -15737,6 +15790,7 @@
         "element": "none",
         "flyBackProbability": 100,
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -15816,6 +15870,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -15924,7 +15979,7 @@
             "id": "Blindside",
             "it": "Pugnalata",
             "jp": "ブラインドサイド",
-            "kr": "블라인드 사이드",
+            "kr": "사각지대",
             "nl": "Blindside",
             "pl": "Cios z Półobrotu",
             "ru": "Коса смерти",
@@ -15946,7 +16001,7 @@
             "id": "Jurus berputar terakhir.",
             "it": "Infligge un colpo circolare devastante.",
             "jp": "マーシナリーのフィニッシュスキルで、敵の急所を狙って強烈な一撃を放ちます。",
-            "kr": "피니쉬스킬로 힘을 모아 적을 강하게 타격합니다.",
+            "kr": "힘을 모아 적에게 마지막에 일격을 가합니다.",
             "nl": "A spinning, finishing move.",
             "pl": "Cios kończący kombinację, wymierzony z taką siłą, że czasem ogłusza wroga.",
             "ru": "Круговой удар, завершающий серию.",
@@ -15965,6 +16020,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 226,
@@ -16475,7 +16531,7 @@
             "id": "Stun Group",
             "it": "Stun Group",
             "jp": "スタングループ",
-            "kr": "스턴",
+            "kr": "스턴 그룹",
             "nl": "Stun Group",
             "pl": "Stun Group",
             "ru": "Групповое оглушение",
@@ -16497,7 +16553,7 @@
             "id": "Anda pingsan.",
             "it": "You fainted.",
             "jp": "複数の対象を動けなくします。",
-            "kr": "움직일 수 없는 기절 상태입니다.",
+            "kr": "기절 상태입니다.",
             "nl": "Je viel flauw.",
             "pl": "Zemdlałeś.",
             "ru": "Вы лишились сознания.",
@@ -16511,6 +16567,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -16582,6 +16639,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -16690,7 +16748,7 @@
             "id": "Single Stun",
             "it": "Single Stun",
             "jp": "スタンシングル",
-            "kr": "스턴",
+            "kr": "스턴 싱글",
             "nl": "Single Stun",
             "pl": "Single Stun",
             "ru": "Оглушение",
@@ -16712,7 +16770,7 @@
             "id": "Anda terkena stun dan tidak bisa bergerak.",
             "it": "You are stunned and cannot move.",
             "jp": "一定時間の間、スタン状態にする",
-            "kr": "움직일 수 없는 스턴 상태입니다.",
+            "kr": "기절하여 움직일 수 없는 상태입니다.",
             "nl": "You are stunned and cannot move.",
             "pl": "You are stunned and cannot move.",
             "ru": "Вы оглушены и не можете двигаться.",
@@ -16726,6 +16784,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -16800,7 +16859,7 @@
             "id": "Counter Attack",
             "it": "Counter Attack",
             "jp": "カウンターアタック",
-            "kr": "에로우 레인",
+            "kr": "카운터 공격",
             "nl": "Counter Attack",
             "pl": "Kontratak",
             "ru": "Контратака",
@@ -16822,7 +16881,7 @@
             "id": "Lakukan serangan setelah musuh melakukannya.",
             "it": "Execute an attack after the enemy does.",
             "jp": "敵の攻撃を避けながらカウンターで攻撃を行う",
-            "kr": "적의 공격을 신중히 기다리고 있다가 빈틈을 카운터로 공격합니다.",
+            "kr": "적의 공격을 신중히 기다리고 있다가 빈틈을 공격합니다.",
             "nl": "Execute an attack after the enemy does.",
             "pl": "Powstrzymuje atak wroga i ogłusza go.",
             "ru": "Дополнительный удар в ответ на удар врага.",
@@ -16841,6 +16900,7 @@
             "y": 53
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3268,
@@ -17292,7 +17352,7 @@
             "id": "Snatch",
             "it": "Snatch",
             "jp": "スニッチ",
-            "kr": "슬로우 스탭",
+            "kr": "강탈",
             "nl": "Snatch",
             "pl": "Uszczknięcie",
             "ru": "Кража",
@@ -17314,7 +17374,7 @@
             "id": "Curi penya dari target saat berada di Dark Illusion. Serang dari belakang.",
             "it": "Steal penya from a target while in Dark Illusion. Attack from behind.",
             "jp": "ダークイリュージョン状態で敵の背後でのみ使えるスキル。強いダメージを与え、一定確率でぺニャを盗む",
-            "kr": "다크일루전 상태에서 일정 확률로 적의 페냐를 훔칩니다. 대상의 뒤에서만 사용 가능합니다.",
+            "kr": "다크일루전 상태에서 적의 페냐를 훔칩니다. 대상의 뒤에서만 사용 가능합니다.",
             "nl": "Steal penya from a target while in Dark Illusion. Attack from behind.",
             "pl": "Okrada cel z Penya. Ten atak można wykonać tylko z Mrocznej Iluzji i od tyłu.",
             "ru": "Позволяет стянуть у противника пенни, подобравшись к нему со спины. Возможно только при использовании Иллюзии пустоты.",
@@ -17333,6 +17393,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 6482,
@@ -17686,7 +17747,7 @@
             "id": "Serangan ke bawah yang kuat. Menurunkan pertahanan target. Membutuhkan two-handed weapon.",
             "it": "Colpo travolgente verso il basso. Riduce la difesa del bersaglio. Richiede un'arma a due mani.",
             "jp": "敵の装甲を破壊することを目的にした攻撃で、ダメージを与えると共に一時的に敵の防御力をダウンさせます。",
-            "kr": "엑스로 적의 갑옷을 내려찍어 일시적으로 방어력을 하락시킵니다. 사용하려면 양손 무기가 필요합니다.",
+            "kr": "적의 갑옷을 내려찍어 일시적으로 방어력을 하락시킵니다. 사용하려면 양손 무기가 필요합니다.",
             "nl": "Powerful, downward strike. Lowers the defense of the target. Requires a two-handed weapon.",
             "pl": "Potwornie bolesny cios, obniżający siłę obrony celu. Wymaga dwuręcznej broni.",
             "ru": "Сильный удар, снижающий защиту цели. Для использования требуется двуручный топор или секира.",
@@ -17705,6 +17766,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8973,
@@ -18035,7 +18097,7 @@
             "id": "Temping Hole",
             "it": "Temping Hole",
             "jp": "タンピングホール",
-            "kr": "탬핑홀",
+            "kr": "탬핑 홀",
             "nl": "Temping Hole",
             "pl": "Zamaszysta Pięść",
             "ru": "Прямой удар",
@@ -18057,7 +18119,7 @@
             "id": "Pukulan lurus yang kuat.",
             "it": "Powerful, straight punch.",
             "jp": "ナックルに込めた精神力を爆発させて、強力な一撃を敵に叩き込みます。",
-            "kr": "너클해머로 적을 강하게 타격합니다.",
+            "kr": "강력한 직선 타격을 날립니다.",
             "nl": "Powerful, straight punch.",
             "pl": "Uderza przeciwnika z solidnego zamachu.",
             "ru": "Резкий прямой удар.",
@@ -18076,6 +18138,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 5653,
@@ -18427,7 +18490,7 @@
             "id": "Berserker Mushroom",
             "it": "Berserker Mushroom",
             "jp": "フランジポイズンマッシュ",
-            "kr": "독버섯의 광기",
+            "kr": "버서커 버섯",
             "nl": "Berserker Mushroom",
             "pl": "Berserker Mushroom",
             "ru": "Гриб-берсерк",
@@ -18449,7 +18512,7 @@
             "id": "Meningkatkan striking power dan attack speed.",
             "it": "Increases striking power and attack speed.",
             "jp": "攻撃力と攻撃速度が増加する",
-            "kr": "공격력과 공격속도가 증가 합니다.",
+            "kr": "공격력과 공격 속도가 증가합니다.",
             "nl": "Increases striking power and attack speed.",
             "pl": "Zwiększa siłę uderzenia i szybkość ataku.",
             "ru": "Скорость и сила атаки повышены.",
@@ -18463,6 +18526,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -18503,7 +18567,7 @@
             "id": "Waterball",
             "it": "Waterball",
             "jp": "ウォーターボール",
-            "kr": "아이스 미사일",
+            "kr": "워터볼",
             "nl": "Waterbal",
             "pl": "Kula Wody",
             "ru": "Водяной шар",
@@ -18525,7 +18589,7 @@
             "id": "Serangan air yang menembakkan beberapa bola air ke target kamu.",
             "it": "A water attack that shoots multiple water orbs at your target.",
             "jp": "スキルレベルに応じて複数個の水の弾を発射します。",
-            "kr": "물의 기운을 응축시킨 구체를 날려 적을 공격합니다.",
+            "kr": "여러 개의 물 구체를 날려 적을 공격합니다.",
             "nl": "A water attack that shoots multiple water orbs at your target.",
             "pl": "Atakuje przeciwnika wielokrotnie za pomocą wybuchowych bąbelków.",
             "ru": "Атака дальнего боя. Стихия воды наносит противнику несколько ударов подряд.",
@@ -18544,6 +18608,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "water",
         "requirements": [
             {
                 "skill": 1515,
@@ -18931,6 +18996,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -19007,6 +19073,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -19069,7 +19136,7 @@
             "id": "Meningkatkan maksimum HP target.",
             "it": "Increases maximum HP of the target.",
             "jp": "一定時間、対象の最大ＨＰ量を増加させます。",
-            "kr": "일정시간 동안 대상의 최대 HP량을 늘립니다.",
+            "kr": "일정 시간 동안 대상의 최대 HP량을 늘립니다.",
             "nl": "Increases maximum HP of the target.",
             "pl": "Zwiększa maksymalne HP celu.",
             "ru": "Временно повышает запас здоровья цели.",
@@ -19088,6 +19155,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 5653,
@@ -19741,7 +19809,7 @@
             "id": "Merusak musuh dengan bola statis. Peluang untuk mengurangi pertahanan target.",
             "it": "Damages the enemy with a ball of static. Chance to reduce the targets defense.",
             "jp": "空気中の静電気を一点に集め、対象を攻撃します。",
-            "kr": "주위의 정전기를 모아 적을 공격하여 일정 확률로 대상의 방어력을 감소시킵니다.",
+            "kr": "주위의 정전기를 모아 적을 공격합니다. 일정 확률로 대상의 방어력을 감소시킵니다.",
             "nl": "Damages the enemy with a ball of static. Chance to reduce the targets defense.",
             "pl": "Zadaje przeciwnikowi obrażenia za pomocą Kuli Statycznej Energii. Może zmniejszać obronę celu.",
             "ru": "Статическое электричество собирается в небольшой шар, наносящий урон противнику. Может уменьшить защиту цели.",
@@ -19760,6 +19828,7 @@
             "y": 78
         },
         "magic": true,
+        "elementType": "electricity",
         "requirements": [
             {
                 "skill": 4729,
@@ -20372,6 +20441,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 2911,
@@ -20694,7 +20764,7 @@
             "id": "Menghentikan musuh.",
             "it": "Immobilizza l'avversario per un momento.",
             "jp": "強烈な殺気で対象を取り囲み、対象の動きを封じます。",
-            "kr": "그물을 적에게 씌워 이동하지 못하도록 만듭니다.",
+            "kr": "적을 정지시킵니다.",
             "nl": "Stops an enemy.",
             "pl": "Unieruchamia przeciwnika za pomocą rzuconej sieci.",
             "ru": "Накидывает сеть на противника, что заставляет его двигается медленнее.",
@@ -20713,6 +20783,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 6488,
@@ -21061,7 +21132,7 @@
             "id": "Charge",
             "it": "Azione",
             "jp": "チャージ",
-            "kr": "차지",
+            "kr": "돌진",
             "nl": "Charge",
             "pl": "Szarża",
             "ru": "Натиск",
@@ -21102,6 +21173,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 4927,
@@ -21372,7 +21444,7 @@
             "id": "Flame Geyser",
             "it": "Flame Geyser",
             "jp": "ホットエアー",
-            "kr": "파이어 부메랑",
+            "kr": "불꽃 온천",
             "nl": "Flame Geyser",
             "pl": "Ognisty Gejzer",
             "ru": "Огненный вулкан",
@@ -21394,7 +21466,7 @@
             "id": "Merusak musuh terus menerus dengan geyser api.",
             "it": "Damages the enemy continuously with a geyser of flame.",
             "jp": "マジシャンの一般スキルで、熱い炎で単体の敵に持続的なダメージを与えます。",
-            "kr": "뜨거운 불기운으로 적에게 지속적인 피해를 줍니다.",
+            "kr": "뜨거운 불기운으로 적에게 지속적인 대미지를 줍니다.",
             "nl": "Damages the enemy continuously with a geyser of flame.",
             "pl": "Otacza wroga gejzerem ognia, zadając ciągłe obrażenia.",
             "ru": "Наносит противнику постепенный урон огнем.",
@@ -21408,6 +21480,7 @@
         "level": 1,
         "element": "fire",
         "magic": true,
+        "elementType": "fire",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -21462,7 +21535,7 @@
             "id": "Stun Group",
             "it": "Stun Group",
             "jp": "スタングループ",
-            "kr": "스턴",
+            "kr": "스턴 그룹",
             "nl": "Stun Group",
             "pl": "Stun Group",
             "ru": "Групповое оглушение",
@@ -21484,7 +21557,7 @@
             "id": "Anda terkena stun dan tidak bisa bergerak.",
             "it": "You are stunned and cannot move.",
             "jp": "一定時間の間、スタン状態にする",
-            "kr": "움직일 수 없는 스턴 상태입니다.",
+            "kr": "기절하여 움직일 수 없는 상태입니다.",
             "nl": "You are stunned and cannot move.",
             "pl": "You are stunned and cannot move.",
             "ru": "Вы оглушены и не можете двигаться.",
@@ -21498,6 +21571,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -21569,6 +21643,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -21597,7 +21672,7 @@
             "id": "Swordcross",
             "it": "Swordcross",
             "jp": "ソードクロス",
-            "kr": "스워드크로스",
+            "kr": "십자 일격",
             "nl": "Swordcross",
             "pl": "Swordcross",
             "ru": "Скрещенные мечи",
@@ -21633,6 +21708,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "weapon": "stick",
         "combo": "general",
@@ -21704,6 +21780,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -21739,7 +21816,7 @@
             "id": "Lightning Shock",
             "it": "Lightning Shock",
             "jp": "ライトニングショック",
-            "kr": "라이트닝 쑈크",
+            "kr": "라이트닝 쇼크",
             "nl": "Lightning Shock",
             "pl": "Piorunujący Wstrząs",
             "ru": "Электрошок",
@@ -21761,7 +21838,7 @@
             "id": "Merusak musuh dengan bola petir kecil tapi cepat.",
             "it": "Damages the enemy with a small but fast lightning ball.",
             "jp": "雷で敵を攻撃します。攻撃を受けた相手の土属性スキルに対する防御力が低下します。",
-            "kr": "번개를 떨어뜨려 적을 공격합니다. 이때 적은 감전된 상태가 됩니다.",
+            "kr": "번개를 떨어뜨려 적에게 대미지를 줍니다.",
             "nl": "Damages the enemy with a small but fast lightning ball.",
             "pl": "Wstrząsa cel potężnym wyładowaniem elektrycznym. Cel będzie wstrząśnięty i bardziej podatny na ataki Ziemią.",
             "ru": "Быстрый удар молнией, наносящий урон.",
@@ -21780,6 +21857,7 @@
             "y": 78
         },
         "magic": true,
+        "elementType": "electricity",
         "requirements": [
             {
                 "skill": 3754,
@@ -22333,7 +22411,7 @@
             "id": "Meningkatkan kerusakan yang diberikan pada target, tetapi juga meningkatkan serangan target.",
             "it": "Increases damage dealt to the target, but also increases targets attack.",
             "jp": "敵の攻撃力を上昇させる代わりに防御力を減少させます。",
-            "kr": "저주의 힘으로 적을 무모하게 만들어 방어력을 하락시키지만, 공격력은 상승시킵니다.",
+            "kr": "대상에게 주는 피해가 증가하지만, 대상의 공격력도 증가합니다.",
             "nl": "Increases damage dealt to the target, but also increases targets attack.",
             "pl": "Przeklina cel, zmniejszając jego obronę i zwiększając jego siłę ataku.",
             "ru": "Снижает защиту и повышает атаку выбранной цели.",
@@ -22352,6 +22430,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 1432,
@@ -22800,6 +22879,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -22902,7 +22982,7 @@
             "id": "Serangan Yo-yo yang dapat menyebabkan stun.",
             "it": "A Yo-yo strike that can cause stun.",
             "jp": "ヨーヨーに気を込め、その気を爆発させながら攻撃する。対象に一定確率でスタン効果を与える",
-            "kr": "요요를 교차시키며 적을 공격합니다. 이때 적은 일정 확률로 스턴 상태가 됩니다.",
+            "kr": "요요를 교차시키며 공격하여 적을 스턴 상태로 만들 수 있습니다.",
             "nl": "A Yo-yo strike that can cause stun.",
             "pl": "Uderzenie Yo-yo, które może spowodować ogłuszenie.",
             "ru": "Оглушающий удар йо-йо.",
@@ -22921,6 +23001,7 @@
             "y": 53
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 6482,
@@ -23453,7 +23534,7 @@
             "id": "Menerkam musuh dari jauh. Stun target. Membutuhkan two weapon.",
             "it": "Balzo sul nemico da lontano. Stordisce il bersaglio. Richiede due armi.",
             "jp": "高速で敵に斬りつけながら駆け抜けます。",
-            "kr": "매우 빠른 움직임으로 적에게 달려들어 타격하여 스턴 상태로 만듭니다.",
+            "kr": "매우 빠른 움직임으로 적에게 달려들어 타격하여 스턴 상태로 만듭니다. 두 개의 무기가 필요합니다.",
             "nl": "Pounces on the enemy from afar. Stuns the target. Requires two weapons.",
             "pl": "Przebija przeciwnika szybkim ślizgiem. Mała szansa na ogłuszenie. Wymaga dwóch broni.",
             "ru": "Наброситься на врага с расстояния с небольшим шансом оглушить. Для использования требуются два клинка.",
@@ -23472,6 +23553,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 4927,
@@ -23830,7 +23912,7 @@
             "id": "Fast Walker",
             "it": "Fast Walker",
             "jp": "ファストウォーカー",
-            "kr": "보우마스터리",
+            "kr": "패스트 워커",
             "nl": "Fast Walker",
             "pl": "Szybki Chód",
             "ru": "Бегун",
@@ -23852,7 +23934,7 @@
             "id": "Menaikkan movement speed untuk waktu singkat.",
             "it": "Increases walk speed for a short time",
             "jp": "一定時間、移動速度を高める",
-            "kr": "짧은 시간동안 이동 속도를 높여준다",
+            "kr": "짧은 시간동안 이동 속도를 높여줍니다.",
             "nl": "Increases walk speed for a short time",
             "pl": "Zwiększa szybkość ruchu na krótki czas.",
             "ru": "На короткое время повышает скорость бега.",
@@ -23871,6 +23953,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 4985,
@@ -24184,7 +24267,7 @@
             "id": "Semua serangan mendapatkan kesempatan untuk stun.",
             "it": "All attacks gain the chance to stun.",
             "jp": "一定時間、攻撃にスタン効果を付与します。スタン効果は一定の確率で発動します。",
-            "kr": "무기를 단단히하여 모든 공격에 확률적으로 스턴 효과를 줍니다.",
+            "kr": "종류에 상관없이 공격 후 일정 확률로 기절 효과가 적용됩니다.",
             "nl": "All attacks gain the chance to stun.",
             "pl": "Wszystkie twoje ataki zyskują szansę na ogłuszenie.",
             "ru": "Придает вероятность оглушить противника любым ударом.",
@@ -24203,6 +24286,7 @@
             "y": 78
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 2615,
@@ -24933,7 +25017,7 @@
             "id": "Guillotine",
             "it": "Ghigliottina",
             "jp": "ソードスラッシュ",
-            "kr": "길로틴",
+            "kr": "기요틴",
             "nl": "Guillotine",
             "pl": "Gilotyna",
             "ru": "Гильотина",
@@ -24955,7 +25039,7 @@
             "id": "Serangan jarak jauh yang kuat.",
             "it": "Un attacco a distanza che proietta delle onde affilate.",
             "jp": "剣に込めた気を刃と化して対象に飛ばして攻撃をします。",
-            "kr": "무기에 기를 실어 그것을 적에게 발사하여 타격합니다.",
+            "kr": "강력한 원거리 공격입니다.",
             "nl": "A powerful, ranged attack.",
             "pl": "Atakuje przeciwnika na dystans ognistą falą energii.",
             "ru": "Мощная атака дальнего боя.",
@@ -24974,6 +25058,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 1947,
@@ -25360,6 +25445,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -25469,7 +25555,7 @@
             "id": "Critical Shot",
             "it": "Critical Shot",
             "jp": "ファストショット",
-            "kr": "속사",
+            "kr": "치명타 샷",
             "nl": "Critical Shot",
             "pl": "Critical Shot",
             "ru": "Точный выстрел",
@@ -25491,7 +25577,7 @@
             "id": "Meningkatkan Critical Hit untuk waktu yang terbatas.",
             "it": "Increase Critical Hit for a limited time.",
             "jp": "一定時間、矢を射る速度が上昇する",
-            "kr": "정신을 집중하여 활을 당기는 속도를 상승시킵니다.",
+            "kr": "일정 시간동안 치명타 확률을 증가시킵니다.",
             "nl": "Increase Critical Hit for a limited time.",
             "pl": "Zwiększa cios krytyczny na określony czas.",
             "ru": "Шанс критических ударов временно повышается.",
@@ -25510,6 +25596,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 563,
@@ -25761,7 +25848,7 @@
             "id": "Flame Ball",
             "it": "Flame Ball",
             "jp": "ファイアーブーメラン",
-            "kr": "파이어 부메랑",
+            "kr": "파이어 볼",
             "nl": "Vuurbal",
             "pl": "Kula Ognia",
             "ru": "Огненный шар",
@@ -25783,7 +25870,7 @@
             "id": "Menyerang musuh dengan bola api. Peluang untuk mengurangi kemampuan penyembuhan target.",
             "it": "Strikes at the enemy with a ball of flame. Chance to reduce the targets healing capabilities.",
             "jp": "炎の玉を敵にぶつけ、一定確率で対象の回復能力を低下させます。",
-            "kr": "불로 된 부메랑을 날려 적을 공격합니다. 이 때 일정 확률로 대상의 치유 능력을 감소 시킵니다.",
+            "kr": "불 덩어리를 적에게 날립니다. 일정 확률로 대상의 치유 능력을 감소 시킵니다.",
             "nl": "Strikes at the enemy with a ball of flame. Chance to reduce the targets healing capabilities.",
             "pl": "Atakuje przeciwnika kulą ognia. Może zmniejszać leczenie u celu.",
             "ru": "Strikes at the enemy with a ball of flame. Chance to reduce the targets healing capabilities.",
@@ -25802,6 +25889,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "fire",
         "requirements": [
             {
                 "skill": 4729,
@@ -26373,7 +26461,7 @@
             "id": "Void",
             "it": "Void",
             "jp": "ヴォイド",
-            "kr": "보이드",
+            "kr": "공허",
             "nl": "Leegte",
             "pl": "Pustka",
             "ru": "Пустота",
@@ -26395,7 +26483,7 @@
             "id": "Menyerang musuh dengan menghasilkan perfect vacuum.",
             "it": "To attack the enemy by generating a perfect vacuum.",
             "jp": "真空状態を作り出し、対象を切り裂きます。",
-            "kr": "완벽한 진공 상태를 만들어 적을 공격합니다.",
+            "kr": "완벽한 진공을 생성해 적을 공격합니다.",
             "nl": "To attack the enemy by generating a perfect vacuum.",
             "pl": "Wysysa powietrze z płuc celu z olbrzymią siłą.",
             "ru": "Создает вокруг цели область, в которой невозможно дышать. Противник получает урон.",
@@ -26414,6 +26502,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "wind",
         "requirements": [
             {
                 "skill": 527,
@@ -26595,7 +26684,7 @@
             "id": "Sandstorm",
             "it": "Sandstorm",
             "jp": "サンドストーム",
-            "kr": "샌드 스톰",
+            "kr": "모래 폭풍",
             "nl": "Zandstorm",
             "pl": "Burza Piaskowa",
             "ru": "Самум",
@@ -26617,7 +26706,7 @@
             "id": "Menyerang musuh sekitar dengan badai pasir serta mengurangi Accuracy mereka.",
             "it": "Damages surrounding enemies with a sandstorm. Chance to reduce Accuracy.",
             "jp": "砂嵐を発生させて、周囲の敵に地と風の攻撃を行います。",
-            "kr": "거친 모래 폭풍을 일으켜 주변의 모든 적을 공격합니다. 일정 확률로 대상의 적중률을 감소 시킵니다.",
+            "kr": "거친 모래 폭풍을 일으켜 주변의 모든 적을 공격합니다. 일정 확률로 상대의 적중률을 감소시킵니다.",
             "nl": "Damages surrounding enemies with a sandstorm. Chance to reduce Accuracy.",
             "pl": "Atakuje wszystkich wrogów wokół ciebie za pomocą Burzy Piaskowej. Celność wrogów mocno spadnie.",
             "ru": "На врагов обрушивается песчаная буря с некоторым шансом понизить меткость.",
@@ -26636,6 +26725,7 @@
             "y": 38
         },
         "magic": true,
+        "elementType": "earthwind",
         "requirements": [
             {
                 "skill": 6390,
@@ -26992,6 +27082,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -27247,7 +27338,7 @@
             "id": "Cat's Reflex",
             "it": "Cat's Reflex",
             "jp": "キャッツリフレックス",
-            "kr": "캣즈 리플렉스",
+            "kr": "캣츠 리플렉스",
             "nl": "Kattenreflex",
             "pl": "Koci Refleks",
             "ru": "Кошачьи рефлексы",
@@ -27269,7 +27360,7 @@
             "id": "Meningkatkan tingkat blok rate target.",
             "it": "Increases the block rate of a target.",
             "jp": "一定時間、ブロック率が上昇します。",
-            "kr": "대상의 블럭율을 상승시킵니다.",
+            "kr": "대상의 공격 차단율이 상승합니다.",
             "nl": "Increases the block rate of a target.",
             "pl": "Zwiększa szansę na blok.",
             "ru": "Повышает вероятность блокирования.",
@@ -27288,6 +27379,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 9852,
@@ -27919,7 +28011,7 @@
             "id": "Lightning Ram",
             "it": "Lightning Ram",
             "jp": "ライトニングパーム",
-            "kr": "라이트닝 팜",
+            "kr": "라이트닝 램",
             "nl": "Lightning Ram",
             "pl": "Piorunujący Taran",
             "ru": "Клубок молний",
@@ -27941,7 +28033,7 @@
             "id": "Merusak musuh dengan bola listrik",
             "it": "Damages the enemy with an electric ball",
             "jp": "射程距離の短い雷を敵に放ち、攻撃します。",
-            "kr": "전기의 기운을 응축시킨 구체를 날려 적을 공격합니다.",
+            "kr": "전기의 기운을 응축시킨 구체를 날려 대미지를 줍니다.",
             "nl": "Damages the enemy with an electric ball",
             "pl": "Uderza wroga potężnym wyładowaniem elektrycznym.",
             "ru": "Наносит противнику урон молниями.",
@@ -27960,6 +28052,7 @@
             "y": 78
         },
         "magic": true,
+        "elementType": "electricity",
         "requirements": [
             {
                 "skill": 2704,
@@ -28311,7 +28404,7 @@
             "id": "Empower weapon",
             "it": "Incanta arma",
             "jp": "パワーウェポン",
-            "kr": "임파워 웨폰",
+            "kr": "임파워 무기",
             "nl": "Empower weapon",
             "pl": "Wzmocnienie Żywiołu",
             "ru": "Оружие стихий",
@@ -28333,7 +28426,7 @@
             "id": "Gunakan elemen weapon untuk meningkatkan kekuatan seranganmu.",
             "it": "Usa l'elemento di un'arma per aumentare la tua potenza d'attacco.",
             "jp": "一定時間、属性が付与されている武器を装備しているキャラクターの攻撃力を増加させます。",
-            "kr": "속성 무기를 착용 시 공격력을 일시적으로 강화시킵니다.",
+            "kr": "무기의 속성을 이용해 공격력을 강화합니다.",
             "nl": "Uses the element of a weapon to boost your attack power.",
             "pl": "Zwiększa siłę ataku, wykorzystując żywioł zawarty w twojej broni. (Broń musi posiadać żywioł.)",
             "ru": "Усиливает аркан, нанесенный на оружие.",
@@ -28352,6 +28445,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 5774,
@@ -28665,7 +28759,7 @@
             "id": "Pukulan cepat dan lurus.",
             "it": "Fast, straight punch.",
             "jp": "真空の刃を飛ばして敵を攻撃します。",
-            "kr": "빠른 속도로 너클해머를 뻗어 적을 타격합니다.",
+            "kr": "빠른 속도로 적을 타격합니다.",
             "nl": "Fast, straight punch.",
             "pl": "Szybki, prosty cios.",
             "ru": "Быстрый и резкий удар.",
@@ -28684,6 +28778,7 @@
             "y": 12
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8813,
@@ -28869,7 +28964,7 @@
             "id": "Firebird",
             "it": "Firebird",
             "jp": "ファイアバード",
-            "kr": "파이어 버드",
+            "kr": "파이어버드",
             "nl": "Vuurvogel",
             "pl": "Ognisty Ptak",
             "ru": "Огненная птица",
@@ -28891,7 +28986,7 @@
             "id": "Memberikan damage ke musuh dengan ledakan api.",
             "it": "Damages the enemy with a fire blast.",
             "jp": "炎の鳥を出現させて敵を攻撃します。",
-            "kr": "새 형태의 불 덩어리를 날려 적을 공격합니다.",
+            "kr": "불 덩어리를 날려 적을 공격합니다.",
             "nl": "Damages the enemy with a fire blast.",
             "pl": "Ogarnia wroga piekielnym ogniem.",
             "ru": "Наносит противнику урон огнем.",
@@ -28910,6 +29005,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "fire",
         "requirements": [
             {
                 "skill": 3974,
@@ -29101,7 +29197,7 @@
             "id": "Quick Step",
             "it": "Quick Step",
             "jp": "クイックステップ",
-            "kr": "퀵 스텝",
+            "kr": "퀵스텝",
             "nl": "Quick Step",
             "pl": "Szybki Krok",
             "ru": "Скороход",
@@ -29123,7 +29219,7 @@
             "id": "Meningkatkan kecepatan berjalan target.",
             "it": "Increases the walk speed of a target.",
             "jp": "一定時間、対象の移動速度を上昇させます。",
-            "kr": "대상의 이동속도를 상승시킵니다.",
+            "kr": "대상이 걷는 속도가 상승합니다.",
             "nl": "Increases the walk speed of a target.",
             "pl": "Zwiększa szybkość poruszania się celu.",
             "ru": "Повышает скорость движения цели.",
@@ -29142,6 +29238,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 5653,
@@ -29795,7 +29892,7 @@
             "id": "Merusak musuh dengan bola api.",
             "it": "Damages an enemy with a fire ball.",
             "jp": "強力な炎の弾を放って攻撃します。攻撃を受けた相手の水属性スキルに対する防御力が低下します。",
-            "kr": "거대한 불덩어리를 날려 적을 공격합니다. 이때 적은 불타고 있는 상태가 됩니다.",
+            "kr": "거대한 불덩어리를 날려 적에게 대미지를 줍니다.",
             "nl": "Damages an enemy with a fire ball.",
             "pl": "Podpala wroga za pomocą kuli ognia. Cel będzie rozgrzany i chwilowo bardziej podatny na ataki wodne.",
             "ru": "Наносит противнику урон огненным шаром.",
@@ -29814,6 +29911,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "fire",
         "requirements": [
             {
                 "skill": 5637,
@@ -30367,7 +30465,7 @@
             "id": "Meningkatkan indra pengguna dengan alam untuk meningkatkan Magic Defense & Bow Range.",
             "it": "Heightens the users senses with nature to increase Magic Defense & Bow Range.",
             "jp": "自然に対する感覚を高め、魔法防御力と弓の射程距離を伸ばす。",
-            "kr": "감각을 날카롭게 하여 속성 마법에 대한 저항력과 활 사정거리를 증가 시킵니다.",
+            "kr": "자연으로 감각을 끌어올려 마법 저항력과 활 사거리를 증가시킵니다.",
             "nl": "Heightens the users senses with nature to increase Magic Defense & Bow Range.",
             "pl": "Wzmacnia zmysły naturą, aby się zwiększyć Obronę Magiczna i Zasięg Łuku.",
             "ru": "Улучшает рефлексы персонажа, повышая магическую защиту и дальность атаки.",
@@ -30386,6 +30484,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 6157,
@@ -30709,7 +30808,7 @@
             "id": "Menyebabkan hujan panah dan memberikan damage seiring waktu.",
             "it": "Creates a rain of arrows that does damage over time.",
             "jp": "空に向け何本もの矢を打ち上げ、対象の頭上に矢の雨を降らせる",
-            "kr": "무수히 많은 화살을 하늘로 쏘아올려 적의 머리를 공격합니다.",
+            "kr": "화살비를 내려 지속 피해를 줍니다.",
             "nl": "Creates a rain of arrows that does damage over time.",
             "pl": "Sprowadza grad strzał, który zadaje obrażenia wszystkim wrogom wokół celu przez pewien czas.",
             "ru": "Позволяет обрушить на противника ливень стрел, наносящий постепенный урон.",
@@ -30728,6 +30827,7 @@
             "y": 104
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 6910,
@@ -31160,7 +31260,7 @@
             "id": "Over Cutter",
             "it": "Taglia Fatale",
             "jp": "オーバーカッター",
-            "kr": "오버커터",
+            "kr": "오버 커터",
             "nl": "Over Cutter",
             "pl": "Kończące Cięcie",
             "ru": "Добивание",
@@ -31182,7 +31282,7 @@
             "id": "Jurus terakhir yang kuat dan hebat",
             "it": "Si concentra prima di liberare un ultimo colpo forte.",
             "jp": "力を溜めて下段から上段に振り上げ強烈な一撃を与えるスキルです。(アクションスロットでのみ発動)",
-            "kr": "피니쉬스킬로 힘을 최대한 모아 위로 올려칩니다.",
+            "kr": "힘을 최대한 모아 마지막에 위로 올려칩니다.",
             "nl": "Powerful, upward, finishing move.",
             "pl": "Potężny cios kończący kombinację.",
             "ru": "Мощный удар, завершающий серию.",
@@ -31201,6 +31301,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8102,
@@ -31393,7 +31494,7 @@
             "id": "Serangan mental jarak jauh.",
             "it": "Ranged Mental attack.",
             "jp": "精神力を物理的な力に代え、対象に無属性の攻撃を行います。与えるダメージは、術者と対象の知能(Int)の差によって変化します。",
-            "kr": "정신력을 이용하여 적에게 무속성 공격을 가합니다.",
+            "kr": "적에게 정신력 공격을 가합니다.",
             "nl": "Ranged Mental attack.",
             "pl": "Atakuje umysł wroga by zadać ból.",
             "ru": "Атака дальнего боя. Наносит противнику урон пси-энергией.",
@@ -31407,6 +31508,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -31498,6 +31600,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -31628,7 +31731,7 @@
             "id": "Menyerang cepat dengan pisau di beberapa musuh. Membutuhkan two weapon.",
             "it": "Colpisce piu nemici con rapidità. Richiede due armi.",
             "jp": "両手に持った剣を巧みに使い、剣舞を舞いながら周囲の敵を切り裂きます。",
-            "kr": "춤을 추듯 소드를 휘둘러 주위에 있는 다수의 적들을 타격합니다.",
+            "kr": "춤을 추듯 소드를 휘둘러 주위에 있는 다수의 적들을 타격합니다. 두 개의 무기가 필요합니다.",
             "nl": "Rapidly strikes the blades at multiple enemies. Requires two weapons.",
             "pl": "Atakuje wszystkich wrogów wokół ciebie. Wymaga dwóch broni.",
             "ru": "Быстрая атака клинками сразу по нескольким врагам. Для использования требуются два оружия.",
@@ -31647,6 +31750,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3399,
@@ -31888,6 +31992,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 9740,
@@ -32244,6 +32349,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -32323,7 +32429,7 @@
             "id": "Belial Smashing",
             "it": "Belial Smashing",
             "jp": "ベリアルスマッシュ",
-            "kr": "베리알 스메싱",
+            "kr": "벨리알 스매싱",
             "nl": "Belial Smashing",
             "pl": "Rozbicie Beliala",
             "ru": "Дьявольский натиск",
@@ -32345,7 +32451,7 @@
             "id": "Memberikan lima pukulan kuat ke musuh.",
             "it": "Deals five powerful blows to the enemy.",
             "jp": "ダッシュしながら拳に気を集中させて敵を攻撃します。",
-            "kr": "너클해머로 적을 향해 돌진하며 강력하게 다섯 번 타격합니다.",
+            "kr": "적을 향해 돌진하며 강력하게 다섯 번 타격합니다.",
             "nl": "Deals five powerful blows to the enemy.",
             "pl": "Pięć ślizgowych, rozbijających ataków.",
             "ru": "Наносит пять сильных ударов по противнику.",
@@ -32364,6 +32470,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 6017,
@@ -32555,7 +32662,7 @@
             "id": "Smite Axe",
             "it": "Tomahawk",
             "jp": "スマイトアックス",
-            "kr": "스마이트 엑스",
+            "kr": "스마이트 액스",
             "nl": "Smite Axe",
             "pl": "Porażający Topór",
             "ru": "Карающая секира",
@@ -32577,7 +32684,7 @@
             "id": "Meningkatkan Accuracy dan meningkatkan kekuatan Axe.",
             "it": "Aumenta la Difesa e la potenza d'attacco dell'Ascia.",
             "jp": "精度を上げ、斧を装備している際の、攻撃力が上昇します。",
-            "kr": "엑스의 능력을 강화시켜 공격력과 방어력을 상승시킵니다.",
+            "kr": "도끼의 공격력과 명중률을 상승시킵니다.",
             "nl": "Increases Accuracy and increases power of the Axe.",
             "pl": "Zwiększa celność i siłę ataku Toporów.",
             "ru": "Повышает точность и силу ударов при использовании топоров и секир.",
@@ -32596,6 +32703,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3827,
@@ -33023,6 +33131,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -33163,6 +33272,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -33293,7 +33403,7 @@
             "id": "Menyebabkan hujan panah dan memberikan damage seiring waktu.",
             "it": "Creates a rain of arrows that does damage over time.",
             "jp": "空に向け何本もの矢を打ち上げ、対象の頭上に矢の雨を降らせる",
-            "kr": "무수히 많은 화살을 하늘로 쏘아올려 적의 머리를 공격합니다.",
+            "kr": "화살비를 내려 지속 피해를 줍니다.",
             "nl": "Creates a rain of arrows that does damage over time.",
             "pl": "Sprowadza grad strzał, który zadaje obrażenia wszystkim wrogom wokół celu przez pewien czas.",
             "ru": "Позволяет обрушить на противника ливень стрел, наносящий постепенный урон.",
@@ -33307,6 +33417,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -33350,7 +33461,7 @@
             "id": "Fire Mastery",
             "it": "Fire Mastery",
             "jp": "ファイアマスター",
-            "kr": "파이어 마스터",
+            "kr": "파이어 마스터리",
             "nl": "Fire Mastery",
             "pl": "Mistrz Ognia",
             "ru": "Властелин огня",
@@ -33372,7 +33483,7 @@
             "id": "Meningkatkan kekuatan serangan spell element Fire",
             "it": "Increases the striking power of fire spells,",
             "jp": "火の精霊と盟約を結び、火属性の攻撃力を強化します。",
-            "kr": "파이어 속성 마법의 공격력을 상승시킵니다.",
+            "kr": "불 속성 마법의 공격력을 상승시킵니다.",
             "nl": "Increases the striking power of fire spells,",
             "pl": "Zwiększa siłę Ognistych Czarów.",
             "ru": "Повышает силу заклинаний стихии огня.",
@@ -33391,6 +33502,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "fire",
         "requirements": [
             {
                 "skill": 3974,
@@ -33552,7 +33664,7 @@
             "id": "Water Well",
             "it": "Water Well",
             "jp": "ウォータースプラッシュ",
-            "kr": "스프링워터",
+            "kr": "워터 웰",
             "nl": "Water Well",
             "pl": "Studnia Wody",
             "ru": "Гейзер",
@@ -33574,7 +33686,7 @@
             "id": "Memercikkan musuh dengan serangan air.",
             "it": "Splashes the enemy with a water attack.",
             "jp": "水柱を出現させて攻撃します。攻撃を受けた相手の雷属性スキルに対する防御力が低下します。",
-            "kr": "물기둥이 솟구쳐 적을 공격합니다. 이때 적은 젖어있는 상태가 됩니다.",
+            "kr": "물기둥이 솟구쳐 적에게 대미지를 줍니다.",
             "nl": "Splashes the enemy with a water attack.",
             "pl": "Wylewa na wroga olbrzymią ilość wody.",
             "ru": "На противника обрушиваются струи воды.",
@@ -33593,6 +33705,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "water",
         "requirements": [
             {
                 "skill": 2619,
@@ -34126,7 +34239,7 @@
             "id": "Serangan mental jarak jauh.",
             "it": "Ranged Mental attack.",
             "jp": "精神力を物理的な力に代え、対象に無属性の攻撃を行います。与えるダメージは、術者と対象の知能(Int)の差によって変化します。",
-            "kr": "정신력을 이용하여 적에게 무속성 공격을 가합니다.",
+            "kr": "적에게 정신력 공격을 가합니다.",
             "nl": "Ranged Mental attack.",
             "pl": "Atakuje umysł wroga by zadać ból.",
             "ru": "Атака дальнего боя. Наносит противнику урон пси-энергией.",
@@ -34145,6 +34258,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "weapon": "wandorstaff",
         "combo": "general",
@@ -34471,7 +34585,7 @@
             "id": "Enchant Absorb",
             "it": "Enchant Absorb",
             "jp": "エンチャントアブソード",
-            "kr": "흡수",
+            "kr": "마법 흡수",
             "nl": "Enchant Absorb",
             "pl": "Zaczarowane Pochłanianie",
             "ru": "Кровожадная йо-йо",
@@ -34493,7 +34607,7 @@
             "id": "Menambahkan kemampuan untuk menguras HP ke yo-yo Anda dan meningkatkan kekuatan serangan.",
             "it": "Adds the ability to drain HP to your yo-yo and increases attack power.",
             "jp": "ヨーヨーで強力な攻撃を行い、一定確率で相手のHPを吸収する",
-            "kr": "요요에 HP흡수 기능을 추가시켜 공격력를 상승시키고. 일정 확률로 적의 HP를 흡수합니다.",
+            "kr": "요요에 HP를 흡수 속성을 추가시켜 공격력를 상승시킵니다. ",
             "nl": "Adds the ability to drain HP to your yo-yo and increases attack power.",
             "pl": "Dodaje szansę na kradzież HP do Yo-Yo i zwiększa siłę ataku.",
             "ru": "Удары йо-йо вытягивают из противника здоровье.",
@@ -34512,6 +34626,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 6199,
@@ -34875,7 +34990,7 @@
             "id": "Mendorong mundur musuh.",
             "it": "Pushes the enemy back.",
             "jp": "攻撃と共に対象をはじき飛ばす",
-            "kr": "상대를 밀어낸다.",
+            "kr": "상대를 밀어냅니다.",
             "nl": "Pushes the enemy back.",
             "pl": "Odpycha wroga.",
             "ru": "Вас откинуло назад.",
@@ -34889,6 +35004,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -34962,6 +35078,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -35106,6 +35223,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -35162,7 +35280,7 @@
             "id": "Sword Mastery",
             "it": "Virtuoso delle lame",
             "jp": "ｿｰﾄﾞﾏｽﾀﾘｰ",
-            "kr": "소드 마스터리",
+            "kr": "검 숙련",
             "nl": "Zwaardbeheersing",
             "pl": "Mistrzostwo Miecza",
             "ru": "Мастер меча",
@@ -35184,7 +35302,7 @@
             "id": "Meningkatkan kekuatan serangan Sword.",
             "it": "Aumenta significativamente la potenza d'attacco della spada.",
             "jp": "剣の熟練度を上昇させ、剣を装備した際の攻撃力をアップさせます。",
-            "kr": "소드의 사용 능력을 높여서 공격력을 상승시킵니다.",
+            "kr": "검의 사용 능력을 높여서 공격력을 상승시킵니다.",
             "nl": "Increases the striking power of a Sword.",
             "pl": "Zwiększa siłę ataku mieczy.",
             "ru": "Повышает силу ударов мечом.",
@@ -35203,6 +35321,7 @@
             "y": 104
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 755,
@@ -35516,7 +35635,7 @@
             "id": "Menembakkan tiga anak panah sekaligus. Stuns target.",
             "it": "Fires three arrows at once. Stuns the target.",
             "jp": "3本の矢を一度に発射し、敵に強力なダメージを与え、弾き飛ばす",
-            "kr": "한번에 3발의 화살을 동시에 날려 적을 공격하여 일정 확률로 대상을 스턴 상태로 만듭니다.",
+            "kr": "한번에 3발의 화살을 동시에 날려 공격 대상을 스턴 상태로 만듭니다.",
             "nl": "Fires three arrows at once. Stuns the target.",
             "pl": "Wystrzeliwuje trzy strzały na raz. Ogłusza cel.",
             "ru": "Выпускает сразу три стрелы. Имеет шанс оглушить противника.",
@@ -35535,6 +35654,7 @@
             "y": 12
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3564,
@@ -35811,7 +35931,7 @@
             "id": "Pulling",
             "it": "Pulling",
             "jp": "プーリング",
-            "kr": "요요마스터리",
+            "kr": "요요 풀링",
             "nl": "Pulling",
             "pl": "Lasso",
             "ru": "Лассо",
@@ -35833,7 +35953,7 @@
             "id": "Membawa target kepada Anda menggunakan Yo-yo.",
             "it": "Brings a target to you using Yo-yo.",
             "jp": "敵をヨーヨーで絡め取って、自分の前に引き寄せる",
-            "kr": "요요 기술로 자신과 떨어져 있는 대상을 자신앞으로 끌어 당긴다.",
+            "kr": "요요로 떨어져 있는 대상을 자신 앞으로 불러옵니다.",
             "nl": "Brings a target to you using Yo-yo.",
             "pl": "Przyciąga cel do ciebie za pomocą Yo-yo.",
             "ru": "Притягивает противника к вам. Требуется йо-йо.",
@@ -35852,6 +35972,7 @@
             "y": 1
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "weapon": "yoyo",
         "combo": "general",
@@ -35958,7 +36079,7 @@
             "id": "Asalraalaikum",
             "it": "Asalraalaikum",
             "jp": "アッサルラアルライクム",
-            "kr": "앗살라 알라이쿰",
+            "kr": "아살라알라이쿰",
             "nl": "Asalraalaikum",
             "pl": "Asalraalaikum",
             "ru": "Удар мастера",
@@ -35980,7 +36101,7 @@
             "id": "Serangan terkonsentrasi penuh. Selalu Mengkonsumsi 100% MP",
             "it": "Fully concentrated strike. Always Consumes 100% MP.",
             "jp": "すべてのMPを破壊の力に変え、絶大なダメージを与えます。",
-            "kr": "모든 정신을 너클해머의 한 점에 집중하여 적을 타격합니다. 이때 MP는 모두 소모됩니다.",
+            "kr": "적을 집중 타격합니다. 이때 MP는 모두 소모됩니다.",
             "nl": "Fully concentrated strike. Always Consumes 100% MP.",
             "pl": "Atak wymagający pełnej koncentracji - konsumuje 100% MP by zadać olbrzymie obrażenia. Im więcej MP pochłonie, tym większe obrażenia.",
             "ru": "Могучий удар, требующий абсолютной сосредоточенности. Отнимает всю ману без остатка.",
@@ -35999,6 +36120,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3840,
@@ -36201,7 +36323,7 @@
             "id": "Vital Stab",
             "it": "Vital Stab",
             "jp": "ヴァイタルスタッブ",
-            "kr": "치명적인 일격",
+            "kr": "혼신의 일격",
             "nl": "Vital Stab",
             "pl": "Vital Stab",
             "ru": "Удар в слабое место",
@@ -36223,7 +36345,7 @@
             "id": "Serangan mendadak saat berada di Dark Illusion.",
             "it": "Surprise attack while in Dark Illusion.",
             "jp": "ダークイリュージョンの状態でのみ使用でき、相手に不意打ちで攻撃を与えるスキル。",
-            "kr": "어둠 속에서 순간 모습을 드러내 전력을 다해 적을 기습합니다. 다크일루젼 상태에서만 사용 가능합니다.",
+            "kr": "다크일루젼 상태에서 적을 기습합니다.",
             "nl": "Surprise attack while in Dark Illusion.",
             "pl": "Atak z zaskoczenia, gdy jesteś w Dark Illusion.",
             "ru": "Внезапная атака, доступная только при использовании Иллюзии пустоты.",
@@ -36242,6 +36364,7 @@
             "y": 12
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 758,
@@ -36427,7 +36550,7 @@
             "id": "Electric Shock",
             "it": "Electric Shock",
             "jp": "サンダーショック",
-            "kr": "일렉트릭 쇼크",
+            "kr": "전기 충격",
             "nl": "Elektrische Schok",
             "pl": "Piorun Łańcuchowy",
             "ru": "Цепная молния",
@@ -36449,7 +36572,7 @@
             "id": "Menyerang musuh disekitar dengan Electricity dan mengurangi Magic Resistance musuh.",
             "it": "Damage surrounding enemies with electricity. Magic Resistance of the enemies decreases.",
             "jp": "周囲に強い電場を形成し、一定範囲の敵にランダムに雷を落とします。",
-            "kr": "강력한 전기 파장을 일으켜 주변의 모든 적들을 공격합니다. 이때 적의 마법 저항력이 일정량 감소합니다.",
+            "kr": "주변 적에게 강력한 전기 파장을 일으켜 대미지를 줍니다. 적의 마법 저항력이 일정량 감소합니다.",
             "nl": "Damage surrounding enemies with electricity. Magic Resistance of the enemies decreases.",
             "pl": "Atakuje wszystkie cele wokół ciebie przeskakującym wyładowaniem. Obrona magiczna celu spadnie.",
             "ru": "Наносит всем находящимся поблизости врагам урон молнией и снижает их магическую защиту.",
@@ -36468,6 +36591,7 @@
             "y": 78
         },
         "magic": true,
+        "elementType": "electricity",
         "requirements": [
             {
                 "skill": 6808,
@@ -36785,6 +36909,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -36934,6 +37059,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 51,
@@ -37169,6 +37295,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -37226,7 +37353,7 @@
             "id": "Stone Spike",
             "it": "Stone Spike",
             "jp": "スパイクストーン",
-            "kr": "스파이크 스톤",
+            "kr": "스톤 스파이크",
             "nl": "Stone Spike",
             "pl": "Kamienny Kieł",
             "ru": "Каменный шип",
@@ -37248,7 +37375,7 @@
             "id": "Merusak musuh dengan lonjakan batu. Kesempatan untuk melumpuhkan musuh.",
             "it": "Damages an enemy with a stone spike. Chance to stun the enemy.",
             "jp": "硬い石の槍で対象にダメージを与えると共に、一定の確率でスタンさせます。",
-            "kr": "단단한 돌을 적에게 날려 공격합니다. 이때 적을 일정 확률로 스턴 상태로 만듭니다.",
+            "kr": "단단한 돌을 적에게 날려 대미지를 줍니다. 일정 확률로 적을 스턴 상태로 만듭니다.",
             "nl": "Damages an enemy with a stone spike. Chance to stun the enemy.",
             "pl": "Trafia przeciwnika ostrym kamieniem. Szansa na ogłuszenie.",
             "ru": "Наносит противнику урон землей. С некоторой вероятностью может оглушить врага.",
@@ -37267,6 +37394,7 @@
             "y": 104
         },
         "magic": true,
+        "elementType": "earth",
         "requirements": [
             {
                 "skill": 4729,
@@ -37859,6 +37987,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 5041,
@@ -38018,7 +38147,7 @@
             "id": "Untuk menyerang musuh dengan mengembangkan weapon. Membutuhkan two-handed weapon.",
             "it": "Sferra un colpo al nemico brandendo vorticosamente l'arma. Richiede un'arma a due mani.",
             "jp": "渾身の力で敵をなぎ払い、ダメージを与えると同時に敵を吹き飛ばします。",
-            "kr": "무기를 있는 힘껏 휘둘러 주위의 적들을 날려버립니다. 사용하려면 양손 무기가 필요합니다.",
+            "kr": "무기를 힘껏 휘둘러 적에게 치명타를 날립니다. 양손 무기가 있어야 사용할 수 있습니다.",
             "nl": "To strike a blow at the enemy by flourishing a weapon. Requires a two-handed weapon.",
             "pl": "Odrzuca wrogów przed tobą za pomocą potężnego zamachu. Wymaga dwuręcznej broni.",
             "ru": "Мощный удар, отбрасывающий врага. Для использования требуется двуручное оружие.",
@@ -38037,6 +38166,7 @@
             "y": 12
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 7429,
@@ -38247,7 +38377,7 @@
             "id": "Flame Geyser",
             "it": "Flame Geyser",
             "jp": "ホットエアー",
-            "kr": "파이어 부메랑",
+            "kr": "불꽃 온천",
             "nl": "Flame Geyser",
             "pl": "Ognisty Gejzer",
             "ru": "Огненный вулкан",
@@ -38269,7 +38399,7 @@
             "id": "Merusak musuh terus menerus dengan geyser api.",
             "it": "Damages the enemy continuously with a geyser of flame.",
             "jp": "マジシャンの一般スキルで、熱い炎で単体の敵に持続的なダメージを与えます。",
-            "kr": "뜨거운 불기운으로 적에게 지속적인 피해를 줍니다.",
+            "kr": "뜨거운 불기운으로 적에게 지속적인 대미지를 줍니다.",
             "nl": "Damages the enemy continuously with a geyser of flame.",
             "pl": "Otacza wroga gejzerem ognia, zadając ciągłe obrażenia.",
             "ru": "Наносит противнику постепенный урон огнем.",
@@ -38288,6 +38418,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "fire",
         "requirements": [
             {
                 "skill": 3592,
@@ -38859,7 +38990,7 @@
             "id": "Heal",
             "it": "Heal",
             "jp": "ヒール",
-            "kr": "힐링",
+            "kr": "치유",
             "nl": "Helen",
             "pl": "Leczenie",
             "ru": "Лечение",
@@ -38881,7 +39012,7 @@
             "id": "Pulihkan HP target.",
             "it": "Recover the HP of a target.",
             "jp": "対象のHP（生命力）を回復させます。",
-            "kr": "대상의 HP를 일정량 회복시킵니다.",
+            "kr": "대상의 HP를 회복시킵니다.",
             "nl": "Recover the HP of a target.",
             "pl": "Odnawia HP celu.",
             "ru": "Восстанавливает здоровье цели.",
@@ -38900,6 +39031,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "weapon": "stick",
         "combo": "general",
@@ -39348,7 +39480,7 @@
             "id": "Memberi damage kepada musuh selama periode waktu tertentu.",
             "it": "Damages an enemy over a period of time.",
             "jp": "一定時間の間、出血による継続的なダメージを与える",
-            "kr": "일정 시간동안 출혈로 인한 지속적인 피해를 입힙니다.",
+            "kr": "일정 시간동안 출혈로 인한 지속적인 대미지를 입힙니다.",
             "nl": "Damages an enemy over a period of time.",
             "pl": "Damages an enemy over a period of time.",
             "ru": "Вы получаете постепенный урон.",
@@ -39362,6 +39494,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -39522,6 +39655,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -39648,7 +39782,7 @@
             "id": "Meningkatkan pertahanan Shield terhadap melee attack & secara signifikan meningkatkan Ranged Block.",
             "it": "Aumenta la difesa contro gli attacchi in mischia, e aumenta il blocco degli attacchi a distanza.",
             "jp": "盾を使って一定時間、防御力をアップさせます",
-            "kr": "방패에 힘을 실어 방어력을 올립니다.",
+            "kr": "근접 공격에 대한 방패 방어력을 높이고, 원거리 공격 차단율도 크게 증가합니다.",
             "nl": "Increases the defense of a Shield against melee attacks & significantly increases Ranged Block.",
             "pl": "Zwiększa wartość obrony twojej Tarczy i szansę na zablokowanie ataku z dystansu.",
             "ru": "Улучшает защиту щита от ближних атак и увеличивает шанс заблокировать дальние.",
@@ -39667,6 +39801,7 @@
             "y": 65
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "weapon": "shield",
         "combo": "general",
@@ -40053,7 +40188,7 @@
             "id": "Rage",
             "it": "Collera",
             "jp": "レイジ",
-            "kr": "레이지",
+            "kr": "분노",
             "nl": "Woede",
             "pl": "Szał",
             "ru": "Ярость",
@@ -40075,7 +40210,7 @@
             "id": "Meningkatkan striking power. Menjadi lebih rentan terhadap semua serangan yang masuk.",
             "it": "Aumenta il danno. Diventa più vulnerabile a tutti gli attacchi in arrivo.",
             "jp": "攻撃に専念することで、一定時間、防御力と命中率が下がる代わりに、攻撃力と最大HPが上昇します。",
-            "kr": "공격에 전념하여 자신의 방어력과 명중률을 감소시키고 공격력과 HP를 상승시킵니다.",
+            "kr": "공격력이 증가하지만, 모든 피해에 더 취약해집니다.",
             "nl": "Increases striking power. Become more vulnerable to all incoming attacks.",
             "pl": "Zwiększa siłę ataku kosztem obniżenia własnej obrony.",
             "ru": "Повышает силу атаки. Взамен сильно понижается защита.",
@@ -40094,6 +40229,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 9876,
@@ -40444,7 +40580,7 @@
             "id": "Stun Group",
             "it": "Stun Group",
             "jp": "スタングループ",
-            "kr": "스턴",
+            "kr": "스턴 그룹",
             "nl": "Stun Group",
             "pl": "Stun Group",
             "ru": "Групповое оглушение",
@@ -40466,7 +40602,7 @@
             "id": "Anda terkena stun dan Anda tidak bisa bergerak.",
             "it": "You are stunned and you cannot move.",
             "jp": "複数の対象を動けなくします。",
-            "kr": "움직일 수 없는 스턴 상태입니다.",
+            "kr": "기절하여 움직일 수 없는 상태입니다.",
             "nl": "You are stunned and you cannot move.",
             "pl": "Jesteś ogłuszony i nie możesz się ruszyć.",
             "ru": "Вы оглушены и не можете двигаться.",
@@ -40480,6 +40616,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -40606,6 +40743,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -40674,7 +40812,7 @@
             "id": "Melindungi monster dari stun dan rooting de-buff.",
             "it": "Protects the monster from stun and rooting de-buffs.",
             "jp": "スタンや不動デバフからモンスターを守ります。",
-            "kr": "스턴과 속박 디버프로부터 몬스터를 보호합니다.",
+            "kr": "스턴과 루팅 속박으로부터 몬스터를 보호합니다.",
             "nl": "Protects the monster from stun and rooting de-buffs.",
             "pl": "Protects the monster from stun and rooting de-buffs.",
             "ru": "Защищает от оглушения и корней.",
@@ -40688,6 +40826,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -40744,7 +40883,7 @@
             "id": "Meningkatkan kekuatan serangan.",
             "it": "Increases striking power.",
             "jp": "ナックル系の武器を装備している際に追加攻撃力が上昇します。",
-            "kr": "너클해머의 능력을 강화시켜 공격력을 상승시킵니다.",
+            "kr": "공격력을 상승시킵니다.",
             "nl": "Increases striking power.",
             "pl": "Zwiększa obrażenia zadawane pięścią.",
             "ru": "Повышает силу атаки.",
@@ -40763,6 +40902,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "weapon": "knuckle",
         "consumedItem": "charm",
@@ -41060,7 +41200,7 @@
             "id": "Maximum Crisis",
             "it": "Maximum Crisis",
             "jp": "マキシマムクライシス",
-            "kr": "맥시멈 크라이시스",
+            "kr": "극한의 파멸",
             "nl": "Maximum Crisis",
             "pl": "Maksymalny Kryzys",
             "ru": "Иллюзорный мир",
@@ -41082,7 +41222,7 @@
             "id": "Mengelilingi dan memberikan damage musuh dengan mental barier yang kuat.",
             "it": "Damages surrounding enemies in a strong mental barrier. Small chance to stun targets.",
             "jp": "強力な精神波で一定範囲の敵に一定確率でダメージを与え、スタンさせます。",
-            "kr": "강력한 정신파로 자신의 주변의 적들에게 공격합니다. 대상이 적은 확률로 스턴이 될 수 있습니다",
+            "kr": "주변의 적에게 강력한 정신파로 대미지를 줍니다. 낮은 확률로 대상이 스턴될 수 있습니다.",
             "nl": "Damages surrounding enemies in a strong mental barrier. Small chance to stun targets.",
             "pl": "Zadaje obrażenia wrogom wokół ciebie, ściskając ich psychiczną falą. Może ogłuszać wrogów.",
             "ru": "Damages surrounding enemies in a strong mental barrier. Small chance to stun targets.",
@@ -41101,6 +41241,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 1579,
@@ -41392,7 +41533,7 @@
             "id": "Rooting",
             "it": "Rooting",
             "jp": "ルーティング",
-            "kr": "락 크래쉬",
+            "kr": "루팅",
             "nl": "Rooting",
             "pl": "Zakorzenienie",
             "ru": "Корни",
@@ -41414,7 +41555,7 @@
             "id": "Mencegah musuh mendekat",
             "it": "Prevents an enemy from approaching.",
             "jp": "地の精霊の力を借りて、敵の接近を妨げます。",
-            "kr": "땅의 정령을 불러내 적의 움직임을 봉쇄합니다.",
+            "kr": "적의 접근을 봉쇄합니다.",
             "nl": "Prevents an enemy from approaching.",
             "pl": "Prevents an enemy from approaching.",
             "ru": "Корни опутывают ноги и мешают двигаться.",
@@ -41433,6 +41574,7 @@
             "y": 104
         },
         "magic": true,
+        "elementType": "earth",
         "requirements": [
             {
                 "skill": 5458,
@@ -41780,6 +41922,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -41887,7 +42030,7 @@
             "id": "Memberi damage kepada musuh selama periode waktu tertentu.",
             "it": "Damages an enemy over a period of time.",
             "jp": "一定時間の間、出血による継続的なダメージを与える",
-            "kr": "일정 시간동안 출혈로 인한 지속적인 피해를 입힙니다.",
+            "kr": "일정 시간동안 출혈로 인한 지속적인 대미지를 입힙니다.",
             "nl": "Damages an enemy over a period of time.",
             "pl": "Damages an enemy over a period of time.",
             "ru": "Вы получаете постепенный урон.",
@@ -41901,6 +42044,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -42217,6 +42361,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -42321,7 +42466,7 @@
             "id": "Poison Arrow",
             "it": "Poison Arrow",
             "jp": "ポイズンアロー",
-            "kr": "포이즌에로우",
+            "kr": "독성 화살",
             "nl": "Poison Arrow",
             "pl": "Poison Arrow",
             "ru": "Отравленная стрела",
@@ -42343,7 +42488,7 @@
             "id": "Menembakkan panah mematikan penuh racun ke sasaran. Menimbulkan racun.",
             "it": "Shoots a deadly arrow full of poison at the target. Inflicts Poison.",
             "jp": "毒属性の矢を射て、継続的なダメージを与える",
-            "kr": "화살에 독 속성을 추가시켜 일정 확률로 독에 중독되게 합니다.",
+            "kr": "독이 묻힌 화살로 적을 공격하여 일정 확률로 적을 독에 중독되게 합니다.",
             "nl": "Shoots a deadly arrow full of poison at the target. Inflicts Poison.",
             "pl": "Wystrzeliwuje w cel śmiertelną strzałę pełną trucizny. Nakłada truciznę.",
             "ru": "Наносит сильный урон, а затем постепенный урон ядом.",
@@ -42362,6 +42507,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 4058,
@@ -42754,7 +42900,7 @@
             "id": "Menghapus semua de-buff.",
             "it": "Removes all de-buffs.",
             "jp": "全ての弱体効果（デバフ）を解除します。",
-            "kr": "자신의 행동을 방해하는 속박에서 빠져나갑니다.",
+            "kr": "속박에서 빠져나갑니다.",
             "nl": "Removes all de-buffs.",
             "pl": "Usuwa wszystkie negatywne efekty.",
             "ru": "Позволяет вырваться из корней или ловушки.",
@@ -42773,6 +42919,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 317,
@@ -42916,7 +43063,7 @@
             "id": "Menyerang musuh dan menyebabkan damage berdasarkan dari MP yang tersisa.",
             "it": "Does damage to an enemy through the power of your mind.",
             "jp": "相手の精神を破壊してダメージを与えます。",
-            "kr": "적의 정신을 붕괴시켜 공격합니다. 이때 자신의 MP가 남은 량에 따라 데미지가 변합니다.",
+            "kr": "자신의 MP 남은 량에 따라 적의 정신을 붕괴시켜 대미지를 줍니다.",
             "nl": "Does damage to an enemy through the power of your mind.",
             "pl": "Zadaje olbrzymie obrażenia celowi w zależności od twoich obecnych punktów MP. (Największe obrażenia gdy masz 100% MP)",
             "ru": "Наносит противнику урон. Размер урона зависит от вашего количества маны.",
@@ -42935,6 +43082,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 7175,
@@ -43206,7 +43354,7 @@
             "id": "Flame Arrow",
             "it": "Flame Arrow",
             "jp": "フレイムアロー",
-            "kr": "플레임에로우",
+            "kr": "불꽃 화살",
             "nl": "Flame Arrow",
             "pl": "Flame Arrow",
             "ru": "Пламенеющая стрела",
@@ -43228,7 +43376,7 @@
             "id": "Memberikan elemen api pada panah dan damage di sekitar musuh.",
             "it": "Gives the fire element to arrows and damages surrounding enemies.",
             "jp": "炎の矢が爆発し、周囲の敵に一定時間継続ダメージを与える炎が立ち上がる",
-            "kr": "화살에 화이어 속성을 추가시켜 주변의 모든 적을 공격합니다.",
+            "kr": "화살에 불 속성을 추가시켜 주변의 모든 적을 공격합니다.",
             "nl": "Gives the fire element to arrows and damages surrounding enemies.",
             "pl": "Nadaje strzałom żywioł ognia i zadaje obrażenia pobliskim wrogom.",
             "ru": "Зачаровывает стрелы арканом огня. Наносит урон не только цели, но и окружающим ее противникам.",
@@ -43248,6 +43396,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "weapon": "bow",
         "consumedItem": "arrow",
@@ -43505,7 +43654,7 @@
             "id": "Earth Mastery",
             "it": "Earth Mastery",
             "jp": "アースマスター",
-            "kr": "어스 마스터",
+            "kr": "어스 마스터리",
             "nl": "Earth Mastery",
             "pl": "Mistrz Ziemi",
             "ru": "Властелин земли",
@@ -43527,7 +43676,7 @@
             "id": "Meningkatkan kekuatan serangan spell element Earth.",
             "it": "Increases the striking power of earth spells.",
             "jp": "地の精霊と盟約を結び、地属性の攻撃力を強化します。",
-            "kr": "어스 속성 마법의 공격력을 상승시킵니다.",
+            "kr": "대지 속성 마법의 공격력을 상승시킵니다.",
             "nl": "Increases the striking power of earth spells.",
             "pl": "Zwiększa siłę Czarów Ziemi.",
             "ru": "Повышает силу заклинаний стихии земли.",
@@ -43546,6 +43695,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "earth",
         "requirements": [
             {
                 "skill": 6034,
@@ -43743,6 +43893,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "",
         "debuff": true,
@@ -43863,7 +44014,7 @@
             "id": "Windfield",
             "it": "Windfield",
             "jp": "ウインドフィールド",
-            "kr": "윈드 필드",
+            "kr": "바람 지대",
             "nl": "Windfield",
             "pl": "Pole Burzowe",
             "ru": "Смерч",
@@ -43885,7 +44036,7 @@
             "id": "Memberikan damage pada musuh sekitar dengan serangan angin serta mengurangi kecepatan musuh.",
             "it": "Damages surrounding enemies with a wind attack. The speed of the enemies will be reduced.",
             "jp": "一定範囲内に強烈な空気の渦を発生させ、中にいる者の移動力を低下させます。",
-            "kr": "강렬한 돌풍을 일으켜 주변의 모든 적들을 공격합니다. 이때 적의 이동 속도를 감소시킵니다.",
+            "kr": "강렬한 돌풍을 일으켜 주변의 모든 적들을 공격하며 적의 이동 속도를 감소시킵니다.",
             "nl": "Damages surrounding enemies with a wind attack. The speed of the enemies will be reduced.",
             "pl": "Atakuje wszystkich wrogów wokół celu potężnym wiatrem. Szybkość poruszania się wroga spadnie.",
             "ru": "Наносит всем находящимся поблизости врагам урон ветром и замедляет их.",
@@ -43904,6 +44055,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "wind",
         "requirements": [
             {
                 "skill": 3623,
@@ -44316,6 +44468,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 964,
@@ -44929,7 +45082,7 @@
             "id": "Tiga serangan kekuatan terkonsentrasi.",
             "it": "Three concentrated power strikes.",
             "jp": "ナックルにかかる力を増大させ、敵に強力な攻撃を行います。",
-            "kr": "너클해머에 온 몸의 힘을 실어 적을 세번 타격합니다.",
+            "kr": "강력하게 적을 세 번 타격합니다.",
             "nl": "Three concentrated power strikes.",
             "pl": "Trze skoncentrowane uderzenia pięścią.",
             "ru": "Три чётких удара перчаткой.",
@@ -44948,6 +45101,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 7773,
@@ -45319,7 +45473,7 @@
             "id": "Yo-Yo Mastery",
             "it": "Yo-Yo Mastery",
             "jp": "ヨーヨーマスタリー",
-            "kr": "요요 마스터리",
+            "kr": "요요 숙련",
             "nl": "Yo-Yo Mastery",
             "pl": "Mistrzostwo Yo-Yo",
             "ru": "Йо-Йода",
@@ -45341,7 +45495,7 @@
             "id": "Meningkatkan damage yang dihasilkan dengan Yo-yo.",
             "it": "Increases damage done with a Yo-yo.",
             "jp": "ヨーヨーの熟練度を上げ、攻撃力を増加させる",
-            "kr": "요요의 사용 능력을 높여서 공격력을 상승시킵니다.",
+            "kr": "요요의 공격력을 상승시킵니다.",
             "nl": "Increases damage done with a Yo-yo.",
             "pl": "Zwiększa siłę ataku Yo-Yo.",
             "ru": "Повышает урон при использовании йо-йо.",
@@ -45360,6 +45514,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 7414,
@@ -45631,7 +45786,7 @@
             "id": "Shield Bash",
             "it": "Shield Bash",
             "jp": "シールドストライク",
-            "kr": "실드 배쉬",
+            "kr": "방패 강타",
             "nl": "Shield Bash",
             "pl": "Grzmotnięcie Tarczą",
             "ru": "Динамит",
@@ -45653,7 +45808,7 @@
             "id": "Menyerang target dengan shield. Serangan ini memiliki peluang untuk mengejutkan musuh Anda. Membutuhkan shield.",
             "it": "Attacks the target with a shield. This attack has a chance to stun your enemy. Requires a shield.",
             "jp": "対象を盾で突き飛ばし、一定確率でスタン状態にする。",
-            "kr": "대상을 방패로 타격하며, 일정확률로 스턴 상태로 만듭니다. 스킬을 사용하려면 방패가 필요합니다.",
+            "kr": "대상을 방패로 타격하며, 일정 확률로 스턴 상태로 만듭니다. 스킬을 사용하려면 방패가 필요합니다.",
             "nl": "Attacks the target with a shield. This attack has a chance to stun your enemy. Requires a shield.",
             "pl": "Atakuje cel tarczą. Ten atak ma szansę na ogłuszenie przeciwnika. Wymaga tarczy.",
             "ru": "Удар щитом, позволяющий с некоторой вероятностью оглушить цель.",
@@ -45672,6 +45827,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 5774,
@@ -46244,6 +46400,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -46322,6 +46479,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -46411,7 +46569,7 @@
             "id": "Atk. Counter",
             "it": "Atk. Counter",
             "jp": "ｶｳﾝﾀｰｱﾀｯｸ",
-            "kr": "역습공격",
+            "kr": "역습 공격",
             "nl": "Atk. Counter",
             "pl": "Atk. Counter",
             "ru": "Контратака",
@@ -46433,7 +46591,7 @@
             "id": "Serang sama seperti musuh menyerang",
             "it": "Attack just as an enemy attacks",
             "jp": "敵の攻撃を避けながらカウンターで攻撃を行う。",
-            "kr": "적의 공격을 신중히 기다리고 있다가 빈틈을 카운터로 공격합니다.",
+            "kr": "적의 공격과 동시에 공격합니다",
             "nl": "Attack just as an enemy attacks",
             "pl": "Atakuj tak, jak atakuje wróg",
             "ru": "Дополнительный удар в ответ на удар врага.",
@@ -46447,6 +46605,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -46891,7 +47050,7 @@
             "id": "Burningfield",
             "it": "Burningfield",
             "jp": "バーニングフィールド",
-            "kr": "버닝필드",
+            "kr": "화염 지대",
             "nl": "Burningfield",
             "pl": "Płonące Pole",
             "ru": "Горящая земля",
@@ -46913,7 +47072,7 @@
             "id": "Memberi damage pada musuh selama periode waktu tertentu",
             "it": "Does damage to the enemy over a period of time",
             "jp": "一定時間の間、指定地域を火の海にし、全ての敵に継続的に火属性のダメージを与える",
-            "kr": "지정된 지역을 불바다로 만들어 적들에게 지속적인 공격을 합니다.",
+            "kr": "일정 시간동안 지정된 지역을 불바다로 만들어 적들에게 대미지를 입힙니다.",
             "nl": "Does damage to the enemy over a period of time",
             "pl": "Podpala ziemię by zadawać ciągłe obrażenia wrogom w zasięgu.",
             "ru": "Противник получает постепенный урон.",
@@ -46932,6 +47091,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "fire",
         "requirements": [
             {
                 "skill": 3956,
@@ -47163,7 +47323,7 @@
             "id": "Lightning Strike",
             "it": "Lightning Strike",
             "jp": "サンダーストライク",
-            "kr": "썬더 스트라이크",
+            "kr": "라이트닝 스트라이크",
             "nl": "Lightning Strike",
             "pl": "Piorunujące Wyładowanie",
             "ru": "Удар молнии",
@@ -47204,6 +47364,7 @@
             "y": 78
         },
         "magic": true,
+        "elementType": "electricity",
         "requirements": [
             {
                 "skill": 3177,
@@ -47385,7 +47546,7 @@
             "id": "Poison",
             "it": "Poison",
             "jp": "ポイズン",
-            "kr": "일반독",
+            "kr": "독",
             "nl": "Vergif",
             "pl": "Poison",
             "ru": "Яд",
@@ -47407,7 +47568,7 @@
             "id": "Memberi damage pada musuh selama periode waktu tertentu dan mengurangi kemampuan mereka untuk heal.",
             "it": "Damages an enemy over a period of time and reduces their ability to heal.",
             "jp": "一定時間の間、毒による継続的なダメージを与える",
-            "kr": "일정 시간동안 출혈로 인한 지속적인 피해를 입힙니다.",
+            "kr": "일정 시간동안 출혈로 인한 지속적인 대미지를 입히며 치유를 늦춥니다.",
             "nl": "Damages an enemy over a period of time and reduces their ability to heal.",
             "pl": "Zadaje wrogowi obrażenia przez pewien czas i zmniejsza jego zdolność do leczenia.",
             "ru": "Вы получаете постепенный урон. Эффективность лечения снижена.",
@@ -47421,6 +47582,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -47625,7 +47787,7 @@
             "id": "Geburah Tiphreth",
             "it": "Geburah Tiphreth",
             "jp": "バトルソング",
-            "kr": "게브라 티파레트",
+            "kr": "게브라 티프레트",
             "nl": "Geburah Tiphreth",
             "pl": "Geburah Tiphreth",
             "ru": "Песнь ободрения",
@@ -47647,7 +47809,7 @@
             "id": "Kemampuan ini memanfaatkan kekuatan batin pengguna & anggota party terdekat, meningkatkan Kekuatan Serangan dan Kecepatan Serangan untuk waktu yang terbatas.",
             "it": "This ability draws upon the inner strength of the user & nearby party members, increasing both Attack Power and Attack Speed for a limited time.",
             "jp": "勇壮な歌で一定範囲のパーティーメンバーの闘志を奮い立たせ、一定時間、追加ダメージを発生させ、攻撃速度を上昇させます。",
-            "kr": "가까이 있는 극단원들의 전투능력을 향상시킵니다. 추가 데미지와 공격 속도에 영향을 줍니다.",
+            "kr": "가까이 있는 극단원들의 전투 능력을 향상시킵니다. 추가 대미지와 공격 속도를 증가시킵니다.",
             "nl": "This ability draws upon the inner strength of the user & nearby party members, increasing both Attack Power and Attack Speed for a limited time.",
             "pl": "Przebudza ukrytą siłę, zwiększając szybkość i siłę ataku członków drużyny wokół ciebie.",
             "ru": "Эта песнь призывает соратников бить яростнее и быстрее. Временно повышает силу и скорость атак.",
@@ -47666,6 +47828,7 @@
             "y": 12
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 39,
@@ -48112,7 +48275,7 @@
             "id": "Accuracy",
             "it": "Accuracy",
             "jp": "アキュラシー",
-            "kr": "어큐러시",
+            "kr": "명중률",
             "nl": "Nauwkeurigheid",
             "pl": "Celność",
             "ru": "Меткость",
@@ -48134,7 +48297,7 @@
             "id": "Meningkatkan akurasi target.",
             "it": "Increases the accuracy of a target.",
             "jp": "一定時間、対象の動体視力を高めることで命中率を上昇させます。",
-            "kr": "대상의 명중률을 상승시킵니다.",
+            "kr": "대상의 명중률이 상승합니다.",
             "nl": "Verhoogt de nauwkeurigheid van een doelwit.",
             "pl": "Zwiększa Celność celu.",
             "ru": "Повышает меткость цели.",
@@ -48153,6 +48316,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 690,
@@ -48784,7 +48948,7 @@
             "id": "Aimed Shot",
             "it": "Aimed Shot",
             "jp": "エイムドショット",
-            "kr": "데들리 스윙",
+            "kr": "에임드 샷",
             "nl": "Aimed Shot",
             "pl": "Celny Strzał",
             "ru": "Прицельный выстрел",
@@ -48806,7 +48970,7 @@
             "id": "Tembakan lambat yang memiliki kesempatan untuk menyebabkan Double Damage.",
             "it": "Slow shot that has a chance to deal double damage.",
             "jp": "相手の急所を狙い、一定確率で2倍のダメージ効果のある矢を射る",
-            "kr": "정밀하게 화살을 쏴 적을 약하게 만듭니다. 이때 적은 일정 확률로 다음 공격의 데미지를 2배 받는 상태가 됩니다.",
+            "kr": "일정 확률로 상대가 대미지를 2배 받게 할 수 있습니다.",
             "nl": "Slow shot that has a chance to deal double damage.",
             "pl": "Wolny strzał z szansą na podwójne obrażenia.",
             "ru": "Этот выстрел требует времени на подготовку, зато наносит двойной урон.",
@@ -48825,6 +48989,7 @@
             "y": 104
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 2030,
@@ -49233,6 +49398,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -49349,7 +49515,7 @@
             "id": "Menyerang musuh beberapa kali dengan Yo-Yo.",
             "it": "Strikes the enemy multiple times with the Yo-Yo.",
             "jp": "ヨーヨーで連続攻撃を行います。",
-            "kr": "요요로 배후를 습격합니다. 이때 적은 일정 확률로 스턴 상태가 됩니다. 적의 뒤에서만 사용 가능합니다.",
+            "kr": "요요로 배후를 연속으로 공격합니다.",
             "nl": "Strikes the enemy multiple times with the Yo-Yo.",
             "pl": "Zaatakuj cel wielokrotnie od tyłu.",
             "ru": "Атакует противника при помощи йо-йо несколько раз.",
@@ -49368,6 +49534,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 9959,
@@ -49661,7 +49828,7 @@
             "id": "Memberi damage kepada musuh selama periode waktu tertentu.",
             "it": "Damages an enemy over a period of time.",
             "jp": "一定時間の間、出血による継続的なダメージを与える",
-            "kr": "일정 시간동안 출혈로 인한 지속적인 피해를 입힙니다.",
+            "kr": "일정 시간동안 출혈로 인한 지속적인 대미지를 입힙니다.",
             "nl": "Damages an enemy over a period of time.",
             "pl": "Damages an enemy over a period of time.",
             "ru": "Вы получаете постепенный урон.",
@@ -49675,6 +49842,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -49832,7 +50000,7 @@
             "id": "Lightning Storm",
             "it": "Lightning Storm",
             "jp": "サンダーストーム",
-            "kr": "라이트닝스톰",
+            "kr": "라이트닝 스톰",
             "nl": "Lightning Storm",
             "pl": "Piorunująca Burza",
             "ru": "Грозовая буря",
@@ -49873,6 +50041,7 @@
             "y": 64
         },
         "magic": true,
+        "elementType": "electricitywind",
         "requirements": [
             {
                 "skill": 6390,
@@ -50188,7 +50357,7 @@
             "id": "Hit of Penya",
             "it": "Hit of Penya",
             "jp": "ヒットオブペニャ",
-            "kr": "히트 오브 페냐",
+            "kr": "페냐 공격",
             "nl": "Hit of Penya",
             "pl": "Hit of Penya",
             "ru": "Удар пенни",
@@ -50210,7 +50379,7 @@
             "id": "Memperkuat serangan yo-yo dengan mengonsumsi penya.",
             "it": "Strengthens the attack of a yo-yo by consuming penya.",
             "jp": "ペニャを消費して力の分だけダメージを与えます。",
-            "kr": "요요와 함께 소지 중이던 페냐를 다량으로 날려 적을 공격합니다. 이때 소지 중인 페냐가 소모됩니다.",
+            "kr": "페냐를 사용하여 요요의 공격력을 증가시킵니다.",
             "nl": "Strengthens the attack of a yo-yo by consuming penya.",
             "pl": "Wzmacnia atak yo-yo poprzez zużycie penya.",
             "ru": "Сильный удар йо-йо. Расходует пенни.",
@@ -50229,6 +50398,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 4756,
@@ -50442,7 +50612,7 @@
             "id": "Menyerang Musuh dengan bola energi mental.",
             "it": "Damages the enemy with a ball of mental energy.",
             "jp": "精神力を破壊の力に換え、強力なダメージを与えます。",
-            "kr": "정신력을 파괴의 힘으로 폭발시켜 적을 공격합니다.",
+            "kr": "적의 정신력을 파괴의 힘으로 폭발시켜 대미지를 줍니다.",
             "nl": "Damages the enemy with a ball of mental energy.",
             "pl": "Wywołuje potężny wybuch psychicznej energii, który może ogłuszyć cel.",
             "ru": "Наносит противнику значительный урон пси-энергией.",
@@ -50461,6 +50631,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 4729,
@@ -50752,7 +50923,7 @@
             "id": "Grand Rage",
             "it": "Grand Rage",
             "jp": "グランドレイジ",
-            "kr": "그랜드 레이지",
+            "kr": "격노",
             "nl": "Grand Rage",
             "pl": "Grand Rage",
             "ru": "Неистовый удар",
@@ -50774,7 +50945,7 @@
             "id": "Serangan Strong One-Handed yang mengubah 5% dari kerusakan yang Anda berikan menjadi FP yang dicuri dari musuh.",
             "it": "Strong One-Handed attack that converts 5% of the damage you deal into FP stolen from the enemy.",
             "jp": "対象に大ダメージを与える。",
-            "kr": "대상에게 큰 피해를 주고 적에게 준 데미지의 5%를 FP로 변환 시킵니다. ",
+            "kr": "강력한 한손 무기로 적에게 피해를 주고 적에게 준 대미지의 5%를 FP로 변환 시킵니다. ",
             "nl": "Strong One-Handed attack that converts 5% of the damage you deal into FP stolen from the enemy.",
             "pl": "Strong One-Handed attack that converts 5% of the damage you deal into FP stolen from the enemy.",
             "ru": "Сильная атака одной рукой. Возвращает 5% урона в виде очков энергии.",
@@ -50793,6 +50964,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3714,
@@ -51023,7 +51195,7 @@
             "id": "Krrr's Poison",
             "it": "Krrr's Poison",
             "jp": "ポイズンブレス",
-            "kr": "크르릉의 독",
+            "kr": "크르르의 독",
             "nl": "Krrr's Poison",
             "pl": "Trucizna Krrr's",
             "ru": "Яд Кр-ра",
@@ -51045,7 +51217,7 @@
             "id": "Memberi damage kepada musuh selama periode waktu tertentu.",
             "it": "Damages an enemy over a period of time.",
             "jp": "一定時間の間、出血による継続的なダメージを与える",
-            "kr": "일정 시간동안 출혈로 인한 지속적인 피해를 입힙니다.",
+            "kr": "일정 시간동안 출혈로 인한 지속적인 대미지를 입힙니다.",
             "nl": "Damages an enemy over a period of time.",
             "pl": "Damages an enemy over a period of time.",
             "ru": "Вы получаете постепенный урон.",
@@ -51059,6 +51231,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -51123,7 +51296,7 @@
             "id": "Serangan ke bawah yang kuat. Menurunkan akurasi target. Membutuhkan two weapon.",
             "it": "Potente colpo verso il basso. Riduce la precisione dei bersagli. Richiede due armi.",
             "jp": "敵に向かってジャンプして、鷹のように頭上から両手の斧で敵に襲いかかります。",
-            "kr": "공중으로 점프하여 적의 머리를 타격합니다. 일정 확률로 공격 적중률을 낮추는 암흑 상태로 만듭니다.",
+            "kr": "강력한 내려찍기로 적의 명중률을 감소시킵니다. 두 개의 무기를 장착해야 사용할 수 있습니다.",
             "nl": "Powerful, downward strike. Lowers targets accuracy. Requires two weapons.",
             "pl": "Potężny cios znad głowy, który może obniżać celność wroga. Wymaga dwóch broni.",
             "ru": "Мощный удар, с некоторой вероятностью понижающий точность цели. Для использования требуются два топора.",
@@ -51142,6 +51315,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 9538,
@@ -51542,7 +51716,7 @@
             "id": "Memberi damage kepada musuh selama periode waktu tertentu.",
             "it": "Damages an enemy over a period of time.",
             "jp": "一定時間の間、出血による継続的なダメージを与える",
-            "kr": "일정 시간동안 출혈로 인한 지속적인 피해를 입힙니다.",
+            "kr": "일정 시간동안 출혈로 인한 지속적인 대미지를 입힙니다.",
             "nl": "Damages an enemy over a period of time.",
             "pl": "Damages an enemy over a period of time.",
             "ru": "Вы получаете постепенный урон.",
@@ -51556,6 +51730,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -51751,6 +51926,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 1555,
@@ -51870,7 +52046,7 @@
             "id": "Memungkinkan Anda untuk berteleportasi.",
             "it": "Allows you to teleport.",
             "jp": "魔術で自らの近くに小さな風穴を開け瞬間的に移動を行います。",
-            "kr": "마술로 엷은 바람구멍을 근접한 곳에 뚫어 순간적으로 이동합니다.",
+            "kr": "순간 이동을 할 수 있습니다.",
             "nl": "Allows you to teleport.",
             "pl": "Przenosi Cię na wybrane przez ciebie miejsce.",
             "ru": "Позволяет мгновенно перенестись в выбранное место в пределах определенного радиуса.",
@@ -51889,6 +52065,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "wind",
         "requirements": [
             {
                 "skill": 4729,
@@ -52020,7 +52197,7 @@
             "id": "Keenwheel",
             "it": "Attacco circolare",
             "jp": "キーンフィール",
-            "kr": "킨휠",
+            "kr": "회오리 참격",
             "nl": "Keenwheel",
             "pl": "Wirujące Cięcie",
             "ru": "Вертушка",
@@ -52042,7 +52219,7 @@
             "id": "Serangan berputar terus menerus.",
             "it": "Un attacco circolare che colpisce l'avversario tre volte.",
             "jp": "マーシナリー・サークルスキルで、身体を回転させながら、相手を切り刻むように攻撃します。",
-            "kr": "서클스킬로 몸을 급속으로 회전하며 상대를 연속 타격합니다.",
+            "kr": "몸을 급속으로 회전하며 상대를 연속 타격합니다.",
             "nl": "A continuous spinning attack.",
             "pl": "Tnie przeciwnika wielokrotnie, poprzez wirowanie wokół własnej osi.",
             "ru": "Продолжительная круговая атака.",
@@ -52056,6 +52233,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "circle",
         "debuff": true,
@@ -52111,7 +52289,7 @@
             "id": "Dark Illusion",
             "it": "Dark Illusion",
             "jp": "ダークイリュージョン",
-            "kr": "다크일루젼",
+            "kr": "다크 일루전",
             "nl": "Duistere Illusie",
             "pl": "Mroczna Iluzja",
             "ru": "Иллюзия пустоты",
@@ -52133,7 +52311,7 @@
             "id": "Menjadi invisible untuk waktu singkat.",
             "it": "Become Invisible for a short time.",
             "jp": "自分の残像を出現させつつ、自らは闇へ姿を隠す",
-            "kr": "그림자 속으로 숨어 자신의 형체를 감춥니다.",
+            "kr": "짧은 시간동안 자신의 형체를 감춥니다.",
             "nl": "Wordt onzichtbaar voor een korte tijd. ",
             "pl": "Na moment daje Ci pełną niewidzialność.",
             "ru": "Позволяет на короткое время становиться невидимым.",
@@ -52152,6 +52330,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3456,
@@ -52459,6 +52638,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -52570,7 +52750,7 @@
             "id": "Memulihkan HP untuk anggota party di dekat kamu.",
             "it": "Recovers HP for party members near you.",
             "jp": "生命力が結晶した雨を降らせて、パーティーメンバーのHPを大幅に回復させます。",
-            "kr": "가까이 있는 극단원들의 HP를 대량 회복시킵니다.",
+            "kr": "가까이 있는 극단원들의 HP를 회복시킵니다.",
             "nl": "Recovers HP for party members near you.",
             "pl": "Odnawia PŻ członkom drużyny wokół ciebie.",
             "ru": "Восстанавливает здоровье находящихся рядом игроков труппы.",
@@ -52589,6 +52769,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8275,
@@ -52852,7 +53033,7 @@
             "id": "Memperlambat musuh.",
             "it": "Slows an enemy",
             "jp": "攻撃が当たった対象に対して、一定確率で移動速度を減少させる効果を与える",
-            "kr": "적의 움직임이 느려지도록 요요로 하체를 공격합니다.",
+            "kr": "적의 움직임이 느려집니다.",
             "nl": "Vertraagt een vijand",
             "pl": "Atakuje nogi wroga i spowalnia go.",
             "ru": "Замедляет противника.",
@@ -52871,6 +53052,7 @@
             "y": 27
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "weapon": "yoyo",
         "combo": "general",
@@ -53499,7 +53681,7 @@
             "id": "Mencerminkan sebagian dari damage yang diterima oleh musuh.",
             "it": "Rinvia une parte dei danni subito dall'avversario.",
             "jp": "敵の攻撃の隙をついて反撃することで、受けたダメージの一部を敵に送り返します。",
-            "kr": "적이 자신을 공격할 때 받은 충격의 일부를 적에게 반사시킵니다.",
+            "kr": "적에게 받은 피해 일부를 반사합니다.",
             "nl": "Reflects a part of the damage received by an enemy.",
             "pl": "Pasywnie zadaje atakującym wrogom część zadanych przez nich obrażeń.",
             "ru": "Частично отражает атаку, нанося урон противнику.",
@@ -53518,6 +53700,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 5775,
@@ -53768,7 +53951,7 @@
             "id": "Wind Mastery",
             "it": "Wind Mastery",
             "jp": "ウインドマスター",
-            "kr": "윈드 마스터",
+            "kr": "윈드 마스터리",
             "nl": "Wind Mastery",
             "pl": "Mistrz Wiatru",
             "ru": "Властелин ветра",
@@ -53790,7 +53973,7 @@
             "id": "Meningkatkan kekuatan serangan spell element Wind.",
             "it": "Increases the striking power of wind spells.",
             "jp": "風の精霊と盟約を結び、風属性の攻撃力を強化します。",
-            "kr": "윈드 속성 마법의 공격력을 상승시킵니다.",
+            "kr": "바람 속성 마법의 공격력을 상승시킵니다.",
             "nl": "Increases the striking power of wind spells.",
             "pl": "Zwiększa siłę Czarów Wiatru.",
             "ru": "Повышает силу заклинаний стихии ветра.",
@@ -53809,6 +53992,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "wind",
         "requirements": [
             {
                 "skill": 527,
@@ -54011,6 +54195,7 @@
             "y": 13
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8140,
@@ -54202,7 +54387,7 @@
             "id": "Steal HP",
             "it": "Steal HP",
             "jp": "スティールHP",
-            "kr": "흡혈",
+            "kr": "HP 흡수",
             "nl": "HP stelen",
             "pl": "Kradnie HP",
             "ru": "Кража здоровья",
@@ -54238,6 +54423,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -54374,7 +54560,7 @@
             "id": "Anda terkena stun dan tidak bisa bergerak.",
             "it": "You are stunned and cannot move.",
             "jp": "一定時間の間、スタン状態にする",
-            "kr": "움직일 수 없는 스턴 상태입니다.",
+            "kr": "기절하여 움직일 수 없는 상태입니다.",
             "nl": "You are stunned and cannot move.",
             "pl": "You are stunned and cannot move.",
             "ru": "Вы оглушены и не можете двигаться.",
@@ -54388,6 +54574,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -54612,7 +54799,7 @@
             "id": "Heap Up",
             "it": "Heap Up",
             "jp": "ヒップアップ",
-            "kr": "힙업",
+            "kr": "힙 업",
             "nl": "Heap Up",
             "pl": "Napakowanie",
             "ru": "Тяжеловес",
@@ -54634,7 +54821,7 @@
             "id": "Meningkatkan STA target.",
             "it": "Increases STA of the target.",
             "jp": "一定時間、対象の持久力を高め、体力(STA)を増加させます。",
-            "kr": "대상의 체력을 상승시킵니다.",
+            "kr": "대상의 STA가 상승합니다.",
             "nl": "Increases STA of the target.",
             "pl": "Zwiększa STA celu.",
             "ru": "Повышает выносливость цели.",
@@ -54653,6 +54840,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 1129,
@@ -55284,7 +55472,7 @@
             "id": "Blizzard",
             "it": "Blizzard",
             "jp": "アバランチ",
-            "kr": "아바란치",
+            "kr": "블리자드",
             "nl": "Sneeuwstorm",
             "pl": "Zamieć",
             "ru": "Буран",
@@ -55306,7 +55494,7 @@
             "id": "Menyerang musuh sekitar dengan badai salju dahsyat yang memungkinkan musuh terkena Stun.",
             "it": "Damages surrounding enemies with a snowstorm. Chance to Stun.",
             "jp": "雪崩を発生させて、周囲の敵に水と地の攻撃を行い、スタンさせます。",
-            "kr": "세찬 눈보라를 일으켜 주변의 모든 적들을 공격합니다. 이때 적을 일정 확률로 스턴 상태로 만듭니다.",
+            "kr": "세찬 눈보라를 일으켜 주변의 모든 적들을 공격합니다. 일정 확률로 상대를 스턴 상태로 만듭니다.",
             "nl": "Damages surrounding enemies with a snowstorm. Chance to Stun.",
             "pl": "Wywołuje olbrzymią burzę śnieżną, która zada obrażenia wszystkim wrogom wokoło i może ich ogłuszyć.",
             "ru": "На врагов обрушивается буран с некоторым шансом оглушения.",
@@ -55325,6 +55513,7 @@
             "y": 104
         },
         "magic": true,
+        "elementType": "earthwater",
         "requirements": [
             {
                 "skill": 9628,
@@ -55629,7 +55818,7 @@
             "id": "Burst Crack",
             "it": "Burst Crack",
             "jp": "バーストクラック",
-            "kr": "버스트크랙",
+            "kr": "버스트 크랙",
             "nl": "Burst Crack",
             "pl": "Wybuchowe Pęknięcie",
             "ru": "Пролом",
@@ -55651,7 +55840,7 @@
             "id": "Menghancurkan tanah dan merusak musuh di sekitar Anda.",
             "it": "Pounds the ground and damages enemies around you.",
             "jp": "ナックルハンマーを利用するスキルで、拳を地面に叩きつけ、その衝撃で自分の近くにいる敵にダメージを与えます。",
-            "kr": "너클해머로 바닥을 타격하여 가까이 있는 적들을 타격합니다.",
+            "kr": "바닥을 타격하여 가까이 있는 적들에게 대미지를 줍니다.",
             "nl": "Pounds the ground and damages enemies around you.",
             "pl": "Uderza ziemię z olbrzymią siłę, zadając obrażenia wszystkim celom wokół ciebie.",
             "ru": "Удар, пробивающий землю и наносящий урон всем врагам поблизости.",
@@ -55670,6 +55859,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3494,
@@ -56197,6 +56387,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -56247,7 +56438,7 @@
             "id": "Earthquake",
             "it": "Earthquake",
             "jp": "アースクエイク",
-            "kr": "어스퀘이크",
+            "kr": "지진",
             "nl": "Aardbeving",
             "pl": "Trzęsienie Ziemi",
             "ru": "Дрожь земли",
@@ -56288,6 +56479,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "earth",
         "requirements": [
             {
                 "skill": 935,
@@ -56589,7 +56781,7 @@
             "id": "Piercing Arrow",
             "it": "Piercing Arrow",
             "jp": "ピエーシングアロー",
-            "kr": "피어싱에로우",
+            "kr": "피어싱 화살",
             "nl": "Piercing Arrow",
             "pl": "Piercing Arrow",
             "ru": "Пронзающая стрела",
@@ -56611,7 +56803,7 @@
             "id": "Serangan panah yang ditingkatkan.",
             "it": "Increased arrow strike.",
             "jp": "矢の命中率が上昇する。",
-            "kr": "강력한 화살을 날려 직선 상의 적들을 관통하며 공격합니다.",
+            "kr": "화살 공격력이 증가합니다.",
             "nl": "Increased arrow strike.",
             "pl": "Zwiększa uderzenie strzały.",
             "ru": "Наносит значительный урон цели и всем врагам, которые находятся на линии полета стрелы.",
@@ -56630,6 +56822,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 6216,
@@ -56834,7 +57027,7 @@
             "id": "Serangan yang cepat dan menusuk.",
             "it": "Attacco rapido e pugnalante.",
             "jp": "剣や斧を素早く繰り出して連続攻撃を行います。(アクションスロットでのみ発動)",
-            "kr": "서클스킬로 소드를 사용하여 비오듯 찔러 연속공격합니다.",
+            "kr": "비오듯 찔러 연속공격합니다.",
             "nl": "Rapid, stabbing attack.",
             "pl": "Zadaje kilka, szybkich ciosów.",
             "ru": "Серия чувствительных уколов.",
@@ -56853,6 +57046,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 9660,
@@ -57059,6 +57253,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -57172,7 +57367,7 @@
             "id": "Merusak target terus menerus dari waktu ke waktu.",
             "it": "Damages the target continuously over time.",
             "jp": "一定時間、強力な炎によるダメージを与えます。",
-            "kr": "일정 시간동안 대상에게 지속적인 피해를 입힙니다.",
+            "kr": "일정 시간 동안 대상에게 지속 피해를 줍니다.",
             "nl": "Damages the target continuously over time.",
             "pl": "Cel otrzymuje ciągłe obrażenia.",
             "ru": "Наносит постепенный урон.",
@@ -57186,6 +57381,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -57224,7 +57420,7 @@
             "id": "Psychic Wall",
             "it": "Psychic Wall",
             "jp": "サイキックウォール",
-            "kr": "사이킥 월",
+            "kr": "심리 장벽",
             "nl": "Psychic Wall",
             "pl": "Psychiczna Ściana",
             "ru": "Пси-заслон",
@@ -57246,7 +57442,7 @@
             "id": "Membuat sebuah tembok yang bergerak menyerang musuh mundur dan mengurangi Speed mereka.",
             "it": "Creates a wall that pushes an enemy back and damages them & reduces their speed if they touch it.",
             "jp": "見えない壁を創り出し、敵の侵入を防ぎます。",
-            "kr": "강한 염력으로 벽을 만들어 적이 다가올 수 없게 만듭니다.",
+            "kr": "강한 염력으로 벽을 만들어 적이 다가올 수 없고 대미지를 줍니다. 벽을 만지면 적의 속력이 일정량 감소합니다.",
             "nl": "Creates a wall that pushes an enemy back and damages them & reduces their speed if they touch it.",
             "pl": "Stwarza barierę która boleśnie odpycha wroga i zmniejsza jego szybkość.",
             "ru": "Позволяет возвести заслон. Если противник коснется его, то получит урон и будет отброшен назад.",
@@ -57265,6 +57461,7 @@
             "y": 13
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 9712,
@@ -57610,7 +57807,7 @@
             "id": "Musuh target menerima kerusakan ganda pada serangan berikutnya.",
             "it": "Target enemy takes double damage in the next attack.",
             "jp": "神の加護を受けて、敵に2倍のダメージを与えます。",
-            "kr": "적에게 신성한 속박을 걸어 다음 공격으로 2배의 데미지를 입도록 만듭니다.",
+            "kr": "적에게 다음 공격으로 2배의 대미지를 입도록 만듭니다.",
             "nl": "Target enemy takes double damage in the next attack.",
             "pl": "Cel otrzymuje podwójne obrażenia na następny atak.",
             "ru": "Следующая атака по противнику нанесёт двойной урон.",
@@ -57629,6 +57826,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "weapon": "stick",
         "combo": "general",
@@ -57667,7 +57865,7 @@
             "id": "Demonology",
             "it": "Demonology",
             "jp": "デーモンオルグ",
-            "kr": "데모놀로지",
+            "kr": "악마학",
             "nl": "Demonology",
             "pl": "Demonologia",
             "ru": "Демонолог",
@@ -57689,7 +57887,7 @@
             "id": "Menyerang musuh dengan kekuatan mental dan mengurangi Attack Power mereka.",
             "it": "Damages the enemy with a mental blast and reduces their attack power.",
             "jp": "悪魔の邪念を召還して、敵に精神的なダメージを与えます。",
-            "kr": "악마의 사념을 소환해 적에게 정신적인 공격을 합니다.",
+            "kr": "악마의 사념을 소환해 적에게 정신적인 대미지를 줍니다.",
             "nl": "Damages the enemy with a mental blast and reduces their attack power.",
             "pl": "Rozrywa umysł celu i obniża jego siłę ataku.",
             "ru": "Наносит противнику урон пси-энергией и уменьшает его атаку.",
@@ -57708,6 +57906,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "weapon": "wand",
         "combo": "general",
@@ -57994,7 +58193,7 @@
             "id": "Moon Beam",
             "it": "Moon Beam",
             "jp": "ムーンビーム",
-            "kr": "달빛",
+            "kr": "문 빔",
             "nl": "Moon Beam",
             "pl": "Moon Beam",
             "ru": "Лунный луч",
@@ -58016,7 +58215,7 @@
             "id": "Memanggil bulan untuk melemahkan target. Semua damage yang terjadi pada target saat de-buff ini aktif meningkat.",
             "it": "Calls upon the moon to weaken the target. All damage done to the target while this de-buff is active is increased.",
             "jp": "月を呼び出し、対象を弱体化させる。効果中ターゲットに与える全てのダメージが増加する。",
-            "kr": "적을 약화시키게 해달라고 달에게 요청합니다. 디버프가 활성화되어 있는 동안 대상이 받는 모든 데미지가 높아집니다.",
+            "kr": "적을 약화시켜달라고 달에게 요청합니다. 속박이 활성화되어 있는 동안 대상이 받는 모든 대미지가 증가합니다.",
             "nl": "Calls upon the moon to weaken the target. All damage done to the target while this de-buff is active is increased.",
             "pl": "Calls upon the moon to weaken the target. All damage done to the target while this de-buff is active is increased.",
             "ru": "Призывает силу Луны для остабления противника. Увеличивает весь получаемый противником урон.",
@@ -58035,6 +58234,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "weapon": "stick",
         "combo": "general",
@@ -58883,7 +59083,7 @@
             "id": "Musuh menerima kerusakan dari waktu ke waktu di area di sekitarmu.",
             "it": "Enemies take damage over time in an area around you.",
             "jp": "一定範囲内に神聖な結界を張り、そこに進入した敵に対して持続的ダメージを与えます。",
-            "kr": "자신의 주변에 성스러운 영역을 형성하여 범위안에 들어오는 적에게 데미지를 줍니다.",
+            "kr": "자신의 주변 영역에 들어오는 적에게 대미지를 줍니다.",
             "nl": "Enemies take damage over time in an area around you.",
             "pl": "Stwarza na ziemi pole energii, które zadaje obrażenia co pewien czas wszystkim wrogom w zasięgu.",
             "ru": "Наносит урон по области вокруг вас.",
@@ -58902,6 +59102,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 6432,
@@ -59166,7 +59367,7 @@
             "id": "Serangan yang kuat menggunakan two weapon.",
             "it": "Potente colpo usando due armi.",
             "jp": "2本の武器をクロスさせて強烈な攻撃を行います。",
-            "kr": "양손의 무기를 X자로 교차시키며 적을 타격합니다.",
+            "kr": "두 무기를 사용해 강력하게 적을 타격합니다.",
             "nl": "Powerful strike using two weapons.",
             "pl": "Tnie przeciwnika na krzyż za pomocą dwóch broni.",
             "ru": "Удар двумя клинками одновременно.",
@@ -59185,6 +59386,7 @@
             "y": 12
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 51,
@@ -59465,7 +59667,7 @@
             "id": "Protective Tree Bark",
             "it": "Protective Tree Bark",
             "jp": "バークプロテクション",
-            "kr": "나무껍질로 보호",
+            "kr": "나무 껍질 보호",
             "nl": "Protective Tree Bark",
             "pl": "Protective Tree Bark",
             "ru": "Прочная кора",
@@ -59487,7 +59689,7 @@
             "id": "Meningkatkan defense dengan membungkus tubuh dengan tree bark.",
             "it": "Increases defense by wrapping the body in tree bark.",
             "jp": "堅い樹皮で全身を包み、物理攻撃力を減少させる",
-            "kr": "온 몸을 단단한 나무껍질로 감싸 물리공격력을 감소시킵니다.",
+            "kr": "온 몸을 단단한 나무 껍질로 감싸 방어력을 증가시킵니다.",
             "nl": "Increases defense by wrapping the body in tree bark.",
             "pl": "Zwiększa obronę poprzez owinięcie ciała korą drzewa.",
             "ru": "Кора обволакивает тело, повышая защиту.",
@@ -59501,6 +59703,7 @@
         "level": 15,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "weapon": "shield",
         "combo": "general",
@@ -59559,7 +59762,7 @@
             "id": "Memberikan damage kemusuh dengan ledakan psikis.",
             "it": "Damages the enemies around you with a psychic blast.",
             "jp": "一定範囲の敵を自分の精神世界に引き入れてダメージを与えます。",
-            "kr": "혼돈의 정신 세계로 끌어들여 적들 전체를 공격합니다.",
+            "kr": "혼돈의 정신 세계로 끌어들여 적 전체를 공격합니다.",
             "nl": "Damages the enemies around you with a psychic blast.",
             "pl": "Zadaje obrażenia wszystkim wrogom wokół wybranego celu za pomocą psychicznego pola.",
             "ru": "Наносит значительный урон цели и находящимся рядом с ней врагам.",
@@ -59578,6 +59781,7 @@
             "y": 52
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8140,
@@ -59773,7 +59977,7 @@
             "id": "Water Mastery",
             "it": "Water Mastery",
             "jp": "ウォーターマスター",
-            "kr": "워터 마스터",
+            "kr": "워터 마스터리",
             "nl": "Water Mastery",
             "pl": "Mistrz Wody",
             "ru": "Властелин воды",
@@ -59795,7 +59999,7 @@
             "id": "Meningkatkan kekuatan serangan spell element Water.",
             "it": "Increases striking power of water spells.",
             "jp": "水の精霊と盟約を結び、水属性の攻撃力を強化します。",
-            "kr": "워터 속성 마법의 공격력을 상승시킵니다.",
+            "kr": "물 속성 마법의 공격력을 상승시킵니다.",
             "nl": "Increases striking power of water spells.",
             "pl": "Zwiększa siłę Wodnych Czarów.",
             "ru": "Повышает силу заклинаний стихии воды.",
@@ -59814,6 +60018,7 @@
             "y": 104
         },
         "magic": true,
+        "elementType": "water",
         "requirements": [
             {
                 "skill": 4720,
@@ -59975,7 +60180,7 @@
             "id": "Resurrection",
             "it": "Resurrection",
             "jp": "リザレクション",
-            "kr": "레저렉션",
+            "kr": "부활",
             "nl": "Herrijzens",
             "pl": "Wskrzeszenie",
             "ru": "Воскрешение",
@@ -59997,7 +60202,7 @@
             "id": "Resurrect pemain yang sudah mati.",
             "it": "Resurrects a dead player.",
             "jp": "死んでしまったキャラクターを復活させます。",
-            "kr": "사망한 캐릭터를 신성한 힘으로 부활시킵니다.",
+            "kr": "사망한 플레이어를 부활시킵니다.",
             "nl": "Herrijst een dode speler.",
             "pl": "Wskrzesza martwego gracza. Wskrzeszony gracz traci mniej punktów doświadczenia.",
             "ru": "Воскрешает павшего соратника.",
@@ -60016,6 +60221,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 2678,
@@ -60547,7 +60753,7 @@
             "id": "Enchant Poison",
             "it": "Enchant Poison",
             "jp": "エンチャントポイズン",
-            "kr": "포이즌",
+            "kr": "중독",
             "nl": "Enchant Poison",
             "pl": "Zaczarowana Trucizna",
             "ru": "Ядовитая йо-йо",
@@ -60569,7 +60775,7 @@
             "id": "Menambahkan kerusakan racun ke yo-yo Anda dan meningkatkan kekuatan serangan.",
             "it": "Adds poison damage to your yo-yo and increases attack power.",
             "jp": "ヨーヨーに毒属性を追加し、ダメージを上昇させると共に、一定確率で毒状態にする",
-            "kr": "요요에 독 속성을 추가시켜 공격력을 상승시키고 일정 확률로 독에 중독되게 합니다.",
+            "kr": "요요에 독 속성을 추가시켜 공격력을 상승시시킵니다.",
             "nl": "Adds poison damage to your yo-yo and increases attack power.",
             "pl": "Dodaje truciznę do Yo-Yo i zwiększa siłę ataku.",
             "ru": "На оружие наносится яд. Это повышает причиняемый им урон и позволяет отравить противника.",
@@ -60588,6 +60794,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 146,
@@ -60929,7 +61136,7 @@
             "id": "Silent Arrow",
             "it": "Silent Arrow",
             "jp": "サイレントアロー",
-            "kr": "침묵의에로우",
+            "kr": "침묵의 화살",
             "nl": "Stille Pijl",
             "pl": "Silent Arrow",
             "ru": "Глушащая стрела",
@@ -60951,7 +61158,7 @@
             "id": "Menyerang musuh dan mencegah mereka merapal mantra.",
             "it": "Attacks the enemy and prevents them from casting spells.",
             "jp": "強力なダメージを与えると共に、一定確率で沈黙状態(魔法が使用できない)にする。",
-            "kr": "마법 주문을 외울 수 없도록 적을 화살로 공격합니다. 이때 적은 일정 확률로 침묵 상태가 됩니다.",
+            "kr": "마법 주문을 외울 수 없도록 적을 화살로 공격합니다.",
             "nl": "Attacks the enemy and prevents them from casting spells.",
             "pl": "Atakuje wroga i uniemożliwia mu rzucanie zaklęć.",
             "ru": "Глушащая стрела не дает противнику читать заклинания.",
@@ -60970,6 +61177,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 4045,
@@ -61278,6 +61486,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -61408,7 +61617,7 @@
             "id": "Memberikan pukulan berat ke musuh yang menyebabkan pendarahan pada target.",
             "it": "Strikes a heavy blow to the enemy that causes bleeding to the target.",
             "jp": "敵の急所を突いて出血させて、持続的なダメージを与えます。",
-            "kr": "너클해머로 적의 약점을 집중 타격합니다. 이때 적은 일정 확률로 출혈 상태가 됩니다.",
+            "kr": "적의 약점을 집중 타격하여 출혈 상태를 만듭니다.",
             "nl": "Strikes a heavy blow to the enemy that causes bleeding to the target.",
             "pl": "Brutalny cios, wywołujący krwawienie u wroga.",
             "ru": "Наносит противнику урон. Враг постепенно теряет здоровье от кровотечения.",
@@ -61427,6 +61636,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 4448,
@@ -61864,6 +62074,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -62008,6 +62219,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -62036,7 +62248,7 @@
             "id": "Power Stomp",
             "it": "Alabarda feroce",
             "jp": "アックスボム",
-            "kr": "파워 스텀프",
+            "kr": "파워 스톰프",
             "nl": "Power Stomp",
             "pl": "Potężne Tupnięcie",
             "ru": "Ошеломляющий удар",
@@ -62058,7 +62270,7 @@
             "id": "Menghancurkan tanah, stun musuh di sekitar. Membutuhkan two-handed weapon.",
             "it": "Potente colpo d'ascia che infligge danni stordendo i nemici vicini. Richiede ascia a due mani.",
             "jp": "斧を地面に叩きつけ、発生した衝撃で周囲の敵にダメージを与えると共に一定確率でスタンさせます。",
-            "kr": "양손도끼로 지면을 강하게 내리쳐서 주변의 적들을 타격합니다. 이때 적들을 일정 확률로 스턴 상태로 만듭니다.",
+            "kr": "양손 도끼로 지면을 강하게 내리쳐서 주변의 적들을 타격합니다. 이때 적들을 일정 확률로 스턴 상태로 만듭니다.",
             "nl": "Pounds the ground, stunning nearby enemies. Requires a two-handed weapon.",
             "pl": "Uderza ziemię z olbrzymią siłą, wywołującą ogłuszenie u wrogów wokół ciebie. Wymaga dwuręcznej broni.",
             "ru": "Удар по земле, оглушающий стоящих поблизости врагов. Для использования требуется двуручный топор или секира.",
@@ -62077,6 +62289,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 2564,
@@ -62389,7 +62602,7 @@
             "id": "Serangan mendadak yang menghasilkan lebih banyak damage selama Dark Illusion.",
             "it": "A surprise attack that does more damage during Dark Illusion.",
             "jp": "ダークイリュージョンの状態で使うことにより、敵に強力な不意打ちを行う",
-            "kr": "숨을 죽이고 적에게 기습 공격을 합니다. 다크일루젼 상태에서 사용하면 공격력이 커집니다.",
+            "kr": "다크일루젼 상태에서 적에게 기습 시 공격력이 증가합니다.",
             "nl": "A surprise attack that does more damage during Dark Illusion.",
             "pl": "Niespodziewany atak, który z Mrocznej Iluzji zadaje większe obrażenia.",
             "ru": "Позволяет застать противника врасплох. Наносит больше урона при использовании Иллюзии пустоты.",
@@ -62408,6 +62621,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 2030,
@@ -62740,7 +62954,7 @@
             "id": "Swordwind",
             "it": "Swordwind",
             "jp": "ソードウィンド",
-            "kr": "파이어 스트라이크",
+            "kr": "소드윈드",
             "nl": "Swordwind",
             "pl": "Miecz Wiatru",
             "ru": "Воздушный клинок",
@@ -62762,7 +62976,7 @@
             "id": "Jarak jauh, serangan angin. Mengurangi ketahanan api target.",
             "it": "Ranged, wind attack. Reduces fire resistance of the target.",
             "jp": "風属性の遠距離攻撃。一定確率で対象の火属性体制を低下させます。",
-            "kr": "칼날처럼 날카로운 바람을 날려 적을 공격하여 대상의 불 저항력을 감소시킵니다.",
+            "kr": "칼날처럼 날카로운 바람을 날려 공격합니다. 대상의 불 저항력을 감소시킵니다.",
             "nl": "Ranged, wind attack. Reduces fire resistance of the target.",
             "pl": "Tnie przeciwnika silnym wiatrem. Zmniejsza odporność na ogień.",
             "ru": "Ranged, wind attack. Reduces fire resistance of the target.",
@@ -62781,6 +62995,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "wind",
         "requirements": [
             {
                 "skill": 4729,
@@ -63488,6 +63703,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -63537,7 +63753,7 @@
             "id": "Axe Mastery",
             "it": "Maestria d'Ascia",
             "jp": "アックスマスタリー",
-            "kr": "엑스 마스터리",
+            "kr": "도끼 숙련",
             "nl": "Axe Mastery",
             "pl": "Mistrzostwo Topora",
             "ru": "Мастер секиры",
@@ -63559,7 +63775,7 @@
             "id": "Meningkatkan kekuatan serangan axe.",
             "it": "Aumenta significativamente la potenza d'attacco dell'ascia.",
             "jp": "斧の熟練度を上昇させ、斧を装備した際の攻撃力をアップさせます。",
-            "kr": "엑스의 사용 능력을 높여서 공격력을 상승시킵니다.",
+            "kr": "도끼 사용 능력을 높여서 공격력을 상승시킵니다.",
             "nl": "Increases the striking power of an axe.",
             "pl": "Zwiększa siłę ataku toporów.",
             "ru": "Повышает силу ударов топором и секирой.",
@@ -63578,6 +63794,7 @@
             "y": 78
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 4531,
@@ -63869,7 +64086,7 @@
             "id": "Spirit Fortune",
             "it": "Spirit Fortune",
             "jp": "エンチャントウェポン",
-            "kr": "스피리처 포춘",
+            "kr": "스피릿 포츈",
             "nl": "Spirit Fortune",
             "pl": "Duchowe Powodzenie",
             "ru": "Воодушевление",
@@ -63891,7 +64108,7 @@
             "id": "Meningkatkan daya serang target",
             "it": "Increases striking power of a target.",
             "jp": "一定時間、対象の筋力を増強させ、攻撃力を上昇させます。",
-            "kr": "대상의 힘을 상승시킵니다.",
+            "kr": "대상의 타격력이 상승합니다.",
             "nl": "Increases striking power of a target.",
             "pl": "Increases striking power of a target.",
             "ru": "Повышает силу удара цели.",
@@ -63910,6 +64127,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8183,
@@ -64278,6 +64496,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -64313,7 +64532,7 @@
             "id": "Poison Cloud",
             "it": "Poison Cloud",
             "jp": "ポイズンクラウド",
-            "kr": "포이즌 클라우드",
+            "kr": "독구름",
             "nl": "Vergif Wolk",
             "pl": "Trująca Chmura",
             "ru": "Ядовитое облако",
@@ -64335,7 +64554,7 @@
             "id": "Meracuni semua musuh diarea sekitar.",
             "it": "Poisons all enemies in the surrounding area.",
             "jp": "毒素を含んだ雲を出現させて、一定範囲の敵に毒のダメージを与えます。",
-            "kr": "독을 뿌리는 구름을 만들어 주변의 모든 적들을 공격합니다.",
+            "kr": "주변의 모든 적을 중독시킵니다.",
             "nl": "Poisons all enemies in the surrounding area.",
             "pl": "Zatruwa wszystkich wrogów wokół wybranego celu. Zatruty cel będzie otrzymywał ciągłe obrażenia.",
             "ru": "Отравляет всех противников вокруг.",
@@ -64349,6 +64568,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -64416,7 +64636,7 @@
             "id": "Dibutakan oleh kilatan cahaya.",
             "it": "Blinded by the flash of light.",
             "jp": "まばゆい閃光で視力を落とします。",
-            "kr": "섬광탄 트랩에 걸려 눈을 뜰 수 없습니다.",
+            "kr": "강한 섬광에 눈을 뜰 수 없습니다.",
             "nl": "Blinded by the flash of light.",
             "pl": "Oślepiony przez światło.",
             "ru": "Вы ослеплены вспышкой света.",
@@ -64430,6 +64650,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -64479,7 +64700,7 @@
             "id": "Iceshark",
             "it": "Iceshark",
             "jp": "アイスシャーク",
-            "kr": "아이스 샤크",
+            "kr": "아이스샤크",
             "nl": "Iceshark",
             "pl": "Lodowy Rekin",
             "ru": "Ледяные укусы",
@@ -64501,7 +64722,7 @@
             "id": "Menembakkan poyektil Ice dari kejauhan.",
             "it": "Ranged attack that fires an ice projectile.",
             "jp": "鋭い氷塊を出現させ、敵を攻撃します。",
-            "kr": "샤크 형태의 얼음 덩어리를 날려 적을 공격합니다.",
+            "kr": "얼음 투사체를 발사해 원거리의 적을 공격합니다.",
             "nl": "Ranged attack that fires an ice projectile.",
             "pl": "Ciska we wroga ostrymi odłamkami lodu.",
             "ru": "Наносит противнику урон ледяными осколками.",
@@ -64520,6 +64741,7 @@
             "y": 104
         },
         "magic": true,
+        "elementType": "water",
         "requirements": [
             {
                 "skill": 4720,
@@ -64733,7 +64955,7 @@
             "id": "Memberi damage pada musuh selama periode waktu tertentu dan mengurangi kecepatan serangan mereka.",
             "it": "Damages an enemy over a period of time and reduces their attack speed.",
             "jp": "一定時間の間、出血による継続的なダメージを与える",
-            "kr": "일정 시간동안 출혈로 인한 지속적인 피해를 입힙니다.",
+            "kr": "일정 시간동안 출혈로 인한 지속적인 대미지를 입히며 공격 속도를 늦춥니다.",
             "nl": "Damages an enemy over a period of time and reduces their attack speed.",
             "pl": "Zadaje wrogowi obrażenia przez pewien czas i zmniejsza jego szybkość ataku.",
             "ru": "Вы получаете постепенный урон. Скорость атаки снижена.",
@@ -64747,6 +64969,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -65037,6 +65260,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -65152,6 +65376,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -65187,7 +65412,7 @@
             "id": "Spring Attack",
             "it": "Frenesia",
             "jp": "アックスラッシュ",
-            "kr": "스프링 어텍",
+            "kr": "스프링 어택",
             "nl": "Spring Attack",
             "pl": "Sprężysty Atak",
             "ru": "Пружина",
@@ -65209,7 +65434,7 @@
             "id": "Menyerang musuh berkali-kali. Setiap pukulan memiliki kesempatan untuk memberi double damage. Membutuhkan two weapon.",
             "it": "Colpisce un nemico più volte. Ogni colpo ha la possibilità di infliggere il doppio del danno. Richiede due armi.",
             "jp": "両手に持った片手斧を振り回し、4連続攻撃を行います。",
-            "kr": "엑스를 마구 휘둘러 적을 연속 타격합니다. 각 공격은 일정 확률로 2배의 데미지를 넣을 수 있습니다.",
+            "kr": "적을 연속 타격합니다. 각 공격은 일정 확률로 2배의 대미지를 넣을 수 있습니다. 두 개의 무기가 필요합니다.",
             "nl": "Strikes at an enemy multiple times. Each hit has a chance to deal double damage. Requires two weapons.",
             "pl": "Uderza wielokrotnie przeciwnika za pomocą specjalnej kombinacji ciosów. Wymaga dwóch broni.",
             "ru": "Несколько быстрых ударов по врагу. Каждый удар имеет шанс нанесения двойного урона. Для использования требуются два топора.",
@@ -65228,6 +65453,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8973,
@@ -65518,7 +65744,7 @@
             "id": "Poison Cloud",
             "it": "Poison Cloud",
             "jp": "ポイズンクラウド",
-            "kr": "포이즌 클라우드",
+            "kr": "독구름",
             "nl": "Vergif Wolk",
             "pl": "Trująca Chmura",
             "ru": "Ядовитое облако",
@@ -65540,7 +65766,7 @@
             "id": "Meracuni semua musuh diarea sekitar.",
             "it": "Poisons all enemies in the surrounding area.",
             "jp": "毒素を含んだ雲を出現させて、一定範囲の敵に毒のダメージを与えます。",
-            "kr": "독을 뿌리는 구름을 만들어 주변의 모든 적들을 공격합니다.",
+            "kr": "주변의 모든 적을 중독시킵니다.",
             "nl": "Poisons all enemies in the surrounding area.",
             "pl": "Zatruwa wszystkich wrogów wokół wybranego celu. Zatruty cel będzie otrzymywał ciągłe obrażenia.",
             "ru": "Отравляет всех противников вокруг.",
@@ -65559,6 +65785,7 @@
             "y": 104
         },
         "magic": true,
+        "elementType": "water",
         "requirements": [
             {
                 "skill": 9293,
@@ -65920,7 +66147,7 @@
             "id": "Clean Hit",
             "it": "Colpo Secco",
             "jp": "クリーンヒット",
-            "kr": "크린히트",
+            "kr": "크린 히트",
             "nl": "Clean Hit",
             "pl": "Czyste Cięcie",
             "ru": "Прямой выпад",
@@ -65942,7 +66169,7 @@
             "id": "Serangan ke bawah yang kuat.",
             "it": "Un colpo potente verso il basso.",
             "jp": "剣や斧で強力な一撃を与えます。",
-            "kr": "스탭스킬로 소드를 사용하며 강하게 내려쳐서 피해를 입힙니다.",
+            "kr": "강하게 내려쳐서 피해를 입힙니다.",
             "nl": "A powerful, downward strike.",
             "pl": "Zadaje przeciwnikowi jeden, solidny cios.",
             "ru": "Резкий и мощный удар.",
@@ -65961,6 +66188,7 @@
             "y": 0
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "step",
         "debuff": true,
@@ -66167,6 +66395,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "weapon": "staff",
         "combo": "general",
@@ -66200,7 +66429,7 @@
             "id": "Satanology",
             "it": "Satanology",
             "jp": "サターンアイ",
-            "kr": "사타놀로지",
+            "kr": "사탄학",
             "nl": "Satanologie",
             "pl": "Satanologia",
             "ru": "Сглаз",
@@ -66222,7 +66451,7 @@
             "id": "Mencegah musuh mendekat",
             "it": "Prevents an enemy from approaching.",
             "jp": "地の精霊の力を借りて、敵の接近を妨げます。",
-            "kr": "땅의 정령을 불러내 적의 움직임을 봉쇄합니다.",
+            "kr": "적의 접근을 봉쇄합니다.",
             "nl": "Prevents an enemy from approaching.",
             "pl": "Prevents an enemy from approaching.",
             "ru": "Корни опутывают ноги и мешают двигаться.",
@@ -66241,6 +66470,7 @@
             "y": 0
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 8191,
@@ -66542,7 +66772,7 @@
             "id": "Musuh menerima kerusakan dari waktu ke waktu di area di sekitarmu.",
             "it": "Enemies take damage over time in an area around you.",
             "jp": "一定範囲内に神聖な結界を張り、そこに進入した敵に対して持続的ダメージを与えます。",
-            "kr": "자신의 주변에 성스러운 영역을 형성하여 범위안에 들어오는 적에게 데미지를 줍니다.",
+            "kr": "자신의 주변 영역에 들어오는 적에게 대미지를 줍니다.",
             "nl": "Enemies take damage over time in an area around you.",
             "pl": "Stwarza na ziemi pole energii, które zadaje obrażenia co pewien czas wszystkim wrogom w zasięgu.",
             "ru": "Наносит урон по области вокруг вас.",
@@ -66556,6 +66786,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "",
         "debuff": true,
@@ -66611,7 +66842,7 @@
             "id": "Armor Penetrate",
             "it": "Armatura bucata",
             "jp": "アーマーペネトレイト",
-            "kr": "아머 페너트레이트",
+            "kr": "방어구 관통",
             "nl": "Armor Penetrate",
             "pl": "Przebicie Pancerza",
             "ru": "Пробивание брони",
@@ -66633,7 +66864,7 @@
             "id": "Menyerang musuh dan menurunkan Block Rate mereka.",
             "it": "Colpisce il nemico e riduce la sua Capacità di Blocco..",
             "jp": "敵の装甲の弱い部分を攻撃することで対象にダメージを与えます。",
-            "kr": "적을 타격합니다. 이때 적의 방어력의 일부가 무시되며 공격을 블락할 확률을 내립니다.",
+            "kr": "적을 타격하여 공격 차단율을 감소시킵니다.",
             "nl": "Strikes at the enemy and lowers their Block Rate.",
             "pl": "Przebija pancerz wroga, obniżając jego szansę na Blok.",
             "ru": "Наносит врагу урон и снижает его возможность блокировать атаки.",
@@ -66652,6 +66883,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -67062,6 +67294,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -67119,7 +67352,7 @@
             "id": "Meningkatkan kecepatan serangan dan mengurangi waktu casting target.",
             "it": "Increases attack speed and decreases casting time of a target.",
             "jp": "一定時間、対象の攻撃速度を上昇させます。",
-            "kr": "대상의 공격속도를 상승시킵니다.",
+            "kr": "대상의 공격 속도를 높이고 시전 속도를 늦춥니다.",
             "nl": "Increases attack speed and decreases casting time of a target.",
             "pl": "Zwiększa Szybkość Ataku i Szybkość rzucania zaklęć celu.",
             "ru": "Повышает скорость атак и произнесения заклинаний цели.",
@@ -67138,6 +67371,7 @@
             "y": 26
         },
         "magic": true,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 3964,
@@ -68029,7 +68263,7 @@
             "id": "Guard",
             "it": "Sentinella",
             "jp": "ガード",
-            "kr": "경비병",
+            "kr": "가드",
             "nl": "Guard",
             "pl": "Garda",
             "ru": "Защитник",
@@ -68051,7 +68285,7 @@
             "id": "Mengurangi semua damage yang masuk dari musuh dengan mengorbankan attack power. Membutuhkan weapon untuk digunakan.",
             "it": "Decreases all incoming damage from enemies by sacrificing attack power. Requires a weapon to be equipped.",
             "jp": "防御に専念することで、一定時間、攻撃力が下がる代わりに防御力が上昇します。武器を装備している必要があります。",
-            "kr": "방어에 전념하여 받는 자신의 공격력을 감소시키고 방어력을 상승시킵니다. 무기를 장비하고 있어야합니다.",
+            "kr": "공격력을 희생해 적에게 받는 모든 피해를 감소시킵니다. 무기를 장착해야 사용할 수 있습니다.",
             "nl": "Decreases all incoming damage from enemies by sacrificing attack power. Requires a weapon to be equipped.",
             "pl": "Masywnie zwiększa twoją obronę kosztem obniżenia siły ataku. Wymaga broni.",
             "ru": "Decreases all incoming damage from enemies by sacrificing attack power. Requires a weapon to be equipped.",
@@ -68070,6 +68304,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -68285,7 +68520,7 @@
             "id": "Enchant Blood",
             "it": "Enchant Blood",
             "jp": "エンチャントブラッド",
-            "kr": "출혈",
+            "kr": "마법의 피",
             "nl": "Enchant Blood",
             "pl": "Zaczarowana Krew",
             "ru": "Кровавая йо-йо",
@@ -68307,7 +68542,7 @@
             "id": "Menambahkan kerusakan darah ke yo-yo Anda dan meningkatkan kekuatan serangan.",
             "it": "Adds blood damage to your yo-yo and increases attack power.",
             "jp": "ヨーヨーで敵の急所に強力な攻撃を行い、継続的な出血を起こさせる",
-            "kr": "요요에 치명적인 손상 속성을 추가시켜 공격력을 상승시키고, 일정 확률로 출혈 상태로 만듭니다.",
+            "kr": "요요에 흡혈 속성을 추가시켜 공격력을 상승시킵니다.",
             "nl": "Adds blood damage to your yo-yo and increases attack power.",
             "pl": "Dodaje szansę na krwawienie do Yo-Yo i zwiększa siłę ataku.",
             "ru": "Повышает причиняемый йо-йо урон и вызывает у противника кровотечение.",
@@ -68326,6 +68561,7 @@
             "y": 26
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "weapon": "yoyo",
         "combo": "general",
@@ -68703,6 +68939,7 @@
             "y": 52
         },
         "magic": false,
+        "elementType": "none",
         "requirements": [
             {
                 "skill": 7429,
@@ -68839,6 +69076,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -68910,6 +69148,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -68981,6 +69220,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "",
         "debuff": true,
@@ -69123,7 +69363,7 @@
             "id": "Memberi damage pada musuh selama periode waktu tertentu dan mengurangi kecepatan serangan mereka.",
             "it": "Damages an enemy over a period of time and reduces their attack speed.",
             "jp": "一定時間の間、出血による継続的なダメージを与える",
-            "kr": "일정 시간동안 출혈로 인한 지속적인 피해를 입힙니다.",
+            "kr": "일정 시간동안 출혈로 인한 지속적인 대미지를 입히며 공격 속도를 늦춥니다.",
             "nl": "Damages an enemy over a period of time and reduces their attack speed.",
             "pl": "Zadaje wrogowi obrażenia przez pewien czas i zmniejsza jego szybkość ataku.",
             "ru": "Вы получаете постепенный урон. Скорость атаки снижена.",
@@ -69137,6 +69377,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -69220,6 +69461,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -69292,6 +69534,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -69351,6 +69594,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -69422,6 +69666,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -69481,6 +69726,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -69533,6 +69779,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -69629,6 +69876,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -69652,7 +69900,7 @@
             "id": "Rooting",
             "it": "Rooting",
             "jp": "ルーティング",
-            "kr": "락 크래쉬",
+            "kr": "루팅",
             "nl": "Rooting",
             "pl": "Zakorzenienie",
             "ru": "Корни",
@@ -69674,7 +69922,7 @@
             "id": "Mencegah musuh mendekat",
             "it": "Prevents an enemy from approaching.",
             "jp": "地の精霊の力を借りて、敵の接近を妨げます。",
-            "kr": "땅의 정령을 불러내 적의 움직임을 봉쇄합니다.",
+            "kr": "적의 접근을 봉쇄합니다.",
             "nl": "Prevents an enemy from approaching.",
             "pl": "Prevents an enemy from approaching.",
             "ru": "Корни опутывают ноги и мешают двигаться.",
@@ -69688,6 +69936,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -69776,7 +70025,7 @@
             "id": "Anda terkena stun dan tidak bisa bergerak.",
             "it": "You are stunned and cannot move.",
             "jp": "一定時間の間、スタン状態にする",
-            "kr": "움직일 수 없는 스턴 상태입니다.",
+            "kr": "기절하여 움직일 수 없는 상태입니다.",
             "nl": "You are stunned and cannot move.",
             "pl": "You are stunned and cannot move.",
             "ru": "Вы оглушены и не можете двигаться.",
@@ -69790,6 +70039,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -69860,6 +70110,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -70160,6 +70411,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -70265,6 +70517,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -70336,6 +70589,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -70473,6 +70727,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -70530,7 +70785,7 @@
             "id": "Memberi damage pada musuh selama periode waktu tertentu dan mengurangi kemampuan mereka untuk heal.",
             "it": "Damages an enemy over a period of time and reduces their ability to heal.",
             "jp": "一定時間の間、毒による継続的なダメージを与える",
-            "kr": "일정 시간동안 출혈로 인한 지속적인 피해를 입힙니다.",
+            "kr": "일정 시간동안 출혈로 인한 지속적인 대미지를 입히며 치유를 늦춥니다.",
             "nl": "Damages an enemy over a period of time and reduces their ability to heal.",
             "pl": "Zadaje wrogowi obrażenia przez pewien czas i zmniejsza jego zdolność do leczenia.",
             "ru": "Вы получаете постепенный урон. Эффективность лечения снижена.",
@@ -70544,6 +70799,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -70603,6 +70859,7 @@
         "level": 1,
         "element": "none",
         "magic": true,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -70677,6 +70934,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -70748,6 +71006,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -70835,6 +71094,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -70914,6 +71174,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71214,6 +71475,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71254,6 +71516,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71306,6 +71569,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71358,6 +71622,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71410,6 +71675,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71481,6 +71747,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71552,6 +71819,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71611,6 +71879,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71670,6 +71939,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71746,6 +72016,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71805,6 +72076,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -71878,6 +72150,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -71947,6 +72220,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": true,
@@ -72035,6 +72309,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -72106,6 +72381,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -72165,6 +72441,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -72236,6 +72513,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,
@@ -72307,6 +72585,7 @@
         "level": 1,
         "element": "none",
         "magic": false,
+        "elementType": "none",
         "requirements": [],
         "combo": "general",
         "debuff": false,

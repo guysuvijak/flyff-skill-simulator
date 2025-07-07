@@ -66,8 +66,8 @@ export const ClassSelected = () => {
         };
 
         loadClassData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
-        characterLevel,
         selectedClass.id,
         selectedClass.parent,
         setSkillPoints,
