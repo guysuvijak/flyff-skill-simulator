@@ -25,7 +25,7 @@
                         "example-placeholder": "Ví dụ:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
                         "load-build": "Đang tải bản dựng...",
                         "step-fail": "Một số bước thất bại. Vui lòng kiểm tra lỗi ở trên.",
-                        "cancel-build": "Hủy"
+                        "cancel-button": "Hủy"
                     },
                     "step": {
                         "validate": "Đang xác thực dữ liệu bản dựng...",

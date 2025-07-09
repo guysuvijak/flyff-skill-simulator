@@ -25,7 +25,7 @@
                         "example-placeholder": "예시:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
                         "load-build": "빌드 불러오는 중...",
                         "step-fail": "일부 단계에서 실패했습니다. 위의 오류를 확인하세요.",
-                        "cancel-build": "취소"
+                        "cancel-button": "취소"
                     },
                     "step": {
                         "validate": "빌드 데이터 확인 중...",

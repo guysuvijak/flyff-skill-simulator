@@ -25,7 +25,7 @@
                         "example-placeholder": "Contoh:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
                         "load-build": "Memuat Build...",
                         "step-fail": "Beberapa langkah gagal. Silakan periksa kesalahan di atas.",
-                        "cancel-build": "Batalkan"
+                        "cancel-button": "Batalkan"
                     },
                     "step": {
                         "validate": "Memvalidasi data build...",

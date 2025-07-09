@@ -25,7 +25,7 @@
                         "example-placeholder": "ตัวอย่าง:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
                         "load-build": "กำลังโหลดบิลด์...",
                         "step-fail": "บางขั้นตอนล้มเหลว โปรดตรวจสอบข้อผิดพลาดด้านบน",
-                        "cancel-build": "ยกเลิก"
+                        "cancel-button": "ยกเลิก"
                     },
                     "step": {
                         "validate": "กำลังตรวจสอบข้อมูลบิลด์...",

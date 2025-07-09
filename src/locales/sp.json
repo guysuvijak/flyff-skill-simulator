@@ -25,7 +25,7 @@
                         "example-placeholder": "Ejemplo:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
                         "load-build": "Cargando Build...",
                         "step-fail": "Algunos pasos fallaron. Por favor revisa los errores arriba.",
-                        "cancel-build": "Cancelar"
+                        "cancel-button": "Cancelar"
                     },
                     "step": {
                         "validate": "Validando datos del build...",

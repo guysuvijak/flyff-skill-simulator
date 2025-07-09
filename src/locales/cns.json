@@ -25,7 +25,7 @@
                         "example-placeholder": "示例:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
                         "load-build": "正在加载构建...",
                         "step-fail": "某些步骤失败，请检查上方的错误信息。",
-                        "cancel-build": "取消"
+                        "cancel-button": "取消"
                     },
                     "step": {
                         "validate": "正在验证构建数据...",
