@@ -9,8 +9,79 @@
                 "load": "Charger la Construction",
                 "share": "Partager la Construction",
                 "screenshot": "Capture d’écran",
+                "screenshot-success": "Capture d’écran sauvegardée avec succès !",
+                "screenshot-error": "Échec de la capture d’écran",
                 "reset": "Réinitialiser la Construction",
-                "reset-toast": "Construction réinitialisée avec succès"
+                "reset-toast": "Construction réinitialisée avec succès",
+                "load-build": {
+                    "dialog": {
+                        "title": "Charger la Configuration",
+                        "description": "Téléchargez un fichier de configuration ou collez votre lien/code ici pour le charger.\nVous pouvez utiliser une URL complète ou uniquement les données encodées.",
+                        "upload-file": "Télécharger le fichier",
+                        "select-file": "Sélectionné : {filename} {size} KB",
+                        "load-button": "Charger",
+                        "or": "OU",
+                        "link-code": "Lien ou Code de Configuration",
+                        "example-placeholder": "Exemple :\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
+                        "load-build": "Chargement de la configuration...",
+                        "step-fail": "Certains étapes ont échoué. Veuillez vérifier les erreurs ci-dessus.",
+                        "cancel-build": "Annuler"
+                    },
+                    "step": {
+                        "validate": "Validation des données...",
+                        "decode": "Décodage des données...",
+                        "load-class": "Chargement des classes...",
+                        "load-skills": "Chargement des compétences...",
+                        "apply": "Application de la configuration...",
+                        "read": "Lecture du fichier...",
+                        "parse": "Analyse des données..."
+                    },
+                    "error": {
+                        "enter-link": "Veuillez saisir un lien ou code de configuration",
+                        "link-short": "Les données sont trop courtes. Vérifiez votre lien ou code.",
+                        "invalid-link": "Lien de configuration invalide. Aucune donnée trouvée.",
+                        "invalid-url": "Format d'URL invalide. Veuillez vérifier votre lien.",
+                        "fail-decode": "Échec du décodage. Le lien peut être corrompu.",
+                        "fail-class": "Échec du chargement des classes. Utilisation de la classe par défaut.",
+                        "fail-fetch": "Échec de récupération des compétences",
+                        "fail-skill": "Échec du chargement des compétences. Compétences par défaut utilisées.",
+                        "fail-apply": "Échec de l'application des données. Valeurs par défaut utilisées.",
+                        "fail-load": "Échec du chargement. Veuillez vérifier votre lien.",
+                        "select-file": "Veuillez sélectionner un fichier",
+                        "select-json": "Veuillez sélectionner un fichier .json",
+                        "size-1mb": "Le fichier doit être inférieur à 1 Mo",
+                        "invalid-json": "Format JSON invalide",
+                        "missing-build": "Données requises manquantes",
+                        "invalid-field": "Format de données invalide. Champs manquants.",
+                        "fail-load-file": "Impossible de charger à partir du fichier. Vérifiez le format."
+                    },
+                    "toast": {
+                        "success": "Configuration chargée avec succès !",
+                        "link-copy": "Lien copié !",
+                        "data-copy": "Données copiées !",
+                        "fail-copy": "Échec de la copie dans le presse-papiers",
+                        "success-file": "Configuration chargée depuis le fichier !"
+                    }
+                },
+                "download-build": {
+                    "build-save": "Données enregistrées avec succès !",
+                    "build-download": "Données téléchargées avec succès !",
+                    "build-fail": "Échec de l'enregistrement. Réessayez."
+                },
+                "share-build": {
+                    "dialog": {
+                        "title": "Partager la Configuration",
+                        "description": "Copiez votre lien ou données pour partager avec d'autres, ou téléchargez le fichier pour l'importer plus tard.",
+                        "full-link": "Lien Complet",
+                        "copy-button": "Copier",
+                        "copied-button": "Copié !",
+                        "data-only": "Données uniquement",
+                        "download-title": "Télécharger les Données",
+                        "download-desc": "Choisissez l’emplacement d’enregistrement. Les navigateurs modernes afficheront une boîte de dialogue.",
+                        "download-button": "Télécharger le Fichier",
+                        "close-button": "Fermer"
+                    }
+                }
             },
             "setting": {
                 "main": "Paramètres",
@@ -60,7 +131,9 @@
     "class-selected": {
         "loading": "Chargement",
         "select-class": "Sélectionner une Classe",
-        "loading-classes": "Chargement des classes..."
+        "loading-classes": "Chargement des classes...",
+        "fail-load": "Échec du chargement des données de classe",
+        "error-load": "Erreur lors du chargement des données de classe. Veuillez actualiser la page."
     },
     "skill-node": {
         "character-level": "Niveau du Personnage : {level}",

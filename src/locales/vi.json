@@ -9,8 +9,79 @@
                 "load": "Tải bản dựng",
                 "share": "Chia sẻ bản dựng",
                 "screenshot": "Chụp màn hình",
+                "screenshot-success": "Chụp màn hình thành công",
+                "screenshot-error": "Chụp màn hình thất bại",
                 "reset": "Đặt lại bản dựng",
-                "reset-toast": "Bản dựng đã được đặt lại"
+                "reset-toast": "Bản dựng đã được đặt lại",
+                "load-build": {
+                    "dialog": {
+                        "title": "Tải bản dựng",
+                        "description": "Tải lên tệp bản dựng hoặc dán liên kết/mã bản dựng của bạn tại đây để tải.\nBạn có thể sử dụng URL đầy đủ hoặc chỉ dữ liệu đã mã hóa.",
+                        "upload-file": "Tải tệp bản dựng lên",
+                        "select-file": "Đã chọn: {filename} {size} KB",
+                        "load-button": "Tải",
+                        "or": "HOẶC",
+                        "link-code": "Liên kết hoặc mã bản dựng",
+                        "example-placeholder": "Ví dụ:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
+                        "load-build": "Đang tải bản dựng...",
+                        "step-fail": "Một số bước thất bại. Vui lòng kiểm tra lỗi ở trên.",
+                        "cancel-build": "Hủy"
+                    },
+                    "step": {
+                        "validate": "Đang xác thực dữ liệu bản dựng...",
+                        "decode": "Đang giải mã dữ liệu bản dựng...",
+                        "load-class": "Đang tải dữ liệu lớp nhân vật...",
+                        "load-skills": "Đang tải dữ liệu kỹ năng...",
+                        "apply": "Đang áp dụng bản dựng vào trình mô phỏng...",
+                        "read": "Đang đọc tệp...",
+                        "parse": "Đang phân tích dữ liệu bản dựng..."
+                    },
+                    "error": {
+                        "enter-link": "Vui lòng nhập liên kết hoặc mã bản dựng",
+                        "link-short": "Dữ liệu bản dựng có vẻ quá ngắn. Vui lòng kiểm tra liên kết hoặc mã của bạn.",
+                        "invalid-link": "Liên kết bản dựng không hợp lệ. Không tìm thấy dữ liệu trong URL.",
+                        "invalid-url": "Định dạng URL không hợp lệ. Vui lòng kiểm tra liên kết bản dựng.",
+                        "fail-decode": "Không thể giải mã dữ liệu bản dựng. Liên kết có thể bị hỏng.",
+                        "fail-class": "Không thể tải dữ liệu lớp nhân vật. Sử dụng lớp mặc định.",
+                        "fail-fetch": "Không thể lấy dữ liệu kỹ năng.",
+                        "fail-skill": "Không thể tải dữ liệu kỹ năng. Sử dụng kỹ năng mặc định.",
+                        "fail-apply": "Không thể áp dụng dữ liệu bản dựng. Sử dụng giá trị mặc định.",
+                        "fail-load": "Không thể tải bản dựng. Vui lòng kiểm tra liên kết và thử lại.",
+                        "select-file": "Vui lòng chọn tệp trước",
+                        "select-json": "Vui lòng chọn tệp .json",
+                        "size-1mb": "Kích thước tệp phải nhỏ hơn 1MB",
+                        "invalid-json": "Định dạng JSON trong tệp không hợp lệ",
+                        "missing-build": "Thiếu dữ liệu bản dựng cần thiết trong tệp",
+                        "invalid-field": "Định dạng dữ liệu bản dựng trong tệp không hợp lệ. Thiếu các trường bắt buộc.",
+                        "fail-load-file": "Không thể tải bản dựng từ tệp. Vui lòng kiểm tra định dạng tệp và thử lại."
+                    },
+                    "toast": {
+                        "success": "Tải bản dựng thành công!",
+                        "link-copy": "Đã sao chép liên kết vào bảng nhớ tạm!",
+                        "data-copy": "Đã sao chép dữ liệu vào bảng nhớ tạm!",
+                        "fail-copy": "Không thể sao chép vào bảng nhớ tạm",
+                        "success-file": "Tải bản dựng từ tệp thành công!"
+                    }
+                },
+                "download-build": {
+                    "build-save": "Lưu dữ liệu bản dựng thành công!",
+                    "build-download": "Tải dữ liệu bản dựng thành công!",
+                    "build-fail": "Không thể lưu tệp. Vui lòng thử lại."
+                },
+                "share-build": {
+                    "dialog": {
+                        "title": "Chia sẻ bản dựng",
+                        "description": "Sao chép liên kết hoặc dữ liệu bản dựng để chia sẻ với người khác, hoặc tải xuống dữ liệu bản dựng dưới dạng tệp có thể nhập lại sau.",
+                        "full-link": "Liên kết đầy đủ",
+                        "copy-button": "Sao chép",
+                        "copied-button": "Đã sao chép!",
+                        "data-only": "Chỉ dữ liệu",
+                        "download-title": "Tải xuống dữ liệu bản dựng",
+                        "download-desc": "Chọn nơi lưu tệp bản dựng. Trình duyệt hiện đại sẽ hiển thị hộp thoại chọn tệp.",
+                        "download-button": "Tải tệp",
+                        "close-button": "Đóng"
+                    }
+                }
             },
             "setting": {
                 "main": "cài đặt",
@@ -60,7 +131,9 @@
     "class-selected": {
         "loading": "Đang tải",
         "select-class": "Chọn lớp",
-        "loading-classes": "Đang tải các lớp..."
+        "loading-classes": "Đang tải các lớp...",
+        "fail-load": "Không thể tải dữ liệu lớp",
+        "error-load": "Lỗi tải dữ liệu lớp. Vui lòng làm mới trang."
     },
     "skill-node": {
         "character-level": "Cấp độ nhân vật: {level}",

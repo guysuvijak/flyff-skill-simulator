@@ -9,8 +9,79 @@
                 "load": "Build laden",
                 "share": "Build teilen",
                 "screenshot": "Screenshot",
+                "screenshot-success": "Screenshot erfolgreich gespeichert!",
+                "screenshot-error": "Screenshot fehlgeschlagen",
                 "reset": "Build zurücksetzen",
-                "reset-toast": "Build erfolgreich zurückgesetzt"
+                "reset-toast": "Build erfolgreich zurückgesetzt",
+                "load-build": {
+                    "dialog": {
+                        "title": "Build laden",
+                        "description": "Lade eine Build-Datei hoch oder füge deinen Build-Link/Code hier ein, um ihn zu laden.\nDu kannst entweder eine vollständige URL oder nur die kodierten Daten verwenden.",
+                        "upload-file": "Build-Datei hochladen",
+                        "select-file": "Ausgewählt: {filename} {size} KB",
+                        "load-button": "Laden",
+                        "or": "ODER",
+                        "link-code": "Build-Link oder Code",
+                        "example-placeholder": "Beispiel:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
+                        "load-build": "Build wird geladen...",
+                        "step-fail": "Einige Schritte sind fehlgeschlagen. Bitte überprüfe die Fehler oben.",
+                        "cancel-build": "Abbrechen"
+                    },
+                    "step": {
+                        "validate": "Build-Daten werden validiert...",
+                        "decode": "Build-Daten werden dekodiert...",
+                        "load-class": "Klassendaten werden geladen...",
+                        "load-skills": "Skill-Daten werden geladen...",
+                        "apply": "Build wird auf Simulator angewendet...",
+                        "read": "Datei wird gelesen...",
+                        "parse": "Build-Daten werden analysiert..."
+                    },
+                    "error": {
+                        "enter-link": "Bitte gib einen Build-Link oder Code ein",
+                        "link-short": "Build-Daten scheinen zu kurz zu sein. Bitte überprüfe deinen Link oder Code.",
+                        "invalid-link": "Ungültiger Build-Link. Keine Daten in der URL gefunden.",
+                        "invalid-url": "Ungültiges URL-Format. Bitte überprüfe deinen Link.",
+                        "fail-decode": "Build-Daten konnten nicht dekodiert werden. Der Link könnte beschädigt sein.",
+                        "fail-class": "Klassendaten konnten nicht geladen werden. Standardklasse wird verwendet.",
+                        "fail-fetch": "Fehler beim Abrufen der Skill-Daten",
+                        "fail-skill": "Skill-Daten konnten nicht geladen werden. Standardskills werden verwendet.",
+                        "fail-apply": "Build-Daten konnten nicht angewendet werden. Standardwerte werden verwendet.",
+                        "fail-load": "Build konnte nicht geladen werden. Bitte überprüfe deinen Link und versuche es erneut.",
+                        "select-file": "Bitte wähle zuerst eine Datei aus",
+                        "select-json": "Bitte wähle eine .json-Datei aus",
+                        "size-1mb": "Dateigröße muss unter 1 MB liegen",
+                        "invalid-json": "Ungültiges JSON-Format in der Datei",
+                        "missing-build": "Erforderliche Build-Daten fehlen in der Datei",
+                        "invalid-field": "Ungültiges Build-Datenformat. Erforderliche Felder fehlen.",
+                        "fail-load-file": "Build konnte nicht aus Datei geladen werden. Bitte überprüfe das Format."
+                    },
+                    "toast": {
+                        "success": "Build erfolgreich geladen!",
+                        "link-copy": "Link wurde in die Zwischenablage kopiert!",
+                        "data-copy": "Daten wurden in die Zwischenablage kopiert!",
+                        "fail-copy": "Kopieren in die Zwischenablage fehlgeschlagen",
+                        "success-file": "Build erfolgreich aus Datei geladen!"
+                    }
+                },
+                "download-build": {
+                    "build-save": "Build-Daten erfolgreich gespeichert!",
+                    "build-download": "Build-Daten erfolgreich heruntergeladen!",
+                    "build-fail": "Datei konnte nicht gespeichert werden. Bitte versuche es erneut."
+                },
+                "share-build": {
+                    "dialog": {
+                        "title": "Build teilen",
+                        "description": "Kopiere deinen Build-Link oder die Daten, um sie mit anderen zu teilen, oder lade die Build-Daten als Datei herunter, um sie später zu importieren.",
+                        "full-link": "Vollständiger Link",
+                        "copy-button": "Kopieren",
+                        "copied-button": "Kopiert!",
+                        "data-only": "Nur Daten",
+                        "download-title": "Build-Daten herunterladen",
+                        "download-desc": "Wähle aus, wo die Datei gespeichert werden soll. Moderne Browser zeigen einen Datei-Auswahldialog.",
+                        "download-button": "Datei herunterladen",
+                        "close-button": "Schließen"
+                    }
+                }
             },
             "setting": {
                 "main": "Einstellungen",
@@ -60,7 +131,9 @@
     "class-selected": {
         "loading": "Wird geladen",
         "select-class": "Klasse auswählen",
-        "loading-classes": "Lade Klassen..."
+        "loading-classes": "Lade Klassen...",
+        "fail-load": "Fehler beim Laden der Klassendaten",
+        "error-load": "Fehler beim Laden der Klassendaten. Bitte aktualisieren Sie die Seite."
     },
     "skill-node": {
         "character-level": "Charakterlevel: {level}",

@@ -1,6 +1,6 @@
 // Next.js 15 - src/components/Navbar.tsx
 'use client';
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useEffect } from 'react';
 import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
 import { calculateSkillPoints } from '@/utils/calculateSkillPoints';
@@ -16,6 +16,11 @@ export const Navbar = () => {
     const { characterLevel, setCharacterLevel, skillPoints, setSkillPoints } =
         useCharacterStore();
     const [inputValue, setInputValue] = useState(characterLevel.toString());
+
+    // Sync inputValue with characterLevel when it changes (e.g., from URL loading)
+    useEffect(() => {
+        setInputValue(characterLevel.toString());
+    }, [characterLevel]);
 
     const handleLevelChange = (e: ChangeEvent<HTMLInputElement>) => {
         let newLevel: string | number = e.target.value;

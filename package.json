@@ -1,7 +1,7 @@
 {
     "name": "flyff-skill-simulator",
-    "version": "1.4.2",
-    "updated": "2025/07/07",
+    "version": "1.5.0",
+    "updated": "2025/07/09",
     "description": "Free online Flyff Universe Skill Simulator. Plan and visualize your character skill builds with our interactive skill tree. Test different skill combinations for all classes including Knight, Blade, Elementor, and more. No download required.",
     "repository": "git@github.com:guysuvijak/flyff-skill-simulator.git",
     "license": "MIT",
@@ -52,6 +52,7 @@
     "dependencies": {
         "@radix-ui/react-dialog": "^1.1.13",
         "@radix-ui/react-dropdown-menu": "^2.1.14",
+        "@radix-ui/react-label": "^2.1.7",
         "@radix-ui/react-menubar": "^1.1.15",
         "@radix-ui/react-select": "^2.2.5",
         "@radix-ui/react-separator": "^1.1.7",
@@ -62,6 +63,7 @@
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "framer-motion": "^11.11.17",
+        "html2canvas": "^1.4.1",
         "lucide-react": "^0.508.0",
         "lz-string": "^1.5.0",
         "next": "^15.2.4",
@@ -75,6 +77,7 @@
         "zustand": "^5.0.1"
     },
     "devDependencies": {
+        "@types/minimatch": "^5.1.2",
         "@types/next-pwa": "^5.6.9",
         "@types/node": "^20",
         "@types/react": "^18",

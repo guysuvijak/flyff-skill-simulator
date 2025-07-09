@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## 📍 [1.5.0] - 2025-07-09
+
+This major release introduces comprehensive build sharing and loading functionality, allowing users to save, share, and load their skill
+builds with others. The new system supports both URL-based sharing and file-based import/export, making it easier than ever to collaborate on
+builds and backup your configurations.
+
+- added: Build sharing system with URL generation and file import/export
+- added: Build loading with support for URLs and encoded data
+- added: File upload/download for JSON build files
+- added: Copy-to-clipboard for build links and data
+- improved: Build data encoding with LZ-string compression
+- improved: UX/UI Design for cleat & clean (Load & Share build)
+- fixed: Build validation and error handling
+
 ## 📍 [1.4.2] - 2025-07-07
 
 This patch addresses a long-standing critical issue where skill points would reset after upgrading skills, preventing users from properly leveling up their character builds. We've also enhanced the overall UX/UI to provide better user experience and clearer feedback about what's happening during skill operations.

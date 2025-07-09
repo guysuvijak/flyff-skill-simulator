@@ -9,8 +9,79 @@
                 "load": "加载构建",
                 "share": "分享构建",
                 "screenshot": "截图",
+                "screenshot-success": "截图保存成功",
+                "screenshot-error": "截图失败",
                 "reset": "重置构建",
-                "reset-toast": "构建重置成功"
+                "reset-toast": "构建重置成功",
+                "load-build": {
+                    "dialog": {
+                        "title": "加载构建",
+                        "description": "上传构建文件或粘贴构建链接/代码以加载。\n您可以使用完整的 URL 或仅使用编码数据。",
+                        "upload-file": "上传构建文件",
+                        "select-file": "已选择: {filename} {size} KB",
+                        "load-button": "加载",
+                        "or": "或",
+                        "link-code": "构建链接或代码",
+                        "example-placeholder": "示例:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
+                        "load-build": "正在加载构建...",
+                        "step-fail": "某些步骤失败，请检查上方的错误信息。",
+                        "cancel-build": "取消"
+                    },
+                    "step": {
+                        "validate": "正在验证构建数据...",
+                        "decode": "正在解码构建数据...",
+                        "load-class": "正在加载职业数据...",
+                        "load-skills": "正在加载技能数据...",
+                        "apply": "正在将构建应用于模拟器...",
+                        "read": "正在读取文件...",
+                        "parse": "正在解析构建数据..."
+                    },
+                    "error": {
+                        "enter-link": "请输入构建链接或代码",
+                        "link-short": "构建数据似乎太短，请检查您的链接或代码。",
+                        "invalid-link": "无效的构建链接，URL 中未找到数据。",
+                        "invalid-url": "URL 格式无效，请检查您的构建链接。",
+                        "fail-decode": "解码构建数据失败，可能链接已损坏。",
+                        "fail-class": "加载职业数据失败，正在使用默认职业。",
+                        "fail-fetch": "获取技能数据失败",
+                        "fail-skill": "加载技能数据失败，正在使用默认技能。",
+                        "fail-apply": "应用构建数据失败，正在使用默认值。",
+                        "fail-load": "加载构建失败，请检查您的链接后重试。",
+                        "select-file": "请先选择文件",
+                        "select-json": "请选择一个 .json 文件",
+                        "size-1mb": "文件大小必须小于 1MB",
+                        "invalid-json": "文件中 JSON 格式无效",
+                        "missing-build": "文件中缺少必需的构建数据",
+                        "invalid-field": "文件中的构建数据格式无效，缺少必要字段。",
+                        "fail-load-file": "从文件加载构建失败，请检查文件格式后重试。"
+                    },
+                    "toast": {
+                        "success": "构建加载成功！",
+                        "link-copy": "链接已复制到剪贴板！",
+                        "data-copy": "数据已复制到剪贴板！",
+                        "fail-copy": "复制到剪贴板失败",
+                        "success-file": "从文件成功加载构建！"
+                    }
+                },
+                "download-build": {
+                    "build-save": "构建数据保存成功！",
+                    "build-download": "构建数据下载成功！",
+                    "build-fail": "保存文件失败，请重试。"
+                },
+                "share-build": {
+                    "dialog": {
+                        "title": "分享构建",
+                        "description": "复制您的构建链接或数据与他人分享，或下载构建数据文件以便日后导入。",
+                        "full-link": "完整链接",
+                        "copy-button": "复制",
+                        "copied-button": "已复制！",
+                        "data-only": "仅数据",
+                        "download-title": "下载构建数据",
+                        "download-desc": "选择保存构建文件的位置。现代浏览器将显示文件选择对话框。",
+                        "download-button": "下载文件",
+                        "close-button": "关闭"
+                    }
+                }
             },
             "setting": {
                 "main": "设置",
@@ -60,7 +131,9 @@
     "class-selected": {
         "loading": "加载中",
         "select-class": "选择职业",
-        "loading-classes": "正在加载职业..."
+        "loading-classes": "正在加载职业...",
+        "fail-load": "加载职业数据失败",
+        "error-load": "加载职业数据错误。请刷新页面。"
     },
     "skill-node": {
         "character-level": "角色等级：{level}",

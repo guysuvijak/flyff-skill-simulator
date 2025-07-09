@@ -8,6 +8,7 @@ import { useSkillStore } from '@/stores/skillStore';
 import { useClassName } from '@/hooks/useClassName';
 import { calculateSkillPoints } from '@/utils/calculateSkillPoints';
 import { getCachedClassIconUrl } from '@/utils/imageUtils';
+import { clearUrlData } from '@/utils/shareBuild';
 import { ClassData } from '@/types/class';
 import {
     Select,
@@ -18,6 +19,7 @@ import {
 } from '@/components/ui/select';
 import { Loader2 } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
+import { toast } from 'sonner';
 
 // Static class data - will be loaded via fetch
 
@@ -38,7 +40,7 @@ export const ClassSelected = () => {
                 // Fetch static class data from public folder
                 const response = await fetch('/data/classall.json');
                 if (!response.ok) {
-                    throw new Error('Failed to load class data');
+                    throw new Error(t('class-selected.fail-load'));
                 }
 
                 const allClassData: ClassData[] = await response.json();
@@ -50,18 +52,25 @@ export const ClassSelected = () => {
 
                 setClass2Data(professionalClasses);
 
-                const bonusPoint = calculateSkillPoints(
-                    characterLevel,
-                    selectedClass.id,
-                    selectedClass.parent
-                );
-                setSkillPoints(bonusPoint);
-                resetSkillLevels();
+                // Check if there's URL data - if so, don't reset skill points and levels
+                const urlParams = new URLSearchParams(window.location.search);
+                const hasUrlData = urlParams.get('data') || urlParams.get('b');
+
+                if (!hasUrlData) {
+                    // Only calculate and set skill points if no URL data
+                    const bonusPoint = calculateSkillPoints(
+                        characterLevel,
+                        selectedClass.id,
+                        selectedClass.parent
+                    );
+                    setSkillPoints(bonusPoint);
+                    resetSkillLevels();
+                }
+
                 setIsLoading(false);
             } catch (error) {
-                console.error('Error loading class data:', error);
                 setIsLoading(false);
-                alert('Error loading class data. Please refresh the page.');
+                toast.error(t('class-selected.error-load'));
             }
         };
 
@@ -75,6 +84,8 @@ export const ClassSelected = () => {
     ]);
 
     const handleClassSelect = (classData: ClassData) => {
+        // Clear URL data when changing class to prevent loading old build data
+        clearUrlData();
         setSelectedClass(classData);
     };
 

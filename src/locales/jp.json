@@ -9,8 +9,79 @@
                 "load": "ビルドを読み込む",
                 "share": "ビルドを共有",
                 "screenshot": "スクリーンショット",
+                "screenshot-success": "スクリーンショットが保存されました",
+                "screenshot-error": "スクリーンショットの保存に失敗しました",
                 "reset": "ビルドをリセット",
-                "reset-toast": "ビルドがリセットされました"
+                "reset-toast": "ビルドがリセットされました",
+                "load-build": {
+                    "dialog": {
+                        "title": "ビルドを読み込む",
+                        "description": "ビルドファイルをアップロードするか、ビルドリンク／コードをここに貼り付けて読み込んでください。\n完全なURLまたはエンコードされたデータのみ使用できます。",
+                        "upload-file": "ビルドファイルをアップロード",
+                        "select-file": "選択済み: {filename} {size} KB",
+                        "load-button": "読み込む",
+                        "or": "または",
+                        "link-code": "ビルドリンクまたはコード",
+                        "example-placeholder": "例:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
+                        "load-build": "ビルドを読み込み中...",
+                        "step-fail": "一部のステップで失敗しました。上記のエラーを確認してください。",
+                        "cancel-build": "キャンセル"
+                    },
+                    "step": {
+                        "validate": "ビルドデータを検証中...",
+                        "decode": "ビルドデータをデコード中...",
+                        "load-class": "クラスデータを読み込み中...",
+                        "load-skills": "スキルデータを読み込み中...",
+                        "apply": "ビルドをシミュレーターに適用中...",
+                        "read": "ファイルを読み込み中...",
+                        "parse": "ビルドデータを解析中..."
+                    },
+                    "error": {
+                        "enter-link": "ビルドリンクまたはコードを入力してください",
+                        "link-short": "ビルドデータが短すぎます。リンクまたはコードを確認してください。",
+                        "invalid-link": "無効なビルドリンクです。URLにデータが見つかりません。",
+                        "invalid-url": "URLの形式が無効です。ビルドリンクを確認してください。",
+                        "fail-decode": "ビルドデータのデコードに失敗しました。リンクが壊れている可能性があります。",
+                        "fail-class": "クラスデータの読み込みに失敗しました。デフォルトクラスを使用します。",
+                        "fail-fetch": "スキルデータの取得に失敗しました",
+                        "fail-skill": "スキルデータの読み込みに失敗しました。デフォルトスキルを使用します。",
+                        "fail-apply": "ビルドデータの適用に失敗しました。デフォルト値を使用します。",
+                        "fail-load": "ビルドの読み込みに失敗しました。リンクを確認してもう一度お試しください。",
+                        "select-file": "まずファイルを選択してください",
+                        "select-json": ".jsonファイルを選択してください",
+                        "size-1mb": "ファイルサイズは1MB未満である必要があります",
+                        "invalid-json": "ファイル内のJSON形式が無効です",
+                        "missing-build": "ファイルに必要なビルドデータがありません",
+                        "invalid-field": "ファイル内のビルドデータ形式が無効です。必要なフィールドが欠落しています。",
+                        "fail-load-file": "ファイルからビルドを読み込めませんでした。形式を確認して再試行してください。"
+                    },
+                    "toast": {
+                        "success": "ビルドの読み込みに成功しました！",
+                        "link-copy": "リンクをクリップボードにコピーしました！",
+                        "data-copy": "データをクリップボードにコピーしました！",
+                        "fail-copy": "クリップボードへのコピーに失敗しました",
+                        "success-file": "ファイルからのビルドの読み込みに成功しました！"
+                    }
+                },
+                "download-build": {
+                    "build-save": "ビルドデータを正常に保存しました！",
+                    "build-download": "ビルドデータを正常にダウンロードしました！",
+                    "build-fail": "ファイルの保存に失敗しました。もう一度お試しください。"
+                },
+                "share-build": {
+                    "dialog": {
+                        "title": "ビルドを共有する",
+                        "description": "他の人と共有するために、ビルドリンクまたはデータをコピーするか、後でインポートできるようにビルドデータをファイルとしてダウンロードしてください。",
+                        "full-link": "フルリンク",
+                        "copy-button": "コピー",
+                        "copied-button": "コピー完了！",
+                        "data-only": "データのみ",
+                        "download-title": "ビルドデータのダウンロード",
+                        "download-desc": "ビルドファイルを保存する場所を選択してください。最新のブラウザではファイル選択ダイアログが表示されます。",
+                        "download-button": "ファイルをダウンロード",
+                        "close-button": "閉じる"
+                    }
+                }
             },
             "setting": {
                 "main": "設定",
@@ -60,7 +131,9 @@
     "class-selected": {
         "loading": "読み込み中",
         "select-class": "クラスを選択",
-        "loading-classes": "クラスを読み込み中..."
+        "loading-classes": "クラスを読み込み中...",
+        "fail-load": "クラスデータの読み込みに失敗しました",
+        "error-load": "クラスデータの読み込みエラー。ページを更新してください。"
     },
     "skill-node": {
         "character-level": "キャラクターレベル: {level}",

@@ -9,8 +9,79 @@
                 "load": "빌드 불러오기",
                 "share": "빌드 공유하기",
                 "screenshot": "스크린샷",
+                "screenshot-success": "스크린샷이 저장되었습니다",
+                "screenshot-error": "스크린샷 저장에 실패했습니다",
                 "reset": "빌드 초기화",
-                "reset-toast": "빌드가 초기화되었습니다"
+                "reset-toast": "빌드가 초기화되었습니다",
+                "load-build": {
+                    "dialog": {
+                        "title": "빌드 불러오기",
+                        "description": "빌드 파일을 업로드하거나 빌드 링크/코드를 여기에 붙여넣어 불러올 수 있습니다.\n전체 URL 또는 인코딩된 데이터만 사용할 수 있습니다.",
+                        "upload-file": "빌드 파일 업로드",
+                        "select-file": "선택됨: {filename} {size} KB",
+                        "load-button": "불러오기",
+                        "or": "또는",
+                        "link-code": "빌드 링크 또는 코드",
+                        "example-placeholder": "예시:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
+                        "load-build": "빌드 불러오는 중...",
+                        "step-fail": "일부 단계에서 실패했습니다. 위의 오류를 확인하세요.",
+                        "cancel-build": "취소"
+                    },
+                    "step": {
+                        "validate": "빌드 데이터 확인 중...",
+                        "decode": "빌드 데이터 디코딩 중...",
+                        "load-class": "클래스 데이터 불러오는 중...",
+                        "load-skills": "스킬 데이터 불러오는 중...",
+                        "apply": "빌드를 시뮬레이터에 적용 중...",
+                        "read": "파일 읽는 중...",
+                        "parse": "빌드 데이터 파싱 중..."
+                    },
+                    "error": {
+                        "enter-link": "빌드 링크 또는 코드를 입력하세요.",
+                        "link-short": "빌드 데이터가 너무 짧습니다. 링크 또는 코드를 확인하세요.",
+                        "invalid-link": "잘못된 빌드 링크입니다. URL에 데이터가 없습니다.",
+                        "invalid-url": "잘못된 URL 형식입니다. 빌드 링크를 확인하세요.",
+                        "fail-decode": "빌드 데이터를 디코딩하지 못했습니다. 링크가 손상되었을 수 있습니다.",
+                        "fail-class": "클래스 데이터를 불러오지 못했습니다. 기본 클래스를 사용합니다.",
+                        "fail-fetch": "스킬 데이터를 가져오지 못했습니다.",
+                        "fail-skill": "스킬 데이터를 불러오지 못했습니다. 기본 스킬을 사용합니다.",
+                        "fail-apply": "빌드 데이터를 적용하지 못했습니다. 기본값을 사용합니다.",
+                        "fail-load": "빌드를 불러오지 못했습니다. 링크를 확인하고 다시 시도하세요.",
+                        "select-file": "먼저 파일을 선택하세요.",
+                        "select-json": ".json 파일을 선택하세요.",
+                        "size-1mb": "파일 크기는 1MB 미만이어야 합니다.",
+                        "invalid-json": "파일 내 JSON 형식이 올바르지 않습니다.",
+                        "missing-build": "파일에 필요한 빌드 데이터가 없습니다.",
+                        "invalid-field": "파일의 빌드 데이터 형식이 잘못되었습니다. 필수 필드가 누락되었습니다.",
+                        "fail-load-file": "파일에서 빌드를 불러오지 못했습니다. 형식을 확인하고 다시 시도하세요."
+                    },
+                    "toast": {
+                        "success": "빌드를 성공적으로 불러왔습니다!",
+                        "link-copy": "링크가 클립보드에 복사되었습니다!",
+                        "data-copy": "데이터가 클립보드에 복사되었습니다!",
+                        "fail-copy": "클립보드에 복사하지 못했습니다.",
+                        "success-file": "파일에서 빌드를 성공적으로 불러왔습니다!"
+                    }
+                },
+                "download-build": {
+                    "build-save": "빌드 데이터가 성공적으로 저장되었습니다!",
+                    "build-download": "빌드 데이터를 성공적으로 다운로드했습니다!",
+                    "build-fail": "파일 저장에 실패했습니다. 다시 시도하세요."
+                },
+                "share-build": {
+                    "dialog": {
+                        "title": "빌드 공유",
+                        "description": "다른 사람과 공유할 수 있도록 빌드 링크나 데이터를 복사하거나 나중에 불러올 수 있도록 빌드 데이터를 파일로 다운로드하세요.",
+                        "full-link": "전체 링크",
+                        "copy-button": "복사",
+                        "copied-button": "복사됨!",
+                        "data-only": "데이터만",
+                        "download-title": "빌드 데이터 다운로드",
+                        "download-desc": "빌드 파일을 저장할 위치를 선택하세요. 최신 브라우저에서는 파일 선택 창이 표시됩니다.",
+                        "download-button": "파일 다운로드",
+                        "close-button": "닫기"
+                    }
+                }
             },
             "setting": {
                 "main": "설정",
@@ -60,7 +131,9 @@
     "class-selected": {
         "loading": "로딩 중",
         "select-class": "직업 선택",
-        "loading-classes": "직업 불러오는 중..."
+        "loading-classes": "직업 불러오는 중...",
+        "fail-load": "직업 데이터 로드 실패",
+        "error-load": "직업 데이터 로드 오류. 페이지를 새로고침해 주세요."
     },
     "skill-node": {
         "character-level": "캐릭터 레벨: {level}",

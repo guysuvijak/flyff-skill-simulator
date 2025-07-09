@@ -9,8 +9,79 @@
                 "load": "Muat Bangunan",
                 "share": "Bagikan Bangunan",
                 "screenshot": "Tangkapan Layar",
+                "screenshot-success": "Tangkapan Layar berhasil disimpan!",
+                "screenshot-error": "Tangkapan Layar gagal",
                 "reset": "Reset Bangunan",
-                "reset-toast": "Bangunan berhasil direset"
+                "reset-toast": "Bangunan berhasil direset",
+                "load-build": {
+                    "dialog": {
+                        "title": "Muat Build",
+                        "description": "Unggah file build atau tempel tautan/kode build Anda di sini untuk memuatnya.\nAnda dapat menggunakan URL lengkap atau hanya data yang dienkode.",
+                        "upload-file": "Unggah File Build",
+                        "select-file": "Dipilih: {filename} {size} KB",
+                        "load-button": "Muat",
+                        "or": "ATAU",
+                        "link-code": "Tautan atau Kode Build",
+                        "example-placeholder": "Contoh:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
+                        "load-build": "Memuat Build...",
+                        "step-fail": "Beberapa langkah gagal. Silakan periksa kesalahan di atas.",
+                        "cancel-build": "Batalkan"
+                    },
+                    "step": {
+                        "validate": "Memvalidasi data build...",
+                        "decode": "Mendekode data build...",
+                        "load-class": "Memuat data kelas...",
+                        "load-skills": "Memuat data skill...",
+                        "apply": "Menerapkan build ke simulator...",
+                        "read": "Membaca file...",
+                        "parse": "Mengurai data build..."
+                    },
+                    "error": {
+                        "enter-link": "Silakan masukkan tautan atau kode build",
+                        "link-short": "Data build terlalu pendek. Silakan periksa tautan atau kode Anda.",
+                        "invalid-link": "Tautan build tidak valid. Tidak ada data ditemukan.",
+                        "invalid-url": "Format URL tidak valid. Periksa tautan build Anda.",
+                        "fail-decode": "Gagal mendekode data build. Mungkin tautan rusak.",
+                        "fail-class": "Gagal memuat data kelas. Menggunakan kelas default.",
+                        "fail-fetch": "Gagal mengambil data skill",
+                        "fail-skill": "Gagal memuat data skill. Menggunakan skill default.",
+                        "fail-apply": "Gagal menerapkan build. Menggunakan nilai default.",
+                        "fail-load": "Gagal memuat build. Silakan periksa tautan Anda dan coba lagi.",
+                        "select-file": "Silakan pilih file terlebih dahulu",
+                        "select-json": "Silakan pilih file .json",
+                        "size-1mb": "Ukuran file harus kurang dari 1MB",
+                        "invalid-json": "Format JSON dalam file tidak valid",
+                        "missing-build": "Data build yang diperlukan hilang dalam file",
+                        "invalid-field": "Format data build dalam file tidak valid. Ada field yang hilang.",
+                        "fail-load-file": "Gagal memuat build dari file. Periksa format file dan coba lagi."
+                    },
+                    "toast": {
+                        "success": "Build berhasil dimuat!",
+                        "link-copy": "Tautan disalin ke clipboard!",
+                        "data-copy": "Data disalin ke clipboard!",
+                        "fail-copy": "Gagal menyalin ke clipboard",
+                        "success-file": "Build berhasil dimuat dari file!"
+                    }
+                },
+                "download-build": {
+                    "build-save": "Data build berhasil disimpan!",
+                    "build-download": "Data build berhasil diunduh!",
+                    "build-fail": "Gagal menyimpan file. Silakan coba lagi."
+                },
+                "share-build": {
+                    "dialog": {
+                        "title": "Bagikan Build",
+                        "description": "Salin tautan atau data build Anda untuk dibagikan, atau unduh sebagai file untuk diimpor nanti.",
+                        "full-link": "Tautan Lengkap",
+                        "copy-button": "Salin",
+                        "copied-button": "Disalin!",
+                        "data-only": "Hanya Data",
+                        "download-title": "Unduh Data Build",
+                        "download-desc": "Pilih tempat untuk menyimpan file build Anda. Browser modern akan menampilkan dialog pemilih file.",
+                        "download-button": "Unduh File",
+                        "close-button": "Tutup"
+                    }
+                }
             },
             "setting": {
                 "main": "Pengaturan",
@@ -60,7 +131,9 @@
     "class-selected": {
         "loading": "Memuat",
         "select-class": "Pilih Kelas",
-        "loading-classes": "Memuat kelas..."
+        "loading-classes": "Memuat kelas...",
+        "fail-load": "Gagal memuat data kelas",
+        "error-load": "Error memuat data kelas. Silakan segarkan halaman."
     },
     "skill-node": {
         "character-level": "Level Karakter: {level}",

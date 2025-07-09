@@ -9,8 +9,79 @@
                 "load": "Load Build",
                 "share": "Share Build",
                 "screenshot": "Screenshot",
+                "screenshot-success": "Screenshot saved successfully!",
+                "screenshot-error": "Failed to capture screenshot",
                 "reset": "Reset Build",
-                "reset-toast": "Build reset successfully"
+                "reset-toast": "Build reset successfully",
+                "load-build": {
+                    "dialog": {
+                        "title": "Load Build",
+                        "description": "Upload a build file or paste your build link/code here to load it.\nYou can use either a full URL or just the encoded data.",
+                        "upload-file": "Upload Build File",
+                        "select-file": "Selected: {filename} {size} KB",
+                        "load-button": "Load",
+                        "or": "OR",
+                        "link-code": "Build Link or Code",
+                        "example-placeholder": "Example:\n- https://flyffskillsimulator.vercel.app?data=N4Igzgp...\n- N4Igzgp...",
+                        "load-build": "Loading Build...",
+                        "step-fail": "Some steps failed. Please check the errors above.",
+                        "cancel-build": "Cancel"
+                    },
+                    "step": {
+                        "validate": "Validating build data...",
+                        "decode": "Decoding build data...",
+                        "load-class": "Loading class data...",
+                        "load-skills": "Loading skill data...",
+                        "apply": "Applying build to simulator...",
+                        "read": "Reading file...",
+                        "parse": "Parsing build data..."
+                    },
+                    "error": {
+                        "enter-link": "Please enter a build link or code",
+                        "link-short": "Build data appears to be too short. Please check your link or code.",
+                        "invalid-link": "Invalid build link. No data found in URL.",
+                        "invalid-url": "Invalid URL format. Please check your build link.",
+                        "fail-decode": "Failed to decode build data. The link may be corrupted.",
+                        "fail-class": "Failed to load class data. Using default class.",
+                        "fail-fetch": "Failed to fetch skill data",
+                        "fail-skill": "Failed to load skill data. Using default skills.",
+                        "fail-apply": "Failed to apply build data. Using default values.",
+                        "fail-load": "Failed to load build. Please check your link and try again.",
+                        "select-file": "Please select a file first",
+                        "select-json": "Please select a .json file",
+                        "size-1mb": "File size must be less than 1MB",
+                        "invalid-json": "Invalid JSON format in file",
+                        "missing-build": "Missing required build data in file",
+                        "invalid-field": "Invalid build data format in file. Missing required fields.",
+                        "fail-load-file": "Failed to load build from file. Please check the file format and try again."
+                    },
+                    "toast": {
+                        "success": "Build loaded successfully!",
+                        "link-copy": "Link copied to clipboard!",
+                        "data-copy": "Data copied to clipboard!",
+                        "fail-copy": "Failed to copy to clipboard",
+                        "success-file": "Build loaded successfully from file!"
+                    }
+                },
+                "download-build": {
+                    "build-save": "Build data saved successfully!",
+                    "build-download": "Build data downloaded successfully!",
+                    "build-fail": "Failed to save file. Please try again."
+                },
+                "share-build": {
+                    "dialog": {
+                        "title": "Share Build",
+                        "description": "Copy your build link or data to share with others, or download the build data as a file that can be imported later.",
+                        "full-link": "Full Link",
+                        "copy-button": "Copy",
+                        "copied-button": "Copied!",
+                        "data-only": "Data Only",
+                        "download-title": "Download Build Data",
+                        "download-desc": "Choose where to save your build file. Modern browsers will show a file picker dialog.",
+                        "download-button": "Download File",
+                        "close-button": "Close"
+                    }
+                }
             },
             "setting": {
                 "main": "Settings",
@@ -60,7 +131,9 @@
     "class-selected": {
         "loading": "Loading",
         "select-class": "Select Class",
-        "loading-classes": "Loading classes..."
+        "loading-classes": "Loading classes...",
+        "fail-load": "Failed to load class data",
+        "error-load": "Error loading class data. Please refresh the page."
     },
     "skill-node": {
         "character-level": "Character Level: {level}",
