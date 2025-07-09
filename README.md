@@ -140,7 +140,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📈 Version History
 
-Current version: **1.5.0** (2025-07-09)
+Current version: **1.5.1** (2025-07-09)
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed version history and updates.
 

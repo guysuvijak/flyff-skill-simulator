@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 📍 [1.5.1] - 2025-07-09
+
+- fixed: Load build dialog (translate not load)
+
 ## 📍 [1.5.0] - 2025-07-09
 
 This major release introduces comprehensive build sharing and loading functionality, allowing users to save, share, and load their skill

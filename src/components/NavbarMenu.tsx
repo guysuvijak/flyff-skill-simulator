@@ -180,27 +180,27 @@ export const NavbarMenu = () => {
         const steps = [
             {
                 id: 'validate',
-                label: t('menu.build.load-build.step.validate'),
+                label: t('navbar.menu.build.load-build.step.validate'),
                 status: 'pending' as const
             },
             {
                 id: 'decode',
-                label: t('menu.build.load-build.step.decode'),
+                label: t('navbar.menu.build.load-build.step.decode'),
                 status: 'pending' as const
             },
             {
                 id: 'load-class',
-                label: t('menu.build.load-build.step.load-class'),
+                label: t('navbar.menu.build.load-build.step.load-class'),
                 status: 'pending' as const
             },
             {
                 id: 'load-skills',
-                label: t('menu.build.load-build.step.load-skills'),
+                label: t('navbar.menu.build.load-build.step.load-skills'),
                 status: 'pending' as const
             },
             {
                 id: 'apply',
-                label: t('menu.build.load-build.step.apply'),
+                label: t('navbar.menu.build.load-build.step.apply'),
                 status: 'pending' as const
             }
         ];
@@ -229,9 +229,9 @@ export const NavbarMenu = () => {
                         updateLoadingStep(
                             'validate',
                             'error',
-                            t('menu.build.load-build.error.invalid-link')
+                            t('navbar.menu.build.load-build.error.invalid-link')
                         );
-                        setError(t('menu.build.load-build.error.invalid-link'));
+                        setError(t('navbar.menu.build.load-build.error.invalid-link'));
                         setIsLoading(false);
                         return;
                     }
@@ -239,9 +239,9 @@ export const NavbarMenu = () => {
                     updateLoadingStep(
                         'validate',
                         'error',
-                        t('menu.build.load-build.error.invalid-url')
+                        t('navbar.menu.build.load-build.error.invalid-url')
                     );
-                    setError(t('menu.build.load-build.error.invalid-url'));
+                    setError(t('navbar.menu.build.load-build.error.invalid-url'));
                     setIsLoading(false);
                     return;
                 }
@@ -259,9 +259,9 @@ export const NavbarMenu = () => {
                 updateLoadingStep(
                     'decode',
                     'error',
-                    t('menu.build.load-build.error.fail-decode')
+                    t('navbar.menu.build.load-build.error.fail-decode')
                 );
-                setError(t('menu.build.load-build.error.fail-decode'));
+                setError(t('navbar.menu.build.load-build.error.fail-decode'));
                 setIsLoading(false);
                 return;
             }
@@ -286,7 +286,7 @@ export const NavbarMenu = () => {
                 updateLoadingStep(
                     'load-class',
                     'error',
-                    t('menu.build.load-build.error.fail-class')
+                    t('navbar.menu.build.load-build.error.fail-class')
                 );
                 // Use default class (Blade) if class loading fails
                 const defaultClass: ClassData = {
@@ -342,7 +342,7 @@ export const NavbarMenu = () => {
                 const response = await fetch('/data/skillall.json');
                 if (!response.ok) {
                     throw new Error(
-                        t('menu.build.load-build.error.fail-fetch')
+                        t('navbar.menu.build.load-build.error.fail-fetch')
                     );
                 }
                 const skillData = await response.json();
@@ -351,7 +351,7 @@ export const NavbarMenu = () => {
                 updateLoadingStep(
                     'load-skills',
                     'error',
-                    t('menu.build.load-build.error.fail-skill')
+                    t('navbar.menu.build.load-build.error.fail-skill')
                 );
                 // Continue with default skill data
             }
@@ -377,7 +377,7 @@ export const NavbarMenu = () => {
                 updateLoadingStep(
                     'apply',
                     'error',
-                    t('menu.build.load-build.error.fail-apply')
+                    t('navbar.menu.build.load-build.error.fail-apply')
                 );
 
                 // Use default values if application fails
@@ -397,9 +397,9 @@ export const NavbarMenu = () => {
             setError('');
             setIsLoading(false);
             setLoadingSteps([]);
-            toast.success(t('menu.build.load-build.toast.success'));
+            toast.success(t('navbar.menu.build.load-build.toast.success'));
         } catch (error) {
-            setError(t('menu.build.load-build.error.fail-load'));
+            setError(t('navbar.menu.build.load-build.error.fail-load'));
             setIsLoading(false);
         }
     };
@@ -445,10 +445,10 @@ export const NavbarMenu = () => {
             }, 2000);
 
             toast.success(
-                `${type === 'link' ? t('menu.build.load-build.toast.link-copy') : t('menu.build.load-build.toast.data-copy')}`
+                `${type === 'link' ? t('navbar.menu.build.load-build.toast.link-copy') : t('navbar.menu.build.load-build.toast.data-copy')}`
             );
         } catch (error) {
-            toast.error(t('menu.build.load-build.toast.fail-copy'));
+            toast.error(t('navbar.menu.build.load-build.toast.fail-copy'));
         }
     };
 
@@ -489,7 +489,7 @@ export const NavbarMenu = () => {
                 const writable = await fileHandle.createWritable();
                 await writable.write(dataString);
                 await writable.close();
-                toast.success(t('menu.build.download-build.build-save'));
+                toast.success(t('navbar.menu.build.download-build.build-save'));
             } else {
                 // Fallback for older browsers - use traditional download
                 const url = URL.createObjectURL(blob);
@@ -501,13 +501,13 @@ export const NavbarMenu = () => {
                 document.body.removeChild(link);
                 URL.revokeObjectURL(url);
 
-                toast.success(t('menu.build.download-build.build-download'));
+                toast.success(t('navbar.menu.build.download-build.build-download'));
             }
         } catch (error: any) {
             if (error.name === 'AbortError') {
                 // User cancelled the save dialog
             } else {
-                toast.error(t('menu.build.download-build.build-fail'));
+                toast.error(t('navbar.menu.build.download-build.build-fail'));
             }
         }
     };
@@ -522,20 +522,20 @@ export const NavbarMenu = () => {
 
     const handleFileUpload = async () => {
         if (!selectedFile) {
-            setError(t('menu.build.load-build.error.select-file'));
+            setError(t('navbar.menu.build.load-build.error.select-file'));
             return;
         }
 
         // Check file type
         const allowedTypes = ['application/json'];
         if (!allowedTypes.includes(selectedFile.type)) {
-            setError(t('menu.build.load-build.error.select-json'));
+            setError(t('navbar.menu.build.load-build.error.select-json'));
             return;
         }
 
         // Check file size (max 1MB)
         if (selectedFile.size > 1024 * 1024) {
-            setError(t('menu.build.load-build.error.file-1mb'));
+            setError(t('navbar.menu.build.load-build.error.file-1mb'));
             return;
         }
 
@@ -543,22 +543,22 @@ export const NavbarMenu = () => {
         setLoadingSteps([
             {
                 id: 'read',
-                label: t('menu.build.load-build.step.read'),
+                label: t('navbar.menu.build.load-build.step.read'),
                 status: 'pending' as const
             },
             {
                 id: 'parse',
-                label: t('menu.build.load-build.step.parse'),
+                label: t('navbar.menu.build.load-build.step.parse'),
                 status: 'pending' as const
             },
             {
                 id: 'validate',
-                label: t('menu.build.load-build.step.validate'),
+                label: t('navbar.menu.build.load-build.step.validate'),
                 status: 'pending' as const
             },
             {
                 id: 'apply',
-                label: t('menu.build.load-build.step.apply'),
+                label: t('navbar.menu.build.load-build.step.apply'),
                 status: 'pending' as const
             }
         ]);
@@ -578,9 +578,9 @@ export const NavbarMenu = () => {
                 updateLoadingStep(
                     'parse',
                     'error',
-                    t('menu.build.load-build.error.invalid-json')
+                    t('navbar.menu.build.load-build.error.invalid-json')
                 );
-                setError(t('menu.build.load-build.error.invalid-json'));
+                setError(t('navbar.menu.build.load-build.error.invalid-json'));
                 setIsLoading(false);
                 return;
             }
@@ -596,9 +596,9 @@ export const NavbarMenu = () => {
                 updateLoadingStep(
                     'validate',
                     'error',
-                    t('menu.build.load-build.error.missing-build')
+                    t('navbar.menu.build.load-build.error.missing-build')
                 );
-                setError(t('menu.build.load-build.error.invalid-field'));
+                setError(t('navbar.menu.build.load-build.error.invalid-field'));
                 setIsLoading(false);
                 return;
             }
@@ -633,9 +633,9 @@ export const NavbarMenu = () => {
             if (fileInputRef.current) {
                 fileInputRef.current.value = '';
             }
-            toast.success(t('menu.build.load-build.toast.success-file'));
+            toast.success(t('navbar.menu.build.load-build.toast.success-file'));
         } catch (error) {
-            setError(t('menu.build.load-build.error.fail-load-file'));
+            setError(t('navbar.menu.build.load-build.error.fail-load-file'));
             setIsLoading(false);
         }
     };
@@ -877,10 +877,10 @@ export const NavbarMenu = () => {
                                     size={18}
                                     className='text-muted-foreground'
                                 />
-                                {t('menu.build.load-build.dialog.title')}
+                                {t('navbar.menu.build.load-build.dialog.title')}
                             </DialogTitle>
                             <DialogDescription className='whitespace-pre-line'>
-                                {t('menu.build.load-build.dialog.description')}
+                                {t('navbar.menu.build.load-build.dialog.description')}
                             </DialogDescription>
                         </DialogHeader>
 
@@ -890,7 +890,7 @@ export const NavbarMenu = () => {
                                 <div className='grid gap-3'>
                                     <Label htmlFor='file-input'>
                                         {t(
-                                            'menu.build.load-build.dialog.upload-file'
+                                            'navbar.menu.build.load-build.dialog.upload-file'
                                         )}
                                     </Label>
                                     <div className='flex gap-2'>
@@ -906,7 +906,7 @@ export const NavbarMenu = () => {
                                     {selectedFile && (
                                         <p className='text-sm text-muted-foreground'>
                                             {t(
-                                                'menu.build.load-build.dialog.select-file',
+                                                'navbar.menu.build.load-build.dialog.select-file',
                                                 {
                                                     filename: selectedFile.name,
                                                     size: (
@@ -923,7 +923,7 @@ export const NavbarMenu = () => {
                                         disabled={selectedFile ? false : true}
                                     >
                                         {t(
-                                            'menu.build.load-build.dialog.load-button'
+                                            'navbar.menu.build.load-build.dialog.load-button'
                                         )}
                                     </Button>
                                 </div>
@@ -935,7 +935,7 @@ export const NavbarMenu = () => {
                                     <div className='relative flex justify-center text-xs uppercase'>
                                         <span className='bg-background px-2 text-muted-foreground'>
                                             {t(
-                                                'menu.build.load-build.dialog.or'
+                                                'navbar.menu.build.load-build.dialog.or'
                                             )}
                                         </span>
                                     </div>
@@ -945,13 +945,13 @@ export const NavbarMenu = () => {
                                 <div className='grid gap-3'>
                                     <Label htmlFor='link-textarea'>
                                         {t(
-                                            'menu.build.load-build.dialog.link-code'
+                                            'navbar.menu.build.load-build.dialog.link-code'
                                         )}
                                     </Label>
                                     <Textarea
                                         id='link-textarea'
                                         placeholder={t(
-                                            'menu.build.load-build.dialog.example-placeholder'
+                                            'navbar.menu.build.load-build.dialog.example-placeholder'
                                         )}
                                         value={buildLink}
                                         onChange={(e) => {
@@ -973,7 +973,7 @@ export const NavbarMenu = () => {
                                 <div className='space-y-3'>
                                     <Label>
                                         {t(
-                                            'menu.build.load-build.dialog.load-build'
+                                            'navbar.menu.build.load-build.dialog.load-build'
                                         )}
                                     </Label>
                                     <div className='space-y-2'>
@@ -1011,7 +1011,7 @@ export const NavbarMenu = () => {
                                     ) && (
                                         <p className='text-sm text-destructive mt-2'>
                                             {t(
-                                                'menu.build.load-build.dialog.step-fail'
+                                                'navbar.menu.build.load-build.dialog.step-fail'
                                             )}
                                         </p>
                                     )}
@@ -1028,7 +1028,7 @@ export const NavbarMenu = () => {
                                         onClick={handleDialogClose}
                                     >
                                         {t(
-                                            'menu.build.load-build.dialog.cancel-button'
+                                            'navbar.menu.build.load-build.dialog.cancel-button'
                                         )}
                                     </Button>
                                 </DialogClose>
@@ -1040,7 +1040,7 @@ export const NavbarMenu = () => {
                                     disabled={buildLink.trim() ? false : true}
                                 >
                                     {t(
-                                        'menu.build.load-build.dialog.load-button'
+                                        'navbar.menu.build.load-build.dialog.load-button'
                                     )}
                                 </Button>
                             )}
