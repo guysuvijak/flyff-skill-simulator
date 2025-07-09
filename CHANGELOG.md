@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 📍 [1.5.2] - 2025-07-09
+
+- fixed: Load build from file (issue load skill)
+- changed: separate dialog file (load build & share build)
+
 ## 📍 [1.5.1] - 2025-07-09
 
 - fixed: Load build dialog (translate not load)
