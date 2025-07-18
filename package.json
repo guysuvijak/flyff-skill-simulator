@@ -1,7 +1,7 @@
 {
     "name": "flyff-skill-simulator",
-    "version": "1.5.2",
-    "updated": "2025/07/09",
+    "version": "1.5.3",
+    "updated": "2025/07/18",
     "description": "Free online Flyff Universe Skill Simulator. Plan and visualize your character skill builds with our interactive skill tree. Test different skill combinations for all classes including Knight, Blade, Elementor, and more. No download required.",
     "repository": "git@github.com:guysuvijak/flyff-skill-simulator.git",
     "license": "MIT",

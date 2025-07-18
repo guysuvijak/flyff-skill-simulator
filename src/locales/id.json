@@ -154,8 +154,19 @@
         "attribute-poison": "Atribut: Racun (Durasi: {duration}s)",
         "attribute-forcedblock": "Atribut: Blok Paksa",
         "attribute-invisibility": "Atribut: Tidak Terlihat (Durasi: {duration}s)",
+        "sword-attack": "Serangan Pedang: {result}{swordAttack}{rate}",
+        "sword-attack-duration": "(Durasi: {duration}s)",
+        "axe-attack": "Serangan Palu: {result}{axeAttack}{rate}",
+        "axe-attack-duration": "(Durasi: {duration}s)",
         "hit-rate": "Tingkat Hit: {result}{hitRate}{rate}",
         "hit-rate-duration": "(Durasi: {duration}s)",
+        "element-attack": "Serangan Elementer: {result}{elementAttack}{rate}",
+        "element-attack-duration": "(Durasi: {duration}s)",
+        "critical-resist": "Resistensi Kritis: {result}{criticalResist}{rate} (Durasi: {duration}s)",
+        "remove-all-debuff": "Hapus De-buff (100%)",
+        "remove-all-debuff-1": "Lv.1 - Racun",
+        "remove-all-debuff-2": "Lv.2 - Racun, Buta",
+        "remove-all-debuff-3": "Lv.3 - Racun, Buta, Stun, Berdarah, De-buff (semua)",
         "hp": "HP: {result}{hp}{rate}",
         "damage": "Kerusakan: {result}{damage}{rate} (Durasi: {duration}s)",
         "maxhp": "HP Maks: {result}{maxhp}{rate} (Durasi: {duration}s)",
@@ -167,11 +178,18 @@
         "attack-speed": "Kecepatan Serangan:\n{result}{attackSpeed}{rate} (Durasi: {duration}s)",
         "decreased-casting-time": "Waktu Casting Berkurang:\n{result}{castingTime}{rate} (Durasi: {duration}s)",
         "block": "Blok: {result}{block}{rate} (Durasi: {duration}s)",
+        "ranged-block": "Blok Jarak Jauh: {result}{rangedBlock}{rate} (Durasi: {duration}s)",
         "magic-defense": "Pertahanan Sihir: {result}{magicDefense}{rate} (Durasi: {duration}s)",
         "def": "Pertahanan: {result}{def}{rate} (Durasi: {duration}s)",
         "critical-damage": "Kerusakan Kritis: {result}{criticalDamage}{rate}",
         "critical-chance": "Peluang Kritis: {result}{criticalChance}{rate}",
         "block-penetration": "Penetrasi Blok: {result}{blockPenetration}{rate}",
         "click-to-hold": "Klik untuk menahan/tutup jendela."
+    },
+    "update-version-dialog": {
+        "title": "🎉 Versi Baru - {version}",
+        "description": "Kami telah merilis versi baru pada {date}",
+        "whats-new": "Apa yang baru:",
+        "ok": "OK"
     }
 }

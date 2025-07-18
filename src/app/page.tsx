@@ -15,11 +15,13 @@ import '@xyflow/react/dist/style.css';
 import { SkillNode } from '@/components/SkillNode';
 import { Navbar } from '@/components/Navbar';
 import { EdgeLabel } from '@/components/EdgeLabel';
+import { UpdateVersionDialog } from '@/components/UpdateVersionDialog';
 import { useClassStore } from '@/stores/classStore';
 import { loadBuildFromUrl } from '@/utils/shareBuild';
 import { useWebsiteStore } from '@/stores/websiteStore';
 import { useTranslation } from '@/hooks/useTranslation';
 import { Loader2 } from 'lucide-react';
+import pkg from '../../package.json';
 
 interface ClassSpaces {
     [key: number]: number;
@@ -171,7 +173,7 @@ const edgeTypes = {
 
 const Page = () => {
     const { t } = useTranslation();
-    const { skillStyle } = useWebsiteStore();
+    const { skillStyle, latestVersion, updatedDialog } = useWebsiteStore();
     const [nodes, setNodes, onNodesChange] = useNodesState([]);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -307,6 +309,10 @@ const Page = () => {
         <div className='w-screen h-screen'>
             <Navbar />
             <div className='h-[calc(100vh-110px)] sm:h-[calc(100vh-70px)] md:h-[calc(100vh-70px)]'>
+                {(!updatedDialog || latestVersion !== pkg.version) && (
+                    <UpdateVersionDialog />
+                )}
+
                 {isLoading ? (
                     <div className='flex justify-center items-center h-full gap-2 text-xl text-muted-foreground'>
                         <Loader2 className='h-10 w-10 animate-spin' />

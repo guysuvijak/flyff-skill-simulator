@@ -154,8 +154,19 @@
         "attribute-poison": "Attribut: Gift (Dauer: {duration}s)",
         "attribute-forcedblock": "Attribut: Erzwingter Block",
         "attribute-invisibility": "Attribut: Unsichtbarkeit (Dauer: {duration}s)",
+        "sword-attack": "Schwertangriff: {result}{swordAttack}{rate}",
+        "sword-attack-duration": "(Dauer: {duration}s)",
+        "axe-attack": "Axtangriff: {result}{axeAttack}{rate}",
+        "axe-attack-duration": "(Dauer: {duration}s)",
         "hit-rate": "Trefferquote: {result}{hitRate}{rate}",
         "hit-rate-duration": "(Dauer: {duration}s)",
+        "element-attack": "Elementarer Angriff: {result}{elementAttack}{rate}",
+        "element-attack-duration": "(Dauer: {duration}s)",
+        "critical-resist": "Kritischer Widerstand: {result}{criticalResist}{rate} (Dauer: {duration}s)",
+        "remove-all-debuff": "Alle Debuff entfernen (100%)",
+        "remove-all-debuff-1": "Lv.1 - Gift",
+        "remove-all-debuff-2": "Lv.2 - Gift, Blindheit",
+        "remove-all-debuff-3": "Lv.3 - Gift, Blindheit, Betäubung, Blutung, Debuff (alle)",
         "hp": "HP: {result}{hp}{rate}",
         "damage": "Schaden: {result}{damage}{rate} (Dauer: {duration}s)",
         "maxhp": "Max HP: {result}{maxhp}{rate} (Dauer: {duration}s)",
@@ -167,11 +178,18 @@
         "attack-speed": "Angriffsgeschwindigkeit:\n{result}{attackSpeed}{rate} (Dauer: {duration}s)",
         "decreased-casting-time": "Reduzierte Zauberzeit:\n{result}{castingTime}{rate} (Dauer: {duration}s)",
         "block": "Blocken: {result}{block}{rate} (Dauer: {duration}s)",
+        "ranged-block": "Fernblocken: {result}{rangedBlock}{rate} (Dauer: {duration}s)",
         "magic-defense": "Magische Verteidigung: {result}{magicDefense}{rate} (Dauer: {duration}s)",
         "def": "Verteidigung: {result}{def}{rate} (Dauer: {duration}s)",
         "critical-damage": "Kritischer Schaden: {result}{criticalDamage}{rate}",
         "critical-chance": "Kritische Chance: {result}{criticalChance}{rate}",
         "block-penetration": "Blockdurchdringung: {result}{blockPenetration}{rate}",
         "click-to-hold": "Klicken und halten, um das Fenster zu schließen."
+    },
+    "update-version-dialog": {
+        "title": "🎉 Neue Version - {version}",
+        "description": "Wir haben eine neue Version veröffentlicht am {date}",
+        "whats-new": "Was ist neu:",
+        "ok": "OK"
     }
 }

@@ -154,8 +154,19 @@
         "attribute-poison": "속성: 중독 (지속시간: {duration}초)",
         "attribute-forcedblock": "속성: 강제 방어",
         "attribute-invisibility": "속성: 은신 (지속시간: {duration}초)",
+        "sword-attack": "검 공격: {result}{swordAttack}{rate}",
+        "sword-attack-duration": "(지속시간: {duration}초)",
+        "axe-attack": "도끼 공격: {result}{axeAttack}{rate}",
+        "axe-attack-duration": "(지속시간: {duration}초)",
         "hit-rate": "명중률: {result}{hitRate}{rate}",
         "hit-rate-duration": "(지속시간: {duration}초)",
+        "element-attack": "원소 공격: {result}{elementAttack}{rate}",
+        "element-attack-duration": "(지속시간: {duration}초)",
+        "critical-resist": "치명타 저항: {result}{criticalResist}{rate} (지속시간: {duration}초)",
+        "remove-all-debuff": "모든 디버프 제거 (100%)",
+        "remove-all-debuff-1": "Lv.1 - 독",
+        "remove-all-debuff-2": "Lv.2 - 독, 실명",
+        "remove-all-debuff-3": "Lv.3 - 독, 실명, 기절, 출혈, 디버프 (모두)",
         "hp": "체력: {result}{hp}{rate}",
         "damage": "피해: {result}{damage}{rate} (지속시간: {duration}초)",
         "maxhp": "최대 체력: {result}{maxhp}{rate} (지속시간: {duration}초)",
@@ -167,11 +178,18 @@
         "attack-speed": "공격 속도:\n{result}{attackSpeed}{rate} (지속시간: {duration}초)",
         "decreased-casting-time": "시전 시간 감소:\n{result}{castingTime}{rate} (지속시간: {duration}초)",
         "block": "방어: {result}{block}{rate} (지속시간: {duration}초)",
+        "ranged-block": "거리 방어: {result}{rangedBlock}{rate} (지속시간: {duration}초)",
         "magic-defense": "마법 방어력: {result}{magicDefense}{rate} (지속시간: {duration}초)",
         "def": "방어력: {result}{def}{rate} (지속시간: {duration}초)",
         "critical-damage": "치명타 피해: {result}{criticalDamage}{rate}",
         "critical-chance": "치명타 확률: {result}{criticalChance}{rate}",
         "block-penetration": "방어 관통: {result}{blockPenetration}{rate}",
         "click-to-hold": "창을 유지하려면 클릭하세요 / 닫으려면 클릭 해제"
+    },
+    "update-version-dialog": {
+        "title": "🎉 새 버전 - {version}",
+        "description": "새 버전을 릴리스했습니다 {date}",
+        "whats-new": "새로운 기능:",
+        "ok": "확인"
     }
 }

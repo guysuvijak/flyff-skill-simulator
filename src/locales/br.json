@@ -154,8 +154,19 @@
         "attribute-poison": "Atributo: Veneno (Duração: {duration}s)",
         "attribute-forcedblock": "Atributo: Bloqueio Forçado",
         "attribute-invisibility": "Atributo: Invisibilidade (Duração: {duration}s)",
+        "sword-attack": "Ataque de Espada: {result}{swordAttack}{rate}",
+        "sword-attack-duration": "(Duração: {duration}s)",
+        "axe-attack": "Ataque de Machado: {result}{axeAttack}{rate}",
+        "axe-attack-duration": "(Duração: {duration}s)",
         "hit-rate": "Taxa de Acerto: {result}{hitRate}{rate}",
         "hit-rate-duration": "(Duração: {duration}s)",
+        "element-attack": "Ataque Elementar: {result}{elementAttack}{rate}",
+        "element-attack-duration": "(Duração: {duration}s)",
+        "critical-resist": "Resistência Crítica: {result}{criticalResist}{rate} (Duração: {duration}s)",
+        "remove-all-debuff": "Remover De-buff (100%)",
+        "remove-all-debuff-1": "Lv.1 - Veneno",
+        "remove-all-debuff-2": "Lv.2 - Veneno, Cegueira",
+        "remove-all-debuff-3": "Lv.3 - Veneno, Cegueira, Atordoamento, Sangramento, De-buff (todos)",
         "hp": "HP: {result}{hp}{rate}",
         "damage": "Dano: {result}{damage}{rate} (Duração: {duration}s)",
         "maxhp": "HP Máx: {result}{maxhp}{rate} (Duração: {duration}s)",
@@ -167,11 +178,18 @@
         "attack-speed": "Velocidade de Ataque:\n{result}{attackSpeed}{rate} (Duração: {duration}s)",
         "decreased-casting-time": "Tempo de Conjuração Reduzido:\n{result}{castingTime}{rate} (Duração: {duration}s)",
         "block": "Bloqueio: {result}{block}{rate} (Duração: {duration}s)",
+        "ranged-block": "Bloqueio a Distância: {result}{rangedBlock}{rate} (Duração: {duration}s)",
         "magic-defense": "DEF. Mágica: {result}{magicDefense}{rate} (Duração: {duration}s)",
         "def": "DEF: {result}{def}{rate} (Duração: {duration}s)",
         "critical-damage": "Dano Crítico: {result}{criticalDamage}{rate}",
         "critical-chance": "Chance Crítica: {result}{criticalChance}{rate}",
         "block-penetration": "Penetração de Bloqueio: {result}{blockPenetration}{rate}",
         "click-to-hold": "Clique para segurar/fechar a janela."
+    },
+    "update-version-dialog": {
+        "title": "🎉 Nova Versão - {version}",
+        "description": "Lançamos uma nova versão em {date}",
+        "whats-new": "O que há de novo:",
+        "ok": "OK"
     }
 }

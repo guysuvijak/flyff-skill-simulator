@@ -42,7 +42,10 @@ import {
     BicepsFlexed,
     Beef,
     ShieldHalf,
-    Cross
+    Cross,
+    Sword,
+    Axe,
+    ShieldCheck
 } from 'lucide-react';
 // Removed axios import - using fetch instead
 import { Button } from '@/components/ui/button';
@@ -676,6 +679,44 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             );
                                         }
                                     }
+                                    if (
+                                        ability.parameter === 'removealldebuff'
+                                    ) {
+                                        return (
+                                            <>
+                                                <div
+                                                    key={`remove-all-debuff-${index}`}
+                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                >
+                                                    <Bubbles
+                                                        size={16}
+                                                        className='text-muted-foreground mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            `skill-node.remove-all-debuff`
+                                                        )}
+                                                    </span>
+                                                </div>
+
+                                                <p className='text-muted-foreground'>
+                                                    {t(
+                                                        `skill-node.remove-all-debuff-1`
+                                                    )}
+                                                </p>
+                                                <p className='text-muted-foreground'>
+                                                    {t(
+                                                        `skill-node.remove-all-debuff-2`
+                                                    )}
+                                                </p>
+                                                <p className='text-muted-foreground'>
+                                                    {t(
+                                                        `skill-node.remove-all-debuff-3`
+                                                    )}
+                                                </p>
+                                            </>
+                                        );
+                                    }
                                     if (ability.parameter === 'hp') {
                                         return (
                                             <div
@@ -728,6 +769,42 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                                             ? '%'
                                                             : ''
                                                     })}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (
+                                        ability.parameter === 'criticalresist'
+                                    ) {
+                                        return (
+                                            <div
+                                                key={`critical-resist-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <ShieldCheck
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t(
+                                                        'skill-node.critical-resist',
+                                                        {
+                                                            result:
+                                                                ability.add &&
+                                                                ability.add >= 0
+                                                                    ? '+'
+                                                                    : '',
+                                                            criticalResist:
+                                                                ability.add ||
+                                                                0,
+                                                            duration:
+                                                                levelData.duration ||
+                                                                0,
+                                                            rate: ability.rate
+                                                                ? '%'
+                                                                : ''
+                                                        }
+                                                    )}
                                                 </span>
                                             </div>
                                         );
@@ -1006,6 +1083,40 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             </div>
                                         );
                                     }
+                                    if (ability.parameter === 'rangedblock') {
+                                        return (
+                                            <div
+                                                key={`ranged-block-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Shield
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t(
+                                                        'skill-node.ranged-block',
+                                                        {
+                                                            result:
+                                                                ability.add &&
+                                                                ability.add >= 0
+                                                                    ? '+'
+                                                                    : '',
+                                                            rangedBlock:
+                                                                ability.add ||
+                                                                0,
+                                                            duration:
+                                                                levelData.duration ||
+                                                                0,
+                                                            rate: ability.rate
+                                                                ? '%'
+                                                                : ''
+                                                        }
+                                                    )}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
                                     if (ability.parameter === 'magicdefense') {
                                         return (
                                             <div
@@ -1165,6 +1276,90 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             </div>
                                         );
                                     }
+                                    if (ability.parameter === 'swordattack') {
+                                        return (
+                                            <div
+                                                key={`sword-attack-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Sword
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t(
+                                                        'skill-node.sword-attack',
+                                                        {
+                                                            result:
+                                                                ability.add &&
+                                                                ability.add >= 0
+                                                                    ? '+'
+                                                                    : '',
+                                                            swordAttack:
+                                                                ability.add,
+                                                            rate: ability.rate
+                                                                ? '%'
+                                                                : ''
+                                                        }
+                                                    )}
+                                                    {levelData?.duration !==
+                                                        undefined && (
+                                                        <div>
+                                                            {t(
+                                                                'skill-node.sword-attack-duration',
+                                                                {
+                                                                    duration:
+                                                                        levelData.duration
+                                                                }
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'axeattack') {
+                                        return (
+                                            <div
+                                                key={`axe-attack-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Axe
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t(
+                                                        'skill-node.axe-attack',
+                                                        {
+                                                            result:
+                                                                ability.add &&
+                                                                ability.add >= 0
+                                                                    ? '+'
+                                                                    : '',
+                                                            axeAttack:
+                                                                ability.add,
+                                                            rate: ability.rate
+                                                                ? '%'
+                                                                : ''
+                                                        }
+                                                    )}
+                                                    {levelData?.duration !==
+                                                        undefined && (
+                                                        <div>
+                                                            {t(
+                                                                'skill-node.axe-attack-duration',
+                                                                {
+                                                                    duration:
+                                                                        levelData.duration
+                                                                }
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
                                     if (ability.parameter === 'hitrate') {
                                         return (
                                             <div
@@ -1192,6 +1387,48 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                                         <div>
                                                             {t(
                                                                 'skill-node.hit-rate-duration',
+                                                                {
+                                                                    duration:
+                                                                        levelData.duration
+                                                                }
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+                                    if (ability.parameter === 'elementattack') {
+                                        return (
+                                            <div
+                                                key={`element-attack-${index}`}
+                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                            >
+                                                <Atom
+                                                    size={16}
+                                                    className='text-muted-foreground mt-2'
+                                                />
+                                                <span>
+                                                    {t(
+                                                        'skill-node.element-attack',
+                                                        {
+                                                            result:
+                                                                ability.add &&
+                                                                ability.add >= 0
+                                                                    ? '+'
+                                                                    : '',
+                                                            elementAttack:
+                                                                ability.add,
+                                                            rate: ability.rate
+                                                                ? '%'
+                                                                : ''
+                                                        }
+                                                    )}
+                                                    {levelData?.duration !==
+                                                        undefined && (
+                                                        <div>
+                                                            {t(
+                                                                'skill-node.element-attack-duration',
                                                                 {
                                                                     duration:
                                                                         levelData.duration

@@ -154,8 +154,19 @@
         "attribute-poison": "Thuộc tính: Độc (Thời gian: {duration}s)",
         "attribute-forcedblock": "Thuộc tính: Chặn cưỡng bức",
         "attribute-invisibility": "Thuộc tính: Tàng hình (Thời gian: {duration}s)",
+        "sword-attack": "Sát thương dùng kiếm: {result}{swordAttack}{rate}",
+        "sword-attack-duration": "(Thời gian: {duration}s)",
+        "axe-attack": "Sát thương dùng kiếm: {result}{axeAttack}{rate}",
+        "axe-attack-duration": "(Thời gian: {duration}s)",
         "hit-rate": "Tỷ lệ đánh trúng: {result}{hitRate}{rate}",
         "hit-rate-duration": "(Thời gian: {duration}s)",
+        "element-attack": "Sát thương nguyên tố: {result}{elementAttack}{rate}",
+        "element-attack-duration": "(Thời gian: {duration}s)",
+        "critical-resist": "Kháng chí mạng: {result}{criticalResist}{rate} (Thời gian: {duration}s)",
+        "remove-all-debuff": "Xóa De-buff (100%)",
+        "remove-all-debuff-1": "Lv.1 - Độc",
+        "remove-all-debuff-2": "Lv.2 - Độc, Mù",
+        "remove-all-debuff-3": "Lv.3 - Độc, Mù, Choáng, Chảy máu, De-buff (tất cả)",
         "hp": "HP: {result}{hp}{rate}",
         "damage": "Sát thương: {result}{damage}{rate} (Thời gian: {duration}s)",
         "maxhp": "HP tối đa: {result}{maxhp}{rate} (Thời gian: {duration}s)",
@@ -167,11 +178,18 @@
         "attack-speed": "Tốc độ tấn công:\n{result}{attackSpeed}{rate} (Thời gian: {duration}s)",
         "decreased-casting-time": "Giảm thời gian niệm:\n{result}{castingTime}{rate} (Thời gian: {duration}s)",
         "block": "Chặn: {result}{block}{rate} (Thời gian: {duration}s)",
+        "ranged-block": "Chặn cách: {result}{rangedBlock}{rate} (Thời gian: {duration}s)",
         "magic-defense": "Kháng phép: {result}{magicDefense}{rate} (Thời gian: {duration}s)",
         "def": "Phòng thủ: {result}{def}{rate} (Thời gian: {duration}s)",
         "critical-damage": "Sát thương chí mạng: {result}{criticalDamage}{rate}",
         "critical-chance": "Tỷ lệ chí mạng: {result}{criticalChance}{rate}",
         "block-penetration": "Xuyên chặn: {result}{blockPenetration}{rate}",
         "click-to-hold": "Nhấn để giữ / đóng cửa sổ."
+    },
+    "update-version-dialog": {
+        "title": "🎉 Phiên bản mới - {version}",
+        "description": "Chúng tôi đã phát hành phiên bản mới vào {date}",
+        "whats-new": "Có gì mới:",
+        "ok": "OK"
     }
 }

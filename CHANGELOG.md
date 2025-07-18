@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 📍 [1.5.3] - 2025-07-18
+
+- added: Update Version Dialog
+- updated: Skill Description (add parameter "Ranged Block")
+- updated: Skill Description (add parameter "Element Attack")
+- updated: Skill Description (add parameter "Sword Attack")
+- updated: Skill Description (add parameter "Axe Attack")
+- updated: Skill Description (add parameter "Critical Resist")
+- updated: Skill Description (add parameter "Remove All Debuff")
+
 ## 📍 [1.5.2] - 2025-07-09
 
 - fixed: Load build from file (issue load skill)
