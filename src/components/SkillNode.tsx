@@ -47,7 +47,6 @@ import {
     Axe,
     ShieldCheck
 } from 'lucide-react';
-// Removed axios import - using fetch instead
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -72,6 +71,7 @@ interface SkillScaling {
     scale?: number;
     pvp?: boolean;
     pve?: boolean;
+    maximum?: number;
 }
 interface SkillLevel {
     consumedMP?: number;
@@ -279,6 +279,25 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
     const levels = data.skillData.levels || [];
     const levelData = levels[Math.max(currentLevel - 1, 0)];
 
+    // function to calculate Stat Scaling for all stats (str, sta, int, dex)
+    const calculateStatScaling = (scaling: SkillScaling) => {
+        const statTypes = ['str', 'sta', 'int', 'dex'];
+        if (
+            statTypes.includes(scaling.parameter || '') &&
+            scaling.scale &&
+            scaling.scale < 1
+        ) {
+            // calculate the number of stat required to get +1
+            const statRequired = Math.ceil(1 / scaling.scale);
+            return {
+                scale: 1,
+                statRequired: statRequired,
+                originalScale: scaling.scale
+            };
+        }
+        return null;
+    };
+
     return (
         <div className='flex flex-col w-[72px] h-[78px] bg-background text-foreground border-2 border-border rounded shadow relative justify-center items-center'>
             {(data.skillData.requirements || []).length !== 0 &&
@@ -340,7 +359,7 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                             )}
                         </div>
                     </TooltipTrigger>
-                    <TooltipContent className='max-w-xs text-sm text-foreground bg-background border border-border shadow-md relative'>
+                    <TooltipContent className='max-w-xs md:max-w-sm lg:max-w-md text-sm text-foreground bg-background border border-border shadow-md relative'>
                         <Button
                             onClick={(e) => {
                                 e.stopPropagation();
@@ -352,20 +371,20 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                         >
                             <XCircle size={20} className='text-destructive' />
                         </Button>
-                        <div className='text-md sm:text-lg md:text-xl text-primary font-bold pr-6'>
+                        <div className='text-sm sm:text-base md:text-lg text-primary font-bold pr-6'>
                             {getSkillName(data.skillData.name)}
                             <span className='text-muted-foreground ml-1'>
                                 {`Lv.${currentLevel}/${levels.length}`}
                             </span>
                         </div>
                         {levelData?.consumedMP !== undefined && (
-                            <span className='text-sm sm:text-md md:text-lg'>{`MP: ${levelData.consumedMP}`}</span>
+                            <span className='text-sm sm:text-base md:text-lg'>{`MP: ${levelData.consumedMP}`}</span>
                         )}
                         {levelData?.consumedFP !== undefined && (
-                            <span className='text-sm sm:text-md md:text-lg'>{`FP: ${levelData.consumedFP}`}</span>
+                            <span className='text-sm sm:text-base md:text-lg'>{`FP: ${levelData.consumedFP}`}</span>
                         )}
                         <div
-                            className={`text-sm sm:text-md md:text-lg
+                            className={`text-sm sm:text-base md:text-lg
                                 ${
                                     characterLevel < (data.skillData.level || 0)
                                         ? 'text-destructive'
@@ -378,7 +397,7 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                             })}
                         </div>
                         {levelData?.minAttack !== undefined && (
-                            <div className='text-sm sm:text-md md:text-lg'>
+                            <div className='text-sm sm:text-base md:text-lg'>
                                 <span className='mx-1.5 text-muted-foreground'>
                                     {'-'}
                                 </span>
@@ -389,7 +408,7 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                             </div>
                         )}
                         {levelData?.duration !== undefined && (
-                            <div className='text-sm sm:text-md md:text-lg'>
+                            <div className='text-sm sm:text-base md:text-lg'>
                                 <span className='mx-1.5 text-muted-foreground'>
                                     {'-'}
                                 </span>
@@ -407,11 +426,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             return (
                                                 <div
                                                     key={`attack-${index}`}
-                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
                                                 >
                                                     <Expand
-                                                        size={16}
-                                                        className='text-muted-foreground mt-2'
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                     />
                                                     <span>
                                                         {t(
@@ -427,15 +446,74 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                                 </div>
                                             );
                                         }
+                                        if (
+                                            [
+                                                'str',
+                                                'sta',
+                                                'int',
+                                                'dex'
+                                            ].includes(scaling.parameter || '')
+                                        ) {
+                                            const statScaling =
+                                                calculateStatScaling(scaling);
+                                            if (statScaling) {
+                                                return (
+                                                    <div
+                                                        key={`${scaling.parameter}-scaling-${index}`}
+                                                        className='flex text-sm sm:text-base md:text-lg gap-1'
+                                                    >
+                                                        <Expand
+                                                            size={14}
+                                                            className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
+                                                        />
+                                                        <span>
+                                                            {t(
+                                                                `skill-node.${scaling.parameter}-scaling`,
+                                                                {
+                                                                    scale: statScaling.scale,
+                                                                    stat: scaling.stat?.toUpperCase(),
+                                                                    max: scaling.maximum,
+                                                                    intRequired:
+                                                                        statScaling.statRequired
+                                                                }
+                                                            )}
+                                                        </span>
+                                                    </div>
+                                                );
+                                            }
+                                            // if scale >= 1 or no scale
+                                            return (
+                                                <div
+                                                    key={`${scaling.parameter}-scaling-${index}`}
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
+                                                >
+                                                    <Expand
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            `skill-node.${scaling.parameter}-scaling`,
+                                                            {
+                                                                scale: scaling.scale,
+                                                                stat: scaling.stat?.toUpperCase(),
+                                                                max: scaling.maximum,
+                                                                intRequired: 1
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
                                         if (scaling.parameter === 'duration') {
                                             return (
                                                 <div
                                                     key={`duration-${index}`}
-                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
                                                 >
                                                     <ClockArrowUp
-                                                        size={16}
-                                                        className='text-muted-foreground mt-2'
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                     />
                                                     <span>
                                                         {t(
@@ -457,10 +535,10 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                             </>
                         )}
                         {levelData?.casting !== undefined && (
-                            <div className='flex text-sm sm:text-md md:text-lg gap-1'>
+                            <div className='flex text-sm sm:text-base md:text-lg gap-1'>
                                 <Loader
-                                    size={16}
-                                    className='text-muted-foreground mt-2'
+                                    size={14}
+                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                 />
                                 <span>
                                     {t('skill-node.casting-time', {
@@ -470,10 +548,10 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                             </div>
                         )}
                         {levelData?.cooldown !== undefined && (
-                            <div className='flex text-sm sm:text-md md:text-lg gap-1'>
+                            <div className='flex text-sm sm:text-base md:text-lg gap-1'>
                                 <Clock
-                                    size={16}
-                                    className='text-muted-foreground mt-2'
+                                    size={14}
+                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                 />
                                 <span>
                                     {t('skill-node.cooldown', {
@@ -483,12 +561,12 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                             </div>
                         )}
                         {levelData?.spellRange !== undefined && (
-                            <div className='flex text-sm sm:text-md md:text-lg gap-1'>
+                            <div className='flex text-sm sm:text-base md:text-lg gap-1'>
                                 <LandPlot
-                                    size={16}
-                                    className='text-muted-foreground mt-2'
+                                    size={14}
+                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                 />
-                                <span>
+                                <span className='flex gap-1'>
                                     {t('skill-node.spell-range', {
                                         spellRange:
                                             levelData.spellRange.toFixed(2)
@@ -510,11 +588,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             return (
                                                 <div
                                                     key={`attribute-double-${index}`}
-                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
                                                 >
                                                     <Superscript
-                                                        size={16}
-                                                        className='text-muted-foreground mt-2'
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                     />
                                                     <span>
                                                         {t(
@@ -534,11 +612,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             return (
                                                 <div
                                                     key={`attribute-slow-${index}`}
-                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
                                                 >
                                                     <Snail
-                                                        size={16}
-                                                        className='text-muted-foreground mt-2'
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                     />
                                                     <span>
                                                         {t(
@@ -568,11 +646,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             return (
                                                 <div
                                                     key={`attribute-stun-${index}`}
-                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
                                                 >
                                                     <Shell
-                                                        size={16}
-                                                        className='text-muted-foreground mt-2'
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                     />
                                                     <span>
                                                         {t(
@@ -592,11 +670,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             return (
                                                 <div
                                                     key={`attribute-bleeding-${index}`}
-                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
                                                 >
                                                     <Droplets
-                                                        size={16}
-                                                        className='text-muted-foreground mt-2'
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                     />
                                                     <span>
                                                         {t(
@@ -616,11 +694,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             return (
                                                 <div
                                                     key={`attribute-poison-${index}`}
-                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
                                                 >
                                                     <Bubbles
-                                                        size={16}
-                                                        className='text-muted-foreground mt-2'
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                     />
                                                     <span>
                                                         {t(
@@ -640,11 +718,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             return (
                                                 <div
                                                     key={`attribute-forcedblock-${index}`}
-                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
                                                 >
                                                     <Shield
-                                                        size={16}
-                                                        className='text-muted-foreground mt-2'
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                     />
                                                     <span>
                                                         {t(
@@ -659,11 +737,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             return (
                                                 <div
                                                     key={`attribute-invisibility-${index}`}
-                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
                                                 >
                                                     <EyeClosed
-                                                        size={16}
-                                                        className='text-muted-foreground mt-2'
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                     />
                                                     <span>
                                                         {t(
@@ -686,11 +764,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                             <>
                                                 <div
                                                     key={`remove-all-debuff-${index}`}
-                                                    className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
                                                 >
                                                     <Bubbles
-                                                        size={16}
-                                                        className='text-muted-foreground mt-2'
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                     />
                                                     <span>
                                                         {t(
@@ -721,11 +799,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`hp-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Cross
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t('skill-node.hp', {
@@ -747,11 +825,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`damage-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <ChevronsUp
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t('skill-node.damage', {
@@ -779,11 +857,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`critical-resist-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <ShieldCheck
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t(
@@ -813,11 +891,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`maxhp-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <HeartPlus
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t('skill-node.maxhp', {
@@ -842,11 +920,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`speed-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Footprints
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t('skill-node.speed', {
@@ -871,11 +949,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`str-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <BicepsFlexed
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t('skill-node.str', {
@@ -900,11 +978,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`sta-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Beef
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t('skill-node.sta', {
@@ -929,11 +1007,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`int-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Brain
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t('skill-node.int', {
@@ -958,11 +1036,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`dex-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Atom
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t('skill-node.dex', {
@@ -987,11 +1065,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`attackspeed-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <ChevronsUp
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t(
@@ -1024,11 +1102,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`decreased-casting-time-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Loader
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t(
@@ -1058,11 +1136,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`block-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Shield
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t('skill-node.block', {
@@ -1087,11 +1165,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`ranged-block-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Shield
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t(
@@ -1121,11 +1199,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`magic-defense-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <ShieldHalf
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t(
@@ -1155,11 +1233,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`def-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Shield
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t('skill-node.def', {
@@ -1186,11 +1264,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`criticaldamage-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Sparkles
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t(
@@ -1218,11 +1296,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`criticalchance-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Crosshair
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t(
@@ -1250,11 +1328,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`blockpenetration-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Crosshair
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t(
@@ -1280,11 +1358,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`sword-attack-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Sword
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t(
@@ -1299,20 +1377,10 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                                                 ability.add,
                                                             rate: ability.rate
                                                                 ? '%'
-                                                                : ''
+                                                                : '',
+                                                            duration:
+                                                                levelData.duration
                                                         }
-                                                    )}
-                                                    {levelData?.duration !==
-                                                        undefined && (
-                                                        <div>
-                                                            {t(
-                                                                'skill-node.sword-attack-duration',
-                                                                {
-                                                                    duration:
-                                                                        levelData.duration
-                                                                }
-                                                            )}
-                                                        </div>
                                                     )}
                                                 </span>
                                             </div>
@@ -1322,11 +1390,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`axe-attack-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Axe
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t(
@@ -1341,20 +1409,10 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                                                 ability.add,
                                                             rate: ability.rate
                                                                 ? '%'
-                                                                : ''
+                                                                : '',
+                                                            duration:
+                                                                levelData.duration
                                                         }
-                                                    )}
-                                                    {levelData?.duration !==
-                                                        undefined && (
-                                                        <div>
-                                                            {t(
-                                                                'skill-node.axe-attack-duration',
-                                                                {
-                                                                    duration:
-                                                                        levelData.duration
-                                                                }
-                                                            )}
-                                                        </div>
                                                     )}
                                                 </span>
                                             </div>
@@ -1364,11 +1422,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`hitrate-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Crosshair
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t('skill-node.hit-rate', {
@@ -1380,20 +1438,10 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                                         hitRate: ability.add,
                                                         rate: ability.rate
                                                             ? '%'
-                                                            : ''
+                                                            : '',
+                                                        duration:
+                                                            levelData.duration
                                                     })}
-                                                    {levelData?.duration !==
-                                                        undefined && (
-                                                        <div>
-                                                            {t(
-                                                                'skill-node.hit-rate-duration',
-                                                                {
-                                                                    duration:
-                                                                        levelData.duration
-                                                                }
-                                                            )}
-                                                        </div>
-                                                    )}
                                                 </span>
                                             </div>
                                         );
@@ -1402,11 +1450,11 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         return (
                                             <div
                                                 key={`element-attack-${index}`}
-                                                className='flex text-sm sm:text-md md:text-lg gap-1'
+                                                className='flex text-sm sm:text-base md:text-lg gap-1'
                                             >
                                                 <Atom
-                                                    size={16}
-                                                    className='text-muted-foreground mt-2'
+                                                    size={14}
+                                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                 />
                                                 <span>
                                                     {t(
@@ -1421,20 +1469,10 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                                                 ability.add,
                                                             rate: ability.rate
                                                                 ? '%'
-                                                                : ''
+                                                                : '',
+                                                            duration:
+                                                                levelData.duration
                                                         }
-                                                    )}
-                                                    {levelData?.duration !==
-                                                        undefined && (
-                                                        <div>
-                                                            {t(
-                                                                'skill-node.element-attack-duration',
-                                                                {
-                                                                    duration:
-                                                                        levelData.duration
-                                                                }
-                                                            )}
-                                                        </div>
                                                     )}
                                                 </span>
                                             </div>
