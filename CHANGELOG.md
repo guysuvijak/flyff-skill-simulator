@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 📍 [1.5.5f] - 2025-07-20
+
+- hot fixed: calculate scaling parameter
+
 ## 📍 [1.5.5] - 2025-07-20
 
 - updated: Skill Description (add parameter "Combo")

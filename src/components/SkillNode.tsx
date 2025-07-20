@@ -305,7 +305,16 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
 
     // function to calculate % Scaling for all skills
     const calculateSkillScaling = (scaling: SkillScaling) => {
-        const statTypes = ['magicdefense', 'def'];
+        const statTypes = [
+            'magicdefense',
+            'def',
+            'maxhp',
+            'speed',
+            'attackspeed',
+            'decreasedcastingtime',
+            'block',
+            'hitrate'
+        ];
         if (
             statTypes.includes(scaling.parameter || '') &&
             scaling.scale &&
