@@ -1,6 +1,6 @@
 // Next.js 15 - src/components/SkillNode.tsx
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import Image from 'next/image';
 import { Handle, Position } from '@xyflow/react';
 import { motion } from 'framer-motion';
@@ -45,7 +45,8 @@ import {
     Cross,
     Sword,
     Axe,
-    ShieldCheck
+    ShieldCheck,
+    ClockFading
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -80,8 +81,11 @@ interface SkillLevel {
     duration?: number;
     minAttack?: number;
     maxAttack?: number;
+    probability?: number;
+    probabilityPVP?: number;
     casting?: number;
     spellRange?: number;
+    dotTick?: number;
     abilities?: Abilities[];
     scalingParameters?: SkillScaling[];
 }
@@ -110,6 +114,7 @@ interface SkillData {
     };
     levels?: SkillLevel[];
     level?: number;
+    combo?: '' | 'general' | 'step' | 'circle' | 'finish';
     target?: 'currentplayer' | 'area' | 'single' | 'party';
     skillPoints?: number;
 }
@@ -298,6 +303,25 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
         return null;
     };
 
+    // function to calculate % Scaling for all skills
+    const calculateSkillScaling = (scaling: SkillScaling) => {
+        const statTypes = ['magicdefense', 'def'];
+        if (
+            statTypes.includes(scaling.parameter || '') &&
+            scaling.scale &&
+            scaling.scale < 1
+        ) {
+            // calculate the number of stat required to get +0.5
+            const statRequired = Math.ceil(0.5 / scaling.scale);
+            return {
+                scale: 0.5,
+                statRequired: statRequired,
+                originalScale: scaling.scale
+            };
+        }
+        return null;
+    };
+
     return (
         <div className='flex flex-col w-[72px] h-[78px] bg-background text-foreground border-2 border-border rounded shadow relative justify-center items-center'>
             {(data.skillData.requirements || []).length !== 0 &&
@@ -417,6 +441,22 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                 })}
                             </div>
                         )}
+                        {data.skillData.combo !== '' &&
+                            data.skillData.combo !== 'general' && (
+                                <div className='text-sm sm:text-base md:text-lg'>
+                                    <span className='mx-1.5 text-muted-foreground'>
+                                        {'-'}
+                                    </span>
+                                    {t('skill-node.combo', {
+                                        combo: data.skillData.combo
+                                            ? data.skillData.combo
+                                                  .charAt(0)
+                                                  .toUpperCase() +
+                                              data.skillData.combo.slice(1)
+                                            : ''
+                                    })}
+                                </div>
+                            )}
                         <Separator className='my-1' />
                         {levelData?.scalingParameters !== undefined && (
                             <>
@@ -446,12 +486,37 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                                 </div>
                                             );
                                         }
+                                        if (scaling.parameter === 'hp') {
+                                            return (
+                                                <div
+                                                    key={`hp-scaling-${index}`}
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
+                                                >
+                                                    <Expand
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            'skill-node.hp-scaling',
+                                                            {
+                                                                stat: scaling.stat?.toUpperCase(),
+                                                                scale: scaling.scale?.toFixed(
+                                                                    2
+                                                                )
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
                                         if (
                                             [
                                                 'str',
                                                 'sta',
                                                 'int',
-                                                'dex'
+                                                'dex',
+                                                'damage'
                                             ].includes(scaling.parameter || '')
                                         ) {
                                             const statScaling =
@@ -529,6 +594,68 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                                 </div>
                                             );
                                         }
+                                        if (
+                                            [
+                                                'magicdefense',
+                                                'def',
+                                                'maxhp',
+                                                'speed',
+                                                'attackspeed',
+                                                'decreasedcastingtime',
+                                                'block',
+                                                'hitrate'
+                                            ].includes(scaling.parameter || '')
+                                        ) {
+                                            const skillScaling =
+                                                calculateSkillScaling(scaling);
+                                            if (skillScaling) {
+                                                return (
+                                                    <div
+                                                        key={`${scaling.parameter}-scaling-${index}`}
+                                                        className='flex text-sm sm:text-base md:text-lg gap-1'
+                                                    >
+                                                        <Expand
+                                                            size={14}
+                                                            className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
+                                                        />
+                                                        <span>
+                                                            {t(
+                                                                `skill-node.${scaling.parameter}-scaling`,
+                                                                {
+                                                                    scale: skillScaling.scale,
+                                                                    stat: scaling.stat?.toUpperCase(),
+                                                                    max: scaling.maximum,
+                                                                    intRequired:
+                                                                        skillScaling.statRequired
+                                                                }
+                                                            )}
+                                                        </span>
+                                                    </div>
+                                                );
+                                            }
+                                            return (
+                                                <div
+                                                    key={`${scaling.parameter}-scaling-${index}`}
+                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
+                                                >
+                                                    <Expand
+                                                        size={14}
+                                                        className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
+                                                    />
+                                                    <span>
+                                                        {t(
+                                                            `skill-node.${scaling.parameter}-scaling`,
+                                                            {
+                                                                scale: scaling.scale,
+                                                                stat: scaling.stat?.toUpperCase(),
+                                                                max: scaling.maximum,
+                                                                intRequired: 1
+                                                            }
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        }
                                         return null;
                                     }
                                 )}
@@ -575,6 +702,19 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         t('skill-node.target-area')}
                                     {data.skillData.target === 'party' &&
                                         t('skill-node.target-party')}
+                                </span>
+                            </div>
+                        )}
+                        {levelData?.dotTick !== undefined && (
+                            <div className='flex text-sm sm:text-base md:text-lg gap-1'>
+                                <ClockFading
+                                    size={14}
+                                    className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
+                                />
+                                <span className='flex gap-1'>
+                                    {t('skill-node.dot-tick', {
+                                        dotTick: levelData.dotTick.toFixed(2)
+                                    })}
                                 </span>
                             </div>
                         )}
@@ -658,7 +798,10 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                                             {
                                                                 duration:
                                                                     levelData.duration ||
-                                                                    0
+                                                                    0,
+                                                                probability:
+                                                                    levelData.probability ||
+                                                                    100
                                                             }
                                                         )}
                                                     </span>
@@ -761,38 +904,34 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                         ability.parameter === 'removealldebuff'
                                     ) {
                                         return (
-                                            <>
-                                                <div
-                                                    key={`remove-all-debuff-${index}`}
-                                                    className='flex text-sm sm:text-base md:text-lg gap-1'
-                                                >
+                                            <Fragment
+                                                key={`remove-all-debuff-${index}`}
+                                            >
+                                                <div className='flex text-sm sm:text-base md:text-lg gap-1'>
                                                     <Bubbles
                                                         size={14}
                                                         className='text-muted-foreground mt-0.5 sm:mt-1.5 md:mt-2'
                                                     />
                                                     <span>
                                                         {t(
-                                                            `skill-node.remove-all-debuff`
+                                                            `skill-node.remove-all-debuff`,
+                                                            {
+                                                                probability:
+                                                                    levelData.probability ||
+                                                                    100
+                                                            }
                                                         )}
                                                     </span>
                                                 </div>
 
-                                                <p className='text-muted-foreground'>
-                                                    {t(
-                                                        `skill-node.remove-all-debuff-1`
-                                                    )}
-                                                </p>
-                                                <p className='text-muted-foreground'>
-                                                    {t(
-                                                        `skill-node.remove-all-debuff-2`
-                                                    )}
-                                                </p>
-                                                <p className='text-muted-foreground'>
-                                                    {t(
-                                                        `skill-node.remove-all-debuff-3`
-                                                    )}
-                                                </p>
-                                            </>
+                                                {data.skillData.id === 1555 && (
+                                                    <p className='text-muted-foreground whitespace-pre-wrap'>
+                                                        {t(
+                                                            `skill-node.remove-all-debuff-1555`
+                                                        )}
+                                                    </p>
+                                                )}
+                                            </Fragment>
                                         );
                                     }
                                     if (ability.parameter === 'hp') {

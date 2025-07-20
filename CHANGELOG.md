@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## 📍 [1.5.5] - 2025-07-20
+
+- updated: Skill Description (add parameter "Combo")
+- updated: Skill Description (add parameter "Heal Scaling")
+- updated: Skill Description (add parameter "Dot Timer")
+- updated: Skill Description (add parameter "Magic Defense Scaling")
+- updated: Skill Description (add parameter "Defense Scaling")
+- updated: Skill Description (add parameter "Damage Scaling")
+- updated: Skill Description (add parameter "Max HP Scaling")
+- updated: Skill Description (add parameter "Speed Scaling")
+- updated: Skill Description (add parameter "Attack Speed Scaling")
+- updated: Skill Description (add parameter "Decreased Casting Time Scaling")
+- updated: Skill Description (add parameter "Block Scaling")
+- updated: Skill Description (add parameter "Hitrate Scaling")
+- updated: Skill Description (add probability % of "Stun")
+- fixed: Issue key unique of "Remove All Debuff" parameter (Skill Node)
+- fixed: Skill Description each level of "Remove All Debuff"
+
 ## 📍 [1.5.4] - 2025-07-20
 
 - added: Unit second on "Base Time" (Skill Node)
@@ -20,7 +38,7 @@ All notable changes to this project will be documented in this file.
 - fixed: Skill Parameter description "Axe Attack" (Skill Node)
 - fixed: Skill Parameter description "Hit Rate" (Skill Node)
 - fixed: Skill Parameter description "Element Attack" (Skill Node)
-- fixed: ALl langauge of stat "STR/STA/INT/DEX" (Skill Node)
+- fixed: All langauge of stat "STR/STA/INT/DEX" (Skill Node)
 
 ## 📍 [1.5.3] - 2025-07-18
 
