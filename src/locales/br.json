@@ -1,4 +1,4 @@
-{
+﻿{
     "loading": "Carregando...",
     "navbar": {
         "level": "Nível",
@@ -194,7 +194,12 @@
         "critical-damage": "Dano Crítico: {result}{criticalDamage}{rate}",
         "critical-chance": "Chance Crítica: {result}{criticalChance}{rate}",
         "block-penetration": "Penetração de Bloqueio: {result}{blockPenetration}{rate}",
-        "click-to-hold": "Clique para segurar/fechar a janela."
+        "click-to-hold": "Clique para segurar/fechar a janela.",
+        "max-level": "Definir no nível máximo",
+        "increase-level": "Aumentar nível",
+        "decrease-level": "Diminuir nível",
+        "reset-level": "Redefinir para o nível 0",
+        "raise-prerequisites": "Desbloquear rota"
     },
     "update-version-dialog": {
         "title": "🎉 Nova Versão - {version}",

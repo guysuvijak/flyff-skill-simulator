@@ -1,4 +1,4 @@
-{
+﻿{
     "loading": "Chargement...",
     "navbar": {
         "level": "Niveau",
@@ -194,7 +194,12 @@
         "critical-damage": "Dégâts Critiques: {result}{criticalDamage}{rate}",
         "critical-chance": "Chances Critiques: {result}{criticalChance}{rate}",
         "block-penetration": "Pénétration de Blocage: {result}{blockPenetration}{rate}",
-        "click-to-hold": "Cliquez pour maintenir/fermer la fenêtre."
+        "click-to-hold": "Cliquez pour maintenir/fermer la fenêtre.",
+        "max-level": "Mettre au niveau max",
+        "increase-level": "Augmenter le niveau",
+        "decrease-level": "Diminuer le niveau",
+        "reset-level": "Réinitialiser au niveau 0",
+        "raise-prerequisites": "Débloquer le chemin"
     },
     "update-version-dialog": {
         "title": "🎉 Nouvelle Version - {version}",

@@ -1,4 +1,4 @@
-{
+﻿{
     "loading": "読み込み中...",
     "navbar": {
         "level": "レベル",
@@ -194,7 +194,12 @@
         "critical-damage": "クリティカルダメージ: {result}{criticalDamage}{rate}",
         "critical-chance": "クリティカル率: {result}{criticalChance}{rate}",
         "block-penetration": "ブロック貫通: {result}{blockPenetration}{rate}",
-        "click-to-hold": "クリックしてホールド / ウィンドウを閉じる"
+        "click-to-hold": "クリックしてホールド / ウィンドウを閉じる",
+        "max-level": "最大レベルに設定",
+        "increase-level": "レベルを上げる",
+        "decrease-level": "レベルを下げる",
+        "reset-level": "レベル0にリセット",
+        "raise-prerequisites": "前提を解除"
     },
     "update-version-dialog": {
         "title": "🎉 新しいバージョン - {version}",

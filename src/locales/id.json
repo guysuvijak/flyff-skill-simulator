@@ -1,4 +1,4 @@
-{
+﻿{
     "loading": "Memuat...",
     "navbar": {
         "level": "Level",
@@ -194,7 +194,12 @@
         "critical-damage": "Kerusakan Kritis: {result}{criticalDamage}{rate}",
         "critical-chance": "Peluang Kritis: {result}{criticalChance}{rate}",
         "block-penetration": "Penetrasi Blok: {result}{blockPenetration}{rate}",
-        "click-to-hold": "Klik untuk menahan/tutup jendela."
+        "click-to-hold": "Klik untuk menahan/tutup jendela.",
+        "max-level": "Atur ke level maksimal",
+        "increase-level": "Naikkan level",
+        "decrease-level": "Turunkan level",
+        "reset-level": "Reset ke level 0",
+        "raise-prerequisites": "Buka prasyarat"
     },
     "update-version-dialog": {
         "title": "🎉 Versi Baru - {version}",

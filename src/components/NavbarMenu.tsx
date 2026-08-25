@@ -33,6 +33,7 @@ import { useSkillStore } from '@/stores/skillStore';
 import pkg from '../../package.json';
 import { LoadBuildDialog } from './LoadBuildDialog';
 import { ShareBuildDialog } from './ShareBuildDialog';
+import { startAnimatedThemeChange } from '@/utils/animatedTheme';
 
 const themeColors = [
     'default',
@@ -204,14 +205,28 @@ export const NavbarMenu = () => {
                         </MenubarCheckboxItem>
                         <MenubarSeparator />
                         <MenubarCheckboxItem
-                            onClick={() => setTheme('light')}
+                            onClick={(e) =>
+                                startAnimatedThemeChange({
+                                    theme: 'light',
+                                    currentTheme: theme,
+                                    setTheme,
+                                    event: e
+                                })
+                            }
                             checked={theme === 'light'}
                             className='cursor-pointer'
                         >
                             {t(`navbar.menu.setting.theme-light`)}
                         </MenubarCheckboxItem>
                         <MenubarCheckboxItem
-                            onClick={() => setTheme('dark')}
+                            onClick={(e) =>
+                                startAnimatedThemeChange({
+                                    theme: 'dark',
+                                    currentTheme: theme,
+                                    setTheme,
+                                    event: e
+                                })
+                            }
                             checked={theme === 'dark'}
                             className='cursor-pointer'
                         >

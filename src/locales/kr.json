@@ -1,4 +1,4 @@
-{
+﻿{
     "loading": "로딩 중...",
     "navbar": {
         "level": "레벨",
@@ -194,7 +194,12 @@
         "critical-damage": "치명타 피해: {result}{criticalDamage}{rate}",
         "critical-chance": "치명타 확률: {result}{criticalChance}{rate}",
         "block-penetration": "방어 관통: {result}{blockPenetration}{rate}",
-        "click-to-hold": "창을 유지하려면 클릭하세요 / 닫으려면 클릭 해제"
+        "click-to-hold": "창을 유지하려면 클릭하세요 / 닫으려면 클릭 해제",
+        "max-level": "최대 레벨로 설정",
+        "increase-level": "레벨 올리기",
+        "decrease-level": "레벨 내리기",
+        "reset-level": "레벨 0으로 초기화",
+        "raise-prerequisites": "선행 해제"
     },
     "update-version-dialog": {
         "title": "🎉 새 버전 - {version}",

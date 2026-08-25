@@ -1,4 +1,4 @@
-{
+﻿{
     "loading": "กำลังโหลด...",
     "navbar": {
         "level": "เลเวล",
@@ -194,7 +194,12 @@
         "critical-damage": "ดาเมจคริติคอล: {result}{criticalDamage}{rate}",
         "critical-chance": "โอกาสติดคริติคอล: {result}{criticalChance}{rate}",
         "block-penetration": "เจาะเกราะบล็อค: {result}{blockPenetration}{rate}",
-        "click-to-hold": "คลิกเพื่อค้าง/ปิดหน้าต่าง"
+        "click-to-hold": "คลิกเพื่อค้าง/ปิดหน้าต่าง",
+        "max-level": "ตั้งเป็นเลเวลสูงสุด",
+        "increase-level": "เพิ่มเลเวล",
+        "decrease-level": "ลดเลเวล",
+        "reset-level": "รีเซ็ตเป็นเลเวล 0",
+        "raise-prerequisites": "ปลดล็อกเงื่อนไข"
     },
     "update-version-dialog": {
         "title": "🎉 เวอร์ชันใหม่ - {version}",

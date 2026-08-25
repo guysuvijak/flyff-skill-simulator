@@ -10,6 +10,7 @@ All skill data is directly retrieved from [Flyff Universe API](https://api.flyff
 
 - **Interactive Skill Tree**: Visualize skill paths and dependencies with React Flow
 - **All Classes Supported**: Complete skill trees for every class in Flyff Universe (Knight, Blade, Elementor, Ranger, Billposter, Ringmaster, Jester, Acrobat, Assist, Mercenary, Psychikeeper, Vagrant, Magician)
+- **Raise Prerequisites**: One-click auto-level unmet prerequisite skills when a skill is blocked by requirements (if you have enough skill points)
 - **Build Sharing & Loading**: Share your builds via URL or import/export JSON files
 - **Multi-Language Support**: Available in 12 languages (English, Thai, Japanese, Vietnamese, Chinese, Brazilian Portuguese, German, French, Indonesian, Korean, Spanish)
 - **Real-time Updates**: See skill effects, requirements, and character stats instantly
@@ -98,6 +99,7 @@ flyff-skill-simulator/
 │   ├── types/                 # TypeScript type definitions
 │   └── utils/                 # Utility functions
 │       ├── shareBuild.ts      # Build sharing and loading
+│       ├── skillGraph.ts      # Prerequisite chain planning
 │       ├── skillUtils.ts      # Skill calculations
 │       └── classUtils.ts      # Class data handling
 ```
@@ -140,9 +142,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📈 Version History
 
-Current version: **1.5.5f** (2025-07-20)
+Current version: **1.6.0** (2026-08-25)
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed version history and updates.
+
+## 👥 Contributors
+
+- [**avrahams1**](https://github.com/avrahams1) (Avi) — **Raise Prerequisites** feature: one-click auto-leveling of unmet prerequisite skills on skill nodes ([PR #7](https://github.com/guysuvijak/flyff-skill-simulator/pull/7))
 
 ## 🙏 Acknowledgments
 

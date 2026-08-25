@@ -1,4 +1,5 @@
 // Next.js 15 - src/utils/skillGraph.ts
+import { calculateSkillPoints } from '@/utils/calculateSkillPoints';
 
 interface SkillGraphRequirement {
     skill: number;
@@ -23,7 +24,30 @@ export interface PrerequisiteUpdate {
 export interface PrerequisitePlan {
     updates: PrerequisiteUpdate[];
     totalPointsNeeded: number;
-    blockedByCharacterLevel: number[];
+    /** Minimum character level required by the target skill and its prerequisites. */
+    minCharacterLevel: number;
+}
+
+/**
+ * Finds the lowest character level in [minLevel, maxLevel] that yields at least
+ * `requiredAvailablePoints` free SP after subtracting already-spent points.
+ */
+export function findMinimumLevelForAvailablePoints(
+    requiredAvailablePoints: number,
+    currentUsedPoints: number,
+    job: number,
+    parent: number,
+    minLevel: number,
+    maxLevel: number
+): number | null {
+    const startLevel = Math.max(1, Math.min(minLevel, maxLevel));
+    for (let level = startLevel; level <= maxLevel; level++) {
+        const totalPoints = calculateSkillPoints(level, job, parent);
+        if (totalPoints - currentUsedPoints >= requiredAvailablePoints) {
+            return level;
+        }
+    }
+    return null;
 }
 
 /**
@@ -34,8 +58,7 @@ export interface PrerequisitePlan {
 export function computeRaisePrerequisitesPlan(
     targetSkillId: number,
     skillsById: Record<number, SkillGraphData>,
-    skillLevels: Record<number, { level: number; points: number }>,
-    characterLevel: number
+    skillLevels: Record<number, { level: number; points: number }>
 ): PrerequisitePlan {
     const requiredLevel = new Map<number, number>();
     const visiting = new Set<number>();
@@ -71,24 +94,23 @@ export function computeRaisePrerequisitesPlan(
     (target?.requirements || []).forEach((req) => visit(req.skill, req.level));
 
     const updates: PrerequisiteUpdate[] = [];
-    const blockedByCharacterLevel: number[] = [];
     let totalPointsNeeded = 0;
+    let minCharacterLevel = target?.level ?? 1;
 
     order.forEach((skillId) => {
         const skill = skillsById[skillId];
         const fromLevel = skillLevels[skillId]?.level ?? 0;
-        const target = requiredLevel.get(skillId) ?? fromLevel;
-        const toLevel = Math.min(target, skill.levels?.length ?? target);
+        const needed = requiredLevel.get(skillId) ?? fromLevel;
+        const toLevel = Math.min(needed, skill.levels?.length ?? needed);
+
+        minCharacterLevel = Math.max(minCharacterLevel, skill.level ?? 1);
 
         if (toLevel > fromLevel) {
-            if (characterLevel < (skill.level ?? 0)) {
-                blockedByCharacterLevel.push(skillId);
-            }
             const pointsPerLevel = skill.skillPoints ?? 1;
             updates.push({ skillId, fromLevel, toLevel, pointsPerLevel });
             totalPointsNeeded += (toLevel - fromLevel) * pointsPerLevel;
         }
     });
 
-    return { updates, totalPointsNeeded, blockedByCharacterLevel };
+    return { updates, totalPointsNeeded, minCharacterLevel };
 }

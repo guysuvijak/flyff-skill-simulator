@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## 📍 [1.6.0] - 2026-08-25
+
+This release adds one-click prerequisite leveling for blocked skills, and upgrades core libraries while staying on Next.js 15 / React 18.
+
+- added: Raise Prerequisites button on skill nodes (auto-level unmet requirements; auto-adjust character level and SP)
+- added: Prerequisite planning utility (`skillGraph`) for recursive requirement resolution
+- added: Tooltip on skill control buttons (max level, increase, decrease, reset, raise prerequisites)
+- added: Animated theme transition for Settings Light/Dark menu items
+- updated: Raise Prerequisites auto-raises character level for skill/SP requirements using official SP formula
+- updated: Raise Prerequisites icon (Unlink badge, larger padding, top-right)
+- updated: Raise Prerequisites tooltip text (shorter, clearer)
+- updated: Skill tooltip close button padding (equal px/py)
+- updated: SEO JSON-LD schema (WebSite, WebApplication, Person, SoftwareSourceCode; version from package.json)
+- updated: Library versions (Next.js 15.5.23, Radix UI, @xyflow/react, axios, lucide-react, zustand, and related deps)
+- security: Align Next.js / eslint-config-next with current React Server Components CVE fixes
+
 ## 📍 [1.5.5f] - 2025-07-20
 
 - hot fixed: calculate scaling parameter

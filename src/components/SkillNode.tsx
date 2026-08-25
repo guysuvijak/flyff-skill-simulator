@@ -8,7 +8,11 @@ import { useSkillStore } from '@/stores/skillStore';
 import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
 import { useSkillLocalization } from '@/utils/skillUtils';
-import { computeRaisePrerequisitesPlan } from '@/utils/skillGraph';
+import { computeRaisePrerequisitesPlan, findMinimumLevelForAvailablePoints } from '@/utils/skillGraph';
+import {
+    calculateSkillPoints,
+    calculateTotalPointsUsed
+} from '@/utils/calculateSkillPoints';
 import {
     TooltipProvider,
     Tooltip,
@@ -48,7 +52,7 @@ import {
     Axe,
     ShieldCheck,
     ClockFading,
-    Workflow
+    Unlink
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -133,7 +137,8 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
     const { t } = useTranslation();
     const { skillLevels, updateSkillLevel, skillsById } = useSkillStore();
     const { selectedClass } = useClassStore();
-    const { characterLevel, skillPoints, setSkillPoints } = useCharacterStore();
+    const { characterLevel, setCharacterLevel, skillPoints, setSkillPoints } =
+        useCharacterStore();
     const { getSkillName, getSkillDescription } = useSkillLocalization();
     const [skillSource, setSkillSource] = useState<SkillSourceProps[] | null>(
         null
@@ -291,29 +296,82 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
             computeRaisePrerequisitesPlan(
                 data.skillData.id,
                 skillsById,
-                skillLevels,
-                characterLevel
+                skillLevels
             ),
-        [data.skillData.id, skillsById, skillLevels, characterLevel]
+        [data.skillData.id, skillsById, skillLevels]
     );
 
     const showRaisePrerequisites =
-        !canUpgrade() && raisePrereqPlan.updates.length > 0;
+        raisePrereqPlan.updates.length > 0 ||
+        characterLevel < (data.skillData.level || 0);
 
-    const raisePrereqDisabled =
-        raisePrereqPlan.totalPointsNeeded > skillPoints ||
-        raisePrereqPlan.blockedByCharacterLevel.length > 0;
+    const raisePrereqDisabled = useMemo(() => {
+        const usedPoints = calculateTotalPointsUsed();
+        const levelFloor = Math.max(
+            characterLevel,
+            raisePrereqPlan.minCharacterLevel,
+            data.skillData.level || 0
+        );
+        const requiredLevel = findMinimumLevelForAvailablePoints(
+            raisePrereqPlan.totalPointsNeeded,
+            usedPoints,
+            selectedClass.id,
+            selectedClass.parent,
+            levelFloor,
+            selectedClass.maxLevel
+        );
+        return requiredLevel === null;
+    }, [
+        characterLevel,
+        data.skillData.level,
+        raisePrereqPlan.minCharacterLevel,
+        raisePrereqPlan.totalPointsNeeded,
+        selectedClass.id,
+        selectedClass.parent,
+        selectedClass.maxLevel,
+        skillLevels
+    ]);
 
     const raisePrerequisites = () => {
-        if (raisePrereqDisabled || raisePrereqPlan.updates.length === 0) {
+        if (raisePrereqDisabled) {
             return;
         }
+
+        const usedPoints = calculateTotalPointsUsed();
+        const levelFloor = Math.max(
+            characterLevel,
+            raisePrereqPlan.minCharacterLevel,
+            data.skillData.level || 0
+        );
+        const newCharacterLevel = findMinimumLevelForAvailablePoints(
+            raisePrereqPlan.totalPointsNeeded,
+            usedPoints,
+            selectedClass.id,
+            selectedClass.parent,
+            levelFloor,
+            selectedClass.maxLevel
+        );
+
+        if (newCharacterLevel === null) {
+            return;
+        }
+
+        if (newCharacterLevel !== characterLevel) {
+            setCharacterLevel(newCharacterLevel);
+        }
+
         raisePrereqPlan.updates.forEach(
             ({ skillId, toLevel, pointsPerLevel }) => {
                 updateSkillLevel(skillId, toLevel, pointsPerLevel);
             }
         );
-        setSkillPoints(skillPoints - raisePrereqPlan.totalPointsNeeded);
+
+        const totalPoints = calculateSkillPoints(
+            newCharacterLevel,
+            selectedClass.id,
+            selectedClass.parent
+        );
+        setSkillPoints(totalPoints - calculateTotalPointsUsed());
     };
 
     // function to calculate Stat Scaling for all stats (str, sta, int, dex)
@@ -392,27 +450,44 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
             )}
 
             {showRaisePrerequisites && (
-                <motion.button
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        raisePrerequisites();
-                    }}
-                    onMouseEnter={(e) => e.stopPropagation()}
-                    onMouseLeave={(e) => e.stopPropagation()}
-                    whileTap={{ scale: raisePrereqDisabled ? 1 : 0.8 }}
-                    disabled={raisePrereqDisabled}
-                    aria-label={`Raise prerequisite skills for ${getSkillName(data.skillData.name)}`}
-                    className='absolute top-0.5 right-0.5 z-10 flex items-center justify-center'
-                >
-                    <Workflow
-                        size={14}
-                        className={`${
-                            raisePrereqDisabled
-                                ? 'text-muted cursor-not-allowed'
-                                : 'text-primary hover:text-primary/80 transition-all'
-                        }`}
-                    />
-                </motion.button>
+                <TooltipProvider delayDuration={200}>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <span
+                                className='absolute -top-2.5 -right-2.5 z-10 flex items-center justify-center'
+                                onMouseEnter={(e) => e.stopPropagation()}
+                                onMouseLeave={(e) => e.stopPropagation()}
+                            >
+                                <motion.button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        raisePrerequisites();
+                                    }}
+                                    whileTap={{
+                                        scale: raisePrereqDisabled ? 1 : 0.8
+                                    }}
+                                    disabled={raisePrereqDisabled}
+                                    aria-label={t(
+                                        'skill-node.raise-prerequisites'
+                                    )}
+                                    className='flex h-7 w-7 items-center justify-center rounded-full border border-border bg-background p-1.5'
+                                >
+                                    <Unlink
+                                        size={12}
+                                        className={`${
+                                            raisePrereqDisabled
+                                                ? 'text-muted cursor-not-allowed'
+                                                : 'text-primary hover:text-primary/80 transition-all'
+                                        }`}
+                                    />
+                                </motion.button>
+                            </span>
+                        </TooltipTrigger>
+                        <TooltipContent side='top'>
+                            {t('skill-node.raise-prerequisites')}
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
             )}
 
             <TooltipProvider delayDuration={100}>
@@ -455,7 +530,7 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                 setIsClicked(false);
                             }}
                             variant={'ghost'}
-                            className='absolute top-0 right-0'
+                            className='absolute top-0 right-0 h-auto px-1 py-1'
                             aria-label='Close tooltip'
                         >
                             <XCircle size={20} className='text-destructive' />
@@ -1703,114 +1778,150 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
             </TooltipProvider>
 
             <div className='flex'>
-                <motion.button
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        setToMaxLevel();
-                    }}
-                    onMouseEnter={(e) => e.stopPropagation()}
-                    onMouseLeave={(e) => e.stopPropagation()}
-                    whileTap={{
-                        scale:
-                            currentLevel ===
-                            (data.skillData.levels?.length || 0)
-                                ? 1
-                                : 0.8
-                    }}
-                    aria-label={`Set skill to max level for ${getSkillName(data.skillData.name)}`}
-                    disabled={
-                        skillPoints < (data.skillData.skillPoints || 1) ||
-                        characterLevel < (data.skillData.level || 0) ||
-                        currentLevel === levels.length ||
-                        !canUpgrade()
-                    }
-                    className='flex items-center justify-center'
-                >
-                    <ChevronsUp
-                        size={16}
-                        className={`${
-                            skillPoints < (data.skillData.skillPoints || 1) ||
-                            characterLevel < (data.skillData.level || 0) ||
-                            currentLevel === levels.length ||
-                            !canUpgrade()
-                                ? 'text-muted cursor-not-allowed'
-                                : 'text-primary hover:text-primary/80 transition-all'
-                        }`}
-                    />
-                </motion.button>
+                <TooltipProvider delayDuration={200}>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <motion.button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setToMaxLevel();
+                                }}
+                                onMouseEnter={(e) => e.stopPropagation()}
+                                onMouseLeave={(e) => e.stopPropagation()}
+                                whileTap={{
+                                    scale:
+                                        currentLevel ===
+                                        (data.skillData.levels?.length || 0)
+                                            ? 1
+                                            : 0.8
+                                }}
+                                aria-label={t('skill-node.max-level')}
+                                disabled={
+                                    skillPoints < (data.skillData.skillPoints || 1) ||
+                                    characterLevel < (data.skillData.level || 0) ||
+                                    currentLevel === levels.length ||
+                                    !canUpgrade()
+                                }
+                                className='flex items-center justify-center'
+                            >
+                                <ChevronsUp
+                                    size={16}
+                                    className={`${
+                                        skillPoints < (data.skillData.skillPoints || 1) ||
+                                        characterLevel < (data.skillData.level || 0) ||
+                                        currentLevel === levels.length ||
+                                        !canUpgrade()
+                                            ? 'text-muted cursor-not-allowed'
+                                            : 'text-primary hover:text-primary/80 transition-all'
+                                    }`}
+                                />
+                            </motion.button>
+                        </TooltipTrigger>
+                        <TooltipContent side='top'>
+                            {t('skill-node.max-level')}
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
                 <div className='flex items-center rounded-sm'>
-                    <button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            increaseLevel();
-                        }}
-                        onMouseEnter={(e) => e.stopPropagation()}
-                        onMouseLeave={(e) => e.stopPropagation()}
-                        aria-label={`Increase skill level for ${getSkillName(data.skillData.name)}`}
-                        disabled={
-                            skillPoints < (data.skillData.skillPoints || 1) ||
-                            characterLevel < (data.skillData.level || 0) ||
-                            currentLevel === levels.length ||
-                            !canUpgrade()
-                        }
-                        className={`rounded-tl-[3px] rounded-bl-[3px] bg-primary text-primary-foreground ${
-                            skillPoints < (data.skillData.skillPoints || 1) ||
-                            characterLevel < (data.skillData.level || 0) ||
-                            currentLevel === levels.length ||
-                            !canUpgrade()
-                                ? 'opacity-20 cursor-not-allowed'
-                                : 'hover:bg-primary/80 hover:text-primary-foreground/80 group'
-                        }`}
-                    >
-                        <Plus
-                            size={18}
-                            className='group-hover:scale-90 transition-all'
-                        />
-                    </button>
-                    <button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            decreaseLevel();
-                        }}
-                        onMouseEnter={(e) => e.stopPropagation()}
-                        onMouseLeave={(e) => e.stopPropagation()}
-                        aria-label={`Decrease skill level for ${getSkillName(data.skillData.name)}`}
-                        disabled={currentLevel === 0}
-                        className={`rounded-tr-[3px] rounded-br-[3px] bg-destructive text-destructive-foreground ${
-                            currentLevel === 0
-                                ? 'opacity-20 cursor-not-allowed'
-                                : 'hover:bg-destructive/80 hover:text-destructive-foreground/80 group'
-                        }`}
-                    >
-                        <Minus
-                            size={18}
-                            className='group-hover:scale-90 transition-all'
-                        />
-                    </button>
+                    <TooltipProvider delayDuration={200}>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        increaseLevel();
+                                    }}
+                                    onMouseEnter={(e) => e.stopPropagation()}
+                                    onMouseLeave={(e) => e.stopPropagation()}
+                                    aria-label={t('skill-node.increase-level')}
+                                    disabled={
+                                        skillPoints < (data.skillData.skillPoints || 1) ||
+                                        characterLevel < (data.skillData.level || 0) ||
+                                        currentLevel === levels.length ||
+                                        !canUpgrade()
+                                    }
+                                    className={`rounded-tl-[3px] rounded-bl-[3px] bg-primary text-primary-foreground ${
+                                        skillPoints < (data.skillData.skillPoints || 1) ||
+                                        characterLevel < (data.skillData.level || 0) ||
+                                        currentLevel === levels.length ||
+                                        !canUpgrade()
+                                            ? 'opacity-20 cursor-not-allowed'
+                                            : 'hover:bg-primary/80 hover:text-primary-foreground/80 group'
+                                    }`}
+                                >
+                                    <Plus
+                                        size={18}
+                                        className='group-hover:scale-90 transition-all'
+                                    />
+                                </button>
+                            </TooltipTrigger>
+                            <TooltipContent side='top'>
+                                {t('skill-node.increase-level')}
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+                    <TooltipProvider delayDuration={200}>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        decreaseLevel();
+                                    }}
+                                    onMouseEnter={(e) => e.stopPropagation()}
+                                    onMouseLeave={(e) => e.stopPropagation()}
+                                    aria-label={t('skill-node.decrease-level')}
+                                    disabled={currentLevel === 0}
+                                    className={`rounded-tr-[3px] rounded-br-[3px] bg-destructive text-destructive-foreground ${
+                                        currentLevel === 0
+                                            ? 'opacity-20 cursor-not-allowed'
+                                            : 'hover:bg-destructive/80 hover:text-destructive-foreground/80 group'
+                                    }`}
+                                >
+                                    <Minus
+                                        size={18}
+                                        className='group-hover:scale-90 transition-all'
+                                    />
+                                </button>
+                            </TooltipTrigger>
+                            <TooltipContent side='top'>
+                                {t('skill-node.decrease-level')}
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
                 </div>
-                <motion.button
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        setToLevelZero();
-                    }}
-                    onMouseEnter={(e) => e.stopPropagation()}
-                    onMouseLeave={(e) => e.stopPropagation()}
-                    whileTap={{
-                        scale: currentLevel === 0 ? 1 : 0.8
-                    }}
-                    aria-label={`Reset skill to level 0 for ${getSkillName(data.skillData.name)}`}
-                    disabled={currentLevel === 0}
-                    className='flex items-center justify-center'
-                >
-                    <ChevronsDown
-                        size={16}
-                        className={`${
-                            currentLevel === 0
-                                ? 'text-muted cursor-not-allowed'
-                                : 'text-destructive hover:text-destructive/80 transition-all'
-                        }`}
-                    />
-                </motion.button>
+                <TooltipProvider delayDuration={200}>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <motion.button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setToLevelZero();
+                                }}
+                                onMouseEnter={(e) => e.stopPropagation()}
+                                onMouseLeave={(e) => e.stopPropagation()}
+                                whileTap={{
+                                    scale: currentLevel === 0 ? 1 : 0.8
+                                }}
+                                aria-label={t('skill-node.reset-level')}
+                                disabled={currentLevel === 0}
+                                className='flex items-center justify-center'
+                            >
+                                <ChevronsDown
+                                    size={16}
+                                    className={`${
+                                        currentLevel === 0
+                                            ? 'text-muted cursor-not-allowed'
+                                            : 'text-destructive hover:text-destructive/80 transition-all'
+                                    }`}
+                                />
+                            </motion.button>
+                        </TooltipTrigger>
+                        <TooltipContent side='top'>
+                            {t('skill-node.reset-level')}
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
             </div>
             {!isSourceSkill() && data.skillData.id !== 3840 && (
                 <Handle

@@ -1,4 +1,4 @@
-{
+﻿{
     "loading": "加载中...",
     "navbar": {
         "level": "等级",
@@ -194,7 +194,12 @@
         "critical-damage": "暴击伤害：{result}{criticalDamage}{rate}",
         "critical-chance": "暴击几率：{result}{criticalChance}{rate}",
         "block-penetration": "格挡穿透：{result}{blockPenetration}{rate}",
-        "click-to-hold": "点击并按住 / 关闭窗口"
+        "click-to-hold": "点击并按住 / 关闭窗口",
+        "max-level": "设为最高等级",
+        "increase-level": "提升等级",
+        "decrease-level": "降低等级",
+        "reset-level": "重置为 0 级",
+        "raise-prerequisites": "解锁前置"
     },
     "update-version-dialog": {
         "title": "🎉 新版本 - {version}",

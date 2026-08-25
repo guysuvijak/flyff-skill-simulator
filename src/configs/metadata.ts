@@ -12,7 +12,7 @@ export const METADATA: Metadata = {
     manifest: '/manifest.json',
     title: 'Flyff Universe Skill Simulator - Plan Your Character Skill Build',
     description:
-        'Free online Flyff Universe Skill Simulator. Plan and visualize your character skill builds with our interactive skill tree. Test different skill combinations for all classes including Knight, Blade, Elementor, and more. No download required.',
+        'Free online Flyff Universe Skill Simulator. Plan and visualize your character skill builds with our interactive skill tree. Raise prerequisites in one click, share builds, and explore every class. No download required.',
     metadataBase: new URL('https://flyffskillsimulator.vercel.app'),
     openGraph: {
         title: 'Flyff Universe Skill Simulator - Plan Your Character Skill Build',

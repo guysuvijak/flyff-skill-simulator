@@ -48,6 +48,23 @@ export const useTranslation = () => {
                     }, dict);
 
                 if (typeof result === 'string' && variables) {
+                    // Prefer plain string replacement so spaces around
+                    // placeholders are preserved inside flex containers.
+                    const hasReactNode = Object.values(variables).some(
+                        (value) => typeof value === 'object' && value !== null
+                    );
+
+                    if (!hasReactNode) {
+                        return Object.entries(variables).reduce(
+                            (text, [key, value]) =>
+                                text.replace(
+                                    new RegExp(`\\{${key}\\}`, 'g'),
+                                    String(value)
+                                ),
+                            result
+                        );
+                    }
+
                     const parts = result.split(/({[^}]+})/g);
                     return parts.map((part, index) => {
                         const matches = part.match(/^{([^}]+)}$/);

@@ -1,4 +1,4 @@
-{
+﻿{
     "loading": "Đang tải...",
     "navbar": {
         "level": "Cấp",
@@ -194,7 +194,12 @@
         "critical-damage": "Sát thương chí mạng: {result}{criticalDamage}{rate}",
         "critical-chance": "Tỷ lệ chí mạng: {result}{criticalChance}{rate}",
         "block-penetration": "Xuyên chặn: {result}{blockPenetration}{rate}",
-        "click-to-hold": "Nhấn để giữ / đóng cửa sổ."
+        "click-to-hold": "Nhấn để giữ / đóng cửa sổ.",
+        "max-level": "Đặt lên cấp tối đa",
+        "increase-level": "Tăng cấp",
+        "decrease-level": "Giảm cấp",
+        "reset-level": "Đặt lại về cấp 0",
+        "raise-prerequisites": "Mở khóa điều kiện"
     },
     "update-version-dialog": {
         "title": "🎉 Phiên bản mới - {version}",

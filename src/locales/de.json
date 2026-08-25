@@ -1,4 +1,4 @@
-{
+﻿{
     "loading": "Lädt...",
     "navbar": {
         "level": "Level",
@@ -194,7 +194,12 @@
         "critical-damage": "Kritischer Schaden: {result}{criticalDamage}{rate}",
         "critical-chance": "Kritische Chance: {result}{criticalChance}{rate}",
         "block-penetration": "Blockdurchdringung: {result}{blockPenetration}{rate}",
-        "click-to-hold": "Klicken und halten, um das Fenster zu schließen."
+        "click-to-hold": "Klicken und halten, um das Fenster zu schließen.",
+        "max-level": "Auf Maximalstufe setzen",
+        "increase-level": "Stufe erhöhen",
+        "decrease-level": "Stufe senken",
+        "reset-level": "Auf Stufe 0 zurücksetzen",
+        "raise-prerequisites": "Pfad freischalten"
     },
     "update-version-dialog": {
         "title": "🎉 Neue Version - {version}",

@@ -1,4 +1,4 @@
-{
+﻿{
     "loading": "Cargando...",
     "navbar": {
         "level": "Nivel",
@@ -194,7 +194,12 @@
         "critical-damage": "Daño crítico: {result}{criticalDamage}{rate}",
         "critical-chance": "Probabilidad crítica: {result}{criticalChance}{rate}",
         "block-penetration": "Penetración de bloqueo: {result}{blockPenetration}{rate}",
-        "click-to-hold": "Haz clic para mantener/cerrar la ventana."
+        "click-to-hold": "Haz clic para mantener/cerrar la ventana.",
+        "max-level": "Establecer al nivel máximo",
+        "increase-level": "Aumentar nivel",
+        "decrease-level": "Disminuir nivel",
+        "reset-level": "Reiniciar al nivel 0",
+        "raise-prerequisites": "Desbloquear ruta"
     },
     "update-version-dialog": {
         "title": "🎉 Nueva Versión - {version}",
