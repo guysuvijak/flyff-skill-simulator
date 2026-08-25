@@ -22,5 +22,12 @@ export const useSkillStore = create<SkillState>((set) => ({
     resetSkillLevels: () =>
         set(() => ({
             skillLevels: {}
+        })),
+    skillsById: {},
+    setSkillsById: (skills) =>
+        set(() => ({
+            skillsById: Object.fromEntries(
+                skills.map((skill) => [skill.id, skill])
+            )
         }))
 }));

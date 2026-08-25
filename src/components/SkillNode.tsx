@@ -1,6 +1,6 @@
 // Next.js 15 - src/components/SkillNode.tsx
 'use client';
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect, useMemo, Fragment } from 'react';
 import Image from 'next/image';
 import { Handle, Position } from '@xyflow/react';
 import { motion } from 'framer-motion';
@@ -8,6 +8,7 @@ import { useSkillStore } from '@/stores/skillStore';
 import { useClassStore } from '@/stores/classStore';
 import { useCharacterStore } from '@/stores/characterStore';
 import { useSkillLocalization } from '@/utils/skillUtils';
+import { computeRaisePrerequisitesPlan } from '@/utils/skillGraph';
 import {
     TooltipProvider,
     Tooltip,
@@ -46,7 +47,8 @@ import {
     Sword,
     Axe,
     ShieldCheck,
-    ClockFading
+    ClockFading,
+    Workflow
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -129,7 +131,7 @@ interface SkillNodeProps {
 
 export const SkillNode = ({ data }: SkillNodeProps) => {
     const { t } = useTranslation();
-    const { skillLevels, updateSkillLevel } = useSkillStore();
+    const { skillLevels, updateSkillLevel, skillsById } = useSkillStore();
     const { selectedClass } = useClassStore();
     const { characterLevel, skillPoints, setSkillPoints } = useCharacterStore();
     const { getSkillName, getSkillDescription } = useSkillLocalization();
@@ -284,6 +286,36 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
     const levels = data.skillData.levels || [];
     const levelData = levels[Math.max(currentLevel - 1, 0)];
 
+    const raisePrereqPlan = useMemo(
+        () =>
+            computeRaisePrerequisitesPlan(
+                data.skillData.id,
+                skillsById,
+                skillLevels,
+                characterLevel
+            ),
+        [data.skillData.id, skillsById, skillLevels, characterLevel]
+    );
+
+    const showRaisePrerequisites =
+        !canUpgrade() && raisePrereqPlan.updates.length > 0;
+
+    const raisePrereqDisabled =
+        raisePrereqPlan.totalPointsNeeded > skillPoints ||
+        raisePrereqPlan.blockedByCharacterLevel.length > 0;
+
+    const raisePrerequisites = () => {
+        if (raisePrereqDisabled || raisePrereqPlan.updates.length === 0) {
+            return;
+        }
+        raisePrereqPlan.updates.forEach(
+            ({ skillId, toLevel, pointsPerLevel }) => {
+                updateSkillLevel(skillId, toLevel, pointsPerLevel);
+            }
+        );
+        setSkillPoints(skillPoints - raisePrereqPlan.totalPointsNeeded);
+    };
+
     // function to calculate Stat Scaling for all stats (str, sta, int, dex)
     const calculateStatScaling = (scaling: SkillScaling) => {
         const statTypes = ['str', 'sta', 'int', 'dex'];
@@ -357,6 +389,30 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                     position={Position.Top}
                     className='w-3 h-3 rounded-full'
                 />
+            )}
+
+            {showRaisePrerequisites && (
+                <motion.button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        raisePrerequisites();
+                    }}
+                    onMouseEnter={(e) => e.stopPropagation()}
+                    onMouseLeave={(e) => e.stopPropagation()}
+                    whileTap={{ scale: raisePrereqDisabled ? 1 : 0.8 }}
+                    disabled={raisePrereqDisabled}
+                    aria-label={`Raise prerequisite skills for ${getSkillName(data.skillData.name)}`}
+                    className='absolute top-0.5 right-0.5 z-10 flex items-center justify-center'
+                >
+                    <Workflow
+                        size={14}
+                        className={`${
+                            raisePrereqDisabled
+                                ? 'text-muted cursor-not-allowed'
+                                : 'text-primary hover:text-primary/80 transition-all'
+                        }`}
+                    />
+                </motion.button>
             )}
 
             <TooltipProvider delayDuration={100}>

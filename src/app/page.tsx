@@ -17,6 +17,7 @@ import { Navbar } from '@/components/Navbar';
 import { EdgeLabel } from '@/components/EdgeLabel';
 import { UpdateVersionDialog } from '@/components/UpdateVersionDialog';
 import { useClassStore } from '@/stores/classStore';
+import { useSkillStore } from '@/stores/skillStore';
 import { loadBuildFromUrl } from '@/utils/shareBuild';
 import { useWebsiteStore } from '@/stores/websiteStore';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -204,6 +205,8 @@ const Page = () => {
                         skill.class === selectedClass.id ||
                         skill.class === selectedClass.parent
                 );
+                useSkillStore.getState().setSkillsById(selectedSkills);
+
                 const classSpace = CLASS_SPACES[selectedClass.id] || 0;
                 const classSpaceY = CLASS_SPACESY[selectedClass.id] || 0;
 
