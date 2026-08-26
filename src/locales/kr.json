@@ -1,7 +1,9 @@
-﻿{
+{
     "loading": "로딩 중...",
     "navbar": {
         "level": "레벨",
+        "skill-points": "스킬 포인트",
+        "min-level": "최소 레벨 {level}",
         "menu": {
             "soon": "곧 출시",
             "build": {

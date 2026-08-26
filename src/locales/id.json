@@ -1,7 +1,9 @@
-﻿{
+{
     "loading": "Memuat...",
     "navbar": {
         "level": "Level",
+        "skill-points": "Poin Skill",
+        "min-level": "Level minimum {level}",
         "menu": {
             "soon": "Segera",
             "build": {

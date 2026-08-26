@@ -1,7 +1,9 @@
-﻿{
+{
     "loading": "Đang tải...",
     "navbar": {
         "level": "Cấp",
+        "skill-points": "Điểm kỹ năng",
+        "min-level": "Cấp tối thiểu {level}",
         "menu": {
             "soon": "Sắp ra mắt",
             "build": {

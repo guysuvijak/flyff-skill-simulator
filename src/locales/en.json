@@ -2,6 +2,9 @@
     "loading": "Loading...",
     "navbar": {
         "level": "Level",
+        "skill-points": "Skill Points",
+        "min-level": "Min level {level}",
+        "max-level": "Max level {level}",
         "menu": {
             "soon": "Soon",
             "build": {

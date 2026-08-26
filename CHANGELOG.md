@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## 📍 [1.6.1] - 2026-08-26
+
+This release upgrades to Next.js 16 and removes unused dependencies.
+
+- updated: Next.js 16.3.3 (with webpack build for next-pwa compatibility)
+- updated: React 19.2.8 and ESLint 9 flat config
+- added: Theme Color swatches (colored circles) in Settings menu
+- added: SVG country flags for language options (country-flag-icons)
+- added: Unified mobile menu Sheet (Build, Settings, Other) with single Menu trigger
+- added: Sliding Y-axis hover highlight animation on desktop menus
+- updated: Level input group UX (4-digit limit; destructive state when over max; removed Max Lvl hint)
+- added: Skill Points tooltip on SP badge hover
+- added: SP number count-up/down animation when skill points change
+- added: Min level 15 tip callout under Level input (no auto-correct)
+- added: Max level tip callout under Level input when over class max
+- updated: Mobile navbar single-row layout; class select shows icon only below sm
+- updated: Dialogs fullscreen on mobile; centered modal from sm up
+- updated: Larger skill tooltip close button hit area
+- removed: axios (unused dependency)
+- security: Next.js 16.3.3 security patch (August 2026 release)
+
 ## 📍 [1.6.0] - 2026-08-25
 
 This release adds one-click prerequisite leveling for blocked skills, and upgrades core libraries while staying on Next.js 15 / React 18.

@@ -576,7 +576,7 @@ export const LoadBuildDialog = ({
     return (
         <Dialog open={open} onOpenChange={handleDialogClose}>
             <form>
-                <DialogContent className='sm:max-w-[425px] max-h-[80vh] overflow-y-auto'>
+                <DialogContent className='sm:max-w-[425px] sm:max-h-[80vh]'>
                     <DialogHeader>
                         <DialogTitle className='flex items-center gap-2'>
                             <Download

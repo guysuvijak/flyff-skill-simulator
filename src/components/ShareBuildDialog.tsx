@@ -158,7 +158,7 @@ export const ShareBuildDialog = ({
 
     return (
         <Dialog open={open} onOpenChange={handleShareDialogClose}>
-            <DialogContent className='sm:max-w-[600px] max-h-[80vh] overflow-y-auto'>
+            <DialogContent className='sm:max-w-[600px] sm:max-h-[80vh]'>
                 <DialogHeader>
                     <DialogTitle className='flex items-center gap-2'>
                         <Share2 size={18} className='text-muted-foreground' />

@@ -1,7 +1,9 @@
-﻿{
+{
     "loading": "กำลังโหลด...",
     "navbar": {
         "level": "เลเวล",
+        "skill-points": "สกิลพอยต์",
+        "min-level": "เลเวลขั้นต่ำ {level}",
         "menu": {
             "soon": "เร็ว ๆ นี้",
             "build": {

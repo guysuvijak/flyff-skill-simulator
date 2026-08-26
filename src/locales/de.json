@@ -1,7 +1,9 @@
-﻿{
+{
     "loading": "Lädt...",
     "navbar": {
         "level": "Level",
+        "skill-points": "Fertigkeitspunkte",
+        "min-level": "Mindestlevel {level}",
         "menu": {
             "soon": "Demnächst",
             "build": {

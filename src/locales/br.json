@@ -1,7 +1,9 @@
-﻿{
+{
     "loading": "Carregando...",
     "navbar": {
         "level": "Nível",
+        "skill-points": "Pontos de Habilidade",
+        "min-level": "Nível mínimo {level}",
         "menu": {
             "soon": "Em breve",
             "build": {

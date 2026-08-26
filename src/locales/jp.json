@@ -1,7 +1,9 @@
-﻿{
+{
     "loading": "読み込み中...",
     "navbar": {
         "level": "レベル",
+        "skill-points": "スキルポイント",
+        "min-level": "最低レベル {level}",
         "menu": {
             "soon": "近日公開",
             "build": {

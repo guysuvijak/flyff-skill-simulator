@@ -142,7 +142,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📈 Version History
 
-Current version: **1.6.0** (2026-08-25)
+Current version: **1.6.1** (2026-08-26)
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed version history and updates.
 

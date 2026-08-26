@@ -33,11 +33,9 @@ export const UpdateVersionDialog = () => {
                         })}
                     </DialogTitle>
                     <DialogDescription>
-                        <p>
-                            {t('update-version-dialog.description', {
-                                date: pkg.updated
-                            })}
-                        </p>
+                        {t('update-version-dialog.description', {
+                            date: pkg.updated
+                        })}
                     </DialogDescription>
                 </DialogHeader>
                 <div className='space-y-2 max-h-[calc(100vh-20rem)] overflow-y-auto'>

@@ -530,12 +530,12 @@ export const SkillNode = ({ data }: SkillNodeProps) => {
                                 setIsClicked(false);
                             }}
                             variant={'ghost'}
-                            className='absolute top-0 right-0 h-auto px-1 py-1'
+                            className='absolute top-1 right-1 h-auto min-h-9 min-w-9 p-2'
                             aria-label='Close tooltip'
                         >
-                            <XCircle size={20} className='text-destructive' />
+                            <XCircle size={22} className='text-destructive' />
                         </Button>
-                        <div className='text-sm sm:text-base md:text-lg text-primary font-bold pr-6'>
+                        <div className='text-sm sm:text-base md:text-lg text-primary font-bold pr-10'>
                             {getSkillName(data.skillData.name)}
                             <span className='text-muted-foreground ml-1'>
                                 {`Lv.${currentLevel}/${levels.length}`}

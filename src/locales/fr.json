@@ -1,7 +1,9 @@
-﻿{
+{
     "loading": "Chargement...",
     "navbar": {
         "level": "Niveau",
+        "skill-points": "Points de compétence",
+        "min-level": "Niveau minimum {level}",
         "menu": {
             "soon": "Bientôt",
             "build": {

@@ -90,7 +90,7 @@ export const ClassSelected = () => {
     };
 
     return (
-        <div className='w-full'>
+        <div className='w-auto sm:w-full sm:min-w-[10rem]'>
             <Select
                 value={selectedClass.id.toString()}
                 onValueChange={(value) => {
@@ -102,27 +102,35 @@ export const ClassSelected = () => {
                     }
                 }}
             >
-                <SelectTrigger className='gap-2'>
-                    <Image
-                        src={getCachedClassIconUrl(selectedClass.icon)}
-                        alt={getClassName(selectedClass.name) + '-class-icon'}
-                        width={36}
-                        height={36}
-                        className='w-6 h-6'
-                        quality={100}
-                        style={{ objectFit: 'contain' }}
-                        priority
-                        draggable={false}
-                    />
-                    <SelectValue
-                        placeholder={
-                            isLoading
-                                ? t('class-selected.loading')
-                                : t('class-selected.select-class')
-                        }
-                    >
-                        {getClassName(selectedClass.name)}
-                    </SelectValue>
+                <SelectTrigger
+                    aria-label={getClassName(selectedClass.name)}
+                    className='h-9 w-9 justify-center gap-0 px-0 sm:h-9 sm:w-full sm:min-w-[10rem] sm:justify-between sm:gap-2 sm:px-3 [&>div>span]:hidden sm:[&>div>span]:inline [&>svg]:hidden sm:[&>svg]:block'
+                >
+                    <div className='flex min-w-0 items-center gap-0 sm:flex-1 sm:justify-start sm:gap-2'>
+                        <Image
+                            src={getCachedClassIconUrl(selectedClass.icon)}
+                            alt={
+                                getClassName(selectedClass.name) +
+                                '-class-icon'
+                            }
+                            width={36}
+                            height={36}
+                            className='h-6 w-6 shrink-0 overflow-hidden rounded-md'
+                            quality={100}
+                            style={{ objectFit: 'contain' }}
+                            priority
+                            draggable={false}
+                        />
+                        <SelectValue
+                            placeholder={
+                                isLoading
+                                    ? t('class-selected.loading')
+                                    : t('class-selected.select-class')
+                            }
+                        >
+                            {getClassName(selectedClass.name)}
+                        </SelectValue>
+                    </div>
                 </SelectTrigger>
                 <SelectContent>
                     {isLoading ? (

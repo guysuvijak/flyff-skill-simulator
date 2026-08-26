@@ -1,9 +1,17 @@
-// Next.js 15 - src/configs/updatedList.ts
+// Next.js 16 - src/configs/updatedList.ts
 export const updatedList = [
-    'added: Raise Prerequisites button on skill nodes (auto-level unmet requirements; auto-adjust character level and SP)',
-    'added: Tooltip on skill control buttons (max, +/−, reset, raise prerequisites)',
-    'added: Animated theme transition for Settings Light/Dark',
-    'updated: Raise Prerequisites auto-raises character level for skill/SP requirements',
-    'updated: SEO JSON-LD schema (WebSite, WebApplication, Person, SoftwareSourceCode)',
-    'updated: Library versions (Next.js 15.5.23 and related deps)'
+    'updated: Next.js 16.3.3 (latest security patch)',
+    'updated: React 19.2.8',
+    'added: Theme Color swatches in Settings menu',
+    'added: Language SVG flags in Settings menu',
+    'added: Unified mobile menu Sheet (Build, Settings, Other)',
+    'added: Sliding hover highlight on desktop menus',
+    'updated: Level input UX (4 digits; red when over max)',
+    'added: Skill Points tooltip on SP badge',
+    'added: SP number count-up/down animation',
+    'added: Min level tip callout under Level input',
+    'added: Max level tip callout under Level input',
+    'updated: Mobile navbar single-row; class select icon-only',
+    'updated: Dialogs fullscreen on mobile',
+    'removed: axios (unused dependency)'
 ];
